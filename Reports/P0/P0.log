@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.10)  23 SEP 2018 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.10)  23 SEP 2018 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1719,7 +1719,7 @@ Package cleveref Info: loaded `english' language definitions on input line 2.
 
 ]
 (./docs/introduction/stateOfTheArt.tex
-<../Pictures/test.png, id=75, 482.40225pt x 243.309pt>
+<../Pictures/test.png, id=70, 482.40225pt x 243.309pt>
 File: ../Pictures/test.png Graphic file (type png)
 <use ../Pictures/test.png>
 Package pdftex.def Info: ../Pictures/test.png  used on input line 18.
@@ -1770,49 +1770,40 @@ Package cleveref Info: loaded `english' language definitions on input line 23.
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
+Package rerunfilecheck Info: File `P0.out' has not changed.
+(rerunfilecheck)             Checksum: 080188AB80E073A97048D066205101B7;521.
 
-
-Package rerunfilecheck Warning: File `P0.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `P0.out':
-(rerunfilecheck)             Before: 70917ACF287A2C333AE9AAC3480D433B;577
-(rerunfilecheck)             After:  080188AB80E073A97048D066205101B7;521.
 
 LaTeX Warning: There were undefined references.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 32066 strings out of 492641
- 562878 string characters out of 6133116
+ 32064 strings out of 492641
+ 562854 string characters out of 6133116
  1032373 words of memory out of 5000000
- 35514 multiletter control sequences out of 15000+600000
+ 35513 multiletter control sequences out of 15000+600000
  553389 words of font info for 72 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  46i,14n,78p,1098b,791s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section.1.3} has been referenced but does not exi
-st, replaced by a fixed one
-
-{c:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texliv
-e/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2018/te
-xmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb><c:
-/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2
-018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2018/texmf-
-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2018/texmf-dist/fonts
-/type1/public/cm-super/sfcc2074.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pub
-lic/cm-super/sfrm1000.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-sup
-er/sfrm1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfsl109
-5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb><c:/
-texlive/2018/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
-Output written on P0.pdf (8 pages, 379156 bytes).
+{c:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texl
+ive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2018/
+texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb><
+c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive
+/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2018/texm
+f-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2018/texmf-dist/fon
+ts/type1/public/cm-super/sfcc2074.pfb><c:/texlive/2018/texmf-dist/fonts/type1/p
+ublic/cm-super/sfrm1000.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfsl1
+095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb><c
+:/texlive/2018/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
+Output written on P0.pdf (8 pages, 378974 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
+ 21 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
