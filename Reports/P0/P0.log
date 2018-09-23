@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.13)  18 SEP 2018 11:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.10)  23 SEP 2018 20:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1402,7 +1402,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2018/09/07 v0.28 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -1719,39 +1719,45 @@ Package cleveref Info: loaded `english' language definitions on input line 2.
 
 ]
 (./docs/introduction/stateOfTheArt.tex
-<../Pictures/test.png, id=65, 482.40225pt x 243.309pt>
+<../Pictures/test.png, id=75, 482.40225pt x 243.309pt>
 File: ../Pictures/test.png Graphic file (type png)
 <use ../Pictures/test.png>
-Package pdftex.def Info: ../Pictures/test.png  used on input line 5.
+Package pdftex.def Info: ../Pictures/test.png  used on input line 18.
 (pdftex.def)             Requested size: 426.0pt x 214.86995pt.
+ [3
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
+]
+
+LaTeX Warning: Reference `table' on page 4 undefined on input line 23.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []|\T1/cmr/bx/n/10.95 Requirement
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []|\T1/cmr/bx/n/10.95 Verification
  []
 
 
-Overfull \hbox (51.08705pt too wide) in paragraph at lines 12--20
+Overfull \hbox (51.08705pt too wide) in paragraph at lines 25--33
 [][] 
  []
 
-)) (./docs/problemAnalysis/problemAnalysis.tex [3
-
- <../Pictures/test.PNG>]
+)) (./docs/problemAnalysis/problemAnalysis.tex
+Package cleveref Info: loaded `english' language definitions on input line 1.
+ [4 <../Pictures/test.PNG>]
 (./docs/problemAnalysis/specifications.tex)
 (./docs/problemAnalysis/researchQuestion.tex))
-(./docs/objectives/objectives.tex [4
+(./docs/objectives/objectives.tex [5
 
 ]) (./docs/futureWork/futureWork.tex
-[5
+[6
 
-]) (./docs/appendix/appendix.tex [6
+]) (./docs/appendix/appendix.tex [7
 
-]) [7
+]) [8
 
 ]
 \tf@toc=\write5
@@ -1764,35 +1770,49 @@ Package cleveref Info: loaded `english' language definitions on input line 23.
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
-Package rerunfilecheck Info: File `P0.out' has not changed.
-(rerunfilecheck)             Checksum: 5793F225D1C043A79C7FD9D209F46B5E;461.
+
+
+Package rerunfilecheck Warning: File `P0.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `P0.out':
+(rerunfilecheck)             Before: 70917ACF287A2C333AE9AAC3480D433B;577
+(rerunfilecheck)             After:  080188AB80E073A97048D066205101B7;521.
+
+LaTeX Warning: There were undefined references.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 32056 strings out of 492641
- 562731 string characters out of 6133116
- 1033373 words of memory out of 5000000
- 35508 multiletter control sequences out of 15000+600000
- 553048 words of font info for 71 fonts, out of 8000000 for 9000
+ 32066 strings out of 492641
+ 562878 string characters out of 6133116
+ 1032373 words of memory out of 5000000
+ 35514 multiletter control sequences out of 15000+600000
+ 553389 words of font info for 72 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 46i,14n,78p,958b,789s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texl
-ive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2018/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbi1
-000.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c
-:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/
-2018/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2018/texmf
--dist/fonts/type1/public/cm-super/sfcc2074.pfb><c:/texlive/2018/texmf-dist/font
-s/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pu
-blic/cm-super/sfrm1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-su
-per/sfsl1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfxc20
-74.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
-Output written on P0.pdf (7 pages, 371630 bytes).
+ 46i,14n,78p,1098b,791s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{section.1.3} has been referenced but does not exi
+st, replaced by a fixed one
+
+{c:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texliv
+e/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2018/te
+xmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb><c:
+/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2
+018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2018/texmf-
+dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2018/texmf-dist/fonts
+/type1/public/cm-super/sfcc2074.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm1000.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfsl109
+5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb><c:/
+texlive/2018/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
+Output written on P0.pdf (8 pages, 379156 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 166 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
