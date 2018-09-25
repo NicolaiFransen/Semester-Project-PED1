@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.2.10)  23 SEP 2018 21:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.2.10)  25 SEP 2018 08:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2040,47 +2040,69 @@ Package cleveref Info: loaded `english' language definitions on input line 2.
 (./docs/introduction/introduction.tex [2
 
 ]
-(./docs/introduction/stateOfTheArt.tex
-<../Pictures/test.png, id=70, 482.40225pt x 243.309pt>
-File: ../Pictures/test.png Graphic file (type png)
-
-<use ../Pictures/test.png>
-Package pdftex.def Info: ../Pictures/test.png used on input line 18.
-(pdftex.def)             Requested size: 426.0pt x 214.86995pt.
- [3
+(./docs/introduction/stateOfTheArt.tex [3
 
 ]
+<../Pictures/PV_system_blocks.png, id=95, 530.58224pt x 213.1965pt>
+File: ../Pictures/PV_system_blocks.png Graphic file (type png)
 
-LaTeX Warning: Reference `table' on page 4 undefined on input line 23.
+<use ../Pictures/PV_system_blocks.png>
+Package pdftex.def Info: ../Pictures/PV_system_blocks.png used on input line 17
+.
+(pdftex.def)             Requested size: 426.0pt x 171.17876pt.
+Package cleveref Info: loaded `english' language definitions on input line 23.
+ [4 <../Pictures/PV_system_blocks.png>])
+(./docs/introduction/buckandboostconverter.tex
+<../Pictures/Buck-converter.png, id=108, 147.55125pt x 69.25874pt>
+File: ../Pictures/Buck-converter.png Graphic file (type png)
 
+<use ../Pictures/Buck-converter.png>
+Package pdftex.def Info: ../Pictures/Buck-converter.png used on input line 7.
+(pdftex.def)             Requested size: 298.1987pt x 139.98924pt.
+) (./docs/introduction/flyback.tex
+<../Pictures/flyback_schem.png, id=111, 362.3136pt x 166.7028pt>
+File: ../Pictures/flyback_schem.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--27
-[]|\T1/cmr/bx/n/10.95 Requirement
- []
+<use ../Pictures/flyback_schem.png>
+Package pdftex.def Info: ../Pictures/flyback_schem.png used on input line 9.
+(pdftex.def)             Requested size: 298.1987pt x 137.2008pt.
+Package cleveref Info: loaded `english' language definitions on input line 16.
+ [5 <../Pictures/Buck-converter.png>])
+(./docs/introduction/2_diode_H_bridge_BB.tex
+<../Pictures/2_d_H_B_BB.png, id=120, 827.09pt x 339.76938pt>
+File: ../Pictures/2_d_H_B_BB.png Graphic file (type png)
 
+<use ../Pictures/2_d_H_B_BB.png>
+Package pdftex.def Info: ../Pictures/2_d_H_B_BB.png used on input line 9.
+(pdftex.def)             Requested size: 298.1987pt x 122.50351pt.
+Package cleveref Info: loaded `english' language definitions on input line 26.
+ [6 <../Pictures/flyback_schem.png>]
+<../Pictures/BID_H_B_BB.png, id=134, 635.87563pt x 253.44687pt>
+File: ../Pictures/BID_H_B_BB.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--27
-[]|\T1/cmr/bx/n/10.95 Verification
- []
-
-
-Overfull \hbox (36.5649pt too wide) in paragraph at lines 25--33
-[][] 
+<use ../Pictures/BID_H_B_BB.png>
+Package pdftex.def Info: ../Pictures/BID_H_B_BB.png used on input line 46.
+(pdftex.def)             Requested size: 298.1987pt x 118.86093pt.
+) (./docs/introduction/selection.tex
+Package cleveref Info: loaded `english' language definitions on input line 1.
+ [7 <../Pictures/2_d_H_B_BB.png>]
+Underfull \hbox (badness 1490) in paragraph at lines 8--9
+[]\T1/cmr/m/n/10.95 The Bidirectional Non-Inverting Buck-Boost converter is cho
+sen because of these
  []
 
 )) (./docs/problemAnalysis/problemAnalysis.tex
 Package cleveref Info: loaded `english' language definitions on input line 1.
- [4 <../Pictures/test.png>]
-(./docs/problemAnalysis/specifications.tex)
+ [8 <../Pictures/BID_H_B_BB.png>] (./docs/problemAnalysis/specifications.tex)
 (./docs/problemAnalysis/researchQuestion.tex))
-(./docs/objectives/objectives.tex [5
+(./docs/objectives/objectives.tex [9
 
 ]) (./docs/futureWork/futureWork.tex
-[6
+[10
 
-]) (./docs/appendix/appendix.tex [7
+]) (./docs/appendix/appendix.tex [11
 
-]) [8
+]) [12
 
 ]
 \tf@toc=\write5
@@ -2094,39 +2116,38 @@ Package cleveref Info: loaded `english' language definitions on input line 23.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
 Package rerunfilecheck Info: File `P0.out' has not changed.
-(rerunfilecheck)             Checksum: 080188AB80E073A97048D066205101B7;521.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 7BA759B44085C721970528BCF0254FA9;785.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 30849 strings out of 493042
- 545567 string characters out of 6138227
- 929913 words of memory out of 5000000
- 33913 multiletter control sequences out of 15000+600000
- 24691 words of font info for 62 fonts, out of 8000000 for 9000
+ 30915 strings out of 493042
+ 547216 string characters out of 6138227
+ 931913 words of memory out of 5000000
+ 33946 multiletter control sequences out of 15000+600000
+ 25380 words of font info for 63 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 45i,14n,78p,10487b,787s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,12n,78p,10487b,793s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texl
 ive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2015/
 texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2015/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmmi10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmr10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb><
-c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive
-/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2015/texm
-f-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2015/texmf-dist/fon
-ts/type1/public/cm-super/sfcc2074.pfb><c:/texlive/2015/texmf-dist/fonts/type1/p
-ublic/cm-super/sfrm1000.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-s
-uper/sfrm1095.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfsl1
-095.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfxc2074.pfb><c
-:/texlive/2015/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb>
-Output written on P0.pdf (8 pages, 381594 bytes).
+cmr8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texliv
+e/2015/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb><c:/texlive/2015/tex
+mf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2015/texmf-dist/fo
+nts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2015/texmf-dist/fonts/type1/
+public/cm-super/sfcc1200.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-
+super/sfcc2074.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm
+1000.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><
+c:/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb><c:/texlive
+/2015/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2015/texm
+f-dist/fonts/type1/public/cm-super/sfxc2074.pfb><c:/texlive/2015/texmf-dist/fon
+ts/type1/urw/bookman/ubkl8a.pfb>
+Output written on P0.pdf (12 pages, 416572 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 240 PDF objects out of 1000 (max. 8388607)
+ 199 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
