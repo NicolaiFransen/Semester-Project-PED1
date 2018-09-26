@@ -1,3 +1,8 @@
+## Avoiding the publishing of P0.pdf, if you wwant to upload it, just name it differently
+P0.pdf
+
+## Avoiding the publishing of temporary files
+~*.docx
 
 ##Recovered file Core latex/pdflatex auxiliary files:
 *.aux
@@ -11,6 +16,7 @@
 *.fot
 *.cb
 *.cb2
+*.sty
 
 ## Intermediate documents:
 *.dvi
