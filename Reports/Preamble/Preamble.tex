@@ -53,7 +53,7 @@
 
 % ¤¤ Referencer og kilder ¤¤ %
 \usepackage[danish]{varioref}				% Muliggoer bl.a. krydshenvisninger med sidetal (\vref)
-\usepackage[numbers]{natbib}							% Udvidelse med naturvidenskabelige citationsmodeller
+%\usepackage[numbers]{natbib}							% Udvidelse med naturvidenskabelige citationsmodeller
 \usepackage{xr}							    % Referencer til eksternt dokument med \externaldocument{<NAVN>}
 %\usepackage{glossaries}					% Terminologi- eller symbolliste (se mere i Daleifs Latex-bog)
 
@@ -81,8 +81,10 @@
 \linespread{1,1}							% Linie afstand
 
 % ¤¤ Litteraturlisten ¤¤ %
-\bibpunct[,]{[}{]}{;}{a}{,}{,} 				% Definerer de 6 parametre ved Harvard henvisning (bl.a. parantestype og seperatortegn)
+%\bibpunct[,]{[}{]}{;}{a}{,}{,} 				% Definerer de 6 parametre ved Harvard henvisning (bl.a. parantestype og seperatortegn)
 \bibliographystyle{unsrtnat}			% Udseende af litteraturlisten.
+\usepackage[backend=biber, sorting=none, style=numeric]{biblatex}
+\bibliography{../bibliography.bib}
 
 % ¤¤ Indholdsfortegnelse ¤¤ %
 \setsecnumdepth{subsection}		 			% Dybden af nummerede overkrifter (part/chapter/section/subsection)
