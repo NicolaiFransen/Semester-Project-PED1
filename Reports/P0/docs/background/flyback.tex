@@ -12,12 +12,8 @@ The basic circuit of the topology can be seen in figure \ref{Flyback_SCHEMATIC}.
 	\end{center}
 \end{figure}
 
-When the MOSFET is on, the energy is transferred from the input voltage source to the transformer. In this state the output capacitor will supply the load with the output voltage. In the off-state the transformer will supply the output load with energy while it charges the capacitor as well.
-
-"Wiki" 
+When the MOSFET is on, the energy is transferred from the input voltage source to the transformer. In this state the output capacitor will supply the load with the output voltage. In the off-state the transformer will supply the output load with energy while it charges the capacitor as well. \cite{flyback}
 
 Because of the single control device another advantage of the flyback converter is a wide choice of controllers. For example it is possible to directly connect a PWM controlled IC to control the MOSFET, and by that the converter. 
 
-The drawbacks are primary the current and voltage waveforms. The stress on the switch and diode can be high and comes as a function of the turns ratio of the transformer. Furthermore the leakage inductance from the transformer will result in a big voltage spike at the rising edge of the MOSFET. This needs to be reduced by a snubber circuit. This will increase the power loss and efficiency though. The leakage inductance will also produce transients which will make the voltage stress at the MOSFET bigger and give high-frequency ringing at the input. Lastly there will be increased noise at both terminals due to the fact that the input and output currents are discontinous. 
-
-"Non inverting buckboost texasConverter"
+The drawbacks are primary the current and voltage waveforms. The stress on the switch and diode can be high and comes as a function of the turns ratio of the transformer. Furthermore the leakage inductance from the transformer will result in a big voltage spike at the rising edge of the MOSFET. This needs to be reduced by a snubber circuit. This will increase the power loss and efficiency though. The leakage inductance will also produce transients which will make the voltage stress at the MOSFET bigger and give high-frequency ringing at the input. Lastly there will be increased noise at both terminals due to the fact that the input and output currents are discontinous.\cite{under the hood}
