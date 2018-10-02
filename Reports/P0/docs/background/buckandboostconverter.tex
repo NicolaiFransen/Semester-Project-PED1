@@ -1,6 +1,6 @@
 \section{Buck-converter\label{Buck-C}}
 
-The task of a buck converter is to decrease the input voltage. The needed components are a DC-source for the input voltage, two switches (a diode and a transistor), an inductor, a capacitor and a load. The equivalent diagram in figure \ref{Buck-converter} illustrates a buck-converter. %%\cite{SudiptaChakrabortyMarceloG.Simoes2013}
+The task of a buck converter is to decrease the input voltage. The needed components are a DC-source for the input voltage, two switches (a diode and a transistor), an inductor, a capacitor and a load. The equivalent diagram in figure \ref{Buck-converter} illustrates a buck-converter. 
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -10,21 +10,17 @@ The task of a buck converter is to decrease the input voltage. The needed compon
 	\end{center}	
 \end{figure}
 
-%-------------------------------------------------------
-%-------------------------------------------------------
 A buck-converter performs in two operating states. 
 %In both states have been an approach that the converter is in steady state. Because of that the average of a value is constant and we can assume a DC-voltage at the load. %
-During the first state, the MOSFET is conducting and the diode is working as an open-circuit, the voltage drop will then appear on the inductor and on the load. Since the voltage is split, there is a lower voltage on the load.
+During the first state, the MOSFET is conducting and the diode is working as an open-circuit, the voltage drop will then appear on the inductor and on the load. Since the voltage is split, there is a lower voltage on the load. In addition the capacitor and the inductor are charging energy. In the second state the MOSFET is switched off and the current flow trough the diode. The inductor will work as a current source and (feeds the closed circuit with current. ) the capacitor will supply the load with energy.
 %At the case, that the MOSFET conducts current, the diode will be closed and the voltage drops at the inductor. Thus,  you can measure a lower voltage at the load. Besides that, the capacitor is loaded energy and the inductor is loaded current. If the MOSFET doesn't conduct current, the inductor will work as a current source and feeds the closed circuit with current. The capacitor is discharging and supplied the load.
 
-The advantage for using a buck converter is that the structure is very simple and you need one power switch. The size for the component is small and the cost for this are low. Furthermore, the buck converter has a high efficiency of over 90\%.%% ref:
-
-A disadvantage using a buck converter is, that the output ripple is high. With an elecrtronic filter it is possible to reduce the ripple.\cite{advantagebuck}
+The advantage for using buck converter is that the structure is very simple and you need one power switch. The size for component is small and the cost for this are low. Furthermore, the buck converter has a high efficiency of over 90\%.A disadvantage  is the output ripple is high. For reducing the ripple it would be add an extra component. With an electronic filter it is possible to reduce the ripple\cite{advantagebuck}.
 %%http://www.completepowerelectronics.com/buck-converter-tutorial-topology-working-advantages-applications/
 
 \section{Boost-converter\label{Boost-C}}
 
-A boost converter produces a higher output voltage in comparison to the input voltage. The circuit exists of a switch, which obtains a diode and a MOSFET, an inductor, a conductor, a resistor as a load and a DC-Source for the input voltage.Figure \ref{Boost-converter} shows an equivalent circuit diagram with the above-called components. Also we can apply for the boost-converter the steady state.%%\cite{Reddy2011}
+A boost converter produces a higher output voltage in comparison to the input voltage. The circuit exists of two switches, which obtains a diode and a MOSFET, an inductor, a conductor, a load and a DC-Source for the input voltage.Figure \ref{Boost-converter} shows an equivalent circuit diagram with the above-called components. %%\cite{Reddy2011}
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -34,10 +30,7 @@ A boost converter produces a higher output voltage in comparison to the input vo
 	\end{center}	
 \end{figure}
 
-If the switch is closed, the inductor will increase the current in the circuit and it stored energy in itself. If the MOSFET is on, the current will flow only through the inductor because the diode is closed. The inductor increases the current in the circuit. Meanwhile, the capacitor releases the stored energy to the load. Thus, the output voltage decreases slowly. In the other case, when the MOSFET doesn’t conduct, the diode lets the current flow through the right side of the circuit. The current decrease in the whole circuit because of the higher impedance in this mode and the polarity of the inductor inverses itself. Therefore, the inductor performs as a source and the output voltage will be higher than the input voltage. Furthermore, the capacitor is charged.
+If the MOSFET is on , the current flows only trough the inductor because the diode  is working as an open-circuit.Energy will be stored in the inductor magnetic field. Meanwhile, the capacitor releases the stored energy to the load. Thus, the output voltage decreases slowly. In the other case, when the MOSFET doesn’t conduct, the current flows trough the inductor, diode, capacitor and the load. The polarity of the inductor will reverse because of the higher impedance in this state. Therefore, the inductor performs as a source and the output voltage will be higher than the input voltage. Furthermore, the capacitor is recharging\cite{circuitboost}.
 
-An advantage for a boost converter is that it can raise the output voltage without help from a transformer. 
-
-The size for the inductor and capacitor will have to be large, if you want a output without ripple. Furthermore changing the output voltage to big difference potential in the duty cycle can destroy components.\cite{advantageboost}
- %%http://www.completepowerelectronics.com/boost-regulator-tutorial-topology-working-advantages-applications/
-%%
+An advantage for a boost converter is that it can raise the output voltage without help from a transformer. The size for the inductor and capacitor will have to be large, if you want a output without ripple.\cite{advantageboost}. %Furthermore changing the output voltage to big difference potential in the duty cycle can destroy components\cite{advantageboost}.
+ 
