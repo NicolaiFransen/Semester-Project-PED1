@@ -23,9 +23,17 @@ The controller can force the system to work in any of the following modes:
 		
 Usually the inverter's input voltage is fixed to some value higher than the grid's voltage. The possibility of higher and lower voltages at the converter's output allows different ways of associating photovoltaic modules. Then the user is able to arbitrarily decide how many PV modules to link in series. Differently of what would happen in the case of Buck or Boost converters where the constraints regarding the number of panels are tighter.
 		
-Compared with other topologies that can have both higher and lower voltages at the output, such as the SEPIC or ZETA converters, this converter features a single inductor and no intermediate capacitor. With such reduction in passive components the price, efficiency and power density rises significantly \cite{underthehood}.
+Compared with other topologies that can have both higher and lower voltages at the output, such as the SEPIC converter, this DC-DC features a single inductor and no intermediate capacitor. See SEPIC schematic in figure \ref{SEPIC_SCHEMATIC}, notice the additional inductor and capacitor. With such reduction in passive components the price, efficiency and power density rises significantly \cite{underthehood}.
 
-One of the main drawbacks of the topology is the control's complexity, which must calculate the appropriate duty cycle $D$ and $D'$ in any of the modes and also the transition between these modes. 
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{../Pictures/SEPIC}
+		\caption{SEPIC converter.}
+		\label{SEPIC_SCHEMATIC}
+	\end{center}	
+\end{figure}
+
+One of the main drawbacks of the topology is the control's complexity, which must calculate the appropriate duty cycle $D$ and $D'$ in any of the modes and also the transition between these modes. The Buck-Boost mode is specially complicated as there are two duty cycles to calculate. This problem might be addressed by setting a constant duty cycle in one of the bridge's legs and then the control will calculate the other leg's duty cycle  \cite{AN4449_ST}.
 		
 Although this topology exhibits appropriate features, it can be further improved by replacing the diodes by MOSFETs. The circuit may be seen in figure \ref{BID_N_INV_BB_SCHEMATIC}, it's called Bidirectional Non-Inverting Buck-Boost converter. With this variation, the following changes occur:
 		
