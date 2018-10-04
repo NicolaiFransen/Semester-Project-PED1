@@ -34,7 +34,7 @@ Although this topology exhibits appropriate features, it can be further improved
 	\item The conduction losses are smaller. \textbf{--> Discuss with supervisor}
 \end{enumerate}
 	
-If the system is bidirectional it can be used in different MIC strategies, as seen in figure \ref{BID_MIC_ARCHITECTURES}. Or even implement diagnosis features taking advantage of the panels' electroluminescence, whenever enough inverse current flows through them. 
+If the system is bidirectional it can be used in different MIC strategies, as the topology seen in figure \ref{BID_MIC_ARCHITECTURES}, which features an isolated dc link. This topology needs a bidirectional MIC as energy flow in both directions is needed. It also allows diagnosis of PV modules, as described in section \ref{selection_of_topology}.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -45,7 +45,7 @@ If the system is bidirectional it can be used in different MIC strategies, as se
 \end{figure}
 		
 		
-As seen in figure \ref{BID_N_INV_BB_SCHEMATIC}, notice that duty cycles of the switches that replace the diodes are $\overline{D}$ and $\overline{D'}$.
+As seen in figure \ref{BID_N_INV_BB_SCHEMATIC}, notice that duty cycles of the switches that replace the diodes are $\overline{D}$ and $\overline{D'}$. This line over the variables means that it is the negated value of the original variable. The duty cycle is the boolean variable that indicates the conduction state of a switch. In the case of an enhancement switch, the switch is conducting whenever its driving duty cycle is equal to '1' and it is closed when its driving duty cycle is equal to '0'. 
 		
 The main drawback is the increased difficulty of the driver circuitry. And the requirement of a dead time in order to avoid the short circuit of $FET_1$ and $FET_3$ or $FET_2$ and $FET_4$ which could damage the system. When using diodes, the system is intrinsically protected against a shoot-through event. 	
 		
