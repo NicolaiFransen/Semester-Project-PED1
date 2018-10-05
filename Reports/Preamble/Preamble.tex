@@ -7,7 +7,7 @@
 % Kommentarer og rettelser med \fxnote. Med 'final' i stedet for 'draft' udloeser hver note en error i den faerdige rapport.
 \usepackage[footnote,draft,english,silent,nomargin]{fixme}
 %\usepackage[final,footnote,english,silent,nomargin]{fixme}
-
+\usepackage{geometry}
 %%%% PACKAGES %%%%
 \newcommand{\shellcmd}[1]{\texttt{\footnotesize\# #1}\\}
 %%%% P OF THE BOX %%%%
@@ -64,6 +64,8 @@
 \usepackage{easylist}                       % enumerate og itemize
 \usepackage{listings}						% Placer kildekode i dokumentet med \begin{lstlisting}...\end{lstlisting}
 \usepackage{lipsum}							% Dummy text \lipsum[..]
+\usepackage{afterpage}
+\usepackage{typearea}
 \usepackage[shortlabels]{enumitem}			% Muliggoer enkelt konfiguration af lister
 \usepackage{pdfpages}						% Goer det muligt at inkludere pdf-dokumenter med kommandoen \includepdf[pages={x-y}]{fil.pdf}	
 \pdfoptionpdfminorversion=6					% Muliggoer inkludering af pdf dokumenter, af version 1.6 og hoejere
