@@ -2,21 +2,47 @@
 
 
 \input{docs/appendix/PBL}
+\clearpage
 
-\begin{landscape}
+%\newgeometry{left=3cm,bottom=0.1cm}
+\KOMAoptions{paper=A3, paper = landscape, pagesize}
+\addtolength{\hoffset}{-4.0cm}
+\recalctypearea
 
 
 \section{Gantt chart}
 
 
-\vspace{2cm}
+\vspace{1cm}
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[trim = {0 0cm 0 0cm}, clip, width=1.6\textwidth]{../Pictures/Gantt_diagram_without_left_panel}
+		\includegraphics[width=1.3\textwidth]{../Pictures/Gantt_diagram_without_left_panel}
 		\caption{Gantt diagram updated on 27th of September.}
 		\label{gantt}
 	\end{center}	
 \end{figure}
 
-\end{landscape}
+
+\section*{Description of colors:}
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{6cm}|} 
+		\hline
+		\textbf{Color} & \textbf{Description} \\ \hline
+		Grey & Normal task  \\ \hline
+		Red & Milestone  \\ \hline
+		Purple & Supervisor interaction  \\ \hline
+		Yellow &  Lab-work\\ \hline
+	\end{tabular}
+	\caption{Description of colors in the Gantt chart}
+	\label{gantt_colors}
+\end{table}
+
+\clearpage
+\addtolength{\hoffset}{4.0cm}
+\KOMAoptions{paper=A4, paper=portrait,pagesize}
+\recalctypearea
+
 
