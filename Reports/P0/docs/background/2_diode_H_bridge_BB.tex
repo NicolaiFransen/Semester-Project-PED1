@@ -33,7 +33,7 @@ Compared with other topologies that can have both higher and lower voltages at t
 	\end{center}	
 \end{figure}
 
-One of the main drawbacks of the topology is the control's complexity, which must calculate the appropriate duty cycle $D$ and $D'$ in any of the modes and also the transition between these modes. The Buck-Boost mode is specially complicated as there are two duty cycles to calculate. This problem might be addressed by setting a constant duty cycle in one of the bridge's legs and then the control will calculate the other leg's duty cycle  \cite{AN4449_ST}.
+One of the main drawbacks of the non-inverting buck-boost topology is the control's complexity, which must calculate the appropriate duty cycle $D$ and $D'$ in any of the modes and also the transition between these modes. The buck-boost mode is specially complicated as there are two duty cycles to calculate. This problem might be addressed by setting a constant duty cycle in one of the bridge's legs and then the control will calculate the other leg's duty cycle  \cite{AN4449_ST}.
 		
 Although this topology exhibits appropriate features, it can be further improved by replacing the diodes by MOSFETs. The circuit may be seen in figure \ref{BID_N_INV_BB_SCHEMATIC}, it's called Bidirectional Non-Inverting Buck-Boost converter. With this variation, the following changes occur:
 		
@@ -47,7 +47,7 @@ If the system is bidirectional it can be used in different MIC strategies, as th
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.4\textwidth]{../Pictures/bidirectional_mic_use}
-		\caption{Bidirectional MIC use\cite{ArchitectureMIC}.}
+		\caption{Bidirectional MIC use \cite{ArchitectureMIC}.}
 		\label{BID_MIC_ARCHITECTURES}
 	\end{center}	
 \end{figure}
@@ -55,7 +55,7 @@ If the system is bidirectional it can be used in different MIC strategies, as th
 		
 As seen in figure \ref{BID_N_INV_BB_SCHEMATIC}, notice that duty cycles of the switches that replace the diodes are $\overline{D}$ and $\overline{D'}$. This line over the variables means that it is the negated value of the original variable. The duty cycle is the boolean variable that indicates the conduction state of a switch. In the case of an enhancement switch, the switch is conducting whenever its driving duty cycle is equal to '1' and it is closed when its driving duty cycle is equal to '0'. 
 		
-The main drawback is the increased difficulty of the driver circuitry. And the requirement of a dead time in order to avoid the short circuit of $FET_1$ and $FET_3$ or $FET_2$ and $FET_4$ which could damage the system. When using diodes, the system is intrinsically protected against a shoot-through event. 	
+The main drawback is the increased difficulty of the driver circuitry and the requirement of a dead time in order to avoid the short circuit of $FET_1$ and $FET_3$ or $FET_2$ and $FET_4$, which could damage the system. When using diodes, the system is intrinsically protected against a shoot-through event. 	
 		
 \begin{figure}[htbp]
 	\begin{center}
