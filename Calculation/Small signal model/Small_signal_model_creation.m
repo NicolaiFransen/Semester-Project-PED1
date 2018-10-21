@@ -18,7 +18,7 @@ A_inverse = inv(A);
     syms C s v D1 D2 il Rout Vg L Ron
     
     %inductor voltage equation (IVE)
-    ind_v_eqn = L * s * il == Ron * (3*D2 - 2) * il + (2*D2 - 1) * v + D1 * Vg;
+    ind_v_eqn = L * s * il == Ron * (D2 - 2) * il + (- 1) * v + D1 * Vg;
 
     %isolate current in IVE
     i_l = isolate(ind_v_eqn, il);
@@ -56,8 +56,9 @@ A_inverse = inv(A);
     %Translation from symbolic transfer function to MATlab transfer
     %function. External library needed.
     G = sym2tf(rhs(Line2out_real_values))
-%     G_book = tf([0.6], [1, 1e-3, 1])
-%     bode(G_book)
+    G_book = tf([0.7], [1, 1e-3, 1])
+    bode(G_book)
+    hold on
     bode(G)
 
     
@@ -72,7 +73,7 @@ A_inverse = inv(A);
     syms C s v D1 D2 il Rout Vg L Ron
     
     %inductor voltage equation (IVE)
-    ind_v_eqn = L * s * il == D2 * v + (1 - 2*D2) * Vg;
+    ind_v_eqn = L * s * il == -D2 * v + 1 * Vg;
 
     %isolate current in IVE
     i_l = isolate(ind_v_eqn, il);
