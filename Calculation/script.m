@@ -4,7 +4,7 @@ clear all
 f = 50000:50000:1000000;  %100kHZ
 V_inverter = 360; 
 n_mics = 4:2:24;
-P = 20; 
+P = 300; 
 Vmpp = 32.6;
 Impp = 9.21; 
 K = Vmpp/Impp; 
