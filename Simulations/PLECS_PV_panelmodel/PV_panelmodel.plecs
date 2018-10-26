@@ -3,13 +3,13 @@ Plecs {
   Version       "4.2"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  StopTime      "1.0"
+  StopTime      "0.1"
   Timeout       ""
   Solver        "radau"
   MaxStep       "1e-3"
   InitStep      "-1"
   FixedStep     "1e-3"
-  Refine        "1"
+  Refine        "10"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
   AbsTol        "-1"
@@ -29,78 +29,15 @@ Plecs {
 " array\nSP.Np = 6;        % [] - number of solar cell strings in parallel sol"
 "ar array\n\nSP.T_n = 25;      % [C] - nominal temperature of solar cells\nSP."
 "G_n = 1000;    % [W/m^2] - nominal irradiation of solar cells\nSP.V_OC_n = 39"
-".9; % [V] - nominal open circuit voltage of array (single panel in system)\nS"
-"P.I_SC_n = 9.65; % [A] - nominal short circuit current of array\n\nSP.Rs = 0."
-"1901;    % [ohm] - equvalent series resistance of array\nSP.Rp = 415.405;  % "
-"[ohm] - equvalent parallel resistance of array (we didnt change)\n\nSP.a = 1."
-"3;       % [] - diode ideality constant (we didnt change)\n\nSP.K_V = -0.0113"
-"; % [V/K] - thermal voltage coefficient of array -0.1230 from other panel\nSP"
-".K_I = 0.000485;  % [A/K] - thermal current coefficient of array\n\nSP.C_in ="
-" 41600e-6;  % [F] - input capacitance of the DC/DC converter (high value to f"
-"ilter and the value is from the supervisor)\n\n%% Bus Voltage\n\nV_bus_Init ="
-" 400;      % [V] - DC bus initial voltage of capacitance\nC_bus = 1000e-6;   "
-"% [F] - DC bus capacitance\nV_bus_desired = 400;   % [V] - DC bus desired vol"
-"tage of capacitance\n\n%%% DC/DC Converter\n\nDCDC.L = 1e-3;    % [H] - boost"
-" stage inductor\nDCDC.R = 1e-3;    % [Ohm] - boost stage inductor resistance"
-"\n\nDCDC.fsw = 20e3;  % [Hz] - switching frequency of boost converter\n\nDCDC"
-".MinDuty = 0.0; % [] - minimum allowable duty cycle for boost converter\nDCDC"
-".MaxDuty = 0.95; % [] - maximum allowable duty cycle for boost converter\n\n%"
-"% Current-controller:\n\n% Small time constants:\n\nCC_DCDC.T_sw = 1/DCDC.fsw"
-";  % [s] - switching period\nCC_DCDC.T_PWM = 0.5*CC_DCDC.T_sw; % [s] - PWM mo"
-"dulator small time constant\n\nCC_DCDC.T_cs = 2/(2*pi*(50e3)); % [s] - Curren"
-"t sensor small time constant (50 kHz bandwidth)\n\nCC_DCDC.f_samp = DCDC.fsw;"
-" % [Hz] - Sampling frequency\nCC_DCDC.T_samp = 1/CC_DCDC.f_samp; % [s] - Samp"
-"ling small time constant\n\nCC_DCDC.T_pe = CC_DCDC.T_PWM + CC_DCDC.T_cs + CC_"
-"DCDC.T_samp; % [s] - Equivalent small time constant\n\n% Dominant time consta"
-"nts:\nCC_DCDC.Tn = DCDC.L/DCDC.R; % [] - time constant for numerator\nCC_DCDC"
-".Ti = (2*CC_DCDC.T_pe)/DCDC.R; % [] - time constant for denominator\n\n% Cont"
-"roller Design:\nCC_DCDC.Kp=CC_DCDC.Tn/CC_DCDC.Ti; % [] - Kp gain\nCC_DCDC.Ki="
-"1/CC_DCDC.Ti;     % [Hz] - Ki gain\nCC_DCDC.K_aw=1/CC_DCDC.Kp;   % [] - anti-"
-"windup gain\nCC_DCDC.upper=SP.V_OC_n*NumberOfSeriesConnectedPanels;\nCC_DCDC."
-"lower=0;\n\n%% Voltage controller (DCDC)\nVC_DCDC.Tp_Vloop = 10/DCDC.fsw;\nVC"
-"_DCDC.Tsp=VC_DCDC.Tp_Vloop;\nVC_DCDC.Ti_Vloop = 8/SP.C_in*VC_DCDC.Tp_Vloop*VC"
-"_DCDC.Tp_Vloop;\nVC_DCDC.Tn_Vloop = 4*VC_DCDC.Tp_Vloop;\n\nVC_DCDC.Kp = VC_DC"
-"DC.Tn_Vloop/VC_DCDC.Ti_Vloop;\nVC_DCDC.Ki = 1/VC_DCDC.Ti_Vloop;\nVC_DCDC.K_aw"
-"=1/VC_DCDC.Kp;\nVC_DCDC.upper=30;\nVC_DCDC.lower=0;\n\n%% MPPT Controller:\n"
-"\nDCDC.T_samp = 1/100; % MPPT execution time\n\n% Global Search\n\nGlobal.sea"
-"rchThreshold = 0.1;  % [] - change in power generation of 10% enables global "
-"search\nGlobal.VRefMin = SP.V_OC_n * NumberOfSeriesConnectedPanels * 0.1;  % "
-"[] - set minimum reference voltage for global search at 10% of system VOC\nGl"
-"obal.VRefMax = SP.V_OC_n * NumberOfSeriesConnectedPanels * 0.95;  % [] - set "
-"minimum reference voltage for global search at 95% of system VOC\nGlobal.numG"
-"lobalSearchZones = 20;  % [] - number of voltage zones during global search s"
-"weep\nGlobal.numOfStabilizationCycles = 10;  % [] - number of counts before a"
-"nother global search can be performed\n\n% Incremental Conductance Method (IN"
-"C):\n\nINC.VStopLimit = 1e-4; % [V] - stopping criteria for voltage change\nI"
-"NC.IStopLimit = 1e-3; % [A] - stopping criteria for current change\nINC.PStop"
-"Limit = 1e-3; % [W] - stopping criteria for power change\n\nINC.VrefStepMax ="
-" 3*SP.V_OC_n * 0.15; % [V] - maximum step change in voltage\n\nINC.dPdVMax = "
-"80; % [W/V] - maximum slope of change in power per unit change in voltage\n\n"
-"INC.Alpha = INC.VrefStepMax/INC.dPdVMax; % [V^2/W] - acceleration factor\nINC"
-".Beta = 0.1; % [V/A] - acceleration factor\n\n% Perturb and Observe Method:\n"
-"\nPnO.VrefStepMin = 1;  % [V] - minimum step change in voltage\nPnO.dPdVMax ="
-" 15;     % [W/V] - maximum slope of change in power per unit change in voltag"
-"e\nPnO.dPdVMin = -10;    % [W/V] - minimum slope of change in power per unit "
-"change in voltage\nPnO.VrefChangeFactor = 0.25; % [] - acceleration factor\n"
-"\n%%% DC/AC Converter\n%% Grid-side:\n\nGrid.Vs = sqrt(2)*230/2; % [V] - ampl"
-"itude\nGrid.f_grid = 50; % [Hz] - grid frequency\n\n%% VSI grid filter:\n\nGr"
-"id.L = 5e-3; % [H] - grid-side filter inductance\nGrid.R = 0.15; % [Ohm] - gr"
-"id-side filter resistance\n\n%% Inverter:\nDCAC.f_sw = 20e3; % [Hz] - switchi"
-"ng frequency\n\n%% Current-controller:\n\n% Small time constants:\n\nCC.T_sw "
-"= 1/DCAC.f_sw;  % [s] - switching period\nCC.T_PWM = 0.5*CC.T_sw; % [s] - PWM"
-" modulator small time constant\n\nCC.T_cs = 2/(2*pi*(50e3)); % [s] - Current "
-"sensor small time constant (50 kHz bandwidth)\n\nCC.f_samp = DCAC.f_sw; % [Hz"
-"] - Sampling frequency\nCC.T_samp = 1/CC.f_samp; % [s] - Sampling small time "
-"constant\n\nCC.T_pe = CC.T_PWM + CC.T_cs + CC.T_samp; % [s] - Equivalent smal"
-"l time constant\n\n% Dominant time constants:\nCC.Tn = Grid.L/Grid.R; % [] - "
-"time constant for numerator\nCC.Ti = (2*CC.T_pe)/Grid.R; % [] - time constant"
-" for denominator\n\n% Controller Design:\nCC.Kp=CC.Tn/CC.Ti; % [] - Kp gain\n"
-"CC.Ki=1/CC.Ti;     % [Hz] - Ki gain\nCC.K_aw=1/CC.Kp;   % [] - anti-windup ga"
-"in\n\n%% Voltage controller\nVC.Tp_Vloop = 1/Grid.f_grid/4;\nVC.Tsp=VC.Tp_Vlo"
-"op;\nVC.Ti_Vloop = 8/C_bus*VC.Tp_Vloop*VC.Tp_Vloop;\nVC.Tn_Vloop = 4*VC.Tp_Vl"
-"oop;\n\nVC.Kp = VC.Tn_Vloop/VC.Ti_Vloop;\nVC.Ki = 1/VC.Ti_Vloop;\nVC.K_aw=1/V"
-"C.Kp;\nVC.upper=25;\nVC.lower=0;\n\n%% PLL\nPLL.T_samp = 1/10e3;\nPLL.PI_Tn ="
-" 1;\nPLL.PI_Ti = 2/1000;\nPLL.SOGI_Gain = 0.8;"
+".8; % [V] - nominal open circuit voltage of array (single panel in system) 39"
+",9\nSP.I_SC_n = 9.55; % [A] - nominal short circuit current of array 9.65\n\n"
+"SP.Rs = 0.367;    % [ohm] - equvalent series resistance of array\nSP.Rp = 436"
+".7;  % [ohm] - equvalent parallel resistance of array (we didnt change)\n\nSP"
+".a = 1.3;       % [] - diode ideality constant (we didnt change)\n\nSP.K_V = "
+"-0.0113; % [V/K] - thermal voltage coefficient of array -0.1230 from other pa"
+"nel 0.0113\nSP.K_I = 0.000485;  % [A/K] - thermal current coefficient of arra"
+"y\n\nSP.C_in = 1600e-6;  % [F] - input capacitance of the DC/DC converter (hi"
+"gh value to filter and the value is from the supervisor)\n\n"
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -121,7 +58,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [561, 87; 1165, 592]
+    Location      [234, 63; 838, 568]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -857,7 +794,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm5"
       Show          off
-      Position      [315, 115]
+      Position      [305, 130]
       Direction     up
       Flipped       off
     }
@@ -888,7 +825,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -959,7 +896,7 @@ Plecs {
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1294,7 +1231,7 @@ Plecs {
       Position      [520, 375]
       Direction     up
       Flipped       off
-      Location      [427, 185; 1102, 581]
+      Location      [311, 234; 986, 630]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAJcA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
@@ -1305,7 +1242,7 @@ Plecs {
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1349,7 +1286,7 @@ Plecs {
       Type          Capacitor
       Name          "C1"
       Show          on
-      Position      [200, 130]
+      Position      [260, 125]
       Direction     down
       Flipped       on
       Parameter {
@@ -1371,6 +1308,34 @@ Plecs {
       Direction     right
       Flipped       off
     }
+    Component {
+      Type          Diode
+      Name          "D1"
+      Show          on
+      Position      [205, 130]
+      Direction     down
+      Flipped       off
+      Parameter {
+        Variable      "Vf"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "0"
+        Show          off
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Temperature"
@@ -1391,7 +1356,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm5"
       SrcTerminal   3
-      Points        [355, 115; 355, 210]
+      Points        [355, 130; 355, 210]
       DstComponent  "Scope"
       DstTerminal   1
     }
@@ -1460,35 +1425,6 @@ Plecs {
     Connection {
       Type          Wire
       SrcComponent  "PV_Villalva1"
-      SrcTerminal   1
-      Points        [200, 95]
-      Branch {
-        DstComponent  "Vm5"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "C1"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "C1"
-      SrcTerminal   2
-      Points        [200, 165]
-      Branch {
-        DstComponent  "Am1"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [315, 165]
-        DstComponent  "Vm5"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "PV_Villalva1"
       SrcTerminal   2
       DstComponent  "Am1"
       DstTerminal   2
@@ -1500,6 +1436,51 @@ Plecs {
       Points        [215, 180; 215, 179; 245, 179; 245, 220]
       DstComponent  "Scope"
       DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "D1"
+      SrcTerminal   2
+      Points        [205, 95]
+      Branch {
+        DstComponent  "PV_Villalva1"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [260, 95]
+        Branch {
+          Points        [305, 95]
+          DstComponent  "Vm5"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "C1"
+          DstTerminal   1
+        }
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Am1"
+      SrcTerminal   1
+      Points        [200, 165]
+      Branch {
+        Points        [260, 165]
+        Branch {
+          Points        [305, 165]
+          DstComponent  "Vm5"
+          DstTerminal   2
+        }
+        Branch {
+          DstComponent  "C1"
+          DstTerminal   2
+        }
+      }
+      Branch {
+        Points        [195, 165; 195, 155; 205, 155]
+        DstComponent  "D1"
+        DstTerminal   1
+      }
     }
   }
   ProbeBlock {
