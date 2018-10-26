@@ -30,10 +30,10 @@ clear all
 M = 0:0.01:5;
 [sizeM_x, sizeM_y] = size(M);
     for index_M = 1 : sizeM_y
-        if M(index_M) < 2
+        if M(index_M) < 1.6
             d1(index_M) = M(index_M) / 2;
 
-        else d1(index_M) = 1;
+        else d1(index_M) = 0.8;
         end
     end
 
@@ -41,6 +41,7 @@ M = 0:0.01:5;
     plot(M,d1)
     hold on
     plot(M,d2)
+    plot(4,LineSpec);
     hold off
 %     BB_eval = double_d_buckboost_evaluation(d1,d2)
 %     plot(M, BB_eval)
