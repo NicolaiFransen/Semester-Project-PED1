@@ -8,12 +8,15 @@
 %     3- Boost Converter Vo/Vg
 %     TBD 4- Boost Converter Vo/d
 % 
-% TO-DO
+% TO DO
 % -Change variables' names to explicitly show if are small signal variables
 %     or constant variables
 % -Derivation of Vo/D of boost
 % -Derivation of transfer functions of Buck-Boost
 % -Derivation of other interesting tf for all converters (Zout, Zin??)
+% -Inputs are matrixes A1, A2, B1, B2
+% -The code must be capable of outputting many bodes as a result of a parametric
+%     sweep, like for Duty cycle or different component values
 
 
 %% Inverse matrix calculation with symbolic math - Not Used-
@@ -68,10 +71,10 @@ A_inverse = inv(A);
     %Translation from symbolic transfer function to MATlab transfer
     %function. External library needed.
     G = sym2tf(rhs(Line2out_real_values))
-%     G_book = tf([0.7], [1, 1e-3, 1])
-%     bode(G_book)
-%     hold on
-%     bode(G)
+    G_book = tf([0.7], [1, 1e-3, 1])
+    bode(G_book)
+    hold on
+    bode(G)
     margin(G)
 
     legend('Buck Converter Vo/Vg')
