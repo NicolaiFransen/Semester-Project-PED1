@@ -897,7 +897,7 @@ Plecs {
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
