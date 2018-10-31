@@ -1,13 +1,13 @@
 % clc;
 % clear all;
 
-f = 20000:10000:100000;  %100kHZ
+f = 50000; %20000:10000:100000;  %100kHZ
 V_inverter = 360; 
 n_mics = 4:1:15;
 Vmpp = 32.6;
 Impp = 300/Vmpp; %Being 300W the maximum power (when there is 32.6V). 
 K = Vmpp/Impp; 
-P = 15; 
+P = 300; 
 Iin = sqrt(P/K);
 Vin = K * Iin;  
 Vout = V_inverter./n_mics; 
