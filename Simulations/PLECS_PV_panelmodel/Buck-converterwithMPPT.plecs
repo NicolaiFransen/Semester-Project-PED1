@@ -23,23 +23,32 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
-  InitializationCommands "NumberOfSeriesConnectedPanels = 1;   % [] - number o"
-"f panels connected in series in the system\n\n%%% Solar Panel (KC200GT Solar "
-"Array)\n\nSP.Ns = 60;       % [] - number of solar cells in a string in solar"
-" array\nSP.Np = 1;        % [] - number of solar cell strings in parallel sol"
-"ar array\n\nSP.T_n = 25;      % [C] - nominal temperature of solar cells\nSP."
-"G_n = 1000;    % [W/m^2] - nominal irradiation of solar cells\nSP.V_OC_n = 39"
-".9; % [V] - nominal open circuit voltage of array (single panel in system)\nS"
-"P.I_SC_n = 9.65; % [A] - nominal short circuit current of array\n\nSP.Rs = 0."
-"258515;    % [ohm] - equvalent series resistance of array\nSP.Rp = 1056.94;  "
-"% [ohm] - equvalent parallel resistance of array (we didnt change)\n\nSP.a = "
-"1.66471;       % [] - diode ideality constant (we didnt change)\n\nSP.K_V = -"
-" 0.0113; % [V/K] - thermal voltage coefficient of array -0.1230 from other pa"
-"nel\nSP.K_I = 0.000485;  % [A/K] - thermal current coefficient of array\n\nSP"
-".C_in = 800e-3;  % [F] - input capacitance of the DC/DC converter (high value"
-" to filter and the value is from the supervisor)\n\n% Buck-converter\nBuck.L "
-"= 651.12e-6; %[H] - inductor\nBuck.C = 134.09e-6; %[F] - output capacitor\nBu"
-"ck.R = 50; % [Ohm] - Load\n"
+  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPSAxO"
+"yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
+"RlbQoKJSUlIFNvbGFyIFBhbmVsIChTdW50ZWNoIFBvd2VyIFNUUDMwMC0yNF9WZCklIHNlbGVjdCB"
+"2YWx1ZXMgZnJvbSBzaW11bGluayBhbmQgbm90IGZyb20gdGhlIGRhdGFzaGVldCBiZWNhdXNlIG9m"
+"IGRpZmZlcmVudCB2YWx1ZXMKClNQLk5zID0gNzI7ICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sY"
+"XIgY2VsbHMgaW4gYSBzdHJpbmcgaW4gc29sYXIgYXJyYXkKU1AuTnAgPSAxOyAgICAgICAgJSBbXS"
+"AtIG51bWJlciBvZiBzb2xhciBjZWxsIHN0cmluZ3MgaW4gcGFyYWxsZWwgc29sYXIgYXJyYXkKJVN"
+"QLlZfTVBQID0gMzYuOVtWXQolU1AuSV9NUFAgPSA4LjE0IFtBXQolU1AuUF9NUFAgPSAzMDAuMzY2"
+"IFtXXQpTUC5UX24gPSAyNTsgICAgICAlIFtDXSAtIG5vbWluYWwgdGVtcGVyYXR1cmUgb2Ygc29sY"
+"XIgY2VsbHMKU1AuR19uID0gMTAwMDsgICAgJSBbVy9tXjJdIC0gbm9taW5hbCBpcnJhZGlhdGlvbi"
+"BvZiBzb2xhciBjZWxscwpTUC5WX09DX24gPSA0NTsgJSBbVl0gLSBub21pbmFsIG9wZW4gY2lyY3V"
+"pdCB2b2x0YWdlIG9mIGFycmF5IChzaW5nbGUgcGFuZWwgaW4gc3lzdGVtKQpTUC5JX1NDX24gPSA4"
+"LjY3OyAlIFtBXSAtIG5vbWluYWwgc2hvcnQgY2lyY3VpdCBjdXJyZW50IG9mIGFycmF5CgpTUC5Sc"
+"yA9IDAuMjY2MDM7ICAgICUgW29obV0gLSBlcXV2YWxlbnQgc2VyaWVzIHJlc2lzdGFuY2Ugb2YgYX"
+"JyYXkKU1AuUnAgPSA2NjUuMTk5MzsgICUgW29obV0gLSBlcXV2YWxlbnQgcGFyYWxsZWwgcmVzaXN"
+"0YW5jZSBvZiBhcnJheSAod2UgZGlkbnQgY2hhbmdlKQoKU1AuYSA9IDEuMTA5ODsgICAgICAgJSBb"
+"XSAtIGRpb2RlIGlkZWFsaXR5IGNvbnN0YW50ICh3ZSBkaWRudCBjaGFuZ2UpCgpTUC5LX1YgPSAtI"
+"DAuNDI3OTE7ICUgWyUvwrBDXSAtIHRoZXJtYWwgdm9sdGFnZSBjb2VmZmljaWVudCBvZiBhcnJheS"
+"AtMC4xMjMwIGZyb20gb3RoZXIgcGFuZWwKU1AuS19JID0gMC4wODY3MDE7ICAlIFslL8KwQ10gLSB"
+"0aGVybWFsIGN1cnJlbnQgY29lZmZpY2llbnQgb2YgYXJyYXkKClNQLkNfaW4gPSA4MDBlLTM7ICAl"
+"IFtGXSAtIGlucHV0IGNhcGFjaXRhbmNlIG9mIHRoZSBEQy9EQyBjb252ZXJ0ZXIgKGhpZ2ggdmFsd"
+"WUgdG8gZmlsdGVyIGFuZCB0aGUgdmFsdWUgaXMgZnJvbSB0aGUgc3VwZXJ2aXNvcikKJSUgQ19pbm"
+"NhbGN1bGF0ZTEuOGUtMyBbRl0KJSBCdWNrLWNvbnZlcnRlcgpCdWNrLkwgPSA2NTEuMTJlLTY7ICV"
+"bSF0gLSBpbmR1Y3RvciAlY2FsY3VsYXRlIDQ3MGUtNgpCdWNrLkMgPSAxMzQuMDllLTY7ICVbRl0g"
+"LSBvdXRwdXQgY2FwYWNpdG9yICVjYWxjdWxhdGUgMTM0ZS02CkJ1Y2suUiA9IDUwOyAlIFtPaG1dI"
+"C0gTG9hZAoKJSBWX291dD0gMzYwL051bWJlck9mU2VyaWVzQ29ubmVjdGVkUGFuZWxz"
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -60,16 +69,16 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [109, 65; 1387, 692]
+    Location      [2, 65; 1280, 692]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
-    BrowserWidth  69
+    BrowserWidth  130
     Component {
       Type          Subsystem
       Name          "PV_Villalva1"
       Show          off
-      Position      [160, 120]
+      Position      [135, 130]
       Direction     up
       Flipped       off
       Frame         [-10, -20; 10, 20]
@@ -747,7 +756,7 @@ Plecs {
       Type          Step
       Name          "Sun"
       Show          on
-      Position      [70, 95]
+      Position      [45, 105]
       Direction     right
       Flipped       off
       Parameter {
@@ -775,7 +784,7 @@ Plecs {
       Type          Constant
       Name          "Temperature"
       Show          on
-      Position      [70, 145]
+      Position      [45, 155]
       Direction     right
       Flipped       off
       Frame         [-10, -10; 10, 10]
@@ -807,20 +816,20 @@ Plecs {
       Position      [310, 275]
       Direction     up
       Flipped       off
-      Location      [0, 23; 1536, 804]
+      Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAAB+AP///wAAAAMAAAeEAAAAx/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABbAP///wAAB4AAAAOxAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAACXAP///wAAAAMAAAeEAAAAx/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABpAP///wAAB4QAAAPZAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAJYAAAAJAAAAlgAAAAgAAACWAAAAAwAAAJYAAAACAAAAlgAAAAEAAACWAAAABwAAAJYAAAAGAA"
-"AAlgAAAAUAAACWAAAAqQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB4AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"QAAAJYAAAAGAAAAlgAAAAcAAACWAAAABAAAAJYAAAAFAAAAlgAAAAgAAACWAAAACQAAAJYAAAACAA"
+"AAlgAAAAMAAACWAAAAsgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAB4AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQAAAAABAAAAAQAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAAAAA=="
@@ -890,9 +899,9 @@ Plecs {
       Flipped       off
       Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAACWAP///wAABkQAAAMzAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"AB4AAAAC0AP///wAAB4QAAAPZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1234,11 +1243,11 @@ Plecs {
       Position      [295, 525]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1283, 706]
+      Location      [0, 23; 1280, 660]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAACWAP///wAABkQAAAMzAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
+"///8AAAC0AP///wAAB4AAAAOZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1407,7 +1416,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [675, 225; 1122, 566]
+        Location      [1, 30; 640, 635]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -1503,7 +1512,7 @@ Plecs {
           }
           Parameter {
             Variable      "NumDiscStates"
-            Value         "2"
+            Value         "3"
             Show          off
           }
           Parameter {
@@ -1543,27 +1552,38 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#define V Input(0)\n#define I Input(1)\n#define P_o"
-"ld DiscState(0)\n#define D_old DiscState(1)\n\n#define delta_D 0.0204\n#defin"
-"e V_out 24\n\n#define D_max 1\n#define D_min 0.601\n\n//Global variable\nstat"
-"ic double P;\nstatic double D;\n\n"
+            Value         "#define V_in Input(0)\n#define I_in Input(1)\n#defi"
+"ne D_na Output(0)\n\n#define P_na DiscState(0)\n#define delta_D DiscState(1)"
+"\n#define delta_P_na DiscState(2)\n\n//na means n-1\n\n\n#define V_out 24\n#d"
+"efine e 20e-6 //define limit for minimum delta_D Step 0.5mV\n#define D_max 1"
+"\n#define D_min 0.601\n\n//Global variable\nstatic double P_n;\nstatic double"
+" delta_P_n;\nstatic double D_n;\nstatic double delta_Dn;\nstatic double V_na;"
+"\n\n// Description of the range of the buck converter\n// Duty cycle\n"
             Show          off
           }
           Parameter {
             Variable      "StartFcn"
-            Value         "//P_old = P;\n//D_old = D; \n\n\n"
+            Value         " delta_D = 0.0204;\n P_na = 0;\n"
             Show          off
           }
           Parameter {
             Variable      "OutputFcn"
-            Value         "D = V_out/V;\nP = V*I;\n\nif (P > P_old)\n{\n\tD = "
-"D_old - delta_D; \n}\nelse \n{\n\tD = D_old + delta_D; \n}\n\nif (D <= D_min)"
-"\n\t  D=D_min;\nelse if (D >= D_max)\n\t D=D_max;\n\t  \nOutput(0) = D; "
+            Value         "//Calculation\nD_n = V_out/V_in;\nP_n = V_in*I_in;"
+"\ndelta_P_n = P_n-P_na;\n\n\nif (P_n > P_na)  // \n{\n\tD_na = D_n - delta_D;"
+" \n\tif (delta_P_na <0){ // this if-command describes that your previous step"
+"\n\tdelta_Dn = delta_D/2;\n\t}\n\telse{\n\tdelta_Dn = delta_D;\t\n\t}\n}\nels"
+"e \n{\n\tD_na = D_n + delta_D; \n\tOutput(0) = D_na; \n\tif (delta_P_na>0){\n"
+"\tdelta_Dn = delta_D/2;\n\t}\n\telse{\n\tdelta_Dn = delta_D;\t\n\t}\n}\n//if "
+"(delta_Dn> e)\n//   {return}\n//   else {finish}\n\n\n//if (D <= D_min)\n//\t"
+"  D=D_min;\n//else if (D >= D_max)\n\t// D=D_max;\n\t  \n"
             Show          off
           }
           Parameter {
             Variable      "UpdateFcn"
-            Value         "P_old = P;\nD_old = D;"
+            Value         "P_na = P_n; //current power changes to previous Pow"
+"er\ndelta_D = delta_Dn; //current duty cycle changes to previous duty cycle\n"
+"delta_P_na = delta_P_n; //current derivative of Power changes to previous der"
+"ivative of Power\n\n"
             Show          off
           }
           Parameter {
@@ -1705,20 +1725,20 @@ Plecs {
       Position      [735, 225]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
+      Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeAAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQCAAAAAAAAAnYAAAeAAAAAZgAAB4AAAAOxAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAgPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQCAAAAAAAAAnYAAAeAAAAAZgAAB4QAAAPZAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAH0AAAAJAAAAfQAAAAgAAAB9AAAAAwAAAH0AAAACAAAAfQAAAAEAAAB9AAAABwAAAH0AAAAGAA"
-"AAfQAAAAUAAAB9AAAA3gAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACtAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAgAAAB9AAAACQAAAH0AAAACAA"
+"AAfQAAAAMAAAB9AAAA5wAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACtAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -1852,20 +1872,20 @@ Plecs {
       Position      [260, 355]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
+      Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAAPZAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAH0AAAAJAAAAfQAAAAgAAAB9AAAAAwAAAH0AAAACAAAAfQAAAAEAAAB9AAAABwAAAH0AAAAGAA"
-"AAfQAAAAUAAAB9AAAAqAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB3AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAgAAAB9AAAACQAAAH0AAAACAA"
+"AAfQAAAAMAAAB9AAAAsQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAB3AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -1925,7 +1945,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Temperature"
       SrcTerminal   1
-      Points        [110, 145; 110, 130]
+      Points        [85, 155; 85, 140]
       DstComponent  "PV_Villalva1"
       DstTerminal   3
     }
@@ -1933,7 +1953,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Sun"
       SrcTerminal   1
-      Points        [105, 95; 105, 120]
+      Points        [80, 105; 80, 130]
       DstComponent  "PV_Villalva1"
       DstTerminal   4
     }
@@ -1991,42 +2011,6 @@ Plecs {
       Points        [260, 515; 260, 520]
       DstComponent  "I vs V"
       DstTerminal   2
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "PV_Villalva1"
-      SrcTerminal   2
-      Points        [160, 165]
-      DstComponent  "Am1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "PV_Villalva1"
-      SrcTerminal   1
-      Points        [220, 95]
-      Branch {
-        Points        [250, 95]
-        Branch {
-          Points        [290, 95]
-          Branch {
-            DstComponent  "FET1"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "C3"
-            DstTerminal   1
-          }
-        }
-        Branch {
-          DstComponent  "Vm5"
-          DstTerminal   1
-        }
-      }
-      Branch {
-        DstComponent  "C1"
-        DstTerminal   1
-      }
     }
     Connection {
       Type          Signal
@@ -2208,7 +2192,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm5"
       SrcTerminal   3
-      Points        [275, 130; 275, 215]
+      Points        [265, 215; 275, 215]
       Branch {
         Points        [275, 270]
         DstComponent  "Scope"
@@ -2216,6 +2200,42 @@ Plecs {
       }
       Branch {
         DstComponent  "MPPT Controller"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "PV_Villalva1"
+      SrcTerminal   2
+      Points        [135, 165]
+      DstComponent  "Am1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "PV_Villalva1"
+      SrcTerminal   1
+      Points        [135, 95; 220, 95]
+      Branch {
+        Points        [250, 95]
+        Branch {
+          Points        [290, 95]
+          Branch {
+            DstComponent  "FET1"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "C3"
+            DstTerminal   1
+          }
+        }
+        Branch {
+          DstComponent  "Vm5"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        DstComponent  "C1"
         DstTerminal   1
       }
     }
