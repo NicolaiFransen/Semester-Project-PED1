@@ -5,7 +5,7 @@ Plecs {
   StartTime     "0.0"
   StopTime      "100"
   Timeout       ""
-  Solver        "dopri"
+  Solver        "radau"
   MaxStep       "10e-3"
   InitStep      "-1"
   FixedStep     "10e-3"
@@ -25,30 +25,31 @@ Plecs {
   AssertionAction "1"
   InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPSAxO"
 "yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
-"RlbQoKJSUlIFNvbGFyIFBhbmVsIChTdW50ZWNoIFBvd2VyIFNUUDMwMC0yNF9WZCklIHNlbGVjdCB"
-"2YWx1ZXMgZnJvbSBzaW11bGluayBhbmQgbm90IGZyb20gdGhlIGRhdGFzaGVldCBiZWNhdXNlIG9m"
-"IGRpZmZlcmVudCB2YWx1ZXMKClNQLk5zID0gNzI7ICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sY"
-"XIgY2VsbHMgaW4gYSBzdHJpbmcgaW4gc29sYXIgYXJyYXkKU1AuTnAgPSAxOyAgICAgICAgJSBbXS"
-"AtIG51bWJlciBvZiBzb2xhciBjZWxsIHN0cmluZ3MgaW4gcGFyYWxsZWwgc29sYXIgYXJyYXkKJVN"
-"QLlZfTVBQID0gMzYuOVtWXQolU1AuSV9NUFAgPSA4LjE0IFtBXQolU1AuUF9NUFAgPSAzMDAuMzY2"
-"IFtXXQpTUC5UX24gPSAyNTsgICAgICAlIFtDXSAtIG5vbWluYWwgdGVtcGVyYXR1cmUgb2Ygc29sY"
-"XIgY2VsbHMKU1AuR19uID0gMTAwMDsgICAgJSBbVy9tXjJdIC0gbm9taW5hbCBpcnJhZGlhdGlvbi"
-"BvZiBzb2xhciBjZWxscwpTUC5WX09DX24gPSA0NTsgJSBbVl0gLSBub21pbmFsIG9wZW4gY2lyY3V"
-"pdCB2b2x0YWdlIG9mIGFycmF5IChzaW5nbGUgcGFuZWwgaW4gc3lzdGVtKQpTUC5JX1NDX24gPSA4"
-"LjY3OyAlIFtBXSAtIG5vbWluYWwgc2hvcnQgY2lyY3VpdCBjdXJyZW50IG9mIGFycmF5CgpTUC5Sc"
-"yA9IDAuMjY2MDM7ICAgICUgW29obV0gLSBlcXV2YWxlbnQgc2VyaWVzIHJlc2lzdGFuY2Ugb2YgYX"
-"JyYXkKU1AuUnAgPSA2NjUuMTk5MzsgICUgW29obV0gLSBlcXV2YWxlbnQgcGFyYWxsZWwgcmVzaXN"
-"0YW5jZSBvZiBhcnJheSAod2UgZGlkbnQgY2hhbmdlKQoKU1AuYSA9IDEuMTA5ODsgICAgICAgJSBb"
-"XSAtIGRpb2RlIGlkZWFsaXR5IGNvbnN0YW50ICh3ZSBkaWRudCBjaGFuZ2UpCgpTUC5LX1YgPSAtI"
-"DAuNDI3OTE7ICUgWyUvwrBDXSAtIHRoZXJtYWwgdm9sdGFnZSBjb2VmZmljaWVudCBvZiBhcnJheS"
-"AtMC4xMjMwIGZyb20gb3RoZXIgcGFuZWwKU1AuS19JID0gMC4wODY3MDE7ICAlIFslL8KwQ10gLSB"
-"0aGVybWFsIGN1cnJlbnQgY29lZmZpY2llbnQgb2YgYXJyYXkKClNQLkNfaW4gPSA4MDBlLTM7ICAl"
-"IFtGXSAtIGlucHV0IGNhcGFjaXRhbmNlIG9mIHRoZSBEQy9EQyBjb252ZXJ0ZXIgKGhpZ2ggdmFsd"
-"WUgdG8gZmlsdGVyIGFuZCB0aGUgdmFsdWUgaXMgZnJvbSB0aGUgc3VwZXJ2aXNvcikKJSUgQ19pbm"
-"NhbGN1bGF0ZTEuOGUtMyBbRl0KJSBCdWNrLWNvbnZlcnRlcgpCdWNrLkwgPSA2NTEuMTJlLTY7ICV"
-"bSF0gLSBpbmR1Y3RvciAlY2FsY3VsYXRlIDQ3MGUtNgpCdWNrLkMgPSAxMzQuMDllLTY7ICVbRl0g"
-"LSBvdXRwdXQgY2FwYWNpdG9yICVjYWxjdWxhdGUgMTM0ZS02CkJ1Y2suUiA9IDUwOyAlIFtPaG1dI"
-"C0gTG9hZAoKJSBWX291dD0gMzYwL051bWJlck9mU2VyaWVzQ29ubmVjdGVkUGFuZWxz"
+"RlbQpUcyA9IDAuMTsgICVzYW1wbGUgdGltZSBNUFBUCiUlJSBTb2xhciBQYW5lbCAoU3VudGVjaCB"
+"Qb3dlciBTVFAzMDAtMjRfVmQpJSBzZWxlY3QgdmFsdWVzIGZyb20gc2ltdWxpbmsgYW5kIG5vdCBm"
+"cm9tIHRoZSBkYXRhc2hlZXQgYmVjYXVzZSBvZiBkaWZmZXJlbnQgdmFsdWVzCgpTUC5OcyA9IDcyO"
+"yAgICAgICAlIFtdIC0gbnVtYmVyIG9mIHNvbGFyIGNlbGxzIGluIGEgc3RyaW5nIGluIHNvbGFyIG"
+"FycmF5ClNQLk5wID0gMTsgICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sYXIgY2VsbCBzdHJpbmd"
+"zIGluIHBhcmFsbGVsIHNvbGFyIGFycmF5CiVTUC5WX01QUCA9IDM2LjlbVl0KJVNQLklfTVBQID0g"
+"OC4xNCBbQV0KJVNQLlBfTVBQID0gMzAwLjM2NiBbV10KU1AuVF9uID0gMjU7ICAgICAgJSBbQ10gL"
+"SBub21pbmFsIHRlbXBlcmF0dXJlIG9mIHNvbGFyIGNlbGxzClNQLkdfbiA9IDEwMDA7ICAgICUgW1"
+"cvbV4yXSAtIG5vbWluYWwgaXJyYWRpYXRpb24gb2Ygc29sYXIgY2VsbHMKU1AuVl9PQ19uID0gNDU"
+"7ICUgW1ZdIC0gbm9taW5hbCBvcGVuIGNpcmN1aXQgdm9sdGFnZSBvZiBhcnJheSAoc2luZ2xlIHBh"
+"bmVsIGluIHN5c3RlbSkKU1AuSV9TQ19uID0gOC42NzsgJSBbQV0gLSBub21pbmFsIHNob3J0IGNpc"
+"mN1aXQgY3VycmVudCBvZiBhcnJheQoKU1AuUnMgPSAwLjI2NjAzOyAgICAlIFtvaG1dIC0gZXF1dm"
+"FsZW50IHNlcmllcyByZXNpc3RhbmNlIG9mIGFycmF5ClNQLlJwID0gNjY1LjE5OTM7ICAlIFtvaG1"
+"dIC0gZXF1dmFsZW50IHBhcmFsbGVsIHJlc2lzdGFuY2Ugb2YgYXJyYXkgKHdlIGRpZG50IGNoYW5n"
+"ZSkKClNQLmEgPSAxLjEwOTg7ICAgICAgICUgW10gLSBkaW9kZSBpZGVhbGl0eSBjb25zdGFudCAod"
+"2UgZGlkbnQgY2hhbmdlKQoKU1AuS19WID0gLSAwLjQyNzkxOyAlIFslL8KwQ10gLSB0aGVybWFsIH"
+"ZvbHRhZ2UgY29lZmZpY2llbnQgb2YgYXJyYXkgLTAuMTIzMCBmcm9tIG90aGVyIHBhbmVsClNQLkt"
+"fSSA9IDAuMDg2NzAxOyAgJSBbJS/CsENdIC0gdGhlcm1hbCBjdXJyZW50IGNvZWZmaWNpZW50IG9m"
+"IGFycmF5CgpTUC5DX2luID0gODAwZS0zOyAgJSBbRl0gLSBpbnB1dCBjYXBhY2l0YW5jZSBvZiB0a"
+"GUgREMvREMgY29udmVydGVyIChoaWdoIHZhbHVlIHRvIGZpbHRlciBhbmQgdGhlIHZhbHVlIGlzIG"
+"Zyb20gdGhlIHN1cGVydmlzb3IpCiUlIENfaW5jYWxjdWxhdGUxLjhlLTMgW0ZdCiUgQnVjay1jb25"
+"2ZXJ0ZXIKQnVjay5MID0gNjUxLjEyZS02OyAlW0hdIC0gaW5kdWN0b3IgJWNhbGN1bGF0ZSA0NzBl"
+"LTYKQnVjay5DID0gMTM0LjA5ZS02OyAlW0ZdIC0gb3V0cHV0IGNhcGFjaXRvciAlY2FsY3VsYXRlI"
+"DEzNGUtNgpCdWNrLlIgPSA1MDsgJSBbT2htXSAtIExvYWQKCiUgVl9vdXQ9IDM2MC9OdW1iZXJPZl"
+"Nlcmllc0Nvbm5lY3RlZFBhbmVscw=="
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -69,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [2, 65; 1280, 692]
+    Location      [226, 71; 1504, 698]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -811,25 +812,25 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Scope"
+      Name          "Vin, Vout"
       Show          on
       Position      [310, 275]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1283, 706]
+      Location      [0, 23; 1536, 804]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAACXAP///wAAAAMAAAeEAAAAx/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABpAP///wAAB4QAAAPZAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAAB+AP///wAAAAMAAAeEAAAAx/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABbAP///wAAB4AAAAOxAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAJYAAAAGAAAAlgAAAAcAAACWAAAABAAAAJYAAAAFAAAAlgAAAAgAAACWAAAACQAAAJYAAAACAA"
-"AAlgAAAAMAAACWAAAAsgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAB4AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAJYAAAAJAAAAlgAAAAYAAACWAAAABwAAAJYAAAAEAAAAlgAAAAUAAACWAAAAAgAAAJYAAAADAA"
+"AAlgAAAAEAAACWAAAAqQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB4AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AA6AAAAAQAAAAAAAAPoAAAAADo="
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQAAAAABAAAAAQAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAAAAA=="
@@ -894,7 +895,7 @@ Plecs {
       Type          XYPlot
       Name          "P vs V"
       Show          on
-      Position      [295, 470]
+      Position      [295, 475]
       Direction     up
       Flipped       off
       Location      [0, 26; 1283, 706]
@@ -1527,7 +1528,7 @@ Plecs {
           }
           Parameter {
             Variable      "Ts"
-            Value         "0"
+            Value         "Ts"
             Show          off
           }
           Parameter {
@@ -1556,10 +1557,10 @@ Plecs {
 "I_in Input(1)\n#define D_na Output(0)\n\n#define P_na DiscState(0)\n#define d"
 "elta_D DiscState(1)\n#define P_n DiscState(2)\n#define D_n DiscState(3)\n\n//"
 "na means n-1\n\n\n#define V_out 24\n//#define e 20e-6 //define limit for mini"
-"mum delta_D Step 0.5mV\n//#define D_max 1\n//#define D_min 0.601\n\n//Global "
-"variable\n\nstatic double P_m;\nstatic double D_m;\nstatic double V_na;\nstat"
-"ic double delta_Dn;\nstatic double delta_Vin;\nstatic double D_out;\n\n \n\n/"
-"/ Description of the range of the buck converter\n// Duty cycle\n"
+"mum delta_D Step 0.5mV\n#define D_max 1\n#define D_min 0.53\n\n//Global varia"
+"ble\n\nstatic double P_m;\nstatic double D_m;\nstatic double V_na;\nstatic do"
+"uble delta_Dn;\nstatic double delta_Vin;\nstatic double D_out;\n\n \n\n// Des"
+"cription of the range of the buck converter\n// Duty cycle\n"
             Show          off
           }
           Parameter {
@@ -1577,27 +1578,35 @@ Plecs {
 "to new duty cycle (D_m)\n\t\t\n\t\tif(P_m > P_n)\n\t\t{\t\t\t\t//Left side of"
 " MPP after first step\n\t\t\tdelta_Dn = delta_D;\t//As not crossing MPP yet r"
 "epeate the same increment \n\t\t\tD_out = D_m - delta_Dn; \t\t\n\t\t\t\n\t\t"
-"\tOutput(0)=D_out;\n\t\t}\n\t\telse\n\t\t{\t\t\t\t\t\t\t //Right side of MPP "
-"after first step\n\t\t\tdelta_Dn = delta_D/2; //Now MPP has been crossed and "
-"we change the step duty cycle to half of its value\n\t\t\tD_out = D_m + delta"
-"_Dn; // Decrease Vin \n\t\t\tOutput(0)=D_out;\n\t\t}\n\t}\n\t\n\telse\n\t{\t"
-"\t//Right side of MPP \n\t\n\tD_m = D_n + delta_D;\t\t//Decrease Vin 2V becau"
-"se delta_D=0.05\n\tP_m = (V_out/D_m)*I_in;  // Power corresponding to new dut"
-"y cycle (D_m)\n\t\n\t\tif(P_m > P_n){\t\t\t\t//Right side of MPP after first "
-"step\n\t\t\tdelta_Dn = delta_D;  //As not crossing MPP yet repeate the same i"
-"ncrement \n\t\t\tD_out = D_m + delta_Dn; \t\t\n\t\t\tOutput(0)=D_out;\n\t\t}"
-"\n\t\telse{\t\t\t\t\t\t   //Left side of MPP after first step\n\t\t\tdelta_Dn"
-" = delta_D/2;    //Now MPP has been crossed and we change the step duty cycle"
-" to half of its value\n\t\t\tD_out = D_m - delta_Dn;\t\t//Increase Vin\n\t\t"
-"\tOutput(0)=D_out;\n\t\t}\n\t}\n}\n\nelse\n{  // Pn<Pn-1\n\n\tif (delta_Vin >"
-" 0){\t//Right side of MPP\n\t\n\tD_m = D_n + delta_D;\n\tP_m = (V_out/D_m)*I_"
-"in;\n\t\t\n\t\tif(P_m > P_n){\n\t\t\tdelta_Dn = delta_D;\n\t\t\tD_out = D_m +"
-" delta_Dn; \t\t\n\t\t\tOutput(0)=D_out;\n\t\t}\n\t\telse{\n\t\t\tdelta_Dn = d"
-"elta_D/2;\n\t\t\tD_out = D_m - delta_Dn;\n\t\t\tOutput(0)=D_out;\n\t\t}\n}\t"
-"\n\telse{\n\t\n\tD_m = D_n - delta_D;\n\tP_m = (V_out/D_m)*I_in;\n\t\n\t\tif("
-"P_m > P_n){\n\t\t\tdelta_Dn = delta_D;\n\t\t\tD_out = D_m - delta_Dn; \t\n\t"
-"\t\tOutput(0)=D_out;\n\t\t}\n\t\telse{\n\t\t\tdelta_Dn = delta_D/2;\n\t\t\tD_"
-"out = D_m + delta_Dn;\n\t\t\tOutput(0)=D_out;\n\t\t}\n\t}\n\t\n}"
+"\t//if (D_out < D_min){\n\t\t\t\t//D_out = D_min;}\n\t\t\t\t\t\n\t\t\tOutput("
+"0)=D_out;\n\t\t}\n\t\telse\n\t\t{\t\t\t\t\t\t\t //Right side of MPP after fir"
+"st step\n\t\t\tdelta_Dn = delta_D/2; //Now MPP has been crossed and we change"
+" the step duty cycle to half of its value\n\t\t\tD_out = D_m + delta_Dn; // D"
+"ecrease Vin \n\t\t\t\n\t\t\t\t//if (D_out > D_max){\n\t\t\t\t//D_out = D_max;"
+"}\n\t\t\t\t\t\n\t\t\tOutput(0)=D_out;\n\t\t}\n\t}\n\t\n\telse\n\t{\t\t//Right"
+" side of MPP \n\t\n\tD_m = D_n + delta_D;\t\t//Decrease Vin 2V because delta_"
+"D=0.05\n\tP_m = (V_out/D_m)*I_in;  // Power corresponding to new duty cycle ("
+"D_m)\n\t\n\t\tif(P_m > P_n){\t\t\t\t//Right side of MPP after first step\n\t"
+"\t\tdelta_Dn = delta_D;  //As not crossing MPP yet repeate the same increment"
+" \n\t\t\tD_out = D_m + delta_Dn; \t\t\n\t\t\t\n\t\t\t\t//if (D_out > D_max){"
+"\n\t\t\t\t//D_out = D_max;}\n\t\t\t\t\t\n\t\t\tOutput(0)=D_out;\n\t\t}\n\t\te"
+"lse{\t\t\t\t\t\t   //Left side of MPP after first step\n\t\t\tdelta_Dn = delt"
+"a_D/2;    //Now MPP has been crossed and we change the step duty cycle to hal"
+"f of its value\n\t\t\tD_out = D_m - delta_Dn;\t\t//Increase Vin\n\t\t\t\n\t\t"
+"\t\t//if (D_out < D_min){\n\t\t\t\t//D_out = D_min;}\n\t\t\t\t\n\t\t\tOutput("
+"0)=D_out;\n\t\n\t\t}\n\t}\n}\n\nelse\n{  // Pn<Pn-1\n\n\tif (delta_Vin > 0){"
+"\t//Right side of MPP\n\t\n\tD_m = D_n + delta_D;\n\tP_m = (V_out/D_m)*I_in;"
+"\n\t\t\n\t\tif(P_m > P_n){\n\t\t\tdelta_Dn = delta_D;\n\t\t\tD_out = D_m + de"
+"lta_Dn; \t\n\t\t\t\n\t\t\t\t//if (D_out > D_max){\n\t\t\t\t//D_out = D_max;}"
+"\n\t\t\t\t\t\n\t\t\tOutput(0)=D_out;\n\t\t}\n\t\telse{\n\t\t\tdelta_Dn = delt"
+"a_D/2;\n\t\t\tD_out = D_m - delta_Dn;\n\t\t\t\n\t\t\t\t//if (D_out < D_min){"
+"\n\t\t\t\t//D_out = D_min;}\n\t\t\tOutput(0)=D_out;\n\t\t}\n}\t\n\telse{\n\t"
+"\n\tD_m = D_n - delta_D;\n\tP_m = (V_out/D_m)*I_in;\n\t\n\t\tif(P_m > P_n){\n"
+"\t\t\tdelta_Dn = delta_D;\n\t\t\tD_out = D_m - delta_Dn; \n\t\t\t\n\t\t\t\t//"
+"if (D_out < D_min){\n\t\t\t\t//D_out = D_min;}\n\t\t\t\t\t\n\t\t\tOutput(0)=D"
+"_out;\n\t\t}\n\t\telse{\n\t\t\tdelta_Dn = delta_D/2;\n\t\t\tD_out = D_m + del"
+"ta_Dn;\n\t\t\t\n\t\t\t\t//if (D_out > D_max){\n\t\t\t\t//D_out = D_max;}\n\t"
+"\t\t\t\t\n\t\t\tOutput(0)=D_out;\n\t\t}\n\t}\n\t\n}"
             Show          off
           }
           Parameter {
@@ -1661,9 +1670,9 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Scope1"
+      Name          "Iout, Vout"
       Show          on
-      Position      [710, 130]
+      Position      [715, 85]
       Direction     up
       Flipped       off
       Location      [0, 26; 1536, 807]
@@ -1674,9 +1683,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAH0AAAAJAAAAfQAAAAgAAAB9AAAAAwAAAH0AAAACAAAAfQAAAAEAAAB9AAAABwAAAH0AAAAGAA"
-"AAfQAAAAUAAAB9AAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABjAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAAAlAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABjAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -1741,25 +1750,25 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Scope2"
+      Name          "PWM"
       Show          on
-      Position      [735, 225]
+      Position      [785, 175]
       Direction     up
       Flipped       off
       Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQCAAAAAAAAAnYAAAeAAAAAZgAAB4QAAAPZAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeAAAAAgPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQCAAAAAAAAAnYAAAeAAAAAZgAABkQAAAMzAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAgAAAB9AAAACQAAAH0AAAACAA"
-"AAfQAAAAMAAAB9AAAA5wAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACtAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAAA3gAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACtAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AA6AAAAAQAAAAAAAAPoAAAAADo="
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -1844,7 +1853,7 @@ Plecs {
       Type          LogicalOperator
       Name          "Logical\nOperator"
       Show          on
-      Position      [485, 285]
+      Position      [665, 230]
       Direction     up
       Flipped       off
       Parameter {
@@ -1888,25 +1897,25 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Scope3"
+      Name          "P_in"
       Show          on
-      Position      [260, 355]
+      Position      [255, 355]
       Direction     up
       Flipped       off
       Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAAPZAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAABkQAAAMzAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAgAAAB9AAAACQAAAH0AAAACAA"
-"AAfQAAAAMAAAB9AAAAsQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAB3AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAAAqAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB3AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AA6AAAAAQAAAAAAAAPoAAAAADo="
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -1962,6 +1971,288 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Control/Modulators/Symmetrical PWM"
+      Name          "Symmetrical PWM"
+      Show          on
+      Position      [495, 220]
+      Direction     up
+      Flipped       off
+      Frame         [-20, -20; 20, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "sampling"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "fc"
+        Value         "10000"
+        Show          off
+      }
+      Parameter {
+        Variable      "offset"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "input_limits"
+        Value         "[0 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "output_values"
+        Value         "[0 1]"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [24, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-20, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Probe"
+      Show          on
+      Position      [670, 365]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          SignalDemux
+      Name          "Demux3"
+      Show          off
+      Position      [745, 365]
+      Direction     right
+      Flipped       on
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Product
+      Name          "Product"
+      Show          off
+      Position      [795, 375]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "Inputs"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "P_out"
+      Show          on
+      Position      [885, 370]
+      Direction     up
+      Flipped       off
+      Location      [0, 23; 1536, 804]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAAAqAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB3AAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Pin vs Pout"
+      Show          on
+      Position      [545, 405]
+      Direction     up
+      Flipped       off
+      Location      [0, 26; 1536, 807]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAAAqAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB3AAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      Axes          "2"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Duty Cycle"
+      Show          on
+      Position      [475, 320]
+      Direction     up
+      Flipped       off
+      Location      [0, 30; 1536, 803]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOnAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAAAqQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB4AAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Temperature"
@@ -1989,7 +2280,6 @@ Plecs {
       Type          Signal
       SrcComponent  "From"
       SrcTerminal   1
-      Points        [260, 480; 260, 475]
       DstComponent  "P vs V"
       DstTerminal   1
     }
@@ -2021,7 +2311,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From2"
       SrcTerminal   1
-      Points        [260, 460; 260, 465]
+      Points        [260, 460; 260, 470]
       DstComponent  "P vs V"
       DstTerminal   2
     }
@@ -2040,7 +2330,7 @@ Plecs {
       Points        [245, 180; 245, 225]
       Branch {
         Points        [245, 280]
-        DstComponent  "Scope"
+        DstComponent  "Vin, Vout"
         DstTerminal   2
       }
       Branch {
@@ -2078,14 +2368,6 @@ Plecs {
       }
     }
     Connection {
-      Type          Signal
-      SrcComponent  "Am2"
-      SrcTerminal   3
-      Points        [590, 80; 590, 125]
-      DstComponent  "Scope1"
-      DstTerminal   1
-    }
-    Connection {
       Type          Wire
       SrcComponent  "L1"
       SrcTerminal   1
@@ -2098,14 +2380,6 @@ Plecs {
         DstComponent  "FET2"
         DstTerminal   1
       }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm1"
-      SrcTerminal   3
-      Points        [635, 140; 635, 135]
-      DstComponent  "Scope1"
-      DstTerminal   2
     }
     Connection {
       Type          Wire
@@ -2167,24 +2441,16 @@ Plecs {
         DstTerminal   1
       }
       Branch {
-        Points        [145, 355]
-        DstComponent  "Scope3"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm5"
-      SrcTerminal   3
-      Points        [265, 215; 275, 215]
-      Branch {
-        Points        [275, 270]
-        DstComponent  "Scope"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "MPPT Controller"
-        DstTerminal   1
+        Points        [145, 400]
+        Branch {
+          Points        [145, 355]
+          DstComponent  "P_in"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Pin vs Pout"
+          DstTerminal   1
+        }
       }
     }
     Connection {
@@ -2225,19 +2491,128 @@ Plecs {
     }
     Connection {
       Type          Signal
+      SrcComponent  "Am2"
+      SrcTerminal   3
+      DstComponent  "Iout, Vout"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm1"
+      SrcTerminal   3
+      Points        [635, 140; 635, 90]
+      DstComponent  "Iout, Vout"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Probe"
+      SrcTerminal   1
+      DstComponent  "Demux3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux3"
+      SrcTerminal   2
+      Points        [760, 360; 760, 370]
+      DstComponent  "Product"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux3"
+      SrcTerminal   3
+      Points        [755, 370; 755, 380]
+      DstComponent  "Product"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Product"
+      SrcTerminal   1
+      Points        [835, 375]
+      Branch {
+        Points        [835, 370]
+        DstComponent  "P_out"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [835, 510; 515, 510]
+        DstComponent  "Pin vs Pout"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
       SrcComponent  "MPPT Controller"
       SrcTerminal   2
-      Points        [430, 215; 430, 285]
-      DstComponent  "Logical\nOperator"
-      DstTerminal   2
+      Points        [430, 215]
+      Branch {
+        Points        [440, 215; 440, 220]
+        DstComponent  "Symmetrical PWM"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [430, 320]
+        DstComponent  "Duty Cycle"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm5"
+      SrcTerminal   3
+      Points        [265, 215]
+      Branch {
+        DstComponent  "MPPT Controller"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [265, 270]
+        DstComponent  "Vin, Vout"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Symmetrical PWM"
+      SrcTerminal   1
+      Points        [560, 220]
+      Branch {
+        Points        [605, 220]
+        Branch {
+          Points        [620, 220; 620, 230]
+          DstComponent  "Logical\nOperator"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [605, 170]
+          DstComponent  "PWM"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [560, 60]
+        DstComponent  "FET1"
+        DstTerminal   3
+      }
     }
     Connection {
       Type          Signal
       SrcComponent  "Logical\nOperator"
       SrcTerminal   1
-      Points        [520, 285; 520, 235; 620, 235; 620, 230]
-      DstComponent  "Scope2"
-      DstTerminal   2
+      Points        [690, 230; 690, 190]
+      Branch {
+        Points        [335, 190]
+        DstComponent  "FET2"
+        DstTerminal   3
+      }
+      Branch {
+        Points        [690, 180]
+        DstComponent  "PWM"
+        DstTerminal   2
+      }
     }
   }
   ProbeBlock {
@@ -2251,6 +2626,19 @@ Plecs {
       Component     "Am1"
       Path          ""
       Signals       {"Measured current"}
+    }
+  }
+  ProbeBlock {
+    Tag           "Buck-converterwithMPPT - TRY2/Probe"
+    Probe {
+      Component     "Am2"
+      Path          ""
+      Signals       {"Measured current"}
+    }
+    Probe {
+      Component     "Vm1"
+      Path          ""
+      Signals       {"Measured voltage"}
     }
   }
 }
