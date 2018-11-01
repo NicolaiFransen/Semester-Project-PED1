@@ -909,7 +909,7 @@ Plecs {
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "0"
+      Open          "1"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1244,7 +1244,7 @@ Plecs {
       Position      [295, 525]
       Direction     up
       Flipped       off
-      Location      [0, 23; 1280, 660]
+      Location      [0, 26; 1280, 663]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAJcA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
@@ -1553,12 +1553,12 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#include <math.h>\n\n#define V_n Input(0)\n#define "
-"I_in Input(1)\n#define D_m Output(0)\n\n#define P_na DiscState(0)\n\n//na mea"
-"ns n-1\n\n\n#define V_out 24\n//#define e 20e-6 //define limit for minimum de"
-"lta_D Step 0.5mV\n#define D_max 1\n#define D_min 0.53\n\n//Global variable\ns"
-"tatic double V_na;\nstatic double delta_D;\nstatic double P_n;\nstatic double"
-" D_n;"
+            Value         "#include <math.h>\n#include<stdio.h>\n\n#define V_n"
+" Input(0)\n#define I_in Input(1)\n#define D_m Output(0)\n\n#define P_na DiscS"
+"tate(0)\n\n\n//na means n-1\n\n\n#define V_out 24\n//#define e 20e-6 //define"
+" limit for minimum delta_D Step 0.5mV\n#define D_max 1\n#define D_min 0.53\n"
+"\n//Global variable\nstatic double V_na;\nstatic double delta_D;\nstatic doub"
+"le P_n;\nstatic double D_n;"
             Show          off
           }
           Parameter {
@@ -1569,9 +1569,14 @@ Plecs {
           Parameter {
             Variable      "OutputFcn"
             Value         "//Calculation:\nD_n = V_out/V_n;\nP_n = V_n*I_in;\n"
-"\nif (P_n > P_na)  // Pn>Pn-1\n{\n\tD_m = D_n - delta_D;\t\t\t//Increase Vin "
-"2V because delta_D=0.05\n\tOutput (0) = D_m;\n\t\t}\nelse\n{  // Pn<Pn-1\n\t"
-"\tD_m = D_n + delta_D;\n\t   Output (0) = D_m;\n}\n"
+"\nif (P_n > P_na)  // Pn>Pn-1\n{\n\tD_m = D_n - delta_D;\t\n\tif (D_m > D_max"
+"){\n\t\t\t\tD_m = D_max;\n\t\t\t\tprintf(\"Duty cycle is %f\",D_m);\n\t\t\t\t"
+"}                                  //Increase Vin 2V because delta_D=0.05\n\t"
+"if (D_m < D_min){\n\t\t\t\tD_m = D_min;\n\t\t\t\tprintf(\"Duty cycle is %f\","
+"D_m);\n\t\t\t\t}\n\tOutput (0) = D_m;\n\t\t}\nelse\n{  // Pn<Pn-1\n\t\tD_m = "
+"D_n + delta_D;\n\t\tif (D_m > D_max){\n\t\t\t\tD_m = D_max;\n\t\t\t\tprintf("
+"\"Duty cycle is %f\",D_m);\n\t\t\t\t}\n\t   Output (0) = D_m;\n\t   \n\t\t\t"
+"\n\t\t\n}\n"
             Show          off
           }
           Parameter {
@@ -1953,7 +1958,7 @@ Plecs {
       }
       Parameter {
         Variable      "fc"
-        Value         "100"
+        Value         "10000"
         Show          off
       }
       Parameter {
@@ -2086,11 +2091,11 @@ Plecs {
       Position      [545, 405]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1283, 706]
+      Location      [0, 173; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAAPZAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAAL9AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -2214,403 +2219,6 @@ Plecs {
           Untangle      0
           KeepBaseline  off
           BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          Subsystem
-      Name          "MPP\ncontroller"
-      Show          on
-      Position      [160, 255]
-      Direction     up
-      Flipped       off
-      Frame         [-20, -20; 20, 20]
-      LabelPosition [0, 23]
-      LabelAlign    up
-      SampleTime    "-1"
-      CodeGenTarget "Generic"
-      MaskIconFrame on
-      MaskIconOpaque off
-      MaskIconRotates on
-      Parameter {
-        Variable      "ki"
-        Prompt        "ki"
-        Type          FreeText
-        Value         "10"
-        Show          on
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "ts"
-        Prompt        "Sample time"
-        Type          FreeText
-        Value         "1/100"
-        Show          on
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "v0"
-        Prompt        "Initial output"
-        Type          FreeText
-        Value         "388"
-        Show          on
-        Tunable       off
-        TabName       ""
-      }
-      Terminal {
-        Type          Output
-        Position      [24, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-20, 0]
-        Direction     left
-      }
-      Schematic {
-        Location      [449, 228; 941, 405]
-        ZoomFactor    1
-        SliderPosition [0, 0]
-        ShowBrowser   off
-        BrowserWidth  100
-        Component {
-          Type          CScript
-          Name          "dP/dV calc"
-          Show          on
-          Position      [135, 40]
-          Direction     up
-          Flipped       off
-          Parameter {
-            Variable      "NumInputs"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumOutputs"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumContStates"
-            Value         "0"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumDiscStates"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumZCSignals"
-            Value         "0"
-            Show          off
-          }
-          Parameter {
-            Variable      "DirectFeedthrough"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "Ts"
-            Value         "ts"
-            Show          off
-          }
-          Parameter {
-            Variable      "Parameters"
-            Value         ""
-            Show          off
-          }
-          Parameter {
-            Variable      "LangStandard"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "GnuExtensions"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "RuntimeCheck"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "Declarations"
-            Value         "#define V Input(0)\n#define I Input(1)\n#define P_o"
-"ld DiscState(0)\n#define V_old DiscState(1)\n#define DPDV_MAX 10\n#define DPD"
-"V_MIN -10\n\n//Global variable\nstatic double P;"
-            Show          off
-          }
-          Parameter {
-            Variable      "StartFcn"
-            Value         "P_old = P;\nV_old = V;\n"
-            Show          off
-          }
-          Parameter {
-            Variable      "OutputFcn"
-            Value         "double dP, dV, dPdV;\n\nP = V*I;\ndP = P - P_old;\n"
-"dV = V - V_old;\n\n\ndPdV = dP/dV;\n\nif (dPdV > DPDV_MAX)\n\tdPdV = DPDV_MAX"
-";\nif (dPdV < DPDV_MIN)\n\tdPdV = DPDV_MIN;\n\nOutput(0) = dPdV;\n"
-            Show          off
-          }
-          Parameter {
-            Variable      "UpdateFcn"
-            Value         "P_old = P;\nV_old = V;\n\n"
-            Show          off
-          }
-          Parameter {
-            Variable      "DerivativeFcn"
-            Value         ""
-            Show          off
-          }
-          Parameter {
-            Variable      "TerminateFcn"
-            Value         ""
-            Show          off
-          }
-        }
-        Component {
-          Type          Output
-          Name          "vref"
-          Show          on
-          Position      [425, 40]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "Index"
-            Value         "1"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Input
-          Name          "v,i"
-          Show          on
-          Position      [40, 40]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "Index"
-            Value         "2"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Gain
-          Name          "ki"
-          Show          on
-          Position      [240, 40]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "K"
-            Value         "ts*ki"
-            Show          on
-          }
-          Parameter {
-            Variable      "Multiplication"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "DataType"
-            Value         "11"
-            Show          off
-          }
-        }
-        Component {
-          Type          DiscreteTransferFunction
-          Name          "Discrete\nIntegrator1"
-          Show          on
-          Position      [320, 40]
-          Direction     right
-          Flipped       off
-          Frame         [-30, -15; 30, 15]
-          LabelPosition [0, 18]
-          LabelAlign    up
-          Parameter {
-            Variable      "Numerator"
-            Value         "[1]"
-            Show          off
-          }
-          Parameter {
-            Variable      "Denominator"
-            Value         "[1 -1]"
-            Show          off
-          }
-          Parameter {
-            Variable      "Ts"
-            Value         "ts"
-            Show          off
-          }
-          Parameter {
-            Variable      "X0"
-            Value         "v0"
-            Show          on
-          }
-        }
-        Component {
-          Type          Scope
-          Name          "dP/dV"
-          Show          on
-          Position      [240, 105]
-          Direction     up
-          Flipped       off
-          Location      [427, 180; 777, 403]
-          State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
-"wBvAG0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
-"AA/////wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAAg0AAAEs"
-"AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
-"AAAAAAAAA=="
-          SavedViews    "AAAAAgAAAAA="
-          HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAAAgAAAJYAAAADAAAAlgAAAAEAAACWAAAABgAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAA"
-"AIAAAAlgAAAAkAAACWAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAC"
-"gAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
-"AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
-"AAAAAA6AAAAAQAAAAAAAAPoAAAAADo="
-          PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-          Axes          "1"
-          TimeRange     "0.0"
-          ScrollingMode "1"
-          SingleTimeAxis "1"
-          Open          "0"
-          Ts            "-1"
-          SampleLimit   "0"
-          XAxisLabel    ""
-          Axis {
-            Name          ""
-            AutoScale     1
-            MinValue      0
-            MaxValue      1
-            Signals       {}
-            SignalTypes   [ ]
-            Untangle      0
-            KeepBaseline  off
-            BaselineValue 0
-          }
-          Fourier {
-            SingleXAxis   on
-            AxisLabel     "Frequency"
-            Scaling       0
-            PhaseDisplay  0
-            Axis {
-              Name          ""
-              AutoScale     1
-              MinValue      0
-              MaxValue      1
-              Signals       {}
-              Untangle      0
-              KeepBaseline  off
-              BaselineValue 0
-            }
-          }
-        }
-        Component {
-          Type          Scope
-          Name          "Scope1"
-          Show          on
-          Position      [425, 105]
-          Direction     up
-          Flipped       off
-          Location      [0, 0; 0, 0]
-          State         ""
-          SavedViews    ""
-          HeaderState   ""
-          PlotPalettes  ""
-          Axes          "1"
-          TimeRange     "0.0"
-          ScrollingMode "1"
-          SingleTimeAxis "1"
-          Open          "0"
-          Ts            "-1"
-          SampleLimit   "0"
-          XAxisLabel    ""
-          Axis {
-            Name          ""
-            AutoScale     1
-            MinValue      0
-            MaxValue      1
-            Signals       {}
-            SignalTypes   [ ]
-            Untangle      0
-            KeepBaseline  off
-            BaselineValue 0
-          }
-          Fourier {
-            SingleXAxis   on
-            AxisLabel     "Frequency"
-            Scaling       0
-            PhaseDisplay  0
-            Axis {
-              Name          ""
-              AutoScale     1
-              MinValue      0
-              MaxValue      1
-              Signals       {}
-              Untangle      0
-              KeepBaseline  off
-              BaselineValue 0
-            }
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "v,i"
-          SrcTerminal   1
-          DstComponent  "dP/dV calc"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "ki"
-          SrcTerminal   2
-          DstComponent  "Discrete\nIntegrator1"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Discrete\nIntegrator1"
-          SrcTerminal   2
-          Points        [380, 40]
-          Branch {
-            DstComponent  "vref"
-            DstTerminal   1
-          }
-          Branch {
-            Points        [380, 105]
-            DstComponent  "Scope1"
-            DstTerminal   1
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "dP/dV calc"
-          SrcTerminal   2
-          Points        [195, 40]
-          Branch {
-            DstComponent  "ki"
-            DstTerminal   1
-          }
-          Branch {
-            Points        [195, 105]
-            DstComponent  "dP/dV"
-            DstTerminal   1
-          }
         }
       }
     }
@@ -2954,7 +2562,7 @@ Plecs {
         }
       }
       Branch {
-        Points        [560, 60]
+        Points        [560, 75; 320, 75]
         DstComponent  "FET1"
         DstTerminal   3
       }
