@@ -1296,24 +1296,6 @@ Plecs {
       }
     }
     Component {
-      Type          Capacitor
-      Name          "C1"
-      Show          on
-      Position      [220, 130]
-      Direction     down
-      Flipped       on
-      Parameter {
-        Variable      "C"
-        Value         "SP.C_in"
-        Show          off
-      }
-      Parameter {
-        Variable      "v_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
       Type          Ammeter
       Name          "Am1"
       Show          on
@@ -1335,24 +1317,6 @@ Plecs {
       }
       Parameter {
         Variable      "i_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Capacitor
-      Name          "C2"
-      Show          on
-      Position      [465, 130]
-      Direction     down
-      Flipped       on
-      Parameter {
-        Variable      "C"
-        Value         "Buck.C"
-        Show          off
-      }
-      Parameter {
-        Variable      "v_init"
         Value         "0"
         Show          off
       }
@@ -1553,47 +1517,45 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#include <math.h>\n#include<stdio.h>\n\n#define V_n"
-" Input(0)\n#define I_in Input(1)\n#define D_n Output(0)\n\n#define P_na DiscS"
-"tate(0)\n#define V_na DiscState(1)\n\n//na means n-1\n\n#define delta_D 0.01"
-"\n#define V_out 24\n//#define e 20e-6 //define limit for minimum delta_D Step"
-" 0.5mV\n#define D_max 1\n#define D_min 0.53 //0.1 //0.53\n\n//Global variable"
-"\nstatic double P_n;\n//static double D_n = 0;\n//static int delta_V;"
+            Value         "#define D_min 0.2 //TBD\n\nenum state {\n\tSTARTUP "
+"= 0,\n\tVOLTAGE_EVALUATION = 1,\n\tVOLTAGE_INC = 2,\n\tVOLTAGE_DEC = 3,\n};\n"
+"\ndouble V, I, P, Vprevious, Iprevious, Pprevious, delta_V;\ndouble D_delta ="
+" 0.01;\ndouble D = D_min;\nenum state SYSTEM_STATE = STARTUP;\nint startup_co"
+"unter = 0;\n\n#define V_in Input(0);\n#define I_in Input(1);\n#define D_out O"
+"utput(0);\n\n\nvoid Open_loop_increase_D(void){\n\tD = D + D_delta;\n}\n\nvoi"
+"d calculate_power(void){\n\tP = V * I;\n}\n\nvoid evaluate_voltage(void){\n\t"
+"delta_V = V - Vprevious;\n}\n\nvoid save_variables(void){\n\tVprevious = V;\n"
+"\tIprevious = I;\n\tPprevious = P;\n}\n\nint power_is_increased(void){\n\tret"
+"urn P > Pprevious;\n}\n\nint power_is_decreased(void){\n\treturn P < Ppreviou"
+"s;\n}\n"
             Show          off
           }
           Parameter {
             Variable      "StartFcn"
-            Value         " P_na = P_n;\nD_n = 0.53;\nV_na = 0;"
+            Value         ""
             Show          off
           }
           Parameter {
             Variable      "OutputFcn"
-            Value         "//Calculation:      //na is n-1\nD_n = V_out/V_n;\n"
-"P_n = V_n*I_in;\nif (V_n>V_na){\n\n\tif (P_n>P_na){\n\tD_n = D_n - delta_D;\n"
-"\t\t\t//if (D_n > D_max){\n\t\t\t//\tD_n = D_max;\n\t\t\t//\tprintf(\"high1\\"
-"n\");\n\t\t\t//\t}                                  //Increase Vin 2V because"
-" delta_D=0.05\n\t\t\t//if (D_n < D_min){\n\t\t\t//\tD_n = D_min;\n\t\t\t//\tp"
-"rintf(\"low1\\n\");\n\t\t\t//\t}\n\t\t\t\tOutput (0) = D_n;\n\t\t}\n\telse{\n"
-"\tD_n = D_n + delta_D;\n\t\t\t//if (D_n > D_max){\n\t\t\t//\tD_n = D_max;\n\t"
-"\t\t//\tprintf(\"high1\\n\");\n\t\t\t//\t}                                  /"
-"/Increase Vin 2V because delta_D=0.05\n\t\t\t//if (D_n < D_min){\n\t\t\t//\tD"
-"_n = D_min;\n\t\t\t//\tprintf(\"low1\\n\");\n\t\t\t//\t}\n\t\t\t\tOutput (0) "
-"= D_n;\n\t\t\t}\n}\nelse{\nif (P_n>P_na){\n\tD_n = D_n + delta_D;\n\t\t\t//if"
-" (D_n > D_max){\n\t\t\t//\tD_n = D_max;\n\t\t\t//\tprintf(\"high1\\n\");\n\t"
-"\t\t//\t}                                  //Increase Vin 2V because delta_D="
-"0.05\n\t\t\t//if (D_n < D_min){\n\t\t\t//\tD_n = D_min;\n\t\t\t//\tprintf(\"l"
-"ow1\\n\");\n\t\t\t//\t}\n\tOutput (0) = D_n;\n\t\t}\n\telse{\n\tD_n = D_n - d"
-"elta_D;\n\t\t\tif (D_n > D_max){\n\t\t\t\tD_n = D_max;\n\t\t\t\tprintf(\"high"
-"1\\n\");\n\t\t\t\t}                                  //Increase Vin 2V becaus"
-"e delta_D=0.05\n\t\t\tif (D_n < D_min){\n\t\t\t\tD_n = D_min;\n\t\t\t\tprintf"
-"(\"low1\\n\");\n\t\t\t\t}\n\t\t\t\tOutput (0) = D_n;\n\t\t\t}\n}\n\n\n\n\n\n"
-"\n\n\n\n\n\n"
+            Value         "\tswitch (SYSTEM_STATE){\n\t\tcase STARTUP:\n\t\t{"
+"\n\t\t\tOpen_loop_increase_D();\n\t\t\tcalculate_power();\n\t\t\tsave_variabl"
+"es();\n\t\t\tstartup_counter++;\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE"
+" = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\t\tcase VOLTAGE_EVALUATION:\n\t\t{\n"
+"\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC"
+";\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\n\n\t\tc"
+"ase VOLTAGE_INC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif (power_is_increas"
+"ed()) D = D - D_delta;\n\t\t\tif (power_is_decreased()) D = D + D_delta;\n\t"
+"\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;"
+"\n\n\n\t\tcase VOLTAGE_DEC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif (power"
+"_is_increased()) D = D + D_delta;\n\t\t\tif (power_is_decreased()) D = D - D_"
+"delta;\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t"
+"\t}break;\n\t}\n\nOutput(0) = D;\nprintf(\"Duty %f \",D);\nprintf(\"status %d"
+" \",SYSTEM_STATE);\nprintf(\"Delta V %f \\n\",delta_V);\n"
             Show          off
           }
           Parameter {
             Variable      "UpdateFcn"
-            Value         "P_na = P_n; //current power changes to previous Pow"
-"er\nV_na = V_n;"
+            Value         "V=V_in;\nI=I_in;\n"
             Show          off
           }
           Parameter {
@@ -1817,19 +1779,6 @@ Plecs {
       Flipped       off
     }
     Component {
-      Type          Resistor
-      Name          "R1"
-      Show          on
-      Position      [525, 130]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "R"
-        Value         "50"
-        Show          off
-      }
-    }
-    Component {
       Type          LogicalOperator
       Name          "Logical\nOperator"
       Show          on
@@ -1942,12 +1891,12 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "C"
-        Value         "800e-6"
+        Value         "1.8e-3"
         Show          off
       }
       Parameter {
         Variable      "v_init"
-        Value         "0"
+        Value         "SP.V_OC_n"
         Show          off
       }
     }
@@ -2201,7 +2150,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2260,7 +2209,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2311,6 +2260,19 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
+      }
+    }
+    Component {
+      Type          DCVoltageSource
+      Name          "V_dc"
+      Show          on
+      Position      [525, 130]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "V"
+        Value         "24"
+        Show          off
       }
     }
     Connection {
@@ -2400,20 +2362,6 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "C2"
-      SrcTerminal   1
-      Points        [465, 95]
-      Branch {
-        DstComponent  "L1"
-        DstTerminal   2
-      }
-      Branch {
-        DstComponent  "Am2"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "Am2"
       SrcTerminal   2
       Points        [525, 95]
@@ -2423,7 +2371,7 @@ Plecs {
         DstTerminal   1
       }
       Branch {
-        DstComponent  "R1"
+        DstComponent  "V_dc"
         DstTerminal   1
       }
     }
@@ -2443,46 +2391,32 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "R1"
+      SrcComponent  "V_dc"
       SrcTerminal   2
       Points        [525, 165]
       Branch {
-        Points        [465, 165]
+        Points        [370, 165]
         Branch {
-          DstComponent  "C2"
-          DstTerminal   2
-        }
-        Branch {
-          Points        [370, 165]
+          Points        [290, 165]
           Branch {
-            Points        [290, 165]
+            Points        [250, 165]
             Branch {
-              Points        [250, 165]
-              Branch {
-                Points        [220, 165]
-                Branch {
-                  DstComponent  "Am1"
-                  DstTerminal   1
-                }
-                Branch {
-                  DstComponent  "C1"
-                  DstTerminal   2
-                }
-              }
-              Branch {
-                DstComponent  "Vm5"
-                DstTerminal   2
-              }
+              DstComponent  "Am1"
+              DstTerminal   1
             }
             Branch {
-              DstComponent  "C3"
+              DstComponent  "Vm5"
               DstTerminal   2
             }
           }
           Branch {
-            DstComponent  "FET2"
+            DstComponent  "C3"
             DstTerminal   2
           }
+        }
+        Branch {
+          DstComponent  "FET2"
+          DstTerminal   2
         }
       }
       Branch {
@@ -2523,21 +2457,15 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "PV_Villalva1"
-      SrcTerminal   1
-      Points        [135, 95; 220, 95]
+      SrcComponent  "FET1"
+      SrcTerminal   2
+      Points        [290, 95]
       Branch {
         Points        [250, 95]
         Branch {
-          Points        [290, 95]
-          Branch {
-            DstComponent  "FET1"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "C3"
-            DstTerminal   1
-          }
+          Points        [135, 95]
+          DstComponent  "PV_Villalva1"
+          DstTerminal   1
         }
         Branch {
           DstComponent  "Vm5"
@@ -2545,7 +2473,7 @@ Plecs {
         }
       }
       Branch {
-        DstComponent  "C1"
+        DstComponent  "C3"
         DstTerminal   1
       }
     }
@@ -2686,6 +2614,13 @@ Plecs {
         DstComponent  "PWM"
         DstTerminal   2
       }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L1"
+      SrcTerminal   2
+      DstComponent  "Am2"
+      DstTerminal   1
     }
   }
   ProbeBlock {
