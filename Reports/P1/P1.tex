@@ -1,0 +1,29 @@
+\input{setup/preamble.tex}% package inclusion and set up of the document
+\input{setup/hyphenations.tex}% 
+\input{setup/macros.tex}% my new macros
+
+\begin{document}
+%frontmatter
+\pagestyle{empty} %disable headers and footers
+\pagenumbering{roman} %use roman page numbering in the frontmatter
+\input{docs/frontpage.tex}
+\input{docs/colophon.tex}
+\input{docs/titlepages.tex}
+\cleardoublepage
+\pdfbookmark[0]{Contents}{label:contents}
+\pagestyle{fancy} %enable headers and footers again
+\tableofcontents
+\listoftodos
+\input{docs/preface.tex}
+\cleardoublepage
+%mainmatter
+\pagenumbering{arabic} %use arabic page numbering in the mainmatter
+\input{docs/introduction.tex}
+
+\input{docs/ch2name.tex}
+\input{docs/conclusion.tex}
+\printbibliography[heading=bibintoc]
+\label{bib:mybiblio}
+\appendix
+\input{docs/appAname.tex}
+\end{document}
