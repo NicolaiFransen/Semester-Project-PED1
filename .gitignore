@@ -1,3 +1,6 @@
+##Avoiding the folders created after importing altium components
+*Schematic_PCB/Components_models/Imported*/
+
 ## Avoiding the publishing of P0.pdf and P1.pdf, if you want to upload it, just name it differently
 P0.pdf
 P1.pdf
