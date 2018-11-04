@@ -45,11 +45,11 @@ Plecs {
 "fSSA9IDAuMDg2NzAxOyAgJSBbJS/CsENdIC0gdGhlcm1hbCBjdXJyZW50IGNvZWZmaWNpZW50IG9m"
 "IGFycmF5CgpTUC5DX2luID0gODAwZS0zOyAgJSBbRl0gLSBpbnB1dCBjYXBhY2l0YW5jZSBvZiB0a"
 "GUgREMvREMgY29udmVydGVyIChoaWdoIHZhbHVlIHRvIGZpbHRlciBhbmQgdGhlIHZhbHVlIGlzIG"
-"Zyb20gdGhlIHN1cGVydmlzb3IpCiUlIENfaW5jYWxjdWxhdGUxLjhlLTMgW0ZdCiUgQnVjay1jb25"
-"2ZXJ0ZXIKQnVjay5MID0gNjUxLjEyZS02OyAlW0hdIC0gaW5kdWN0b3IgJWNhbGN1bGF0ZSA0NzBl"
-"LTYKQnVjay5DID0gMTM0LjA5ZS02OyAlW0ZdIC0gb3V0cHV0IGNhcGFjaXRvciAlY2FsY3VsYXRlI"
-"DEzNGUtNgpCdWNrLlIgPSA1MDsgJSBbT2htXSAtIExvYWQKCiUgVl9vdXQ9IDM2MC9OdW1iZXJPZl"
-"Nlcmllc0Nvbm5lY3RlZFBhbmVscw=="
+"Zyb20gdGhlIHN1cGVydmlzb3IpCiUlIENfaW5jYWxjdWxhdGUxLjhlLTMgW0ZdCiUgQm9vc3QtY29"
+"udmVydGVyCkJvb3N0LkwgPSA2NTEuMTJlLTY7ICVbSF0gLSBpbmR1Y3RvciAlY2FsY3VsYXRlIDQ3"
+"MGUtNgpCb29zdC5DID0gMTM0LjA5ZS02OyAlW0ZdIC0gb3V0cHV0IGNhcGFjaXRvciAlY2FsY3VsY"
+"XRlIDEzNGUtNgpCb29zdC5SID0gNTA7ICUgW09obV0gLSBMb2FkCgolIFZfb3V0PSAzNjAvTnVtYm"
+"VyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHM="
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -70,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 26; 1280, 648]
+    Location      [0, 26; 1280, 645]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -1304,24 +1304,6 @@ Plecs {
       Flipped       off
     }
     Component {
-      Type          Inductor
-      Name          "L1"
-      Show          on
-      Position      [415, 95]
-      Direction     left
-      Flipped       off
-      Parameter {
-        Variable      "L"
-        Value         "Buck.L"
-        Show          off
-      }
-      Parameter {
-        Variable      "i_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
       Type          Capacitor
       Name          "C2"
       Show          on
@@ -1330,39 +1312,11 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "C"
-        Value         "Buck.C"
+        Value         "Boost.C"
         Show          off
       }
       Parameter {
         Variable      "v_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Mosfet
-      Name          "FET1"
-      Show          on
-      Position      [320, 95]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Ron"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "s_init"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "thermal"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
         Value         "0"
         Show          off
       }
@@ -1535,17 +1489,17 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#define V_OC_threshold 43\n\n\nenum state {\n\tSTAR"
+            Value         "#define V_OC_threshold 44\n\n\nenum state {\n\tSTAR"
 "TUP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DEC,\n\tOPEN_LOOP,\n};"
 "\n\ndouble V, I, P, Vprevious, Iprevious, Pprevious, delta_V;\ndouble D_delta"
-" = 0.01;\ndouble D = 0;\nenum state SYSTEM_STATE = STARTUP;\nint startup_coun"
-"ter = 0;\n\n#define V_in Input(0);\n#define I_in Input(1);\n#define D_out Out"
-"put(0);\n\n\nvoid Open_loop_decrease_D(void){\n\tD = D - D_delta;\n}\n\nvoid "
-"calculate_power(void){\n\tP = V * I;\n}\n\nvoid evaluate_voltage(void){\n\tde"
-"lta_V = V - Vprevious;\n}\n\nvoid save_variables(void){\n\tVprevious = V;\n\t"
-"Iprevious = I;\n\tPprevious = P;\n}\n\nint power_is_increased(void){\n\tretur"
-"n P > Pprevious;\n}\n\nint power_is_decreased(void){\n\treturn P < Pprevious;"
-"\n}\n"
+" = 0.022;\ndouble D = 0;\nenum state SYSTEM_STATE = STARTUP;\nint startup_cou"
+"nter = 0;\n\n#define V_in Input(0);\n#define I_in Input(1);\n#define D_out Ou"
+"tput(0);\n\n\nvoid Open_loop_decrease_D(void){\n\tD = D + D_delta;\n}\n\nvoid"
+" calculate_power(void){\n\tP = V * I;\n}\n\nvoid evaluate_voltage(void){\n\td"
+"elta_V = V - Vprevious;\n}\n\nvoid save_variables(void){\n\tVprevious = V;\n"
+"\tIprevious = I;\n\tPprevious = P;\n}\n\nint power_is_increased(void){\n\tret"
+"urn P > Pprevious;\n}\n\nint power_is_decreased(void){\n\treturn P < Ppreviou"
+"s;\n}\n"
             Show          off
           }
           Parameter {
@@ -1562,7 +1516,7 @@ Plecs {
             Variable      "UpdateFcn"
             Value         "V=V_in;\nI=I_in;\n\n\tswitch (SYSTEM_STATE){\n\t\tc"
 "ase STARTUP:\n\t\t{\n\t\t\tif(V > V_OC_threshold) \n\t\t\t{\n\t\t\t\tSYSTEM_S"
-"TATE = OPEN_LOOP;\n\t\t\t\tD = 0.8;\n\t\t\t}\t\n\t\t}break;\n\t\t\n\t\tcase O"
+"TATE = OPEN_LOOP;\n\t\t\t\tD = 0.5;\n\t\t\t}\t\n\t\t}break;\n\t\t\n\t\tcase O"
 "PEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D();\n\t\t\tcalculate_power();\n\t"
 "\t\tsave_variables();\n\t\t\tstartup_counter++;\n\t\t\tif (startup_counter >="
 " 5) SYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\t\tcase VOLTAGE_EVALU"
@@ -2291,7 +2245,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "V"
-        Value         "24"
+        Value         "90"
         Show          off
       }
     }
@@ -2309,6 +2263,52 @@ Plecs {
       }
       Parameter {
         Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inductor
+      Name          "L1"
+      Show          on
+      Position      [320, 95]
+      Direction     left
+      Flipped       off
+      Parameter {
+        Variable      "L"
+        Value         "Boost.L"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Mosfet
+      Name          "FET1"
+      Show          on
+      Position      [415, 95]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "s_init"
         Value         "0"
         Show          off
       }
@@ -2425,12 +2425,12 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "L1"
-      SrcTerminal   1
+      SrcComponent  "FET1"
+      SrcTerminal   2
       Points        [370, 95]
       Branch {
-        DstComponent  "FET1"
-        DstTerminal   1
+        DstComponent  "L1"
+        DstTerminal   2
       }
       Branch {
         DstComponent  "FET2"
@@ -2526,8 +2526,8 @@ Plecs {
         Branch {
           Points        [290, 95]
           Branch {
-            DstComponent  "FET1"
-            DstTerminal   2
+            DstComponent  "L1"
+            DstTerminal   1
           }
           Branch {
             DstComponent  "C3"
@@ -2676,7 +2676,7 @@ Plecs {
         }
       }
       Branch {
-        Points        [560, 45; 320, 45]
+        Points        [560, 45; 415, 45]
         DstComponent  "FET1"
         DstTerminal   3
       }
@@ -2685,8 +2685,8 @@ Plecs {
       Type          Wire
       SrcComponent  "D1"
       SrcTerminal   1
-      DstComponent  "L1"
-      DstTerminal   2
+      DstComponent  "FET1"
+      DstTerminal   1
     }
     Connection {
       Type          Wire
