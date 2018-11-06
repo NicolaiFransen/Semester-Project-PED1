@@ -70,11 +70,11 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 49; 1280, 636]
+    Location      [0, 42; 1280, 629]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
-    BrowserWidth  134
+    BrowserWidth  130
     Component {
       Type          Subsystem
       Name          "PV_Villalva1"
@@ -772,7 +772,7 @@ Plecs {
       }
       Parameter {
         Variable      "After"
-        Value         "[0.8]"
+        Value         "[1]"
         Show          off
       }
       Parameter {
@@ -909,7 +909,7 @@ Plecs {
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1535,18 +1535,22 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#define V_OC_threshold 43\n\n\nenum state {\n\tSTAR"
-"TUP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DEC,\n\tOPEN_LOOP,\n};"
-"\n\ndouble V, I, P, Vprevious, Iprevious, Pprevious, delta_V, delta_P, delta_"
-"Pprevious;\ndouble D_delta= 0.01;//37.5 mV;\ndouble D = 0;\nenum state SYSTEM"
-"_STATE = STARTUP;\nint startup_counter = 0;\n\n#define V_in Input(0);\n#defin"
-"e I_in Input(1);\n#define D_out Output(0);\n\n\nvoid Open_loop_decrease_D(voi"
-"d){\n\tD = D - D_delta;\n}\n\nvoid calculate_power(void){\n\tP = V * I;\n}\n"
-"\nvoid calculate_delta_power(void){\n\tdelta_P = P - Pprevious;\n}\n\n\nvoid "
-"evaluate_voltage(void){\n\tdelta_V = V - Vprevious;\n}\n\nvoid save_variables"
-"(void){\n\tVprevious = V;\n\tIprevious = I;\n\tPprevious = P;\n\tdelta_Pprevi"
-"ous = delta_P;\n}\n\nint power_is_increased(void){\n\treturn P > Pprevious;\n"
-"}\n\nint power_is_decreased(void){\n\treturn P < Pprevious;\n}\n"
+            Value         "#include <time.h> \n#define V_OC_threshold 43\n\n\n"
+"enum state {\n\tSTARTUP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DE"
+"C,\n\tOPEN_LOOP,\n};\n\ndouble V, I, P, Vprevious, Iprevious, Pprevious, delt"
+"a_V, delta_P, delta_Pprevious;\ndouble D_delta = 0.01, D_deltam;//= 0.01;//37"
+".5 mV;\ndouble D = 0;\nenum state SYSTEM_STATE = STARTUP;\nint startup_counte"
+"r = 0;\n\n#define V_in Input(0);\n#define I_in Input(1);\n#define D_out Outpu"
+"t(0);\n\n\nvoid Open_loop_decrease_D(void){\n\tD_deltam = D_delta;\n\tD = D -"
+" D_delta;\n}\n\nvoid calculate_power(void){\n\tP = V * I;\n}\n\nvoid evaluate"
+"_voltage(void){\n\tdelta_V = V - Vprevious;\n}\n\nvoid save_variables(void){"
+"\n\tVprevious = V;\n\tIprevious = I;\n\tPprevious = P;\n\tD_delta = D_deltam;"
+"\n}\n\nint power_is_increased(void){\n\treturn P > Pprevious;\n}\n\nint power"
+"_is_decreased(void){\n\treturn P < Pprevious;\n}\nvoid delay_startup(int numb"
+"er_of_seconds) \n{ \n    // Converting time into milli_seconds \n    int mill"
+"i_seconds = 1000 * number_of_seconds; \n  \n    // Stroing start time \n    c"
+"lock_t start_time = clock(); \n  \n    // looping till required time is not a"
+"cheived \n    while (clock() < start_time + milli_seconds) ; \n}\n"
             Show          off
           }
           Parameter {
@@ -1562,24 +1566,23 @@ Plecs {
           Parameter {
             Variable      "UpdateFcn"
             Value         "V=V_in;\nI=I_in;\n\n\tswitch (SYSTEM_STATE){\n\t\tc"
-"ase STARTUP:\n\t\t{\n\t\t\tif(V > V_OC_threshold) \n\t\t\t{\n\t\t\t\tSYSTEM_S"
-"TATE = OPEN_LOOP;\n\t\t\t\tD = 0.7;\n\t\t\t\t\t\t}\t\n\t\t}break;\n\t\t\n\t\t"
-"case OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D();\n\t\t\tcalculate_power("
-");\n\t\t\tcalculate_delta_power();\n\t\t\tsave_variables();\n\t\t\tstartup_co"
-"unter++;\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE = VOLTAGE_EVALUATION;"
-"\n\t\t}break;\n\n\t\tcase VOLTAGE_EVALUATION:\n\t\t{\n\t\t\tevaluate_voltage("
-");\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t\tif (delta_V < "
-"0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_INC:\n\t\t{"
-"\n\t\t\tcalculate_power();\n\t\t\t//calculate_delta_power();\n\t\t\t//if(delt"
-"a_P < delta_Pprevious)  D = D - D_delta/2;\n\t\t\tif (power_is_increased()) D"
-" = D - D_delta;  //left  \n\t\t\tif (power_is_decreased()) D = D + D_delta;\t"
-"//right\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n"
-"\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t"
-"\t//calculate_delta_power();\n\t\t\t//if(delta_P > delta_Pprevious)  D = D + "
-"D_delta/2;\n\t\t\tif (power_is_increased()) D = D + D_delta;\n\t\t\tif (power"
-"_is_decreased()) D = D - D_delta;\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STAT"
-"E = VOLTAGE_EVALUATION;\n\t\t}break;\n\t}\n\nprintf(\"System state: %d \\n\","
-" SYSTEM_STATE);"
+"ase STARTUP:\n\t\t{\n\t\t\tif(V > V_OC_threshold) \n\t\t\t{\n\t\t\t\t//delay_"
+"startup(2);\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD = 0.7;\n\t\t\t}\t\n"
+"\t\t}break;\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D();"
+"\n\t\t\tcalculate_power();\n\t\t\tsave_variables();\n\t\t\tstartup_counter++;"
+"\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}br"
+"eak;\n\n\t\tcase VOLTAGE_EVALUATION:\n\t\t{\n\t\t\tevaluate_voltage();\n\t\t"
+"\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTE"
+"M_STATE = VOLTAGE_DEC;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_INC:\n\t\t{\n\t\t\t"
+"calculate_power();\n\t\t\t\n\t\t\tif (power_is_increased()) D = D - D_delta; "
+" //left  \n\t\t\tif (power_is_decreased()) {D_deltam = D_delta/2;\n\t\t\tD = "
+"D + D_deltam;\t}//right\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAG"
+"E_EVALUATION;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC:\n\t\t{\n\t\t\tcalculate"
+"_power();\n\t\t\t//calculate_delta_power();\n\t\t\t//if(delta_P > delta_Pprev"
+"ious)  D = D + D_delta/2;\n\t\t\tif (power_is_increased()) D = D + D_delta;\n"
+"\t\t\tif (power_is_decreased()) {D_deltam = D_delta/2;\n\t\t\tD = D - D_delta"
+"m;}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}"
+"break;\n\t}\n\nprintf(\"System state: %d \\n\", SYSTEM_STATE);"
             Show          off
           }
           Parameter {
@@ -2159,7 +2162,7 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAAroAAAHBAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAAroAAAHCAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
