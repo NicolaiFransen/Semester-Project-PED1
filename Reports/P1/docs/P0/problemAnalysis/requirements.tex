@@ -1,0 +1,70 @@
+\section{System requirements}
+
+For the design and test of the MIC it is of great importance to have the requirements of the system defined. The input requirements of the MIC will be based on the specifications of the PV panel \textit{STP300S-20/Wfb} from Suntech Power. The specifications are shown in table \ref{el_charact_PV_panel}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{ |l|c| } 
+		\hline
+		Maximum power ($P_{max}$) & 300 [W]  \\ \hline
+		Optimum Operating Voltage ($V_{mpp}$) & 32.6 [V]  \\ \hline
+		Optimum Operating Current ($I_{mpp}$) & 9.21 [A]  \\ \hline
+		Open Circuit Voltage ($V_{oc}$) &  39.9 [V]\\ \hline
+		Short Circuit Current ($I_{sc}$) & 9.65 [A]  \\ \hline
+		Module Efficiency ($\eta$) & 18.3 \%  \\ \hline
+	\end{tabular}
+	\caption{Electrical characteristics \textit{STP300S-20/Wfb} \cite{PV_panel}.}
+	\label{el_charact_PV_panel}
+\end{table}
+
+The values from the previous table will be the input for the DC-DC converter. The specifications of the load of the MIC will be based on the commercial inverter \textit{"Power-one STGU-105"}\cite{power_one_inverter} in order to have the output voltage defined. From the inverter's datasheet it is found that the nominal voltage in the DC-link is 360 V, with a maximum input power of 5500 W. \newline
+The development of this project will be based on these requirements because they are based on real commercial products that the user can purchase. 
+
+
+Table \ref{MIC_req} shows the requirements of the MIC, extracted from the specifications of the PV panel and the inverter. It defines both the requirements regarding input, output and of the length of PV panel strings. 
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{6cm}|>{\centering}p{8cm}|}
+		\hline
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Input}} \\ \hline
+		Maximum input power ($P_{max}$) & 300 [W]  \tabularnewline \hline
+		Maximum input Voltage ($V_{oc}$) & 40 [V]  \tabularnewline \hline
+		Maximum input current ($I_{sc}$) & 10 [A]  \tabularnewline \hline
+		Minimum efficiency ($\eta_{min}$) & 98 \%  \tabularnewline \hline
+		
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{\textbf{Output}} \tabularnewline \hline
+		Maximum output voltage ($V_{out}$) & 90 [V] \tabularnewline \hline
+		Maximum output current ($I_{out}$) & 15 [A] \tabularnewline \hline
+		
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{\textbf{Control}} \tabularnewline \hline
+		Gain margin ($GM$) &  To be defined \tabularnewline \hline
+		Phase margin ($PM$) & To be defined \tabularnewline \hline
+		Rise time ($t_r$) & To be defined \tabularnewline \hline
+		Overshoot ($OS$) & To be defined \tabularnewline \hline
+		
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{\textbf{PV system specification}} \tabularnewline \hline
+		Minimum string length & 4 \tabularnewline \hline
+		Maximum string length & 15 \tabularnewline \hline
+		
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{\textbf{Others}} \tabularnewline \hline
+		Maximum dimensions & To be defined \tabularnewline \hline
+		Operating Temperature & -40 to 85 [$\decC$] \tabularnewline \hline
+	\end{tabular}
+	\caption{MIC requirements.}
+	\label{MIC_req}
+\end{table}
+
+
+%\textbf{Question supervisors:} According to these requirements could we estimate the number of panels to be used? We calculated the necessary duty cycles when working with n panels, and the result can be found in the table below. However we know that when working with duty cycle around 0.75 the currents get quite high, and that depends on the inductance and the switching frequency. Then should we wait until deciding this parameters for deciding the minimum number of panels or should we arbitrarily decide a minimum number of panels and then calculate switching frequency and inductance?
+
+%\begin{table}[H]
+%	\centering
+%	\begin{tabular}{ |l|c|c|} 
+%		\hline
+%		Number of PV panels & Buck-boost Duty Cycle & Boost Duty Cycle  \\ \hline
+%		1 & 0.91 & 0.91  \\ \hline
+%		3 & 0.78 & 0.73 \\ \hline
+%		5 &  0.69 & 0.54\\ \hline
+%		10 & 0.52 & 0.1  \\ \hline
+%	\end{tabular}
+%\end{table}

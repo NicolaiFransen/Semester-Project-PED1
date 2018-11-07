@@ -32,6 +32,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load a colour package
 \usepackage{xcolor}
+\usepackage{colortbl}
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
 % The standard graphics inclusion package
 \usepackage{graphicx}
@@ -50,6 +51,10 @@
 % Adds support for full page background picture
 \usepackage[contents={},color=gray]{background}
 %\usepackage[contents=draft,color=gray]{background}
+
+% Adds support of multi cols and rows
+\usepackage{multirow}                		
+\usepackage{multicol}         	        
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mathematics
@@ -158,3 +163,9 @@
 	urlcolor=black,%
 	pdfstartview=FitH%
 }
+
+
+%%%% Special signs %%%%
+\newcommand{\decC}{^{\circ}\text{C}}
+\newcommand{\dec}{^{\circ}}
+\newcommand{\m}{\cdot}

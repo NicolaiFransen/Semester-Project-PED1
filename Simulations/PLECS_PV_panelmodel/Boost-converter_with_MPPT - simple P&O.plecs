@@ -6,7 +6,7 @@ Plecs {
   StopTime      "100"
   Timeout       ""
   Solver        "radau"
-  MaxStep       "20e-3"
+  MaxStep       "20e-6"
   InitStep      "-1"
   FixedStep     "10e-3"
   Refine        "10"
@@ -25,31 +25,31 @@ Plecs {
   AssertionAction "1"
   InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPSAxO"
 "yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
-"RlbQpUcyA9IDAuMDE7ICAlc2FtcGxlIHRpbWUgTVBQVAolJSUgU29sYXIgUGFuZWwgKFN1bnRlY2g"
-"gUG93ZXIgU1RQMzAwLTI0X1ZkKSUgc2VsZWN0IHZhbHVlcyBmcm9tIHNpbXVsaW5rIGFuZCBub3Qg"
-"ZnJvbSB0aGUgZGF0YXNoZWV0IGJlY2F1c2Ugb2YgZGlmZmVyZW50IHZhbHVlcwoKU1AuTnMgPSA3M"
-"jsgICAgICAgJSBbXSAtIG51bWJlciBvZiBzb2xhciBjZWxscyBpbiBhIHN0cmluZyBpbiBzb2xhci"
-"BhcnJheQpTUC5OcCA9IDE7ICAgICAgICAlIFtdIC0gbnVtYmVyIG9mIHNvbGFyIGNlbGwgc3RyaW5"
-"ncyBpbiBwYXJhbGxlbCBzb2xhciBhcnJheQolU1AuVl9NUFAgPSAzNi45W1ZdCiVTUC5JX01QUCA9"
-"IDguMTQgW0FdCiVTUC5QX01QUCA9IDMwMC4zNjYgW1ddClNQLlRfbiA9IDI1OyAgICAgICUgW0NdI"
-"C0gbm9taW5hbCB0ZW1wZXJhdHVyZSBvZiBzb2xhciBjZWxscwpTUC5HX24gPSAxMDAwOyAgICAlIF"
-"tXL21eMl0gLSBub21pbmFsIGlycmFkaWF0aW9uIG9mIHNvbGFyIGNlbGxzClNQLlZfT0NfbiA9IDQ"
-"1OyAlIFtWXSAtIG5vbWluYWwgb3BlbiBjaXJjdWl0IHZvbHRhZ2Ugb2YgYXJyYXkgKHNpbmdsZSBw"
-"YW5lbCBpbiBzeXN0ZW0pClNQLklfU0NfbiA9IDguNjc7ICUgW0FdIC0gbm9taW5hbCBzaG9ydCBja"
-"XJjdWl0IGN1cnJlbnQgb2YgYXJyYXkKClNQLlJzID0gMC4yNjYwMzsgICAgJSBbb2htXSAtIGVxdX"
-"ZhbGVudCBzZXJpZXMgcmVzaXN0YW5jZSBvZiBhcnJheQpTUC5ScCA9IDY2NS4xOTkzOyAgJSBbb2h"
-"tXSAtIGVxdXZhbGVudCBwYXJhbGxlbCByZXNpc3RhbmNlIG9mIGFycmF5ICh3ZSBkaWRudCBjaGFu"
-"Z2UpCgpTUC5hID0gMS4xMDk4OyAgICAgICAlIFtdIC0gZGlvZGUgaWRlYWxpdHkgY29uc3RhbnQgK"
-"HdlIGRpZG50IGNoYW5nZSkKClNQLktfViA9IC0gMC40Mjc5MTsgJSBbJS/CsENdIC0gdGhlcm1hbC"
-"B2b2x0YWdlIGNvZWZmaWNpZW50IG9mIGFycmF5IC0wLjEyMzAgZnJvbSBvdGhlciBwYW5lbApTUC5"
-"LX0kgPSAwLjA4NjcwMTsgICUgWyUvwrBDXSAtIHRoZXJtYWwgY3VycmVudCBjb2VmZmljaWVudCBv"
-"ZiBhcnJheQoKU1AuQ19pbiA9IDgwMGUtMzsgICUgW0ZdIC0gaW5wdXQgY2FwYWNpdGFuY2Ugb2Ygd"
-"GhlIERDL0RDIGNvbnZlcnRlciAoaGlnaCB2YWx1ZSB0byBmaWx0ZXIgYW5kIHRoZSB2YWx1ZSBpcy"
-"Bmcm9tIHRoZSBzdXBlcnZpc29yKQolJSBDX2luY2FsY3VsYXRlMS44ZS0zIFtGXQolIEJvb3N0LWN"
-"vbnZlcnRlcgpCb29zdC5MID0gNjUxLjEyZS02OyAlW0hdIC0gaW5kdWN0b3IgJWNhbGN1bGF0ZSA0"
-"NzBlLTYKQm9vc3QuQyA9IDEzNC4wOWUtNjsgJVtGXSAtIG91dHB1dCBjYXBhY2l0b3IgJWNhbGN1b"
-"GF0ZSAxMzRlLTYKQm9vc3QuUiA9IDUwOyAlIFtPaG1dIC0gTG9hZAoKJSBWX291dD0gMzYwL051bW"
-"Jlck9mU2VyaWVzQ29ubmVjdGVkUGFuZWxz"
+"RlbQpUcyA9IDAuMDAxOyAgJXNhbXBsZSB0aW1lIE1QUFQKJSUlIFNvbGFyIFBhbmVsIChTdW50ZWN"
+"oIFBvd2VyIFNUUDMwMC0yNF9WZCklIHNlbGVjdCB2YWx1ZXMgZnJvbSBzaW11bGluayBhbmQgbm90"
+"IGZyb20gdGhlIGRhdGFzaGVldCBiZWNhdXNlIG9mIGRpZmZlcmVudCB2YWx1ZXMKClNQLk5zID0gN"
+"zI7ICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sYXIgY2VsbHMgaW4gYSBzdHJpbmcgaW4gc29sYX"
+"IgYXJyYXkKU1AuTnAgPSAxOyAgICAgICAgJSBbXSAtIG51bWJlciBvZiBzb2xhciBjZWxsIHN0cml"
+"uZ3MgaW4gcGFyYWxsZWwgc29sYXIgYXJyYXkKJVNQLlZfTVBQID0gMzYuOVtWXQolU1AuSV9NUFAg"
+"PSA4LjE0IFtBXQolU1AuUF9NUFAgPSAzMDAuMzY2IFtXXQpTUC5UX24gPSAyNTsgICAgICAlIFtDX"
+"SAtIG5vbWluYWwgdGVtcGVyYXR1cmUgb2Ygc29sYXIgY2VsbHMKU1AuR19uID0gMTAwMDsgICAgJS"
+"BbVy9tXjJdIC0gbm9taW5hbCBpcnJhZGlhdGlvbiBvZiBzb2xhciBjZWxscwpTUC5WX09DX24gPSA"
+"0NTsgJSBbVl0gLSBub21pbmFsIG9wZW4gY2lyY3VpdCB2b2x0YWdlIG9mIGFycmF5IChzaW5nbGUg"
+"cGFuZWwgaW4gc3lzdGVtKQpTUC5JX1NDX24gPSA4LjY3OyAlIFtBXSAtIG5vbWluYWwgc2hvcnQgY"
+"2lyY3VpdCBjdXJyZW50IG9mIGFycmF5CgpTUC5ScyA9IDAuMjY2MDM7ICAgICUgW29obV0gLSBlcX"
+"V2YWxlbnQgc2VyaWVzIHJlc2lzdGFuY2Ugb2YgYXJyYXkKU1AuUnAgPSA2NjUuMTk5MzsgICUgW29"
+"obV0gLSBlcXV2YWxlbnQgcGFyYWxsZWwgcmVzaXN0YW5jZSBvZiBhcnJheSAod2UgZGlkbnQgY2hh"
+"bmdlKQoKU1AuYSA9IDEuMTA5ODsgICAgICAgJSBbXSAtIGRpb2RlIGlkZWFsaXR5IGNvbnN0YW50I"
+"Ch3ZSBkaWRudCBjaGFuZ2UpCgpTUC5LX1YgPSAtIDAuNDI3OTE7ICUgWyUvwrBDXSAtIHRoZXJtYW"
+"wgdm9sdGFnZSBjb2VmZmljaWVudCBvZiBhcnJheSAtMC4xMjMwIGZyb20gb3RoZXIgcGFuZWwKU1A"
+"uS19JID0gMC4wODY3MDE7ICAlIFslL8KwQ10gLSB0aGVybWFsIGN1cnJlbnQgY29lZmZpY2llbnQg"
+"b2YgYXJyYXkKClNQLkNfaW4gPSA4MDBlLTM7ICAlIFtGXSAtIGlucHV0IGNhcGFjaXRhbmNlIG9mI"
+"HRoZSBEQy9EQyBjb252ZXJ0ZXIgKGhpZ2ggdmFsdWUgdG8gZmlsdGVyIGFuZCB0aGUgdmFsdWUgaX"
+"MgZnJvbSB0aGUgc3VwZXJ2aXNvcikKJSUgQ19pbmNhbGN1bGF0ZTEuOGUtMyBbRl0KJSBCb29zdC1"
+"jb252ZXJ0ZXIKQm9vc3QuTCA9IDQ3MGUtNjsgJVtIXSAtIGluZHVjdG9yICVjYWxjdWxhdGUgNDcw"
+"ZS02CkJvb3N0LkMgPSA0NzBlLTY7ICVbRl0gLSBvdXRwdXQgY2FwYWNpdG9yICVjYWxjdWxhdGUgM"
+"TM0ZS02CkJvb3N0LlIgPSA1MDsgJSBbT2htXSAtIExvYWQKCiUgVl9vdXQ9IDM2MC9OdW1iZXJPZl"
+"Nlcmllc0Nvbm5lY3RlZFBhbmVscw=="
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -70,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [6, 163; 1286, 782]
+    Location      [0, 61; 1280, 680]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -806,7 +806,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm5"
       Show          off
-      Position      [250, 130]
+      Position      [220, 125]
       Direction     up
       Flipped       off
     }
@@ -817,20 +817,20 @@ Plecs {
       Position      [310, 275]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1280, 673]
+      Location      [501, 100; 1198, 623]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAAB+AP///wAAAAMAAAeEAAAAx/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABbAP///wAABkAAAAMKAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAACXAP///wAAAAMAAAeEAAAAx/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABpAP///wAABBYAAALuAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"wAAAJYAAAACAAAAlgAAAAEAAACWAAAABwAAAJYAAAAGAAAAlgAAAAUAAACWAAAABAAAAJYAAAAJAA"
-"AAlgAAAAgAAACWAAAAuwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACKAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAJYAAAAHAAAAlgAAAAYAAACWAAAACQAAAJYAAAAIAAAAlgAAAAEAAACWAAAAAwAAAJYAAAACAA"
+"AAlgAAAAUAAACWAAAAxAAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACKAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQAAAAABAAAAAQAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAAAAA=="
@@ -898,11 +898,11 @@ Plecs {
       Position      [295, 475]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1280, 663]
+      Location      [0, 163; 681, 570]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAACWAP///wAABkAAAAL9AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"AB4AAAAC0AP///wAAA/4AAAJAAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1246,9 +1246,9 @@ Plecs {
       Flipped       off
       Location      [0, 26; 1280, 663]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAACWAP///wAABkAAAAL9AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
+"///8AAAC0AP///wAAB4AAAAOZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1307,7 +1307,7 @@ Plecs {
       Type          Capacitor
       Name          "C2"
       Show          on
-      Position      [465, 130]
+      Position      [475, 130]
       Direction     down
       Flipped       on
       Parameter {
@@ -1429,7 +1429,7 @@ Plecs {
           Type          CScript
           Name          "C-Script"
           Show          on
-          Position      [205, 100]
+          Position      [200, 105]
           Direction     up
           Flipped       off
           Parameter {
@@ -1489,17 +1489,21 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "#define V_OC_threshold 44\n\n\nenum state {\n\tSTAR"
-"TUP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DEC,\n\tOPEN_LOOP,\n};"
-"\n\ndouble V, I, P, Vprevious, Iprevious, Pprevious, delta_V;\ndouble D_delta"
-" = 0.01;\ndouble D = 0;\nenum state SYSTEM_STATE = STARTUP;\nint startup_coun"
-"ter = 0;\n\n#define V_in Input(0);\n#define I_in Input(1);\n#define D_out Out"
-"put(0);\n\n\nvoid Open_loop_decrease_D(void){\n\tD = D - D_delta;\n}\n\nvoid "
-"calculate_power(void){\n\tP = V * I;\n}\n\nvoid evaluate_voltage(void){\n\tde"
-"lta_V = V - Vprevious;\n}\n\nvoid save_variables(void){\n\tVprevious = V;\n\t"
-"Iprevious = I;\n\tPprevious = P;\n}\n\nint power_is_increased(void){\n\tretur"
-"n P > Pprevious;\n}\n\nint power_is_decreased(void){\n\treturn P < Pprevious;"
-"\n}\n"
+            Value         "#include <time.h> \n#define V_OC_threshold 40\n\n\n"
+"enum state {\n\tSTARTUP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DE"
+"C,\n\tOPEN_LOOP,\n};\n\ndouble V, I, P, Vprevious, Iprevious, Pprevious, delt"
+"a_V;\ndouble D_delta = 0.01;\ndouble D = 0;\nenum state SYSTEM_STATE = STARTU"
+"P;\nint startup_counter = 0;\n\n#define V_in Input(0);\n#define I_in Input(1)"
+";\n#define D_out Output(0);\n\n\nvoid Open_loop_decrease_D(void){\n\tD = D - "
+"D_delta;\n}\n\nvoid calculate_power(void){\n\tP = V * I;\n}\n\nvoid evaluate_"
+"voltage(void){\n\tdelta_V = V - Vprevious;\n}\n\nvoid save_variables(void){\n"
+"\tVprevious = V;\n\tIprevious = I;\n\tPprevious = P;\n}\n\nint power_is_incre"
+"ased(void){\n\treturn P > Pprevious;\n}\n\nint power_is_decreased(void){\n\tr"
+"eturn P < Pprevious;\n}\nvoid delay_startup(int number_of_seconds) \n{ \n    "
+"// Converting time into milli_seconds \n    int milli_seconds = 1000 * number"
+"_of_seconds; \n  \n    // Stroing start time \n    clock_t start_time = clock"
+"(); \n  \n    // looping till required time is not acheived \n    while (cloc"
+"k() < start_time + milli_seconds) ; \n}\n"
             Show          off
           }
           Parameter {
@@ -1515,21 +1519,22 @@ Plecs {
           Parameter {
             Variable      "UpdateFcn"
             Value         "V=V_in;\nI=I_in;\n\n\tswitch (SYSTEM_STATE){\n\t\tc"
-"ase STARTUP:\n\t\t{\n\t\t\tif(V > V_OC_threshold) \n\t\t\t{\n\t\t\t\tSYSTEM_S"
-"TATE = OPEN_LOOP;\n\t\t\t\tD = 0.7;\n\t\t\t}\t\n\t\t}break;\n\t\t\n\t\tcase O"
-"PEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D();\n\t\t\tcalculate_power();\n\t"
-"\t\tsave_variables();\n\t\t\tstartup_counter++;\n\t\t\tif (startup_counter >="
-" 5) SYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\t\tcase VOLTAGE_EVALU"
-"ATION:\n\t\t{\n\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STAT"
-"E = VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}br"
-"eak;\n\n\n\t\tcase VOLTAGE_INC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif (p"
-"ower_is_increased()) D = D - D_delta;\n\t\t\tif (power_is_decreased()) D = D "
-"+ D_delta;\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;"
-"\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC:\n\t\t{\n\t\t\tcalculate_power();\n\t"
-"\t\tif (power_is_increased()) D = D + D_delta;\n\t\t\tif (power_is_decreased("
-")) D = D - D_delta;\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EV"
-"ALUATION;\n\t\t}break;\n\t}\n\nprintf(\"System state: %d \\n\", SYSTEM_STATE)"
-";"
+"ase STARTUP:\n\t\t{\n\t\t\t//if(V > V_OC_threshold) \n\t\t\t//{\n\t\t\tdelay_"
+"startup(5);\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD = 0.4;\n\t\t\t//}\t"
+"\n\t\t}break;\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D()"
+";\n\t\t\tcalculate_power();\n\t\t\tsave_variables();\n\t\t\tstartup_counter++"
+";\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}b"
+"reak;\n\n\t\tcase VOLTAGE_EVALUATION:\n\t\t{\n\t\t\tevaluate_voltage();\n\t\t"
+"\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTE"
+"M_STATE = VOLTAGE_DEC;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_INC:\n\t\t{\n\t\t\t"
+"calculate_power();\n\t\t\tif (power_is_increased()) D = D - D_delta;\n\t\t\ti"
+"f (power_is_decreased()) {D_delta = D_delta/2;\n\t\t\tD = D + D_delta;\n\t\t"
+"\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}"
+"break;\n\n\n\t\tcase VOLTAGE_DEC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif "
+"(power_is_increased()) D = D + D_delta;\n\t\t\tif (power_is_decreased()) {D_d"
+"elta = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\t}\n\t\t\tsave_variables();\n"
+"\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\t}\n\nprintf(\"System"
+" state: %d \\n\", SYSTEM_STATE);"
             Show          off
           }
           Parameter {
@@ -1563,6 +1568,7 @@ Plecs {
           Type          Signal
           SrcComponent  "Mux"
           SrcTerminal   1
+          Points        [135, 100; 135, 105]
           DstComponent  "C-Script"
           DstTerminal   1
         }
@@ -1570,7 +1576,7 @@ Plecs {
           Type          Signal
           SrcComponent  "C-Script"
           SrcTerminal   2
-          Points        [290, 100; 290, 90]
+          Points        [290, 105; 290, 90]
           DstComponent  "D"
           DstTerminal   1
         }
@@ -1588,7 +1594,7 @@ Plecs {
       Type          Scope
       Name          "Iout, Vout"
       Show          on
-      Position      [745, 90]
+      Position      [745, 85]
       Direction     up
       Flipped       off
       Location      [0, 26; 1283, 706]
@@ -1807,18 +1813,18 @@ Plecs {
       Flipped       off
       Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAABkQAAAMzAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAAPZAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
-"AAfQAAAAEAAAB9AAAAqAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB3AAA"
+"AAAAH0AAAAJAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAABAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAA"
+"AAfQAAAAUAAAB9AAAAsQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAB3AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -1860,12 +1866,12 @@ Plecs {
       Type          Capacitor
       Name          "C3"
       Show          on
-      Position      [290, 130]
+      Position      [260, 130]
       Direction     down
       Flipped       on
       Parameter {
         Variable      "C"
-        Value         "800e-6"
+        Value         "1.8e-3"
         Show          off
       }
       Parameter {
@@ -2027,18 +2033,18 @@ Plecs {
       Flipped       off
       Location      [0, 95; 1283, 628]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAABkQAAAJ7AAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAAL9AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"wAAAH0AAAACAAAAfQAAAAEAAAB9AAAABwAAAH0AAAAGAAAAfQAAAAUAAAB9AAAABAAAAH0AAAAJAA"
-"AAfQAAAAgAAAB9AAAAvgAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACNAAA"
+"QAAAH0AAAAJAAAAfQAAAAgAAAB9AAAABwAAAH0AAAAGAAAAfQAAAAUAAAB9AAAABAAAAH0AAAADAA"
+"AAfQAAAAIAAAB9AAAAxwAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACNAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -2105,20 +2111,20 @@ Plecs {
       Position      [475, 320]
       Direction     up
       Flipped       off
-      Location      [257, 99; 1037, 583]
+      Location      [305, 107; 1163, 537]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAA88AAAI+AAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAABQcAAAJiAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"wAAAH0AAAACAAAAfQAAAAEAAAB9AAAABwAAAH0AAAAGAAAAfQAAAAUAAAB9AAAABAAAAH0AAAAJAA"
-"AAfQAAAAgAAAB9AAAAwAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACPAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"QAAAH0AAAAEAAAAfQAAAAcAAAB9AAAABgAAAH0AAAABAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAAJAA"
+"AAfQAAAAgAAAB9AAAAyQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACPAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -2163,20 +2169,20 @@ Plecs {
       Position      [475, 275]
       Direction     up
       Flipped       off
-      Location      [0, 46; 1280, 663]
+      Location      [351, 103; 1122, 720]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAnfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABpAP///wAAB4AAAALYAAAA"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAASFAAAAnfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABIUAAABpAP///wAABIUAAALYAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAJYAAAADAAAAlgAAAAgAAACWAAAACQAAAJYAAAAEAAAAlgAAAAUAAACWAAAABgAAAJYAAAAHAA"
-"AAlgAAAAEAAACWAAAHZgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACPAAA"
+"QAAAJYAAAAJAAAAlgAAAAgAAACWAAAABwAAAJYAAAAGAAAAlgAAAAUAAACWAAAABAAAAJYAAAADAA"
+"AAlgAAAAIAAACWAAAEawAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACPAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AbXAAAAAQAAAAAAAAPoAAAAADo="
+"APcAAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -2245,35 +2251,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "V"
-        Value         "90"
-        Show          off
-      }
-    }
-    Component {
-      Type          Diode
-      Name          "D1"
-      Show          on
-      Position      [460, 95]
-      Direction     left
-      Flipped       off
-      Parameter {
-        Variable      "Vf"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ron"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "thermal"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         "0"
+        Value         "60"
         Show          off
       }
     }
@@ -2281,7 +2259,7 @@ Plecs {
       Type          Inductor
       Name          "L1"
       Show          on
-      Position      [320, 95]
+      Position      [300, 90]
       Direction     left
       Flipped       off
       Parameter {
@@ -2299,7 +2277,7 @@ Plecs {
       Type          Mosfet
       Name          "FET1"
       Show          on
-      Position      [415, 95]
+      Position      [430, 95]
       Direction     right
       Flipped       off
       Parameter {
@@ -2309,6 +2287,191 @@ Plecs {
       }
       Parameter {
         Variable      "s_init"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Control/Filters/Moving Average"
+      Name          "Moving Average"
+      Show          on
+      Position      [575, 540]
+      Direction     down
+      Flipped       off
+      Frame         [-15, -15; 15, 15]
+      LabelPosition [0, -18]
+      LabelAlign    down
+      Parameter {
+        Variable      "T_period"
+        Value         "0.1"
+        Show          off
+      }
+      Parameter {
+        Variable      "buffer_size"
+        Value         "1024"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [19, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-15, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Control/Filters/Moving Average"
+      Name          "Moving Average1"
+      Show          on
+      Position      [405, 450]
+      Direction     up
+      Flipped       off
+      Frame         [-15, -15; 15, 15]
+      LabelPosition [0, 18]
+      LabelAlign    up
+      Parameter {
+        Variable      "T_period"
+        Value         "0.1"
+        Show          off
+      }
+      Parameter {
+        Variable      "buffer_size"
+        Value         "1024"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [19, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-15, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope1"
+      Show          on
+      Position      [485, 475]
+      Direction     up
+      Flipped       off
+      Location      [427, 180; 996, 515]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAA1YAAAHUAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"QAAAJYAAAAJAAAAlgAAAAgAAACWAAAABwAAAJYAAAAGAAAAlgAAAAUAAACWAAAABAAAAJYAAAADAA"
+"AAlgAAAAIAAACWAAABDAAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADSAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      Axes          "2"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "1"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R1"
+      Show          on
+      Position      [540, 125]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "R"
+        Value         "27"
+        Show          off
+      }
+    }
+    Component {
+      Type          Diode
+      Name          "D2"
+      Show          on
+      Position      [345, 90]
+      Direction     left
+      Flipped       off
+      Parameter {
+        Variable      "Vf"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ron"
         Value         "0"
         Show          off
       }
@@ -2410,26 +2573,12 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "Am2"
-      SrcTerminal   2
-      Points        [525, 95]
-      Branch {
-        Points        [580, 95]
-        DstComponent  "Vm1"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "V_dc"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "FET1"
       SrcTerminal   2
       Points        [370, 95]
       Branch {
-        DstComponent  "L1"
+        Points        [370, 90]
+        DstComponent  "D2"
         DstTerminal   2
       }
       Branch {
@@ -2443,17 +2592,13 @@ Plecs {
       SrcTerminal   2
       Points        [525, 165]
       Branch {
-        Points        [465, 165]
-        Branch {
-          DstComponent  "C2"
-          DstTerminal   2
-        }
+        Points        [475, 165]
         Branch {
           Points        [370, 165]
           Branch {
-            Points        [290, 165]
+            Points        [260, 165]
             Branch {
-              Points        [250, 165]
+              Points        [220, 165]
               Branch {
                 DstComponent  "Am1"
                 DstTerminal   1
@@ -2473,11 +2618,22 @@ Plecs {
             DstTerminal   2
           }
         }
+        Branch {
+          DstComponent  "C2"
+          DstTerminal   2
+        }
       }
       Branch {
-        Points        [580, 165]
-        DstComponent  "Vm1"
-        DstTerminal   2
+        Points        [540, 165]
+        Branch {
+          Points        [580, 165]
+          DstComponent  "Vm1"
+          DstTerminal   2
+        }
+        Branch {
+          DstComponent  "R1"
+          DstTerminal   2
+        }
       }
     }
     Connection {
@@ -2497,8 +2653,16 @@ Plecs {
           DstTerminal   1
         }
         Branch {
-          DstComponent  "Pin vs Pout"
-          DstTerminal   1
+          Points        [365, 400]
+          Branch {
+            DstComponent  "Pin vs Pout"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [365, 450]
+            DstComponent  "Moving Average1"
+            DstTerminal   2
+          }
         }
       }
     }
@@ -2511,37 +2675,9 @@ Plecs {
       DstTerminal   2
     }
     Connection {
-      Type          Wire
-      SrcComponent  "PV_Villalva1"
-      SrcTerminal   1
-      Points        [135, 95; 220, 95]
-      Branch {
-        Points        [250, 95]
-        Branch {
-          Points        [290, 95]
-          Branch {
-            DstComponent  "L1"
-            DstTerminal   1
-          }
-          Branch {
-            DstComponent  "C3"
-            DstTerminal   1
-          }
-        }
-        Branch {
-          DstComponent  "Vm5"
-          DstTerminal   1
-        }
-      }
-      Branch {
-        Points        [220, 110]
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Am2"
       SrcTerminal   3
-      Points        [610, 80; 610, 85]
       DstComponent  "Iout, Vout"
       DstTerminal   1
     }
@@ -2549,7 +2685,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm1"
       SrcTerminal   3
-      Points        [635, 140; 635, 95]
+      Points        [635, 140; 635, 90]
       DstComponent  "Iout, Vout"
       DstTerminal   2
     }
@@ -2587,16 +2723,24 @@ Plecs {
         DstTerminal   1
       }
       Branch {
-        Points        [835, 510; 515, 510]
-        DstComponent  "Pin vs Pout"
-        DstTerminal   2
+        Points        [835, 510; 630, 510]
+        Branch {
+          Points        [515, 510]
+          DstComponent  "Pin vs Pout"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [630, 540]
+          DstComponent  "Moving Average"
+          DstTerminal   2
+        }
       }
     }
     Connection {
       Type          Signal
       SrcComponent  "Vm5"
       SrcTerminal   3
-      Points        [265, 215]
+      Points        [265, 125; 265, 215]
       Branch {
         DstComponent  "MPPT Controller"
         DstTerminal   1
@@ -2637,20 +2781,6 @@ Plecs {
       }
     }
     Connection {
-      Type          Wire
-      SrcComponent  "D1"
-      SrcTerminal   1
-      DstComponent  "FET1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "D1"
-      SrcTerminal   2
-      DstComponent  "Am2"
-      DstTerminal   1
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Symmetrical PWM"
       SrcTerminal   1
@@ -2687,6 +2817,73 @@ Plecs {
         Points        [710, 60]
         DstComponent  "FET1"
         DstTerminal   3
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Moving Average1"
+      SrcTerminal   1
+      Points        [430, 450; 430, 470]
+      DstComponent  "Scope1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Moving Average"
+      SrcTerminal   1
+      Points        [440, 540; 440, 480]
+      DstComponent  "Scope1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "PV_Villalva1"
+      SrcTerminal   1
+      Points        [135, 95; 220, 95]
+      Branch {
+        Points        [260, 95]
+        Branch {
+          Points        [260, 90]
+          DstComponent  "L1"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "C3"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        DstComponent  "Vm5"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "D2"
+      SrcTerminal   1
+      DstComponent  "L1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "FET1"
+      SrcTerminal   1
+      DstComponent  "Am2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Am2"
+      SrcTerminal   2
+      Points        [525, 95]
+      Branch {
+        Points        [580, 95]
+        DstComponent  "Vm1"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "V_dc"
+        DstTerminal   1
       }
     }
   }
