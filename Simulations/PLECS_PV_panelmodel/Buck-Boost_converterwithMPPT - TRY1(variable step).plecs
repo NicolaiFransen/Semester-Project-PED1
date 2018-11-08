@@ -1,5 +1,5 @@
 Plecs {
-  Name          "Buck-Boost_converterwithMPPT - TRY1(variable step)"
+  Name          "Buck-Boost_converterwithMPPT - TRY1(variable step)_Thassilo"
   Version       "4.2"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -49,7 +49,7 @@ Plecs {
 "CdWNrLWNvbnZlcnRlcgpCdWNrLkwgPSA0NzBlLTY7ICVbSF0gLSBpbmR1Y3RvciAlY2FsY3VsYXRl"
 "IDQ3MGUtNgpCdWNrLkMgPSA0NzBlLTY7ICVbRl0gLSBvdXRwdXQgY2FwYWNpdG9yICVjYWxjdWxhd"
 "GUgMTM0ZS02CkJ1Y2suUiA9IDUwOyAlIFtPaG1dIC0gTG9hZAoKVl9vdXQ9IDM2MC9OdW1iZXJPZl"
-"Nlcmllc0Nvbm5lY3RlZFBhbmVscw=="
+"Nlcmllc0Nvbm5lY3RlZFBhbmVsczs="
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -70,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 26; 1283, 681]
+    Location      [0, 26; 1283, 676]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -826,8 +826,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAJYAAAAHAAAAlgAAAAYAAACWAAAACQAAAJYAAAAIAAAAlgAAAAEAAACWAAAAAwAAAJYAAAACAA"
-"AAlgAAAAUAAACWAAABDQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADTAAA"
+"QAAAJYAAAAIAAAAlgAAAAkAAACWAAAAAgAAAJYAAAADAAAAlgAAAAEAAACWAAAABgAAAJYAAAAHAA"
+"AAlgAAAAQAAACWAAABDQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADTAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AA6AAAAAQAAAAAAAAPoAAAAADo="
@@ -838,7 +838,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -1551,24 +1551,24 @@ Plecs {
           Parameter {
             Variable      "Declarations"
             Value         "#include<stdio.h>\n#include<stdlib.h>\n#include <ti"
-"me.h> \n\n\n#define V_OC_threshold 43\n\n\nenum state {\n\tSTARTUP,\n\tVOLTAG"
+"me.h> \n\n\n#define V_OC_threshold 39\n\n\nenum state {\n\tSTARTUP,\n\tVOLTAG"
 "E_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DEC,\n\tOPEN_LOOP,\n};\n\ndouble V, "
-"I, P, Vprevious, Iprevious, Pprevious, delta_V, delta_P, delta_Pprevious, V_o"
-"ut=24;\ndouble D1_delta=0.01, D2_delta=0.01;\ndouble D1 = 0, D2=0;\nenum stat"
-"e SYSTEM_STATE = STARTUP;\nint startup_counter = 0;\ndouble buck, boost;\n\n#"
-"define V_in Input(0);\n#define I_in Input(1);\n#define D1_out Output(0);\n#de"
-"fine D2_out Output(1);\n\n\nvoid Open_loop_decrease_D1(void){\n\tD1 = D1 - D1"
-"_delta;\n}\n\nvoid Open_loop_decrease_D2(void){\n\tD2 = D2 - D2_delta;\n}\n\n"
-"void calculate_power(void){\n\tP = V * I;\n}\n\nvoid calculate_delta_power(vo"
-"id){\n\tdelta_P = P - Pprevious;\n}\n\n\nvoid evaluate_voltage(void){\n\tdelt"
-"a_V = V - Vprevious;\n}\n\nvoid save_variables(void){\n\tVprevious = V;\n\tIp"
-"revious = I;\n\tPprevious = P;\n\t}\n\nint power_is_increased(void){\n\tretur"
-"n P > Pprevious;\n}\n\nint power_is_decreased(void){\n\treturn P < Pprevious;"
-"\n}\n\nvoid delay_startup(int number_of_seconds) \n{ \n    // Converting time"
-" into milli_seconds \n    int milli_seconds = 1000 * number_of_seconds; \n  "
-"\n    // Stroing start time \n    clock_t start_time = clock(); \n  \n    // "
-"looping till required time is not acheived \n    while (clock() < start_time "
-"+ milli_seconds) ; \n}"
+"I, P, Vprevious, Iprevious, Pprevious, delta_V, delta_P, Vo;\ndouble D1_delta"
+"=0.01, D2_delta=0.01;\ndouble D1 = 0, D2=0;\nenum state SYSTEM_STATE = STARTU"
+"P;\nint startup_counter = 0;\ndouble buck, boost;\n\n#define V_in Input(0);\n"
+"#define I_in Input(1);\n#define V_out Input(2);\n#define D1_out Output(0);\n#"
+"define D2_out Output(1);\n\n\nvoid Open_loop_decrease_D1(void){\n\tD1 = D1 - "
+"D1_delta;\n}\n\nvoid Open_loop_decrease_D2(void){\n\tD2 = D2 - D2_delta;\n}\n"
+"\nvoid calculate_power(void){\n\tP = V * I;\n}\n\nvoid calculate_delta_power("
+"void){\n\tdelta_P = P - Pprevious;\n}\n\n\nvoid evaluate_voltage(void){\n\tde"
+"lta_V = V - Vprevious;\n}\n\n//void mode decision (void){\n  \n//}\nvoid save"
+"_variables(void){\n\tVprevious = V;\n\tIprevious = I;\n\tPprevious = P;\n\t}"
+"\n\nint power_is_increased(void){\n\treturn P > Pprevious;\n}\n\nint power_is"
+"_decreased(void){\n\treturn P < Pprevious;\n}\n\nvoid delay_startup(int numbe"
+"r_of_seconds) \n{ \n    // Converting time into milli_seconds \n    int milli"
+"_seconds = 1000 * number_of_seconds; \n  \n    // Stroing start time \n    cl"
+"ock_t start_time = clock(); \n  \n    // looping till required time is not ac"
+"heived \n    while (clock() < start_time + milli_seconds) ; \n}"
             Show          off
           }
           Parameter {
@@ -1583,42 +1583,43 @@ Plecs {
           }
           Parameter {
             Variable      "UpdateFcn"
-            Value         "V=V_in;\nI=I_in;\n\nif (V_out < V){  //buck mode\n"
-"\n\tswitch (SYSTEM_STATE){\n\t\tcase STARTUP:\n\t\t{\n\t\t\t\tdelay_startup(1"
-");\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD1 = 0.7;\n\t\t\t\tD2=0;\n\t\t"
-"}break;\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D1();\n\t"
-"\t\tcalculate_power();\n\t\t\tsave_variables();\n\t\t\tstartup_counter++;\n\t"
-"\t\tif (startup_counter >= 5) SYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;"
-"\n\n\t\tcase VOLTAGE_EVALUATION:\n\t\t{\n\t\t\tevaluate_voltage();\n\t\t\tif "
-"(delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTEM_STA"
-"TE = VOLTAGE_DEC;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_INC:\n\t\t{\n\t\t\tcalcu"
-"late_power();\n\t\t\tif (power_is_increased()){ //left \n\t\t\tD1 = D1 - D1_d"
-"elta; \n\t\t\tD2=0;}\n\t\t\tif (power_is_decreased()) {//right\n\t\t\tD1_delt"
-"a = D1_delta/2;\n\t\t\tD1 = D1 + D1_delta;\t\n\t\t\tD2=0;}\n\t\t\tsave_variab"
-"les();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\n\t\tcase V"
-"OLTAGE_DEC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif (power_is_increased())"
-" {\n\t\t\tD1 = D1 + D1_delta;\n\t\t\tD2=0;}\n\t\t\tif (power_is_decreased()) "
-"{\n\t\t\tD1_delta = D1_delta/2;\n\t\t\tD1 = D1 - D1_delta;\n\t\t\tD2=0;}\n\t"
-"\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;"
-"\n\t}\n\t\n}\nelse   //boost mode\n{\n\tswitch (SYSTEM_STATE){\n\t\tcase STAR"
-"TUP:\n\t\t{\n\t\t\tif(V > V_OC_threshold) \n\t\t\t{\n\t\t\t\t//delay_startup("
-"2);\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD2 = 0.7;\n\t\t\t\tD1=1;\n\t"
-"\t\t}\t\n\t\t}break;\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decre"
-"ase_D2();\n\t\t\tcalculate_power();\n\t\t\tcalculate_delta_power();\n\t\t\tsa"
-"ve_variables();\n\t\t\tstartup_counter++;\n\t\t\tif (startup_counter >= 5) SY"
-"STEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\t\tcase VOLTAGE_EVALUATION:"
-"\n\t\t{\n\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VO"
-"LTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n"
-"\n\n\t\tcase VOLTAGE_INC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif (power_i"
-"s_increased()) {\n\t\t\tD2 = D2 - D2_delta;  \n\t\t\tD1 = 1;}\n\t\t\tif (powe"
-"r_is_decreased()){\n\t\t\tD2_delta = D2_delta/2;\n\t\t\tD2 = D2 + D2_delta;\n"
-"\t\t\tD1=1;}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATIO"
-"N;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC:\n\t\t{\n\t\t\tcalculate_power();\t"
-"\t\t\n\t\t\tif (power_is_increased()) {\n\t\t\tD2 = D2 + D2_delta;  \n\t\t\tD"
-"1 = 1;}\n\t\t\tif (power_is_decreased()){\n\t\t\tD2_delta = D2_delta/2;\n\t\t"
-"\tD2 = D2 - D2_delta;\n\t\t\tD1 = 1;}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_"
-"STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\t}\n}\nprintf(\"System state: %d "
-"\\n\", SYSTEM_STATE);"
+            Value         "V=V_in;\nI=I_in;\nVo =V_out;\n\nif (Vo < V) {  //bu"
+"ck mode\n\n\tswitch (SYSTEM_STATE){\n\t\tcase STARTUP:\n\t\t{\n\t\tif(V > V_O"
+"C_threshold) \n\t\t\t{\n\t\t\t\tdelay_startup(1);\n\t\t\t\tSYSTEM_STATE = OPE"
+"N_LOOP;\n\t\t\t\tD1 = 0.7;\n\t\t\t\tD2=0;\n\t\t\t}\t\n\t\t}break;\n\t\t\n\t\t"
+"case OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D1();\n\t\t\tcalculate_power"
+"();\n\t\t\tsave_variables();\n\t\t\tstartup_counter++;\n\t\t\tif (startup_cou"
+"nter >= 5) SYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\t\tcase VOLTAG"
+"E_EVALUATION:\n\t\t{\n\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYST"
+"EM_STATE = VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n"
+"\t\t}break;\n\n\n\t\tcase VOLTAGE_INC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t"
+"\tif (power_is_increased()){ //left \n\t\t\tD1 = D1 - D1_delta; \n\t\t\tD2=0;"
+"}\n\t\t\tif (power_is_decreased()) {//right\n\t\t\tD1_delta = D1_delta/2;\n\t"
+"\t\tD1 = D1 + D1_delta;\t\n\t\t\tD2=0;}\n\t\t\tsave_variables();\n\t\t\tSYSTE"
+"M_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC:\n\t\t{"
+"\n\t\t\tcalculate_power();\n\t\t\tif (power_is_increased()) {\n\t\t\tD1 = D1 "
+"+ D1_delta;\n\t\t\tD2=0;}\n\t\t\tif (power_is_decreased()) {\n\t\t\tD1_delta "
+"= D1_delta/2;\n\t\t\tD1 = D1 - D1_delta;\n\t\t\tD2=0;}\n\t\t\tsave_variables("
+");\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\t}\n\t\n}\nelse  "
+" //boost mode\n{\n\tswitch (SYSTEM_STATE){\n\t\tcase STARTUP:\n\t\t{\n\t\t\ti"
+"f(V > V_OC_threshold) \n\t\t\t{\n\t\t\t\t//delay_startup(2);\n\t\t\t\tSYSTEM_"
+"STATE = OPEN_LOOP;\n\t\t\t\tD2 = 0.2;\n\t\t\t\tD1=1;\n\t\t\t}\t\n\t\t}break;"
+"\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_decrease_D2();\n\t\t\tcal"
+"culate_power();\n\t\t\tcalculate_delta_power();\n\t\t\tsave_variables();\n\t"
+"\t\tstartup_counter++;\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE = VOLTAG"
+"E_EVALUATION;\n\t\t}break;\n\n\t\tcase VOLTAGE_EVALUATION:\n\t\t{\n\t\t\teval"
+"uate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t\ti"
+"f (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\n\n\t\tcase VOLTAG"
+"E_INC:\n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif (power_is_increased()) {\n"
+"\t\t\tD2 = D2 - D2_delta;  \n\t\t\tD1 = 1;}\n\t\t\tif (power_is_decreased()){"
+"\n\t\t\tD2_delta = D2_delta/2;\n\t\t\tD2 = D2 + D2_delta;\n\t\t\tD1=1;}\n\t\t"
+"\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n"
+"\n\n\t\tcase VOLTAGE_DEC:\n\t\t{\n\t\t\tcalculate_power();\t\t\t\n\t\t\tif (p"
+"ower_is_increased()) {\n\t\t\tD2 = D2 + D2_delta;  \n\t\t\tD1 = 1;}\n\t\t\tif"
+" (power_is_decreased()){\n\t\t\tD2_delta = D2_delta/2;\n\t\t\tD2 = D2 - D2_de"
+"lta;\n\t\t\tD1 = 1;}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_E"
+"VALUATION;\n\t\t}break;\n\t}\n}\nprintf(\"System state: %d \\n\", SYSTEM_STAT"
+"E);"
             Show          off
           }
           Parameter {
@@ -1752,20 +1753,20 @@ Plecs {
       Position      [1085, 315]
       Direction     up
       Flipped       off
-      Location      [1118, 104; 1546, 625]
+      Location      [852, 104; 1280, 625]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAAhcAAAJsAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAALoA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAAoIAAALrAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAH0AAAADAAAAfQAAAAEAAAB9AAAACAAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAA"
-"AAfQAAAAUAAAB9AAAAqAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB3AAA"
+"wAAAH0AAAACAAAAfQAAAAUAAAB9AAAABAAAAH0AAAAHAAAAfQAAAAYAAAB9AAAACQAAAH0AAAAIAA"
+"AAfQAAAAEAAAB9AAAAsQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAB3AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "=="
@@ -1916,20 +1917,20 @@ Plecs {
       Position      [1090, 440]
       Direction     up
       Flipped       off
-      Location      [1056, 115; 1626, 701]
+      Location      [710, 115; 1280, 701]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAAsgAAAK+AAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAALoA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAA1cAAANMAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAH0AAAADAAAAfQAAAAEAAAB9AAAACAAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAA"
-"AAfQAAAAUAAAB9AAAA4gAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACxAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAH0AAAAHAAAAfQAAAAYAAAB9AAAACQAAAH0AAAAIAAAAfQAAAAEAAAB9AAAAAwAAAH0AAAACAA"
+"AAfQAAAAUAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACxAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "=="
@@ -2018,20 +2019,20 @@ Plecs {
       Position      [1070, 575]
       Direction     up
       Flipped       off
-      Location      [632, 44; 1115, 799]
+      Location      [632, 26; 1115, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAJcAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAlwAAABbAP///wAAAlwAAAMMAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAALVAAAAiPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAtUAAABpAP///wAAAtUAAANLAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAJYAAAADAAAAlgAAAAEAAACWAAAACAAAAJYAAAAJAAAAlgAAAAYAAACWAAAABwAAAJYAAAAEAA"
-"AAlgAAAAUAAACWAAACRwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACCAAA"
+"wAAAJYAAAACAAAAlgAAAAUAAACWAAAABAAAAJYAAAAHAAAAlgAAAAYAAACWAAAACQAAAJYAAAAIAA"
+"AAlgAAAAEAAACWAAACuwAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACbAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AHFAAAAAQAAAAAAAAPoAAAAADE="
+"AIgAAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -4340,16 +4341,16 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "FET3"
-      SrcTerminal   1
-      DstComponent  "Am2"
+      SrcComponent  "D1"
+      SrcTerminal   2
+      DstComponent  "Am3"
       DstTerminal   1
     }
     Connection {
       Type          Wire
-      SrcComponent  "D1"
-      SrcTerminal   2
-      DstComponent  "Am3"
+      SrcComponent  "FET3"
+      SrcTerminal   1
+      DstComponent  "Am2"
       DstTerminal   1
     }
     Connection {
@@ -4368,7 +4369,8 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "Buck-Boost_converterwithMPPT - TRY1(variable step)/PV V, I"
+    Tag           "Buck-Boost_converterwithMPPT - TRY1(variable step)_Thassilo"
+"/PV V, I"
     Probe {
       Component     "Vm5"
       Path          ""
@@ -4381,8 +4383,8 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "Buck-Boost_converterwithMPPT - TRY1(variable step)/Vout, Io"
-"ut"
+    Tag           "Buck-Boost_converterwithMPPT - TRY1(variable step)_Thassilo"
+"/Vout, Iout"
     Probe {
       Component     "Vm1"
       Path          ""
