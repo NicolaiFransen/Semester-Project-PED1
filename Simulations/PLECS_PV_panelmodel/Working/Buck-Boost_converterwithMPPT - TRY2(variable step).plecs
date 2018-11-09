@@ -23,7 +23,7 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
-  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPSA0O"
+  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPSA4O"
 "yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
 "RlbQpUcyA9IDAuMDAxOyAgJXNhbXBsZSB0aW1lIE1QUFQgMUtIegolJSUgU29sYXIgUGFuZWwgKFN"
 "1bnRlY2ggUG93ZXIgU1RQMzAwLTI0X1ZkKSUgc2VsZWN0IHZhbHVlcyBmcm9tIHNpbXVsaW5rIGFu"
@@ -70,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 23; 1536, 777]
+    Location      [0, 26; 1536, 780]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -817,7 +817,7 @@ Plecs {
       Position      [1120, 200]
       Direction     up
       Flipped       off
-      Location      [333, 334; 821, 869]
+      Location      [346, 241; 834, 776]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAAB+AP///wAAAAMAAAeEAAAAx/w"
@@ -825,9 +825,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAJYAAAACAAAAlgAAAAMAAACWAAAABAAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAAIAA"
-"AAlgAAAAkAAACWAAAA5QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"QAAAJYAAAAEAAAAlgAAAAMAAACWAAAAAgAAAJYAAAABAAAAlgAAAAkAAACWAAAACAAAAJYAAAAHAA"
+"AAlgAAAAYAAACWAAAA5QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -1376,7 +1376,7 @@ Plecs {
       Type          Subsystem
       Name          "MPPT Controller"
       Show          on
-      Position      [270, 345]
+      Position      [375, 365]
       Direction     up
       Flipped       off
       Frame         [-35, -30; 35, 30]
@@ -2030,9 +2030,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAJYAAAACAAAAlgAAAAMAAACWAAAABAAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAAIAA"
-"AAlgAAAAkAAACWAAADcAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACCAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"QAAAJYAAAAEAAAAlgAAAAMAAACWAAAAAgAAAJYAAAABAAAAlgAAAAkAAACWAAAACAAAAJYAAAAHAA"
+"AAlgAAAAYAAACWAAADcAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACCAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "ALuAAAAAQAAAAAAAAPoAAAAADE="
@@ -2186,7 +2186,7 @@ Plecs {
       Type          Subsystem
       Name          "\n\n\n\n\n\nPWM"
       Show          on
-      Position      [440, 325]
+      Position      [545, 345]
       Direction     up
       Flipped       off
       Frame         [-45, -30; 45, 30]
@@ -2248,8 +2248,8 @@ Plecs {
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAA"
-"AIAAAAfQAAAAkAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC"
+"AAABQAAAH0AAAAEAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAAAAfQAAAAkAAAB9AAAACAAAAH0AAA"
+"AHAAAAfQAAAAYAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC"
 "6AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -2402,17 +2402,17 @@ Plecs {
           Position      [325, 215]
           Direction     up
           Flipped       off
-          Location      [512, 220; 862, 552]
+          Location      [0, 23; 1536, 804]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAAbYAAAGA"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOx"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAA"
-"AIAAAAfQAAAAkAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC"
+"AAABQAAAH0AAAAEAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAAAAfQAAAAkAAAB9AAAACAAAAH0AAA"
+"AHAAAAfQAAAAYAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC"
 "6AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -2725,7 +2725,7 @@ Plecs {
       Type          Goto
       Name          "Goto3"
       Show          off
-      Position      [535, 290]
+      Position      [640, 310]
       Direction     right
       Flipped       off
       Parameter {
@@ -2743,7 +2743,7 @@ Plecs {
       Type          Goto
       Name          "Goto4"
       Show          off
-      Position      [535, 310]
+      Position      [640, 330]
       Direction     right
       Flipped       off
       Parameter {
@@ -2761,7 +2761,7 @@ Plecs {
       Type          Goto
       Name          "Goto5"
       Show          off
-      Position      [535, 335]
+      Position      [640, 355]
       Direction     right
       Flipped       off
       Parameter {
@@ -2779,7 +2779,7 @@ Plecs {
       Type          Goto
       Name          "Goto6"
       Show          off
-      Position      [535, 355]
+      Position      [640, 375]
       Direction     right
       Flipped       off
       Parameter {
@@ -3573,7 +3573,7 @@ Plecs {
       Type          Goto
       Name          "Goto14"
       Show          off
-      Position      [350, 300]
+      Position      [455, 320]
       Direction     right
       Flipped       off
       Parameter {
@@ -3591,7 +3591,7 @@ Plecs {
       Type          Goto
       Name          "Goto15"
       Show          off
-      Position      [355, 375]
+      Position      [460, 395]
       Direction     right
       Flipped       off
       Parameter {
@@ -3692,9 +3692,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAH0AAAACAAAAfQAAAAMAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAIAA"
-"AAfQAAAAkAAAB9AAAAlQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABkAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"QAAAH0AAAAEAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAAAAfQAAAAkAAAB9AAAACAAAAH0AAAAHAA"
+"AAfQAAAAYAAAB9AAAAlQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABkAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -3761,7 +3761,7 @@ Plecs {
       Type          From
       Name          "From24"
       Show          off
-      Position      [245, 275]
+      Position      [285, 345]
       Direction     right
       Flipped       off
       Parameter {
@@ -3932,7 +3932,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm7"
       Show          on
-      Position      [695, 180]
+      Position      [695, 185]
       Direction     up
       Flipped       off
     }
@@ -4005,17 +4005,17 @@ Plecs {
       Position      [1325, 90]
       Direction     up
       Flipped       off
-      Location      [490, 197; 1042, 612]
+      Location      [425, 78; 1043, 612]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAArIAAAHoAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAAwQAAAJ9AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAH0AAAACAAAAfQAAAAMAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAIAA"
-"AAfQAAAAkAAAB9AAAApQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB0AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"QAAAH0AAAAEAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAAAAfQAAAAkAAAB9AAAACAAAAH0AAAAHAA"
+"AAfQAAAAYAAAB9AAAApQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB0AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -4200,17 +4200,17 @@ Plecs {
       Position      [1320, 265]
       Direction     up
       Flipped       off
-      Location      [1054, 200; 1513, 607]
+      Location      [1043, 75; 1527, 612]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAAj4AAAHeAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAAl0AAAKAAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAH0AAAACAAAAfQAAAAMAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAIAA"
-"AAfQAAAAkAAAB9AAAApQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB0AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"QAAAH0AAAAEAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAAAAfQAAAAkAAAB9AAAACAAAAH0AAAAHAA"
+"AAfQAAAAYAAAB9AAAApQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB0AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -4558,7 +4558,6 @@ Plecs {
               DstTerminal   2
             }
             Branch {
-              Points        [695, 205]
               DstComponent  "Vm7"
               DstTerminal   2
             }
@@ -4592,7 +4591,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\n\nPWM"
       SrcTerminal   3
-      Points        [505, 310; 505, 290]
+      Points        [610, 330; 610, 310]
       DstComponent  "Goto3"
       DstTerminal   1
     }
@@ -4600,7 +4599,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\n\nPWM"
       SrcTerminal   4
-      Points        [510, 320; 510, 310]
+      Points        [615, 340; 615, 330]
       DstComponent  "Goto4"
       DstTerminal   1
     }
@@ -4608,7 +4607,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\n\nPWM"
       SrcTerminal   5
-      Points        [515, 330]
+      Points        [620, 350]
       DstComponent  "Goto5"
       DstTerminal   1
     }
@@ -4616,7 +4615,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\n\nPWM"
       SrcTerminal   6
-      Points        [505, 340; 505, 355]
+      Points        [610, 360; 610, 375]
       DstComponent  "Goto6"
       DstTerminal   1
     }
@@ -4731,7 +4730,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
-      Points        [145, 350]
+      Points        [145, 370]
       DstComponent  "MPPT Controller"
       DstTerminal   3
     }
@@ -4739,7 +4738,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm5"
       SrcTerminal   3
-      Points        [205, 155; 205, 340]
+      Points        [195, 155; 195, 360]
       DstComponent  "MPPT Controller"
       DstTerminal   1
     }
@@ -4877,13 +4876,13 @@ Plecs {
       Type          Signal
       SrcComponent  "MPPT Controller"
       SrcTerminal   2
-      Points        [320, 340]
+      Points        [425, 360]
       Branch {
         DstComponent  "\n\n\n\n\n\nPWM"
         DstTerminal   2
       }
       Branch {
-        Points        [320, 300]
+        Points        [425, 320]
         DstComponent  "Goto14"
         DstTerminal   1
       }
@@ -4892,13 +4891,13 @@ Plecs {
       Type          Signal
       SrcComponent  "MPPT Controller"
       SrcTerminal   4
-      Points        [320, 350]
+      Points        [425, 370]
       Branch {
         DstComponent  "\n\n\n\n\n\nPWM"
         DstTerminal   1
       }
       Branch {
-        Points        [320, 375]
+        Points        [425, 395]
         DstComponent  "Goto15"
         DstTerminal   1
       }
@@ -4939,7 +4938,6 @@ Plecs {
       Type          Signal
       SrcComponent  "From24"
       SrcTerminal   1
-      Points        [254, 300; 210, 300; 210, 325]
       DstComponent  "MPPT Controller"
       DstTerminal   5
     }
@@ -5033,6 +5031,7 @@ Plecs {
         DstTerminal   2
       }
       Branch {
+        Points        [695, 160]
         DstComponent  "Vm7"
         DstTerminal   1
       }
