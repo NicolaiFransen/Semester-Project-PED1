@@ -70,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 26; 1536, 780]
+    Location      [0, 87; 1536, 777]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -817,17 +817,17 @@ Plecs {
       Position      [1120, 200]
       Direction     up
       Flipped       off
-      Location      [577, 106; 1026, 696]
+      Location      [0, 23; 1536, 804]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAAB+AP///wAAAAMAAAeEAAAAx/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABbAP///wAAAjEAAALDAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABbAP///wAAB4AAAAOxAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAJYAAAAGAAAAlgAAAAcAAACWAAAAAQAAAJYAAAACAAAAlgAAAAMAAACWAAAACAAAAJYAAAAJAA"
-"AAlgAAAAQAAACWAAAA5QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
+"AAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAABAAAAlgAAAAIAAACWAAAAAwAAAJYAAAAIAA"
+"AAlgAAAAkAAACWAAAA5QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -838,7 +838,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -916,14 +916,14 @@ Plecs {
       Type          XYPlot
       Name          "P vs V"
       Show          on
-      Position      [1075, 45]
+      Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [703, 142; 1137, 740]
+      Location      [0, 26; 1536, 807]
       State         "AAAA/wAAAAD9AAAAAwAAAAEAAAAAAAAAAPwCAAAAAfsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAD8A////AAAAAgAAB4AAAACx/AEAAAAB+wAAABQAUwBhAHYAZQ"
 "BkAFYAaQBlAHcAcwIAAAOOAAACAwAAAOEAAACWAAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0"
-"AZQBSAGEAbgBnAGUAAAAAAAAAB4AAAACWAP///wAAAh8AAALNAAAABAAAAAQAAAAIAAAACPwAAAAB"
+"AZQBSAGEAbgBnAGUAAAAAAAAAB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAAB"
 "AAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAEAAAAQADEAMAAwADAAVwAvAG0AMr/0AAAAAAAAQEaAAAAAA"
 "AAAAAABAH/4AAAAAAAAf/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
@@ -932,7 +932,7 @@ Plecs {
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQA="
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1279,7 +1279,7 @@ Plecs {
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1663,8 +1663,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAACAAAAH0AAAAJAA"
-"AAfQAAAAQAAAB9AAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB/AAA"
+"AAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAABAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB/AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -1675,7 +1675,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -1827,8 +1827,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAACAAAAH0AAAAJAA"
-"AAfQAAAAQAAAB9AAABFwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAADmAAA"
+"AAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAABAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAABFwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAADmAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -1839,7 +1839,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -1929,11 +1929,11 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAJYAAAAGAAAAlgAAAAcAAACWAAAAAQAAAJYAAAACAAAAlgAAAAMAAACWAAAACAAAAJYAAAAJAA"
-"AAlgAAAAQAAACWAAADcAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
+"AAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAABAAAAlgAAAAIAAACWAAAAAwAAAJYAAAAIAA"
+"AAlgAAAAkAAACWAAADcAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACqAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AK8AAAAAQAAAAAAAAPoAAAAADE="
+"ALGAAAAAQAAAAAAAAPoAAAAADE="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -1941,7 +1941,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2040,12 +2040,12 @@ Plecs {
       Type          DCVoltageSource
       Name          "_"
       Show          on
-      Position      [785, 155]
+      Position      [785, 170]
       Direction     down
       Flipped       on
       Parameter {
         Variable      "V"
-        Value         "V_out"
+        Value         "60"
         Show          off
       }
     }
@@ -2970,7 +2970,7 @@ Plecs {
       Type          Subsystem
       Name          "\n\n\n\n\nPout"
       Show          on
-      Position      [445, 510]
+      Position      [450, 505]
       Direction     up
       Flipped       off
       Frame         [-45, -25; 45, 25]
@@ -3634,8 +3634,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAACAAAAH0AAAAJAA"
-"AAfQAAAAQAAAB9AAAAlQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABkAAA"
+"AAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAABAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAAAlQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABkAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -3900,7 +3900,7 @@ Plecs {
       Position      [1325, 90]
       Direction     up
       Flipped       off
-      Location      [594, 174; 1210, 692]
+      Location      [769, 205; 1385, 723]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
@@ -3909,8 +3909,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAACAAAAH0AAAAJAA"
-"AAfQAAAAQAAAB9AAAAxQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACUAAA"
+"AAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAABAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAAAxQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -4104,8 +4104,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"QAAAH0AAAAGAAAAfQAAAAcAAAB9AAAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAACAAAAH0AAAAJAA"
-"AAfQAAAAQAAAB9AAAAxAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACTAAA"
+"AAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAABAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAAAxAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACTAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -4116,7 +4116,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -4448,8 +4448,9 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "double D, D_buck=0, D_boost=0;\n\n\n#define D_in In"
-"put(0);\n#define D_buck_out Output(0);\n#define D_boost_out Output(1);\n\n\n"
+            Value         "double D, D_buck=0, D_boost=0;\nint a=1;\n\n\n#defi"
+"ne D_in Input(0);\n#define D_buck_out Output(0);\n#define D_boost_out Output("
+"1);\n\n\n"
             Show          off
           }
           Parameter {
@@ -4464,8 +4465,10 @@ Plecs {
           }
           Parameter {
             Variable      "UpdateFcn"
-            Value         "D=D_in;\n\n\nif (D<0.5){\n\tD_buck = 2*D;\n\tD_boos"
-"t = 0;\n}\nelse {\n\tD_buck = 1;\n\tD_boost = 2*D - 1;\n}\n\t"
+            Value         "D=D_in;\n\nif (D<0.5){\n\tD_buck = 2*D;\n\tD_boost "
+"= 0;\n\tprintf(\"Buck mode is 1, Boost mode is 0: %d \\n\", a);\n}\nelse {\n"
+"\tD_buck = 1;\n\tD_boost = 2*D - 1;\n\tprintf(\"Buck mode is 1, Boost mode is"
+" 0: %d \\n\", a-1);\n}\n\t"
             Show          off
           }
           Parameter {
@@ -4669,7 +4672,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Tag"
-        Value         "V_pv"
+        Value         "V_in avg"
         Show          off
       }
       Parameter {
@@ -4683,6 +4686,113 @@ Plecs {
       Name          "Mux1"
       Show          off
       Position      [1065, 690]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto24"
+      Show          off
+      Position      [320, 310]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "V_in avg"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto25"
+      Show          off
+      Position      [320, 450]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "I_in avg"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "vL, iL1"
+      Show          on
+      Position      [105, 365]
+      Direction     up
+      Flipped       off
+      Location      [0, 26; 1536, 807]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAABAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAAA2wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACqAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          "inductor voltage"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux2"
+      Show          off
+      Position      [65, 365]
       Direction     right
       Flipped       off
       Parameter {
@@ -4748,7 +4858,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From2"
       SrcTerminal   1
-      Points        [1040, 30; 1040, 40]
+      Points        [1040, 30]
       DstComponent  "P vs V"
       DstTerminal   2
     }
@@ -5077,6 +5187,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vout, Iout"
       SrcTerminal   1
+      Points        [390, 505]
       DstComponent  "\n\n\n\n\nPout"
       DstTerminal   1
     }
@@ -5084,6 +5195,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\nPout"
       SrcTerminal   2
+      Points        [510, 495; 510, 500]
       DstComponent  "Goto11"
       DstTerminal   1
     }
@@ -5379,20 +5491,6 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Wire
-      SrcComponent  "Vm1"
-      SrcTerminal   1
-      Points        [890, 95; 825, 95]
-      Branch {
-        DstComponent  "Am2"
-        DstTerminal   2
-      }
-      Branch {
-        DstComponent  "R1"
-        DstTerminal   1
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Mode decision"
       SrcTerminal   3
@@ -5425,34 +5523,11 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Vm5"
-      SrcTerminal   3
-      Points        [190, 155; 190, 360]
-      DstComponent  "Moving Average"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Moving Average"
-      SrcTerminal   1
-      DstComponent  "MPPT Controller"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
       Points        [145, 410]
       DstComponent  "Moving Average1"
       DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Moving Average1"
-      SrcTerminal   1
-      Points        [355, 410]
-      DstComponent  "MPPT Controller"
-      DstTerminal   3
     }
     Connection {
       Type          Signal
@@ -5500,6 +5575,80 @@ Plecs {
       Points        [1075, 640; 1070, 640; 1070, 590]
       DstComponent  "D1,D2"
       DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Moving Average1"
+      SrcTerminal   1
+      Points        [300, 410]
+      Branch {
+        Points        [355, 410]
+        DstComponent  "MPPT Controller"
+        DstTerminal   3
+      }
+      Branch {
+        DstComponent  "Goto25"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux2"
+      SrcTerminal   1
+      DstComponent  "vL, iL1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm5"
+      SrcTerminal   3
+      Points        [190, 155; 190, 310]
+      Branch {
+        Points        [190, 360]
+        DstComponent  "Moving Average"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [50, 310]
+        DstComponent  "Mux2"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Moving Average"
+      SrcTerminal   1
+      Points        [280, 360]
+      Branch {
+        Points        [300, 360]
+        Branch {
+          DstComponent  "MPPT Controller"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Goto24"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [280, 455; 45, 455; 45, 370]
+        DstComponent  "Mux2"
+        DstTerminal   3
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Vm1"
+      SrcTerminal   1
+      Points        [890, 95; 825, 95]
+      Branch {
+        DstComponent  "Am2"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "R1"
+        DstTerminal   1
+      }
     }
   }
   ProbeBlock {
