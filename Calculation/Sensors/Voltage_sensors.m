@@ -16,8 +16,8 @@ R1 = 47e3;
 
 syms R
 eqn = V_sens == Vin_max * (R/(R+R1));
-R2 = solve(eqn, R)
-
+R2 = solve(eqn, R);
+R2 = 2e3;
 
 % Amplification
 V_0 = 1.23;
@@ -49,6 +49,7 @@ R7 = 120e3;
 syms R
 eqn = V_sens == Vout_max * (R/(R+R7));
 R8 = solve(eqn, R)
+R8 = 2e3;
 
 % Filter design
 C2 = 1/(2*pi*R7*fc);
