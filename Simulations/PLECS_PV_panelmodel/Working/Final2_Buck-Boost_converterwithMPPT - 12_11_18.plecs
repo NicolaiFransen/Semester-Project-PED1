@@ -1,5 +1,5 @@
 Plecs {
-  Name          "Final_Buck-Boost_converterwithMPPT - 11_11_18"
+  Name          "Final2_Buck-Boost_converterwithMPPT - 12_11_18"
   Version       "4.2"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -23,33 +23,33 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
-  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPSA4O"
-"yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
-"RlbQpUcyA9IDAuMDE7ICAlc2FtcGxlIHRpbWUgTVBQVCAKJSUlIFNvbGFyIFBhbmVsIChTdW50ZWN"
-"oIFBvd2VyIFNUUDMwMC0yNF9WZCklIHNlbGVjdCB2YWx1ZXMgZnJvbSBzaW11bGluayBhbmQgbm90"
-"IGZyb20gdGhlIGRhdGFzaGVldCBiZWNhdXNlIG9mIGRpZmZlcmVudCB2YWx1ZXMKClNQLk5zID0gN"
-"zI7ICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sYXIgY2VsbHMgaW4gYSBzdHJpbmcgaW4gc29sYX"
-"IgYXJyYXkKU1AuTnAgPSAxOyAgICAgICAgJSBbXSAtIG51bWJlciBvZiBzb2xhciBjZWxsIHN0cml"
-"uZ3MgaW4gcGFyYWxsZWwgc29sYXIgYXJyYXkKJVNQLlZfTVBQID0gMzYuOVtWXQolU1AuSV9NUFAg"
-"PSA4LjE0IFtBXQolU1AuUF9NUFAgPSAzMDAuMzY2IFtXXQpQbXBwID0gMzAwOyAlW1ddIElycmFka"
-"WFuY2UgMTAwMFcvbTIKU1AuVF9uID0gMjU7ICAgICAgJSBbQ10gLSBub21pbmFsIHRlbXBlcmF0dX"
-"JlIG9mIHNvbGFyIGNlbGxzClNQLkdfbiA9IDEwMDA7ICAgICUgW1cvbV4yXSAtIG5vbWluYWwgaXJ"
-"yYWRpYXRpb24gb2Ygc29sYXIgY2VsbHMKU1AuVl9PQ19uID0gNDU7ICUgW1ZdIC0gbm9taW5hbCBv"
-"cGVuIGNpcmN1aXQgdm9sdGFnZSBvZiBhcnJheSAoc2luZ2xlIHBhbmVsIGluIHN5c3RlbSkKU1AuS"
-"V9TQ19uID0gOC42NzsgJSBbQV0gLSBub21pbmFsIHNob3J0IGNpcmN1aXQgY3VycmVudCBvZiBhcn"
-"JheQoKU1AuUnMgPSAwLjI2NjAzOyAgICAlIFtvaG1dIC0gZXF1dmFsZW50IHNlcmllcyByZXNpc3R"
-"hbmNlIG9mIGFycmF5ClNQLlJwID0gNjY1LjE5OTM7ICAlIFtvaG1dIC0gZXF1dmFsZW50IHBhcmFs"
-"bGVsIHJlc2lzdGFuY2Ugb2YgYXJyYXkgKHdlIGRpZG50IGNoYW5nZSkKClNQLmEgPSAxLjEwOTg7I"
-"CAgICAgICUgW10gLSBkaW9kZSBpZGVhbGl0eSBjb25zdGFudCAod2UgZGlkbnQgY2hhbmdlKQoKU1"
-"AuS19WID0gLSAwLjQyNzkxOyAlIFslL8KwQ10gLSB0aGVybWFsIHZvbHRhZ2UgY29lZmZpY2llbnQ"
-"gb2YgYXJyYXkgLTAuMTIzMCBmcm9tIG90aGVyIHBhbmVsClNQLktfSSA9IDAuMDg2NzAxOyAgJSBb"
-"JS/CsENdIC0gdGhlcm1hbCBjdXJyZW50IGNvZWZmaWNpZW50IG9mIGFycmF5CgpTUC5DX2luID0gM"
-"S44ZS0zOyAgJSBbRl0gLSBpbnB1dCBjYXBhY2l0YW5jZSBvZiB0aGUgREMvREMgY29udmVydGVyIC"
-"hoaWdoIHZhbHVlIHRvIGZpbHRlciBhbmQgdGhlIHZhbHVlIGlzIGZyb20gdGhlIHN1cGVydmlzb3I"
-"pCgolIEJ1Y2stYm9vc3QgY29udmVydGVyCgpWX291dD0gMzYwL051bWJlck9mU2VyaWVzQ29ubmVj"
-"dGVkUGFuZWxzOwoKQnVjay5MID0gMWUtMzslNDcwZS02OyAlW0hdIC0gaW5kdWN0b3IgJWNhbGN1b"
-"GF0ZSA0NzBlLTYKQnVjay5DID0gNDcwZS02OyAlW0ZdIC0gb3V0cHV0IGNhcGFjaXRvciAlY2FsY3"
-"VsYXRlIDEzNGUtNgpCdWNrLlIgPSAoVl9vdXReMikvUG1wcDsgJSBbT2htXSAtIExvYWQKCg=="
+  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPSAxN"
+"TsgICAlIFtdIC0gbnVtYmVyIG9mIHBhbmVscyBjb25uZWN0ZWQgaW4gc2VyaWVzIGluIHRoZSBzeX"
+"N0ZW0KVHMgPSAwLjAxOyAgJXNhbXBsZSB0aW1lIE1QUFQgCiUlJSBTb2xhciBQYW5lbCAoU3VudGV"
+"jaCBQb3dlciBTVFAzMDAtMjRfVmQpJSBzZWxlY3QgdmFsdWVzIGZyb20gc2ltdWxpbmsgYW5kIG5v"
+"dCBmcm9tIHRoZSBkYXRhc2hlZXQgYmVjYXVzZSBvZiBkaWZmZXJlbnQgdmFsdWVzCgpTUC5OcyA9I"
+"DcyOyAgICAgICAlIFtdIC0gbnVtYmVyIG9mIHNvbGFyIGNlbGxzIGluIGEgc3RyaW5nIGluIHNvbG"
+"FyIGFycmF5ClNQLk5wID0gMTsgICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sYXIgY2VsbCBzdHJ"
+"pbmdzIGluIHBhcmFsbGVsIHNvbGFyIGFycmF5CiVTUC5WX01QUCA9IDM2LjlbVl0KJVNQLklfTVBQ"
+"ID0gOC4xNCBbQV0KJVNQLlBfTVBQID0gMzAwLjM2NiBbV10KUG1wcCA9IDMwMDsgJVtXXSBJcnJhZ"
+"GlhbmNlIDEwMDBXL20yClNQLlRfbiA9IDI1OyAgICAgICUgW0NdIC0gbm9taW5hbCB0ZW1wZXJhdH"
+"VyZSBvZiBzb2xhciBjZWxscwpTUC5HX24gPSAxMDAwOyAgICAlIFtXL21eMl0gLSBub21pbmFsIGl"
+"ycmFkaWF0aW9uIG9mIHNvbGFyIGNlbGxzClNQLlZfT0NfbiA9IDQ1OyAlIFtWXSAtIG5vbWluYWwg"
+"b3BlbiBjaXJjdWl0IHZvbHRhZ2Ugb2YgYXJyYXkgKHNpbmdsZSBwYW5lbCBpbiBzeXN0ZW0pClNQL"
+"klfU0NfbiA9IDguNjc7ICUgW0FdIC0gbm9taW5hbCBzaG9ydCBjaXJjdWl0IGN1cnJlbnQgb2YgYX"
+"JyYXkKClNQLlJzID0gMC4yNjYwMzsgICAgJSBbb2htXSAtIGVxdXZhbGVudCBzZXJpZXMgcmVzaXN"
+"0YW5jZSBvZiBhcnJheQpTUC5ScCA9IDY2NS4xOTkzOyAgJSBbb2htXSAtIGVxdXZhbGVudCBwYXJh"
+"bGxlbCByZXNpc3RhbmNlIG9mIGFycmF5ICh3ZSBkaWRudCBjaGFuZ2UpCgpTUC5hID0gMS4xMDk4O"
+"yAgICAgICAlIFtdIC0gZGlvZGUgaWRlYWxpdHkgY29uc3RhbnQgKHdlIGRpZG50IGNoYW5nZSkKCl"
+"NQLktfViA9IC0gMC40Mjc5MTsgJSBbJS/CsENdIC0gdGhlcm1hbCB2b2x0YWdlIGNvZWZmaWNpZW5"
+"0IG9mIGFycmF5IC0wLjEyMzAgZnJvbSBvdGhlciBwYW5lbApTUC5LX0kgPSAwLjA4NjcwMTsgICUg"
+"WyUvwrBDXSAtIHRoZXJtYWwgY3VycmVudCBjb2VmZmljaWVudCBvZiBhcnJheQoKU1AuQ19pbiA9I"
+"DEuOGUtMzsgICUgW0ZdIC0gaW5wdXQgY2FwYWNpdGFuY2Ugb2YgdGhlIERDL0RDIGNvbnZlcnRlci"
+"AoaGlnaCB2YWx1ZSB0byBmaWx0ZXIgYW5kIHRoZSB2YWx1ZSBpcyBmcm9tIHRoZSBzdXBlcnZpc29"
+"yKQoKJSBCdWNrLWJvb3N0IGNvbnZlcnRlcgoKVl9vdXQ9IDM2MC9OdW1iZXJPZlNlcmllc0Nvbm5l"
+"Y3RlZFBhbmVsczsKCkJ1Y2suTCA9IDFlLTM7JTQ3MGUtNjsgJVtIXSAtIGluZHVjdG9yICVjYWxjd"
+"WxhdGUgNDcwZS02CkJ1Y2suQyA9IDQ3MGUtNjsgJVtGXSAtIG91dHB1dCBjYXBhY2l0b3IgJWNhbG"
+"N1bGF0ZSAxMzRlLTYKQnVjay5SID0gKFZfb3V0XjIpL1BtcHA7ICUgW09obV0gLSBMb2FkCgo="
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -70,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 23; 1536, 777]
+    Location      [0, 26; 1536, 780]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -757,22 +757,22 @@ Plecs {
       Type          Step
       Name          "Sun"
       Show          on
-      Position      [35, 100]
+      Position      [25, 95]
       Direction     right
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "0.7"
+        Value         "1.3"
         Show          off
       }
       Parameter {
         Variable      "Before"
-        Value         "[0.6]"
+        Value         "[0.4]"
         Show          off
       }
       Parameter {
         Variable      "After"
-        Value         "[0.6]"
+        Value         "[1]"
         Show          off
       }
       Parameter {
@@ -919,11 +919,11 @@ Plecs {
       Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [62, 60; 614, 619]
+      Location      [0, 26; 1536, 807]
       State         "AAAA/wAAAAD9AAAAAwAAAAEAAAAAAAAAAPwCAAAAAfsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAD8A////AAAAAgAAB4AAAACx/AEAAAAB+wAAABQAUwBhAHYAZQ"
 "BkAFYAaQBlAHcAcwIAAAOOAAACAwAAAOEAAACWAAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0"
-"AZQBSAGEAbgBnAGUAAAAAAAAAB4AAAACWAP///wAAArIAAAKcAAAABAAAAAQAAAAIAAAACPwAAAAB"
+"AZQBSAGEAbgBnAGUAAAAAAAAAB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAAB"
 "AAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAEAAAAQADEAMAAwADAAVwAvAG0AMr/0AAAAAAAAQEaAAAAAA"
 "AAAAAABAH/4AAAAAAAAf/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
@@ -932,7 +932,7 @@ Plecs {
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQA="
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1279,7 +1279,7 @@ Plecs {
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1545,21 +1545,21 @@ Plecs {
             Value         "#include<stdio.h>\n#include<stdlib.h>\n#include <ti"
 "me.h> \n\n\n#define V_OC_threshold 43\n\n\nenum state {\n\tSTARTUP,\n\tOPEN_L"
 "OOP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DEC,\n\t};\n\ndouble V"
-", I, P, Vprevious, Iprevious, Pprevious, delta_V;\ndouble D_delta=0.01;\ndoub"
-"le D = 0, Dmin=0.05, Dmax=0.95;\nstatic enum state SYSTEM_STATE = STARTUP;\ni"
-"nt startup_counter = 0;\nstatic char* enumstate[] = {\"STARTUP\",\"OPEN LOOP"
-"\", \"VOLTAGE EV\", \"VOLTAGE INC\", \"VOLTAGE DEC\"};\n\n#define V_in Input("
-"0);\n#define I_in Input(1);\n\n#define D_out Output(0);\n\n\n\nvoid Open_loop"
-"_increase_D(void){\n\tD = D + D_delta;\n}\n\n\nvoid calculate_power(void){\n"
-"\tP = V * I;\n}\n\n\nvoid evaluate_voltage(void){\n\tdelta_V = V - Vprevious;"
-"\n}\n\nvoid save_variables(void){\n\tVprevious = V;\n\tIprevious = I;\n\tPpre"
-"vious = P;\n\t}\n\nint power_is_increased(void){\n\treturn P > Pprevious;\n}"
-"\n\nint power_is_decreased(void){\n\treturn P < Pprevious;\n}\n\n\n\nvoid del"
-"ay_startup(int number_of_seconds) \n{ \n    // Converting time into milli_sec"
-"onds \n    int milli_seconds = 1000 * number_of_seconds; \n  \n    // Stroing"
-" start time \n    clock_t start_time = clock(); \n  \n    // looping till req"
-"uired time is not acheived \n    while (clock() < start_time + milli_seconds)"
-" ; \n}"
+", I, P, Vprevious, Iprevious, Pprevious, delta_V, delta_P;\ndouble D_delta=0."
+"01;\ndouble D = 0, Dmin=0.05, Dmax=0.95;\nstatic enum state SYSTEM_STATE = ST"
+"ARTUP;\nint startup_counter = 0;\nstatic char* enumstate[] = {\"STARTUP\",\"O"
+"PEN LOOP\", \"VOLTAGE EV\", \"VOLTAGE INC\", \"VOLTAGE DEC\"};\n\n#define V_i"
+"n Input(0);\n#define I_in Input(1);\n\n#define D_out Output(0);\n\n\n\nvoid O"
+"pen_loop_increase_D(void){\n\tD = D + D_delta;\n}\n\n\nvoid calculate_power(v"
+"oid){\n\tP = V * I;\n}\n\n\nvoid evaluate_voltage(void){\n\tdelta_V = V - Vpr"
+"evious;\n}\n\nvoid evaluate_power(void){\n\tdelta_P = P - Pprevious;\n}\n\n\n"
+"void save_variables(void){\n\tVprevious = V;\n\tIprevious = I;\n\tPprevious ="
+" P;\n\t}\n\nint power_is_increased(void){\n\treturn P > Pprevious;\n}\n\nint "
+"power_is_decreased(void){\n\treturn P < Pprevious;\n}\n\n\n\nvoid delay_start"
+"up(int number_of_seconds) \n{ \n    // Converting time into milli_seconds \n "
+"   int milli_seconds = 1000 * number_of_seconds; \n  \n    // Stroing start t"
+"ime \n    clock_t start_time = clock(); \n  \n    // looping till required ti"
+"me is not acheived \n    while (clock() < start_time + milli_seconds) ; \n}"
             Show          off
           }
           Parameter {
@@ -1583,16 +1583,22 @@ Plecs {
 "LTAGE_EVALUATION;\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_EVALUATION: \n\t\t{\n"
 "\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC"
 ";\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\t\t\n\t"
-"\tcase VOLTAGE_INC: \n\t\t{\n\t\t\tcalculate_power();\n\t\t\tif (power_is_inc"
-"reased()){\n\t\t\tD = D - D_delta; \n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t"
-"\tif (power_is_decreased()) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D + D_de"
-"lta;\t\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYS"
-"TEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t"
-"\t{\n\t\t\tcalculate_power();\n\t\t\tif (power_is_increased()) D = D + D_delt"
-"a;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decreased()) {\n\t\t\tD_delt"
-"a = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t"
-"\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;"
-"\n\t\t\n}\n\nprintf(\"System state: %s \\n\", enumstate[ SYSTEM_STATE]);"
+"\tcase VOLTAGE_INC: \n\t\t{\n\t\t\tcalculate_power();\n\t\t\t\n\t\t\tif (delt"
+"a_V<0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n"
+"\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d \\n\", D_delta);\n\t"
+"\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased()){\n\t\t\tD = D - D_d"
+"elta; \n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tif (power_is_decreased()) {"
+"\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D + D_delta;\t\n\t\t\tif(D>Dmax) D=Dm"
+"ax;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATIO"
+"N;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tcalculate_power();"
+"\n\t\t\t\n\t\t\tif (delta_V>-0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (d"
+"elta_P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is"
+": %d \\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increas"
+"ed()) D = D + D_delta;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decrease"
+"d()) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) "
+"D=Dmin;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALU"
+"ATION;\n\t\t}break;\n\t\t\n}\n\nprintf(\"System state: %s \\n\", enumstate[ S"
+"YSTEM_STATE]);"
             Show          off
           }
           Parameter {
@@ -1839,7 +1845,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -4800,7 +4806,7 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAA1AAAAMmAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAA1AAAAMnAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4817,7 +4823,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -4923,7 +4929,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Sun"
       SrcTerminal   1
-      Points        [60, 100; 60, 150]
+      Points        [60, 95; 60, 150]
       DstComponent  "PV_Villalva1"
       DstTerminal   4
     }
@@ -5787,7 +5793,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "Final_Buck-Boost_converterwithMPPT - 11_11_18/PV V, I"
+    Tag           "Final2_Buck-Boost_converterwithMPPT - 12_11_18/PV V, I"
     Probe {
       Component     "Vm5"
       Path          ""
@@ -5800,7 +5806,7 @@ Plecs {
     }
   }
   ProbeBlock {
-    Tag           "Final_Buck-Boost_converterwithMPPT - 11_11_18/Vout, Iout"
+    Tag           "Final2_Buck-Boost_converterwithMPPT - 12_11_18/Vout, Iout"
     Probe {
       Component     "Vm1"
       Path          ""
