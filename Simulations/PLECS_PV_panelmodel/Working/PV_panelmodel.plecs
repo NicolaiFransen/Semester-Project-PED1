@@ -6,7 +6,7 @@ Plecs {
   StopTime      "10"
   Timeout       ""
   Solver        "radau"
-  MaxStep       "10e-3"
+  MaxStep       "20e-6"
   InitStep      "-1"
   FixedStep     "1e-3"
   Refine        "10"
@@ -36,8 +36,8 @@ Plecs {
 "of array (we didnt change)\n\nSP.a = 1.1098; %1.66471;       % [] - diode ide"
 "ality constant (we didnt change)\n\nSP.K_V = -0.42791; %- 0.0113; % [V/K] - t"
 "hermal voltage coefficient of array -0.1230 from other panel\nSP.K_I = 0.0867"
-"01; %0.000485;  % [A/K] - thermal current coefficient of array\n\nSP.C_in = 8"
-"00e-3;  % [F] - input capacitance of the DC/DC converter (high value to filte"
+"01; %0.000485;  % [A/K] - thermal current coefficient of array\n\nSP.C_in = 1"
+".8e-3;  % [F] - input capacitance of the DC/DC converter (high value to filte"
 "r and the value is from the supervisor)\n\n"
   InitialState  "1"
   SystemState   ""
@@ -59,7 +59,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [906, 210; 1510, 712]
+    Location      [0, 23; 1536, 777]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -756,12 +756,12 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "[0.8]"
+        Value         "[0.2]"
         Show          off
       }
       Parameter {
         Variable      "After"
-        Value         "[0.8]"
+        Value         "[0.2]"
         Show          off
       }
       Parameter {
@@ -815,7 +815,7 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAJYAAAACAAAAlgAAAAMAAACWAAAABAAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAAIAA"
+"gAAAJYAAAADAAAAlgAAAAEAAACWAAAABgAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAAIAA"
 "AAlgAAAAkAAACWAAAAqQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB4AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
@@ -883,22 +883,28 @@ Plecs {
       Type          XYPlot
       Name          "P vs V"
       Show          on
-      Position      [400, 295]
+      Position      [410, 295]
       Direction     up
       Flipped       off
       Location      [0, 26; 1536, 807]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
+"GUAZABWAGkAZQB3AHMBAAAAOAAAA7EAAAB+AP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
+"///wAAAD8A////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"AB4AAAACWAP///wAABpoAAAOxAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
-      SavedViews    "AAAAAgAAAAA="
+      SavedViews    "AAAAAgAAAAUAAAAIADEAMAAwADAAAAAAAAAAAEBJAAAAAAAAAAAAAQEAA"
+"AAAAAAAAEBzYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgA4ADAAMAAAAAAAAAAAQEkAAAAAAA"
+"AAAAABAQAAAAAAAAAAQHNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGADYAMAAwAAAAAAAAAAB"
+"ASQAAAAAAAAAAAAEBAAAAAAAAAABAc2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYANAAwADAA"
+"AAAAAAAAAEBJAAAAAAAAAAAAAQEAAAAAAAAAAEBzYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB"
+"gAyADAAMAAAAAAAAAAAQEkAAAAAAAAAAAABAQAAAAAAAAAAQHNgAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"AAAAA="
       HeaderState   ""
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
       Open          "0"
-      Ts            "1e-3"
+      Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
       AspectRatioX  "-1"
@@ -1244,7 +1250,7 @@ Plecs {
       TimeRange     "0.0"
       ShownPeriods  "1"
       Open          "0"
-      Ts            "1e-3"
+      Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
       AspectRatioX  "-1"
@@ -1292,7 +1298,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "C"
-        Value         "SP.C_in"
+        Value         "1.8e-3"
         Show          off
       }
       Parameter {
@@ -1344,7 +1350,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From"
       SrcTerminal   1
-      Points        [365, 305; 365, 300]
+      Points        [360, 305; 360, 300]
       DstComponent  "P vs V"
       DstTerminal   1
     }
@@ -1383,7 +1389,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From2"
       SrcTerminal   1
-      Points        [365, 285; 365, 290]
+      Points        [360, 285; 360, 290]
       DstComponent  "P vs V"
       DstTerminal   2
     }

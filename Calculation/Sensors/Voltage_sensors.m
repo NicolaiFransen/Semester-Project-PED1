@@ -32,7 +32,7 @@ R3 = 11e3;                      % R4=R3
 R5 = (V_out*R3)/(V_plus-V_min)  % R6=R5
 
 % Filter design
-fc = 50;
+fc = 500;
 C1 = 1/(2*pi*R1*fc);
 
 %% Output voltage sensor
