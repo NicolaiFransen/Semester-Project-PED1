@@ -74,12 +74,12 @@ Plecs {
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
-    BrowserWidth  134
+    BrowserWidth  149
     Component {
       Type          Subsystem
       Name          "PV_Villalva1"
       Show          off
-      Position      [115, 150]
+      Position      [115, 195]
       Direction     up
       Flipped       off
       Frame         [-10, -20; 10, 20]
@@ -757,17 +757,17 @@ Plecs {
       Type          Step
       Name          "Sun"
       Show          on
-      Position      [25, 95]
+      Position      [30, 140]
       Direction     right
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "1.3"
+        Value         "0.7"
         Show          off
       }
       Parameter {
         Variable      "Before"
-        Value         "[0.4]"
+        Value         "[1]"
         Show          off
       }
       Parameter {
@@ -785,7 +785,7 @@ Plecs {
       Type          Constant
       Name          "Temperature"
       Show          on
-      Position      [35, 160]
+      Position      [35, 205]
       Direction     right
       Flipped       off
       Frame         [-10, -10; 10, 10]
@@ -806,7 +806,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm5"
       Show          off
-      Position      [170, 155]
+      Position      [170, 200]
       Direction     up
       Flipped       off
     }
@@ -919,14 +919,13 @@ Plecs {
       Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
-      State         "AAAA/wAAAAD9AAAAAwAAAAEAAAAAAAAAAPwCAAAAAfsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////AAAAAgAAB4AAAACx/AEAAAAB+wAAABQAUwBhAHYAZQ"
-"BkAFYAaQBlAHcAcwIAAAOOAAACAwAAAOEAAACWAAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0"
-"AZQBSAGEAbgBnAGUAAAAAAAAAB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAAB"
-"AAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
-      SavedViews    "AAAAAgAAAAEAAAAQADEAMAAwADAAVwAvAG0AMr/0AAAAAAAAQEaAAAAAA"
-"AAAAAABAH/4AAAAAAAAf/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      Location      [0, 30; 1536, 811]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
+"GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAAB+AP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
+"///wAAAD8A////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"AB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
+      SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQA="
@@ -940,7 +939,7 @@ Plecs {
       AspectRatioY  "-1"
       PlotStyle     "1"
       Axis {
-        Name          ""
+        Name          "PV curve"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -959,7 +958,7 @@ Plecs {
       Type          PlecsProbe
       Name          "PV V, I"
       Show          on
-      Position      [150, 510]
+      Position      [160, 630]
       Direction     right
       Flipped       off
     }
@@ -967,7 +966,7 @@ Plecs {
       Type          Subsystem
       Name          "Sub"
       Show          off
-      Position      [215, 510]
+      Position      [225, 630]
       Direction     up
       Flipped       off
       Frame         [-25, -20; 25, 20]
@@ -1211,7 +1210,7 @@ Plecs {
       Type          Goto
       Name          "Goto"
       Show          off
-      Position      [275, 530]
+      Position      [285, 650]
       Direction     right
       Flipped       off
       Parameter {
@@ -1229,7 +1228,7 @@ Plecs {
       Type          Goto
       Name          "Goto1"
       Show          off
-      Position      [275, 490]
+      Position      [285, 610]
       Direction     right
       Flipped       off
       Parameter {
@@ -1247,7 +1246,7 @@ Plecs {
       Type          Goto
       Name          "Goto2"
       Show          off
-      Position      [275, 510]
+      Position      [285, 630]
       Direction     right
       Flipped       off
       Parameter {
@@ -1270,11 +1269,12 @@ Plecs {
       Flipped       off
       Location      [182, 56; 1462, 693]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
+"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwIAAAPSAA"
+"AB0gAAAOEAAACWAAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
 "///8AAACWAP///wAABkAAAAL9AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
-      SavedViews    "AAAAAgAAAAA="
+      SavedViews    "AAAAAgAAAAEAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxwBQAAAAAA"
+"ABATgAAAAAAAAAAAAEAv+AAAAAAAABAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
       HeaderState   ""
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
@@ -1324,7 +1324,7 @@ Plecs {
       Type          Ammeter
       Name          "Am1"
       Show          on
-      Position      [145, 220]
+      Position      [145, 265]
       Direction     right
       Flipped       off
     }
@@ -1332,7 +1332,7 @@ Plecs {
       Type          Inductor
       Name          "L1"
       Show          on
-      Position      [450, 95]
+      Position      [450, 140]
       Direction     left
       Flipped       off
       Parameter {
@@ -1350,12 +1350,12 @@ Plecs {
       Type          Mosfet
       Name          "FET1"
       Show          on
-      Position      [275, 95]
+      Position      [275, 140]
       Direction     right
       Flipped       off
       Parameter {
         Variable      "Ron"
-        Value         "0"
+        Value         "30e-3"
         Show          off
       }
       Parameter {
@@ -1378,7 +1378,7 @@ Plecs {
       Type          Subsystem
       Name          "MPPT Controller"
       Show          on
-      Position      [405, 365]
+      Position      [405, 410]
       Direction     up
       Flipped       off
       Frame         [-35, -30; 35, 30]
@@ -1649,7 +1649,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm1"
       Show          on
-      Position      [890, 150]
+      Position      [890, 195]
       Direction     up
       Flipped       off
     }
@@ -1668,9 +1668,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"wAAAH0AAAAGAAAAfQAAAAUAAAB9AAAABAAAAH0AAAAJAAAAfQAAAAgAAAB9AAAAAwAAAH0AAAACAA"
-"AAfQAAAAEAAAB9AAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB/AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAH0AAAADAAAAfQAAAAEAAAB9AAAABgAAAH0AAAAHAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB/AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -1759,7 +1759,7 @@ Plecs {
       Type          Ammeter
       Name          "Am2"
       Show          on
-      Position      [770, 95]
+      Position      [770, 140]
       Direction     left
       Flipped       off
     }
@@ -1767,12 +1767,12 @@ Plecs {
       Type          Mosfet
       Name          "FET2"
       Show          on
-      Position      [380, 180]
+      Position      [380, 225]
       Direction     up
       Flipped       off
       Parameter {
         Variable      "Ron"
-        Value         "0"
+        Value         "30e-3"
         Show          off
       }
       Parameter {
@@ -1795,7 +1795,7 @@ Plecs {
       Type          Capacitor
       Name          "C3"
       Show          on
-      Position      [220, 155]
+      Position      [220, 200]
       Direction     down
       Flipped       on
       Parameter {
@@ -1813,7 +1813,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Vout, Iout"
       Show          on
-      Position      [360, 505]
+      Position      [370, 625]
       Direction     right
       Flipped       off
     }
@@ -1824,17 +1824,17 @@ Plecs {
       Position      [1125, 440]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
+      Location      [710, 118; 1399, 662]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAA10AAAKJAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"wAAAH0AAAAGAAAAfQAAAAUAAAB9AAAABAAAAH0AAAAJAAAAfQAAAAgAAAB9AAAAAwAAAH0AAAACAA"
-"AAfQAAAAEAAAB9AAABFwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAADmAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAH0AAAADAAAAfQAAAAEAAAB9AAAABgAAAH0AAAAHAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAIAA"
+"AAfQAAAAkAAAB9AAABFwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAADmAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -2046,12 +2046,12 @@ Plecs {
       Type          Mosfet
       Name          "FET3"
       Show          on
-      Position      [670, 95]
+      Position      [670, 140]
       Direction     right
       Flipped       off
       Parameter {
         Variable      "Ron"
-        Value         "0"
+        Value         "30e-3"
         Show          off
       }
       Parameter {
@@ -2074,12 +2074,12 @@ Plecs {
       Type          Mosfet
       Name          "FET4"
       Show          on
-      Position      [630, 180]
+      Position      [630, 225]
       Direction     up
       Flipped       off
       Parameter {
         Variable      "Ron"
-        Value         "0"
+        Value         "30e-3"
         Show          off
       }
       Parameter {
@@ -2102,7 +2102,7 @@ Plecs {
       Type          Capacitor
       Name          "C2"
       Show          on
-      Position      [735, 160]
+      Position      [735, 205]
       Direction     down
       Flipped       on
       Parameter {
@@ -2120,7 +2120,7 @@ Plecs {
       Type          Subsystem
       Name          "\n\n\n\n\n\nPWM"
       Show          on
-      Position      [730, 350]
+      Position      [735, 375]
       Direction     up
       Flipped       off
       Frame         [-45, -30; 45, 30]
@@ -2660,7 +2660,7 @@ Plecs {
       Type          Goto
       Name          "Goto3"
       Show          off
-      Position      [825, 315]
+      Position      [825, 335]
       Direction     right
       Flipped       off
       Parameter {
@@ -2678,7 +2678,7 @@ Plecs {
       Type          Goto
       Name          "Goto4"
       Show          off
-      Position      [825, 335]
+      Position      [825, 365]
       Direction     right
       Flipped       off
       Parameter {
@@ -2696,7 +2696,7 @@ Plecs {
       Type          Goto
       Name          "Goto5"
       Show          off
-      Position      [825, 360]
+      Position      [825, 405]
       Direction     right
       Flipped       off
       Parameter {
@@ -2714,7 +2714,7 @@ Plecs {
       Type          Goto
       Name          "Goto6"
       Show          off
-      Position      [825, 380]
+      Position      [825, 425]
       Direction     right
       Flipped       off
       Parameter {
@@ -2732,7 +2732,7 @@ Plecs {
       Type          From
       Name          "From3"
       Show          off
-      Position      [185, 60]
+      Position      [225, 105]
       Direction     right
       Flipped       off
       Parameter {
@@ -2750,7 +2750,7 @@ Plecs {
       Type          From
       Name          "From4"
       Show          off
-      Position      [615, 45]
+      Position      [635, 105]
       Direction     right
       Flipped       off
       Parameter {
@@ -2768,7 +2768,7 @@ Plecs {
       Type          From
       Name          "From6"
       Show          off
-      Position      [575, 250]
+      Position      [575, 295]
       Direction     right
       Flipped       off
       Parameter {
@@ -2786,7 +2786,7 @@ Plecs {
       Type          From
       Name          "From7"
       Show          off
-      Position      [315, 245]
+      Position      [315, 290]
       Direction     right
       Flipped       off
       Parameter {
@@ -2804,7 +2804,7 @@ Plecs {
       Type          Ammeter
       Name          "Am3"
       Show          on
-      Position      [580, 95]
+      Position      [580, 140]
       Direction     left
       Flipped       off
     }
@@ -2812,7 +2812,7 @@ Plecs {
       Type          From
       Name          "From8"
       Show          off
-      Position      [630, 490]
+      Position      [640, 610]
       Direction     right
       Flipped       off
       Parameter {
@@ -2830,7 +2830,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm2"
       Show          on
-      Position      [450, 45]
+      Position      [450, 90]
       Direction     left
       Flipped       off
     }
@@ -2838,7 +2838,7 @@ Plecs {
       Type          Goto
       Name          "Goto7"
       Show          off
-      Position      [555, 25]
+      Position      [600, 55]
       Direction     right
       Flipped       off
       Parameter {
@@ -2856,7 +2856,7 @@ Plecs {
       Type          Goto
       Name          "Goto8"
       Show          off
-      Position      [485, 25]
+      Position      [485, 55]
       Direction     right
       Flipped       off
       Parameter {
@@ -2874,7 +2874,7 @@ Plecs {
       Type          Goto
       Name          "Goto9"
       Show          off
-      Position      [930, 150]
+      Position      [930, 195]
       Direction     right
       Flipped       off
       Parameter {
@@ -2892,7 +2892,7 @@ Plecs {
       Type          Goto
       Name          "Goto10"
       Show          off
-      Position      [815, 25]
+      Position      [820, 55]
       Direction     right
       Flipped       off
       Parameter {
@@ -2964,7 +2964,7 @@ Plecs {
       Type          Subsystem
       Name          "\n\n\n\n\nPout"
       Show          on
-      Position      [450, 505]
+      Position      [460, 625]
       Direction     up
       Flipped       off
       Frame         [-45, -25; 45, 25]
@@ -3127,7 +3127,7 @@ Plecs {
       Type          Goto
       Name          "Goto11"
       Show          off
-      Position      [540, 500]
+      Position      [550, 620]
       Direction     right
       Flipped       off
       Parameter {
@@ -3163,7 +3163,7 @@ Plecs {
       Type          From
       Name          "From15"
       Show          off
-      Position      [630, 525]
+      Position      [640, 645]
       Direction     right
       Flipped       off
       Parameter {
@@ -3181,7 +3181,7 @@ Plecs {
       Type          Subsystem
       Name          "\n\n\n\n\nAverage Power"
       Show          on
-      Position      [705, 505]
+      Position      [715, 625]
       Direction     up
       Flipped       off
       Frame         [-45, -20; 45, 20]
@@ -3387,7 +3387,7 @@ Plecs {
       Type          Goto
       Name          "Goto12"
       Show          off
-      Position      [800, 480]
+      Position      [810, 600]
       Direction     right
       Flipped       off
       Parameter {
@@ -3405,7 +3405,7 @@ Plecs {
       Type          Goto
       Name          "Goto13"
       Show          off
-      Position      [805, 520]
+      Position      [815, 640]
       Direction     right
       Flipped       off
       Parameter {
@@ -3508,7 +3508,7 @@ Plecs {
       Type          Goto
       Name          "Goto14"
       Show          off
-      Position      [600, 395]
+      Position      [610, 345]
       Direction     right
       Flipped       off
       Parameter {
@@ -3526,7 +3526,7 @@ Plecs {
       Type          Goto
       Name          "Goto15"
       Show          off
-      Position      [635, 335]
+      Position      [615, 445]
       Direction     right
       Flipped       off
       Parameter {
@@ -3696,7 +3696,7 @@ Plecs {
       Type          Resistor
       Name          "R1"
       Show          on
-      Position      [825, 160]
+      Position      [825, 205]
       Direction     up
       Flipped       off
       Parameter {
@@ -3709,7 +3709,7 @@ Plecs {
       Type          Ammeter
       Name          "Am4"
       Show          on
-      Position      [320, 95]
+      Position      [320, 140]
       Direction     left
       Flipped       off
     }
@@ -3717,7 +3717,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm3"
       Show          on
-      Position      [275, 35]
+      Position      [275, 80]
       Direction     left
       Flipped       off
     }
@@ -3725,7 +3725,7 @@ Plecs {
       Type          Goto
       Name          "Goto16"
       Show          off
-      Position      [325, 20]
+      Position      [300, 50]
       Direction     right
       Flipped       off
       Parameter {
@@ -3743,7 +3743,7 @@ Plecs {
       Type          Goto
       Name          "Goto17"
       Show          off
-      Position      [340, 60]
+      Position      [385, 55]
       Direction     right
       Flipped       off
       Parameter {
@@ -3761,7 +3761,7 @@ Plecs {
       Type          Ammeter
       Name          "Am5"
       Show          on
-      Position      [380, 135]
+      Position      [380, 180]
       Direction     up
       Flipped       off
     }
@@ -3769,7 +3769,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm4"
       Show          on
-      Position      [450, 180]
+      Position      [450, 225]
       Direction     up
       Flipped       off
     }
@@ -3777,7 +3777,7 @@ Plecs {
       Type          Goto
       Name          "Goto18"
       Show          off
-      Position      [485, 250]
+      Position      [485, 295]
       Direction     right
       Flipped       off
       Parameter {
@@ -3795,7 +3795,7 @@ Plecs {
       Type          Goto
       Name          "Goto19"
       Show          off
-      Position      [420, 135]
+      Position      [420, 180]
       Direction     right
       Flipped       off
       Parameter {
@@ -3813,7 +3813,7 @@ Plecs {
       Type          Ammeter
       Name          "Am6"
       Show          on
-      Position      [630, 130]
+      Position      [630, 175]
       Direction     up
       Flipped       off
     }
@@ -3821,7 +3821,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm7"
       Show          on
-      Position      [695, 185]
+      Position      [695, 230]
       Direction     up
       Flipped       off
     }
@@ -3829,7 +3829,7 @@ Plecs {
       Type          Goto
       Name          "Goto20"
       Show          off
-      Position      [675, 130]
+      Position      [675, 175]
       Direction     right
       Flipped       off
       Parameter {
@@ -3847,7 +3847,7 @@ Plecs {
       Type          Goto
       Name          "Goto21"
       Show          off
-      Position      [740, 250]
+      Position      [740, 295]
       Direction     right
       Flipped       off
       Parameter {
@@ -3865,7 +3865,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm8"
       Show          on
-      Position      [680, 35]
+      Position      [680, 80]
       Direction     left
       Flipped       off
     }
@@ -3873,7 +3873,7 @@ Plecs {
       Type          Goto
       Name          "Goto22"
       Show          off
-      Position      [715, 15]
+      Position      [715, 55]
       Direction     right
       Flipped       off
       Parameter {
@@ -4281,7 +4281,7 @@ Plecs {
       Type          Diode
       Name          "D1"
       Show          on
-      Position      [530, 95]
+      Position      [530, 140]
       Direction     left
       Flipped       off
       Parameter {
@@ -4309,7 +4309,7 @@ Plecs {
       Type          Subsystem
       Name          "Mode decision"
       Show          on
-      Position      [530, 365]
+      Position      [530, 410]
       Direction     up
       Flipped       off
       Frame         [-35, -30; 35, 30]
@@ -4544,7 +4544,7 @@ Plecs {
       SrcComponent  "Components/Control/Filters/Moving Average"
       Name          "Moving Average"
       Show          on
-      Position      [250, 360]
+      Position      [240, 405]
       Direction     up
       Flipped       off
       Frame         [-15, -15; 15, 15]
@@ -4576,7 +4576,7 @@ Plecs {
       SrcComponent  "Components/Control/Filters/Moving Average"
       Name          "Moving Average1"
       Show          on
-      Position      [240, 410]
+      Position      [240, 455]
       Direction     up
       Flipped       off
       Frame         [-15, -15; 15, 15]
@@ -4607,7 +4607,7 @@ Plecs {
       Type          Goto
       Name          "Goto23"
       Show          off
-      Position      [505, 300]
+      Position      [495, 350]
       Direction     right
       Flipped       off
       Parameter {
@@ -4692,7 +4692,7 @@ Plecs {
       Type          Goto
       Name          "Goto24"
       Show          off
-      Position      [320, 310]
+      Position      [320, 350]
       Direction     right
       Flipped       off
       Parameter {
@@ -4710,7 +4710,7 @@ Plecs {
       Type          Goto
       Name          "Goto25"
       Show          off
-      Position      [320, 450]
+      Position      [340, 500]
       Direction     right
       Flipped       off
       Parameter {
@@ -4726,99 +4726,16 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "vL, iL1"
+      Name          "PWM,D1,D2"
       Show          on
-      Position      [105, 365]
+      Position      [1315, 525]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
-"AAfQAAAAEAAAB9AAAA2wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACqAAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    ""
-      Axis {
-        Name          "inductor voltage"
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis   on
-        AxisLabel     "Frequency"
-        Scaling       0
-        PhaseDisplay  0
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          SignalMux
-      Name          "Mux2"
-      Show          off
-      Position      [65, 365]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Width"
-        Value         "2"
-        Show          off
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "D1,D3"
-      Show          on
-      Position      [960, 375]
-      Direction     up
-      Flipped       off
-      Location      [65, 71; 743, 741]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAA1AAAAMnAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"wAAAH0AAAAGAAAAfQAAAAUAAAB9AAAABAAAAH0AAAAJAAAAfQAAAAgAAAB9AAAAAwAAAH0AAAACAA"
-"AAfQAAAAEAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC6AAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
-"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-"AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Location      [0, 0; 0, 0]
+      State         ""
+      SavedViews    ""
+      HeaderState   ""
+      PlotPalettes  ""
       Axes          "4"
       TimeRange     "0"
       ScrollingMode "1"
@@ -4918,6 +4835,78 @@ Plecs {
         }
       }
     }
+    Component {
+      Type          From
+      Name          "From35"
+      Show          off
+      Position      [1240, 520]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D_buck"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From36"
+      Show          off
+      Position      [1245, 575]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D_boost"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From37"
+      Show          off
+      Position      [1235, 480]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "PWM1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From38"
+      Show          off
+      Position      [1240, 540]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "PWM2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Temperature"
@@ -4929,7 +4918,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Sun"
       SrcTerminal   1
-      Points        [60, 95; 60, 150]
+      Points        [60, 140; 60, 195]
       DstComponent  "PV_Villalva1"
       DstTerminal   4
     }
@@ -4959,7 +4948,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Sub"
       SrcTerminal   4
-      Points        [250, 520; 250, 530]
+      Points        [260, 640; 260, 650]
       DstComponent  "Goto"
       DstTerminal   1
     }
@@ -4967,7 +4956,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Sub"
       SrcTerminal   1
-      Points        [250, 500; 250, 490]
+      Points        [260, 620; 260, 610]
       DstComponent  "Goto1"
       DstTerminal   1
     }
@@ -4991,9 +4980,9 @@ Plecs {
       Type          Wire
       SrcComponent  "L1"
       SrcTerminal   1
-      Points        [405, 95]
+      Points        [405, 140]
       Branch {
-        Points        [380, 95]
+        Points        [380, 140]
         Branch {
           DstComponent  "Am4"
           DstTerminal   2
@@ -5004,7 +4993,7 @@ Plecs {
         }
       }
       Branch {
-        Points        [405, 45]
+        Points        [405, 90]
         DstComponent  "Vm2"
         DstTerminal   1
       }
@@ -5013,7 +5002,7 @@ Plecs {
       Type          Wire
       SrcComponent  "PV_Villalva1"
       SrcTerminal   2
-      Points        [115, 220]
+      Points        [115, 265]
       DstComponent  "Am1"
       DstTerminal   2
     }
@@ -5021,17 +5010,17 @@ Plecs {
       Type          Wire
       SrcComponent  "PV_Villalva1"
       SrcTerminal   1
-      Points        [115, 95; 170, 95]
+      Points        [115, 140; 170, 140]
       Branch {
-        Points        [220, 95]
+        Points        [220, 140]
         Branch {
-          Points        [245, 95]
+          Points        [245, 140]
           Branch {
             DstComponent  "FET1"
             DstTerminal   2
           }
           Branch {
-            Points        [245, 35]
+            Points        [245, 80]
             DstComponent  "Vm3"
             DstTerminal   1
           }
@@ -5050,17 +5039,17 @@ Plecs {
       Type          Wire
       SrcComponent  "Vm1"
       SrcTerminal   2
-      Points        [890, 220; 825, 220]
+      Points        [890, 265; 825, 265]
       Branch {
-        Points        [735, 220]
+        Points        [735, 265]
         Branch {
-          Points        [630, 220]
+          Points        [630, 265]
           Branch {
-            Points        [380, 220]
+            Points        [380, 265]
             Branch {
-              Points        [220, 220]
+              Points        [220, 265]
               Branch {
-                Points        [170, 220]
+                Points        [170, 265]
                 Branch {
                   DstComponent  "Am1"
                   DstTerminal   1
@@ -5076,7 +5065,7 @@ Plecs {
               }
             }
             Branch {
-              Points        [380, 200]
+              Points        [380, 245]
               Branch {
                 DstComponent  "FET2"
                 DstTerminal   2
@@ -5088,7 +5077,7 @@ Plecs {
             }
           }
           Branch {
-            Points        [630, 205]
+            Points        [630, 250]
             Branch {
               DstComponent  "FET4"
               DstTerminal   2
@@ -5113,7 +5102,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\n\nPWM"
       SrcTerminal   4
-      Points        [800, 345; 800, 335]
+      Points        [795, 370; 795, 365]
       DstComponent  "Goto4"
       DstTerminal   1
     }
@@ -5121,7 +5110,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\n\nPWM"
       SrcTerminal   6
-      Points        [795, 365; 795, 380]
+      Points        [795, 390; 795, 425]
       DstComponent  "Goto6"
       DstTerminal   1
     }
@@ -5136,7 +5125,6 @@ Plecs {
       Type          Signal
       SrcComponent  "From4"
       SrcTerminal   1
-      Points        [625, 45; 625, 60]
       DstComponent  "FET3"
       DstTerminal   3
     }
@@ -5144,7 +5132,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From7"
       SrcTerminal   1
-      Points        [340, 245; 340, 180]
+      Points        [340, 290; 340, 225]
       DstComponent  "FET2"
       DstTerminal   3
     }
@@ -5152,19 +5140,19 @@ Plecs {
       Type          Wire
       SrcComponent  "Am3"
       SrcTerminal   2
-      Points        [630, 95]
+      Points        [630, 140]
       Branch {
         DstComponent  "Am6"
         DstTerminal   1
       }
       Branch {
-        Points        [650, 95]
+        Points        [650, 140]
         Branch {
           DstComponent  "FET3"
           DstTerminal   2
         }
         Branch {
-          Points        [650, 35]
+          Points        [650, 80]
           DstComponent  "Vm8"
           DstTerminal   1
         }
@@ -5174,7 +5162,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From6"
       SrcTerminal   1
-      Points        [590, 250; 590, 180]
+      Points        [590, 295; 590, 225]
       DstComponent  "FET4"
       DstTerminal   3
     }
@@ -5182,30 +5170,22 @@ Plecs {
       Type          Wire
       SrcComponent  "L1"
       SrcTerminal   2
-      Points        [495, 95]
+      Points        [495, 140]
       Branch {
         DstComponent  "D1"
         DstTerminal   1
       }
       Branch {
-        Points        [495, 45]
+        Points        [495, 90]
         DstComponent  "Vm2"
         DstTerminal   2
       }
     }
     Connection {
       Type          Signal
-      SrcComponent  "Am3"
-      SrcTerminal   3
-      Points        [580, 55; 535, 55]
-      DstComponent  "Goto7"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Vm2"
       SrcTerminal   3
-      Points        [450, 25]
+      Points        [450, 55]
       DstComponent  "Goto8"
       DstTerminal   1
     }
@@ -5213,7 +5193,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am2"
       SrcTerminal   3
-      Points        [770, 25]
+      Points        [770, 55]
       DstComponent  "Goto10"
       DstTerminal   1
     }
@@ -5228,7 +5208,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From8"
       SrcTerminal   1
-      Points        [640, 490; 640, 505]
+      Points        [650, 610; 650, 625]
       DstComponent  "\n\n\n\n\nAverage Power"
       DstTerminal   3
     }
@@ -5281,7 +5261,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vout, Iout"
       SrcTerminal   1
-      Points        [390, 505]
+      Points        [400, 625]
       DstComponent  "\n\n\n\n\nPout"
       DstTerminal   1
     }
@@ -5289,7 +5269,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\nPout"
       SrcTerminal   2
-      Points        [510, 495; 510, 500]
+      Points        [520, 615; 520, 620]
       DstComponent  "Goto11"
       DstTerminal   1
     }
@@ -5305,7 +5285,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From15"
       SrcTerminal   1
-      Points        [640, 525; 640, 515]
+      Points        [650, 645; 650, 635]
       DstComponent  "\n\n\n\n\nAverage Power"
       DstTerminal   2
     }
@@ -5313,7 +5293,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\nAverage Power"
       SrcTerminal   4
-      Points        [770, 495; 770, 480]
+      Points        [780, 615; 780, 600]
       DstComponent  "Goto12"
       DstTerminal   1
     }
@@ -5321,7 +5301,7 @@ Plecs {
       Type          Signal
       SrcComponent  "\n\n\n\n\nAverage Power"
       SrcTerminal   1
-      Points        [765, 505; 765, 520]
+      Points        [775, 625; 775, 640]
       DstComponent  "Goto13"
       DstTerminal   1
     }
@@ -5384,6 +5364,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm3"
       SrcTerminal   3
+      Points        [275, 50]
       DstComponent  "Goto16"
       DstTerminal   1
     }
@@ -5391,6 +5372,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am4"
       SrcTerminal   3
+      Points        [320, 55]
       DstComponent  "Goto17"
       DstTerminal   1
     }
@@ -5398,13 +5380,13 @@ Plecs {
       Type          Wire
       SrcComponent  "Am5"
       SrcTerminal   2
-      Points        [380, 155]
+      Points        [380, 200]
       Branch {
         DstComponent  "FET2"
         DstTerminal   1
       }
       Branch {
-        Points        [450, 155]
+        Points        [450, 200]
         DstComponent  "Vm4"
         DstTerminal   1
       }
@@ -5427,13 +5409,13 @@ Plecs {
       Type          Wire
       SrcComponent  "FET4"
       SrcTerminal   1
-      Points        [630, 160]
+      Points        [630, 205]
       Branch {
         DstComponent  "Am6"
         DstTerminal   2
       }
       Branch {
-        Points        [695, 160]
+        Points        [695, 205]
         DstComponent  "Vm7"
         DstTerminal   1
       }
@@ -5442,7 +5424,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm7"
       SrcTerminal   3
-      Points        [710, 250]
+      Points        [710, 295]
       DstComponent  "Goto21"
       DstTerminal   1
     }
@@ -5457,9 +5439,9 @@ Plecs {
       Type          Wire
       SrcComponent  "FET3"
       SrcTerminal   1
-      Points        [710, 95]
+      Points        [710, 140]
       Branch {
-        Points        [735, 95]
+        Points        [735, 140]
         Branch {
           DstComponent  "Am2"
           DstTerminal   1
@@ -5470,7 +5452,7 @@ Plecs {
         }
       }
       Branch {
-        Points        [710, 35]
+        Points        [710, 80]
         DstComponent  "Vm8"
         DstTerminal   2
       }
@@ -5479,7 +5461,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm8"
       SrcTerminal   3
-      Points        [680, 15]
+      Points        [680, 55]
       DstComponent  "Goto22"
       DstTerminal   1
     }
@@ -5551,9 +5533,9 @@ Plecs {
       Type          Wire
       SrcComponent  "FET1"
       SrcTerminal   1
-      Points        [300, 95]
+      Points        [300, 140]
       Branch {
-        Points        [300, 35]
+        Points        [300, 80]
         DstComponent  "Vm3"
         DstTerminal   2
       }
@@ -5573,7 +5555,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
-      Points        [145, 410]
+      Points        [145, 455]
       DstComponent  "Moving Average1"
       DstTerminal   2
     }
@@ -5581,13 +5563,13 @@ Plecs {
       Type          Signal
       SrcComponent  "MPPT Controller"
       SrcTerminal   2
-      Points        [470, 360]
+      Points        [470, 405]
       Branch {
         DstComponent  "Mode decision"
         DstTerminal   1
       }
       Branch {
-        Points        [470, 300]
+        Points        [470, 350]
         DstComponent  "Goto23"
         DstTerminal   1
       }
@@ -5628,67 +5610,23 @@ Plecs {
       Type          Signal
       SrcComponent  "Moving Average1"
       SrcTerminal   1
-      Points        [300, 410]
+      Points        [300, 455]
       Branch {
-        Points        [355, 410]
+        Points        [355, 455]
         DstComponent  "MPPT Controller"
         DstTerminal   3
       }
       Branch {
+        Points        [300, 500]
         DstComponent  "Goto25"
         DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Mux2"
-      SrcTerminal   1
-      DstComponent  "vL, iL1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm5"
-      SrcTerminal   3
-      Points        [190, 155; 190, 310]
-      Branch {
-        Points        [190, 360]
-        DstComponent  "Moving Average"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [50, 310]
-        DstComponent  "Mux2"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Moving Average"
-      SrcTerminal   1
-      Points        [280, 360]
-      Branch {
-        Points        [300, 360]
-        Branch {
-          DstComponent  "MPPT Controller"
-          DstTerminal   1
-        }
-        Branch {
-          DstComponent  "Goto24"
-          DstTerminal   1
-        }
-      }
-      Branch {
-        Points        [280, 455; 45, 455; 45, 370]
-        DstComponent  "Mux2"
-        DstTerminal   3
       }
     }
     Connection {
       Type          Wire
       SrcComponent  "Vm1"
       SrcTerminal   1
-      Points        [890, 95; 825, 95]
+      Points        [890, 140; 825, 140]
       Branch {
         DstComponent  "Am2"
         DstTerminal   2
@@ -5702,94 +5640,122 @@ Plecs {
       Type          Signal
       SrcComponent  "Mode decision"
       SrcTerminal   2
-      Points        [580, 345]
+      Points        [580, 390]
       Branch {
-        Points        [620, 345; 620, 365]
         DstComponent  "\n\n\n\n\n\nPWM"
         DstTerminal   2
       }
       Branch {
+        Points        [580, 345]
         DstComponent  "Goto14"
         DstTerminal   1
       }
     }
     Connection {
       Type          Signal
+      SrcComponent  "\n\n\n\n\n\nPWM"
+      SrcTerminal   3
+      Points        [795, 360; 795, 335]
+      DstComponent  "Goto3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "\n\n\n\n\n\nPWM"
+      SrcTerminal   5
+      Points        [805, 380]
+      DstComponent  "Goto5"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From21"
+      SrcTerminal   1
+      Points        [1060, 585; 1060, 570]
+      DstComponent  "D1,D2,D,V"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From20"
+      SrcTerminal   1
+      DstComponent  "D1,D2,D,V"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm5"
+      SrcTerminal   3
+      Points        [190, 200; 190, 405]
+      DstComponent  "Moving Average"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Moving Average"
+      SrcTerminal   1
+      Points        [300, 405]
+      Branch {
+        DstComponent  "MPPT Controller"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Goto24"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From37"
+      SrcTerminal   1
+      Points        [1265, 480; 1265, 510]
+      DstComponent  "PWM,D1,D2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From35"
+      SrcTerminal   1
+      DstComponent  "PWM,D1,D2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From38"
+      SrcTerminal   1
+      Points        [1265, 540; 1265, 530]
+      DstComponent  "PWM,D1,D2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From36"
+      SrcTerminal   1
+      Points        [1270, 575; 1270, 540]
+      DstComponent  "PWM,D1,D2"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
       SrcComponent  "Mode decision"
       SrcTerminal   3
-      Points        [610, 355]
+      Points        [580, 400]
       Branch {
-        Points        [615, 355; 615, 375]
         DstComponent  "\n\n\n\n\n\nPWM"
         DstTerminal   1
       }
       Branch {
-        Points        [610, 335]
+        Points        [580, 445]
         DstComponent  "Goto15"
         DstTerminal   1
       }
     }
     Connection {
       Type          Signal
-      SrcComponent  "\n\n\n\n\n\nPWM"
+      SrcComponent  "Am3"
       SrcTerminal   3
-      Points        [795, 335; 795, 315]
-      Branch {
-        DstComponent  "Goto3"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [795, 290; 890, 290; 890, 360]
-        DstComponent  "D1,D3"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "From20"
-      SrcTerminal   1
-      Points        [1075, 560]
-      Branch {
-        DstComponent  "D1,D2,D,V"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [1075, 345; 930, 345]
-        DstComponent  "D1,D3"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "\n\n\n\n\n\nPWM"
-      SrcTerminal   5
-      Points        [785, 355]
-      Branch {
-        Points        [805, 355]
-        DstComponent  "Goto5"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [785, 410; 930, 410]
-        DstComponent  "D1,D3"
-        DstTerminal   3
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "From21"
-      SrcTerminal   1
-      Points        [1060, 585; 1060, 575]
-      Branch {
-        Points        [1060, 570]
-        DstComponent  "D1,D2,D,V"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [930, 575]
-        DstComponent  "D1,D3"
-        DstTerminal   4
-      }
+      DstComponent  "Goto7"
+      DstTerminal   1
     }
   }
   ProbeBlock {
