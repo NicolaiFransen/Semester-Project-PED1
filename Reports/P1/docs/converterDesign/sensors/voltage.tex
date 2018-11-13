@@ -5,41 +5,43 @@ The voltage sensor selected is ACPL-C870 \cite{voltage_sensor}. This sensor incl
 The input voltage at the voltage sensor is recommended to be in the range of $0V-2V$. To divide the measured voltage into that range, a voltage divider will be implemented. 
 
 The maximum output voltage of the PV-module is the open-circuit voltage at $46V$\todo{Get the correct value}. To achieve a safety margin and to increase integration with other types of PV-modules\todo{Write a better description of this}, $50V$ has been selected. The current flow in the voltage divider has been set at $1mA$, to secure a insignificant power loss. The resistors can be calculated with the following equations:
-\begin{equation} \label{voltage_divider_R1_in}
-	R_1 = \frac{V_{in,max}-V_{out}}{I} = \frac{50V-2V}{1mA} = 48k\Omega
+\begin{equation} \label{voltage_divider_R17_in}
+	R_{17} = \frac{V_{in,max}-V_{out}}{I} = \frac{50V-2V}{1mA} = 48k\Omega
 \end{equation}
 
-\begin{equation} \label{voltage_divider_R2_in}
-	V_{out} = V_{in,max} \cdot \frac{R_2}{R_1+R_2} \Rightarrow 2V = 50V \cdot \frac{R2}{48k\Omega+R2}
+\begin{equation} \label{voltage_divider_R18_in}
+	V_{out} = V_{in,max} \cdot \frac{R_{18}}{R_{17}+R_{18}} \Rightarrow 2V = 50V \cdot \frac{R_{18}}{48k\Omega+R_{18}}
 \end{equation}
 \begin{center}
-	$R_2 = 1.958k\Omega$
+	$R_{18} = 1.958k\Omega$
 \end{center}
 
-To achieve these resistor values $R_1 = 47k\Omega$ and $R_2 = 2k\Omega$ have been chosen. 
+To achieve these resistor values $R_{17} = 47k\Omega$ and $R_{18} = 2k\Omega$ have been chosen. 
 
 \subsubsection{Filtering} \label{voltage_sensor_filter}
-For a stable MPPT control, the measured voltage must have a very low ripple. To ensure this, a low-pass RC filter with a corner frequency at $50Hz$, will be placed between the voltage divider and the sensor. The resistor of the filter will be $R_1$ in the voltage divider. The capacitor will calculated as followed in equation \ref{voltage_sensor_in_filter_cap}:
+For a stable MPPT control, the measured voltage must have a very low ripple. To ensure this, a low-pass RC filter with a corner frequency at $500Hz$, will be placed between the voltage divider and the sensor. The resistor of the filter will be $R_1$ in the voltage divider. The capacitor will calculated as followed in equation \ref{voltage_sensor_in_filter_cap}:
 \begin{equation} \label{voltage_sensor_in_filter_cap}
-	C_1 = \frac{1}{2\pi \cdot f_c \cdot R_1} = \frac{1}{2 \pi \cdot 50Hz \cdot 47k\Omega} = 67.7nF
-\end{equation}\todo{Check for available values}
+	C_{17} = \frac{1}{2\pi \cdot f_c \cdot R_{17}} = \frac{1}{2 \pi \cdot 500Hz \cdot 47k\Omega} = 6.7nF
+\end{equation}
+
+To achieve the capacitance $C_{17} = 6.6nF$ has been chosen. 
 
 \subsubsection{Amplification} \label{voltage_sensor_amplification}
 The input range of the ADC in the RT-Box is $0V-5V$. To take advantage of the entire range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484 quad operational amplifier \cite{sensor_opamp}. By using a quad amplifier, the same IC can be used for the output voltage sensor and the current sensor.
 
 The resistors of the differential amplifier will be sized with equation \ref{voltage_sensor_gain}.
 \begin{equation} \label{voltage_sensor_gain}
-	V_{out} = \frac{R_3}{R_1} \cdot (V_2-V_1)
+	V_{out} = \frac{R_{22}}{R_{20}} \cdot (V_2-V_1)
 \end{equation}
 
-Where $V_2-V_1$ is the difference between the output pins of the voltage sensor. With unity gain in the voltage sensor, the maximum difference at the output will be $2V$. This should correspond to the maximum input voltage of the ADC at $5V$. $R_1$ is selected to be $11k\Omega$. The resistor $R_3$ is now calculated using equation \ref{voltage_sensor_gain}.
+Where $V_2-V_1$ is the difference between the output pins of the voltage sensor. With unity gain in the voltage sensor, the maximum difference at the output will be $2V$. This should correspond to the maximum input voltage of the ADC at $5V$. $R_1$ is selected to be $11k\Omega$. The resistor $R_{22}$ is now calculated using equation \ref{voltage_sensor_gain}.
 \begin{equation}
-	5V = \frac{R_3}{11k\Omega} \cdot 2V
+	5V = \frac{R_{22}}{11k\Omega} \cdot 2V
 \end{equation}
 \begin{center}
-	$R_3 = 27.5k\Omega$
+	$R_{22} = 27.5k\Omega$
 \end{center}
-To achieve the value of $R_3$ it's rounded to be $27k\Omega$. 
+To achieve the value of $R_{22}$ it's rounded to be $27k\Omega$. Furthermore $R_{19} = R_{20}$ and $R_{21} = R_{22}$, to get a balanced differential amplifier.
 
 \subsection{Output voltage sensor}
 The voltage sensor at the output is design by the same procedure as the input sensor. The voltage divider will designed such that the values of the amplifier can be reused.
@@ -47,24 +49,26 @@ The voltage sensor at the output is design by the same procedure as the input se
 \subsubsection{Voltage divider}
 The maximum output voltage of the DC/DC converter will be $90V$, when only 4 PV-modules are used. To insert a safety margin if one converter fails, the maximum sensed voltage will be designed at $120V$.
 
-The resistors will be sized by reusing equation \ref{voltage_divider_R1_in} and \ref{voltage_divider_R2_in}.
+The resistors will be sized by reusing equation \ref{voltage_divider_R17_in} and \ref{voltage_divider_R18_in}.
 \begin{equation}
-	R_1 = \frac{V_{in,max}-V_{out}}{I} = \frac{120V-2V}{1mA} = 118k\Omega	
+	R_{26} = \frac{V_{in,max}-V_{out}}{I} = \frac{120V-2V}{1mA} = 118k\Omega	
 \end{equation}
 
 \begin{equation} 
-V_{out} = V_{in,max} \cdot \frac{R_2}{R_1+R_2} \Rightarrow 2V = 120V \cdot \frac{R2}{118k\Omega+R2}
+	V_{out} = V_{in,max} \cdot \frac{R_{27}}{R_{26}+R_{27}} \Rightarrow 2V = 120V \cdot \frac{R_{27}}{118k\Omega+R_{27}}
 \end{equation}
 \begin{center}
-	$R_2 = 2.03k\Omega$
+	$R_{27} = 2.03k\Omega$
 \end{center}
 
-To achieve these resistor values $R_1 = 120k\Omega$ and $R_2 = 2k\Omega$ have been chosen. 
+To achieve these resistor values $R_{26} = 120k\Omega$ and $R_{27} = 2k\Omega$ have been chosen. 
 
 \subsubsection{Filtering}
-The filter will be design with the same corner frequency at $50Hz$, as for the input sensor.
+The filter will be design with the same corner frequency at $500Hz$, as for the input sensor.
 
-The resistor of the filter will again be $R_1$ in the voltage divider. The capacitor will calculated as followed in equation \ref{voltage_sensor_out_filter_cap}:
+The resistor of the filter will be $R_{26}$ in the voltage divider. The capacitor will be calculated as followed in equation \ref{voltage_sensor_out_filter_cap}:
 \begin{equation} \label{voltage_sensor_out_filter_cap}
-C_1 = \frac{1}{2\pi \cdot f_c \cdot R_1} = \frac{1}{2 \pi \cdot 50Hz \cdot 120k\Omega} = 26.5nF
-\end{equation}\todo{Check for available values}
+	C_{22} = \frac{1}{2\pi \cdot f_c \cdot R_{26}} = \frac{1}{2 \pi \cdot 500Hz \cdot 120k\Omega} = 2.6nF
+\end{equation}
+
+To achieve the capacitance $C_{22} = 3.3nF$ has been chosen. 
