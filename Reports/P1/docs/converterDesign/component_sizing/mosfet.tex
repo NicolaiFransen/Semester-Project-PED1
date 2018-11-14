@@ -1,13 +1,30 @@
 \subsection{Switch sizing} \label{switch_sizing}
 
-The system's switching frequency is $50 kHz$ thus 
+The system must regulate the energy flow in order to maximize the energy generation. In order to achieve this, the system includes switches that control the current flow. The switches consist on MOSFET devices. The switching frequency of the system is $50 kHz$. Although the market has IGBT which can switch at $50 kHz$, MOSFET devices allow lower losses than IGBTs for system's current rating. \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}
 
-*mosfet it is
-*voltage and current sizing 
-*commercial component choosing
-*on resistance
-*gate capacitance
+The maximum output voltage of the system is $90 V$, however the voltage rating of the transistors was set to $150 V$ in order to increase the reliability. The peak current through the transistors happens when the buck mode is activated. The peak current is equal to $14 A$. In order to reduce the conduction losses and the heatsink size, a low on resistance is desired. This constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3GATMA1. It exhibits the features seen in table \ref{mosfet_features}.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|p{6cm}|>{\centering}p{8cm}|}
+		\hline
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Maximum ratings}} \\ \hline
+		Continuous $I_{D}$ & 40 [A]  \tabularnewline \hline
+		$V_{GS}$ & $\pm$ 20 [V]  \tabularnewline \hline
+		Power dissipation & 150 [W]  \tabularnewline \hline
+		$V_{DS}$ & 150 [V]  \tabularnewline \hline
+		$R_{DSon} $ & 20 [m$\Omega$]  \tabularnewline \hline
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Other values of interest}} \\ \hline
+		$C_{GS} $ & 1.81 [nF]  \tabularnewline \hline
+		Package & D2PAK  \tabularnewline \hline
+	
+	\end{tabular}
+	\caption{MOSFET figures of merit. T = 25 $\decC$. \cite{mosfet_datasheet}}
+	\label{mosfet_features}
+\end{table}
+
+**Subsubsection heatsik sizing
+
 *body diode
-*conduction losses?
 *layout and package considerations
 
