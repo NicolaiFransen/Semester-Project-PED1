@@ -16,4 +16,3 @@ Perturb and observe is with the incremental conductance the most frequently used
 
 \subsection{Incremental conductancee}
 The approach of incremental conductance is that the MPP is at the position where the derivative of power after voltage is 0. The left side of the MPP is the derivative greater than 0 and the right side is the derivative less than 0, which is what the equations describe. The algorithm compares the incremental conductance with the previous one to then increase (left side of the MPP) or decrease (left side of the MPP) the voltage.  In this procedure, the algorithm is stopped when the MPP is reached. There is no oscillation around the MPP. If a change in current is detected, the algorithm starts to find the MPP again, as you can see in the flowchart in figure \ref{fcincrementalc}. As with perturb and observe, a fixed value is used to change the voltage. If the value is high, the probability is higher that the algorithm oscillates around the MPP. 
-
