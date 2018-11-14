@@ -1,0 +1,43 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~MIC_760.PrjPcb|ReportField=ProjectFullPath~C:\Users\aitor\Documents\GitHub\Semester-Project-PED1\Schematic_PCB\MIC_760\MIC_760.PrjPcb|ReportField=Title~Bill of Materials For Project [MIC_760.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~138|ReportField=ReportTime~16:32:11|ReportField=ReportDate~14/11/2018|ReportField=ReportDateTime~14/11/2018 16:32:11|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~14/11/2018|ReportField=CurrentTime~16:32:03|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\aitor\Documents\GitHub\Semester-Project-PED1\Schematic_PCB\MIC_760\Drivers.SchDoc|ReportField=DocumentName~Drivers.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~12/11/2018|ReportField=Organization~|ReportField=ProjectName~MIC_760.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~MIC_760.PrjPcb|ReportField=DataSourceFullPath~C:\Users\aitor\Documents\GitHub\Semester-Project-PED1\Schematic_PCB\MIC_760\MIC_760.PrjPcb
+1|Test Point||5V_LV, 5Vsen, 12M1, 12M3, 12V, GND_LV, GNDin, GNDout, GndS, IHf, ILf, IoutS, Lin, Lout, M1, M2, M3, M4, S1, S2, S3, S4, Vin, VinS, Vout, VoutS|Test_Point|Test Point|26
+2|100nF|Condensador|C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C20, C21, C23|Cap100nF_AAU|Condensador|19
+3|6.6nF|Condensador|C17|Condensador_MKP_200milis - duplicate|Condensador|1
+4|4.7nF|Condensador|C18|Condensador_MKP_200milis - duplicate|Condensador|1
+5|470pF|Condensador|C19|Condensador_MKP_200milis - duplicate|Condensador|1
+6|2.7nF|Condensador|C22|Condensador_MKP_200milis - duplicate|Condensador|1
+7|470µF|Condensador Aluminio con polaridad|C24, C25, C26, C27|CE_16Dx35mm_pitch7.5mm|Cond_Electrolítico|4
+8|100nF|Condensador|C28, C31|1812|Condensador|2
+9|1uF|Condensador|C29, C32|1812|Condensador|2
+10|820µF|Condensador Aluminio con polaridad|C30|CE_30Dx35mm_pitch10mm|Cond_Electrolítico|1
+11|????|Diodo|D1|D2PAK - Diode|Diodo|1
+12|NCP81074A||Drv1, Drv2, Drv3, Drv4|NCP81074A|NCP81074A|4
+13|Verde||DS1, DS2, DS3, DS4|Led 2mm|Led|4
+14|4.7V||Dz1, Dz2|SOT23 - zenner|Zener|2
+15|ACS723LLCTR-20AB-T|Current Sensor AC/DC 5V 8-Pin SOIC N Allegro Microsystems ACS723LLCTR-20AB-T, Current Sensor, 8-Pin, SOIC|IL_sens1|SOIC8_GND|ACS723LLCTR-20AB-T|1
+16|TRACO|TracoPower TMA1212S|in_TRACO1, out_TRACO1|TRACO_TMA1212S|TRACO|2
+17|LD1117|Linear voltage regulator|J1|SOT-223_LM1117|LD1117|1
+18|Cleva 2 vias||J2|Con2_Extron _3.5mmPitch|Con_2|1
+19|CON4|CON4|J3|Con4_Extron _3.5mmPitch|CON4|1
+20|CON6|CONECTOR 6 PINES|J4|Con6_KK_256 - duplicate|CON6|1
+21|Cleva 2 vias||J5|con_3_100milis|Con_3|1
+22|mH||L1|Torus_Coil_1mH|Bobina|1
+23|MOSFET N|MOSFET de canal N|M1, M2, M3, M4|D2PAK - MOSFET|MOSFET N|4
+24|ACPL-W70L||Opto1, Opto2, Opto3, Opto4|SSOIC6|ACPL-W70L|4
+25|RK|Resistencia|R1, R3, R4, R23|1206|Resistencia|4
+26|Res. Bridge|Resistencia Bridge|R2|1206|Res. Bridge|1
+27|560OHM|Resistencia|R5, R8, R9, R10, R11, R12, R13, R14, R15, R16|1206|Resistencia|10
+28|25|Resistencia|R6, R7|1206|Resistencia|2
+29|47k|Resistencia|R17, R37|1206|Resistencia|2
+30|2k|Resistencia|R18, R27|1206|Resistencia|2
+31|11k|Resistencia|R19, R20, R28, R29|1206|Resistencia|4
+32|27k|Resistencia|R21, R22, R30, R31|1206|Resistencia|4
+33|6k8|Resistencia|R24|1206|Resistencia|1
+34|68k|Resistencia|R25, R34, R35, R38, R39|1206|Resistencia|5
+35|120k|Resistencia|R26|1206|Resistencia|1
+36|10k|Resistencia|R32, R33|1206|Resistencia|2
+37|33K|Resistencia|R36|1206|Resistencia|1
+38|Support||S1, S2, S3, S4|Support|Support|4
+39|CON1||Short1, Short2|ShortPad|CON1|2
+40|LMC6484IM|14 pin CMOS Quad Rail to Rail Input and Output Operational Amplifier 55 per tube|U1|SOIC_14|LMC6484IM_1|1
+41|ACPL-C870-000E|Isolation Amplifier [Broadcom] ACPL-C870-000E Isolation Amplifier|U2, U3|SSOP8|ACPL-C870-000E|2
+42|CON1||Vin+1, Vin-1, Vout+1, Vout-1|PowerHole|CON1|4
