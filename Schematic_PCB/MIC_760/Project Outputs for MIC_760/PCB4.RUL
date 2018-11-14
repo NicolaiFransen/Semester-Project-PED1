@@ -1,0 +1,7 @@
+DRC Rules Export File for PCB: C:\Users\aitor\Documents\GitHub\Semester-Project-PED1\Schematic_PCB\MIC_760\PCB4.PcbDoc
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=15.75
+RuleKind=Clearance|RuleName=Polygon Pour|Scope=Board|Minimum=39.37
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=19.69
+RuleKind=Clearance|RuleName=Defoult|Scope=Board|Minimum=15.75
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
