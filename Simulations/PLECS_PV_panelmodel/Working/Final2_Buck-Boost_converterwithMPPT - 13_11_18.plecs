@@ -70,7 +70,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 23; 1280, 636]
+    Location      [0, 30; 1280, 640]
     ZoomFactor    1
     SliderPosition [-1, -1]
     ShowBrowser   on
@@ -767,12 +767,12 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "[1]"
+        Value         "[0.4]"
         Show          off
       }
       Parameter {
         Variable      "After"
-        Value         "[1]"
+        Value         "[0.4]"
         Show          off
       }
       Parameter {
@@ -817,17 +817,17 @@ Plecs {
       Position      [1120, 200]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1283, 706]
+      Location      [0, 26; 1280, 663]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAALoA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAACXAP///wAAAAMAAAeEAAAAx/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABpAP///wAAB4QAAAPZAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABpAP///wAAB4AAAAOZAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAJYAAAAJAAAAlgAAAAQAAACWAAAABQAAAJYAAAAGAAAAlgAAAAcAAACWAAAAAQAAAJYAAAACAA"
-"AAlgAAAAMAAACWAAAA7gAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAC0AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"gAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAAIAAAAlgAAAAkAAACWAAAAAgAAAJYAAAADAA"
+"AAlgAAAAEAAACWAAABDQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADTAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AA6AAAAAQAAAAAAAAPoAAAAADo="
@@ -919,11 +919,11 @@ Plecs {
       Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1283, 706]
+      Location      [0, 26; 1280, 663]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
 "GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAACXAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
 "///wAAAEwA////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAAC0AP///wAAB4QAAAPZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"AB4AAAAC0AP///wAAB4AAAAOZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -931,7 +931,7 @@ Plecs {
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQA="
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1406,7 +1406,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [0, 86; 1536, 838]
+        Location      [0, 26; 1283, 649]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -1545,21 +1545,22 @@ Plecs {
             Value         "#include<stdio.h>\n#include<stdlib.h>\n#include <ti"
 "me.h> \n\n\n#define V_OC_threshold 43\n\n\nenum state {\n\tSTARTUP,\n\tOPEN_L"
 "OOP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAGE_DEC,\n\t};\n\ndouble V"
-", I, P, Vprevious, Iprevious, Pprevious, delta_V, delta_P;\ndouble D_delta=0."
+", I, P, Vprevious, Iprevious, Pprevious, delta_P, delta_V;\ndouble D_delta=0."
 "01;\ndouble D = 0, Dmin=0.05, Dmax=0.95;\nstatic enum state SYSTEM_STATE = ST"
-"ARTUP;\nint startup_counter = 0;\nstatic char* enumstate[] = {\"STARTUP\",\"O"
-"PEN LOOP\", \"VOLTAGE EV\", \"VOLTAGE INC\", \"VOLTAGE DEC\"};\n\n#define V_i"
-"n Input(0);\n#define I_in Input(1);\n\n#define D_out Output(0);\n\n\n\nvoid O"
-"pen_loop_increase_D(void){\n\tD = D + D_delta;\n}\n\n\nvoid calculate_power(v"
-"oid){\n\tP = V * I;\n}\n\n\nvoid evaluate_voltage(void){\n\tdelta_V = V - Vpr"
-"evious;\n}\n\nvoid evaluate_power(void){\n\tdelta_P = P - Pprevious;\n}\n\n\n"
-"void save_variables(void){\n\tVprevious = V;\n\tIprevious = I;\n\tPprevious ="
-" P;\n\t}\n\nint power_is_increased(void){\n\treturn P > Pprevious;\n}\n\nint "
-"power_is_decreased(void){\n\treturn P < Pprevious;\n}\n\n\n\nvoid delay_start"
-"up(int number_of_seconds) \n{ \n    // Converting time into milli_seconds \n "
-"   int milli_seconds = 1000 * number_of_seconds; \n  \n    // Stroing start t"
-"ime \n    clock_t start_time = clock(); \n  \n    // looping till required ti"
-"me is not acheived \n    while (clock() < start_time + milli_seconds) ; \n}"
+"ARTUP;\nint startup_counter = 0;\nint startup_counternew = 0;\nstatic char* e"
+"numstate[] = {\"STARTUP\",\"OPEN LOOP\", \"VOLTAGE EV\", \"VOLTAGE INC\", \"V"
+"OLTAGE DEC\"};\n\n#define V_in Input(0);\n#define I_in Input(1);\n\n#define D"
+"_out Output(0);\n\n\n\nvoid Open_loop_increase_D(void){\n\tD = D + D_delta;\n"
+"}\n\n\nvoid calculate_power(void){\n\tP = V * I;\n}\n\n\nvoid evaluate_voltag"
+"e(void){\n\tdelta_V = V - Vprevious;\n}\n\nvoid evaluate_power(void){\n\tdelt"
+"a_P = P - Pprevious;\n}\n\n\nvoid save_variables(void){\n\tVprevious = V;\n\t"
+"Iprevious = I;\n\tPprevious = P;\n\t}\n\nint power_is_increased(void){\n\tret"
+"urn P > Pprevious;\n}\n\nint power_is_decreased(void){\n\treturn P < Ppreviou"
+"s;\n}\n\n\n\nvoid delay_startup(int number_of_seconds) \n{ \n    // Convertin"
+"g time into milli_seconds \n    int milli_seconds = 1000 * number_of_seconds;"
+" \n  \n    // Stroing start time \n    clock_t start_time = clock(); \n  \n  "
+"  // looping till required time is not acheived \n    while (clock() < start_"
+"time + milli_seconds) ; \n}"
             Show          off
           }
           Parameter {
@@ -1576,29 +1577,31 @@ Plecs {
             Variable      "UpdateFcn"
             Value         "V=V_in;\nI=I_in;\n\n\tswitch (SYSTEM_STATE){ \n\t\n"
 "\t\tcase STARTUP:// STATE 0\n\t\t{\n\t\t//if(V > V_OC_threshold) \n\t\t\t//{"
-"\n\t\t\t\tdelay_startup(1);\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD=0.2"
-"5;\n\t\t\t//\t}\t\n\t\t}break;\n\t\t\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t"
-"\tOpen_loop_increase_D();\n\t\t\tcalculate_power();\n\t\t\tsave_variables();"
-"\n\t\t\tstartup_counter++;\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE = VO"
-"LTAGE_EVALUATION;\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_EVALUATION: \n\t\t{\n"
-"\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC"
-";\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\t\t\n\t"
-"\tcase VOLTAGE_INC: \n\t\t{\n\t\t\tcalculate_power();\n\t\t\t\n\t\t\tif (delt"
-"a_V<0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n"
-"\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d \\n\", D_delta);\n\t"
-"\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased()){\n\t\t\tD = D - D_d"
-"elta; \n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tif (power_is_decreased()) {"
-"\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D + D_delta;\t\n\t\t\tif(D>Dmax) D=Dm"
-"ax;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATIO"
-"N;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tcalculate_power();"
-"\n\t\t\t\n\t\t\tif (delta_V>-0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (d"
-"elta_P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is"
-": %d \\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increas"
-"ed()) D = D + D_delta;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decrease"
-"d()) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) "
-"D=Dmin;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALU"
-"ATION;\n\t\t}break;\n\t\t\n}\n\nprintf(\"System state: %s \\n\", enumstate[ S"
-"YSTEM_STATE]);"
+"\n\t\t\tstartup_counternew++;\n\t\t\tif(startup_counternew >=5){\n\t\t\t\n\t"
+"\t\t\n\t\t\t\t//delay_startup(1);\n\t\t\t\t\n\t\t\t\t//evaluate_voltage();\n"
+"\t\t\t\t//if (delta_V< 0.0003){\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD"
+"=0.25;\n\t\t\t\t}\n\t\t\t\t//}\n\t\t\t\n\t\t\t\t\n\t\t\t//\t}\t\n\t\t}break;"
+"\n\t\t\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_increase_D();\n\t\t"
+"\tcalculate_power();\n\t\t\tsave_variables();\n\t\t\tstartup_counter++;\n\t\t"
+"\tif (startup_counter >= 5) SYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n"
+"\t\t\n\t\tcase VOLTAGE_EVALUATION: \n\t\t{\n\t\t\tevaluate_voltage();\n\t\t\t"
+"if (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTEM_"
+"STATE = VOLTAGE_DEC;\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_INC: \n\t\t{\n\t\t"
+"\tcalculate_power();\n\t\t\t\n\t\t\tif (delta_V<0.05){\n\t\t\t\tevaluate_powe"
+"r();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\t"
+"printf(\"Delta_D is: %d \\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\ti"
+"f (power_is_increased()){\n\t\t\tD = D - D_delta; \n\t\t\tif(D<Dmin) D=Dmin;"
+"\n\t\t\t}\n\t\t\tif (power_is_decreased()) {\n\t\t\tD_delta = D_delta/2;\n\t"
+"\t\tD = D + D_delta;\t\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\t}\n\t\t\tsave_variabl"
+"es();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\n\n\t\tcase VO"
+"LTAGE_DEC: \n\t\t{\n\t\t\tcalculate_power();\n\t\t\t\n\t\t\tif (delta_V>-0.05"
+"){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n\t\t\t\t"
+"D_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d \\n\", D_delta);\n\t\t\t\t}"
+"\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased()) D = D + D_delta;\n\t\t\tif"
+"(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decreased()) {\n\t\t\tD_delta = D_delta/"
+"2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tsave_var"
+"iables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\t\t\n}\n\n"
+"printf(\"System state: %s \\n\", enumstate[ SYSTEM_STATE]);"
             Show          off
           }
           Parameter {
@@ -1660,20 +1663,20 @@ Plecs {
       Position      [1120, 315]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
+      Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAALoA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAAPZAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAH0AAAADAAAAfQAAAAEAAAB9AAAABgAAAH0AAAAHAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAIAA"
-"AAfQAAAAkAAAB9AAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB/AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"gAAAH0AAAAFAAAAfQAAAAQAAAB9AAAACQAAAH0AAAAIAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAA"
+"AAfQAAAAcAAAB9AAAAuQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAB/AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "=="
@@ -1824,20 +1827,20 @@ Plecs {
       Position      [1125, 440]
       Direction     up
       Flipped       off
-      Location      [710, 118; 1399, 662]
+      Location      [323, 57; 1012, 601]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAA10AAAKJAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAALoA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAABAoAAAMNAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAH0AAAADAAAAfQAAAAEAAAB9AAAABgAAAH0AAAAHAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAIAA"
-"AAfQAAAAkAAAB9AAABFwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAADmAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"gAAAH0AAAAHAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAIAAAAfQAAAAkAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAABSgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAEQAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "=="
@@ -1926,20 +1929,20 @@ Plecs {
       Position      [1105, 575]
       Direction     up
       Flipped       off
-      Location      [794, 76; 1515, 756]
+      Location      [731, 40; 1280, 720]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAOFAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA4UAAABbAP///wAAA4UAAAKuAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAPEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAM4AAAAiPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAzgAAABpAP///wAAAzgAAANLAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"wAAAJYAAAAGAAAAlgAAAAUAAACWAAAABAAAAJYAAAAJAAAAlgAAAAgAAACWAAAAAwAAAJYAAAACAA"
-"AAlgAAAAEAAACWAAADcAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACqAAA"
+"gAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAAIAAAAlgAAAAkAAACWAAAAAgAAAJYAAAADAA"
+"AAlgAAAAEAAACWAAADHgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADJAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"ALGAAAAAQAAAAAAAAPoAAAAADE="
+"AJVAAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -1947,7 +1950,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""

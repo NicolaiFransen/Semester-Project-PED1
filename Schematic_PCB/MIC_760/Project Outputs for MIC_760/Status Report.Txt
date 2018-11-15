@@ -9,4 +9,4 @@ From  : Project [MIC_760.PrjPcb]
 Files Generated   : 3
 Documents Printed : 0
 
-Finished Output Generation At 0:01:01 On 15/11/2018
+Finished Output Generation At 14:35:41 On 15/11/2018
