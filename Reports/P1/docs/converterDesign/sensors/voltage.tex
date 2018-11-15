@@ -1,5 +1,13 @@
 \subsection{Input voltage sensor} \label{voltage_sensors}
-The voltage sensor selected is ACPL-C870 \cite{voltage_sensor}. This sensor includes optical isolation amplifiers, which makes it well suited for isolated voltage sensing. The amplifier includes unity gain $1V/V$ amplification, with an accuracy at $\pm 3 \%$. 
+The voltage sensor selected is ACPL-C870 \cite{voltage_sensor}. This sensor includes optical isolation amplifiers, which makes it well suited for isolated voltage sensing. The amplifier includes unity gain $1V/V$ amplification, with an accuracy at $\pm 3 \%$. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{../Pictures/P1/Sensors/voltage_sensors_placement.PNG}
+		\caption{Voltage sensors placement}
+		\label{fig:voltage_sensors_placement}
+	\end{center}
+\end{figure} 
 
 \subsubsection{Voltage divider}
 The input voltage at the voltage sensor is recommended to be in the range of $0V-2V$. To divide the measured voltage into that range, a voltage divider will be implemented. 
@@ -43,6 +51,17 @@ Where $V_2-V_1$ is the difference between the output pins of the voltage sensor.
 \end{center}
 To achieve the value of $R_{22}$ it's rounded to be $27k\Omega$. Furthermore $R_{19} = R_{20}$ and $R_{21} = R_{22}$, to get a balanced differential amplifier.
 
+\subsubsection{The circuit}
+The circuit regarding the input voltage measurement is shown at figure \ref{fig:input_voltage_sensor_circuit}. $V_{in}$ is the measured voltage from the PV-module. The points $OA1_+$ and $OA1_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA1_{out}$ is connected to the output of the amplifier. $C_{15}$ and $C_{16}$ are decoupling capacitors for the two supply voltages. 
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{../Pictures/P1/Sensors/input_voltage_sensor.PNG}
+		\caption{Input voltage sensor}
+		\label{fig:input_voltage_sensor_circuit}
+	\end{center}
+\end{figure}
+
 \subsection{Output voltage sensor}
 The voltage sensor at the output is design by the same procedure as the input sensor. The voltage divider will designed such that the values of the amplifier can be reused.
 
@@ -72,3 +91,14 @@ The resistor of the filter will be $R_{26}$ in the voltage divider. The capacito
 \end{equation}
 
 To achieve the capacitance $C_{22} = 3.3nF$ has been chosen. 
+
+\subsubsection{The circuit}
+The circuit regarding the input voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. $V_{out}$ is the measured voltage from the converter output. The points $OA2_+$ and $OA2_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA2_{out}$ is connected to the output of the amplifier. $C_{20}$ and $C_{21}$ are decoupling capacitors for the two supply voltages. 
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{../Pictures/P1/Sensors/output_voltage_sensor.PNG}
+		\caption{Output voltage sensor}
+		\label{fig:output_voltage_sensor_circuit}
+	\end{center}
+\end{figure}
