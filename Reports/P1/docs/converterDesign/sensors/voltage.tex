@@ -12,7 +12,7 @@ The voltage sensor selected is ACPL-C870 \cite{voltage_sensor}. This sensor incl
 \subsubsection{Voltage divider}
 The input voltage at the voltage sensor is recommended to be in the range of $0V-2V$. To divide the measured voltage into that range, a voltage divider will be implemented. 
 
-The maximum output voltage of the PV-module is the open-circuit voltage at $46V$\todo{Get the correct value}. To achieve a safety margin and to increase integration with other types of PV-modules\todo{Write a better description of this}, $50V$ has been selected. The current flow in the voltage divider has been set at $1mA$, to secure a insignificant power loss. The resistors can be calculated with the following equations:
+The maximum output voltage of the PV-module is the open-circuit voltage at $45.2V$. To achieve a safety margin and to make the converter adaptable to other types of PV-modules, $50V$ has been selected. The current flow in the voltage divider has been set at $1mA$, to secure a insignificant power loss. The resistors can be calculated with the following equations:
 \begin{equation} \label{voltage_divider_R17_in}
 	R_{17} = \frac{V_{in,max}-V_{out}}{I} = \frac{50V-2V}{1mA} = 48k\Omega
 \end{equation}
@@ -54,7 +54,7 @@ To achieve the value of $R_{22}$ it's rounded to be $27k\Omega$. Furthermore $R_
 \subsubsection{The circuit}
 The circuit regarding the input voltage measurement is shown at figure \ref{fig:input_voltage_sensor_circuit}. $V_{in}$ is the measured voltage from the PV-module. The points $OA1_+$ and $OA1_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA1_{out}$ is connected to the output of the amplifier. $C_{15}$ and $C_{16}$ are decoupling capacitors for the two supply voltages. 
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.7\linewidth]{../Pictures/P1/Sensors/input_voltage_sensor.PNG}
 		\caption{Input voltage sensor}
@@ -95,7 +95,7 @@ To achieve the capacitance $C_{22} = 3.3nF$ has been chosen.
 \subsubsection{The circuit}
 The circuit regarding the input voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. $V_{out}$ is the measured voltage from the converter output. The points $OA2_+$ and $OA2_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA2_{out}$ is connected to the output of the amplifier. $C_{20}$ and $C_{21}$ are decoupling capacitors for the two supply voltages. 
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.7\linewidth]{../Pictures/P1/Sensors/output_voltage_sensor.PNG}
 		\caption{Output voltage sensor}
