@@ -9,18 +9,18 @@ duty_cycle_005_to_045 = 0.05:0.01:0.45;
 
 M_buck = buck_evaluation(duty_cycle_0_to_1)
 M_boost = boost_evaluation(duty_cycle_0_to_1)
-M_buckboost_single_d = single_d_buckboost_evaluation(duty_cycle_0_to_1)
-M_buckboost_double_d = double_d_buckboost_evaluation(duty_cycle_005_to_045)
+%M_buckboost_single_d = single_d_buckboost_evaluation(duty_cycle_0_to_1)
+%M_buckboost_double_d = double_d_buckboost_evaluation(duty_cycle_005_to_045)
 
 figure(1)
 plot(duty_cycle_0_to_1, M_boost)
 hold on
 plot(duty_cycle_0_to_1, M_buck)
-hold on
-plot(duty_cycle_005_to_045, M_buckboost_double_d)
-hold on
-plot(duty_cycle_0_to_1, M_buckboost_single_d)
-axis([0 0.90 0 5])
+%hold on
+%plot(duty_cycle_005_to_045, M_buckboost_double_d)
+%hold on
+%plot(duty_cycle_0_to_1, M_buckboost_single_d)
+%axis([0 0.90 0 5])
 hold off
 
 function y = buck_evaluation(x)
