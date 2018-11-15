@@ -1,0 +1,187 @@
+Plecs {
+  Name          "Thermal_calculation"
+  Version       "4.2"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  StopTime      "1.0"
+  Timeout       ""
+  Solver        "dopri"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  InitializationCommands ""
+  InitialState  "1"
+  SystemState   ""
+  CodeGenParameterInlining "2"
+  CodeGenInliningExceptions "AAAACwAAAAAA"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  Schematic {
+    Location      [0, 23; 1280, 645]
+    ZoomFactor    1
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          DCVoltageSource
+      Name          "T_Housing"
+      Show          on
+      Position      [85, 130]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "V"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Ground
+      Name          "Ground"
+      Show          off
+      Position      [255, 210]
+      Direction     up
+      Flipped       off
+    }
+    Component {
+      Type          Resistor
+      Name          "R_th_C-A"
+      Show          on
+      Position      [205, 80]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "R"
+        Value         "18.75"
+        Show          on
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R_th_H"
+      Show          on
+      Position      [205, 125]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "R"
+        Value         "2"
+        Show          on
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R_th_J-C"
+      Show          on
+      Position      [320, 80]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "R"
+        Value         "0.25"
+        Show          on
+      }
+    }
+    Component {
+      Type          DCCurrentSource
+      Name          "P_diss"
+      Show          on
+      Position      [435, 130]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "I"
+        Value         "1"
+        Show          off
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "T_Housing"
+      SrcTerminal   1
+      Points        [85, 80; 165, 80]
+      Branch {
+        DstComponent  "R_th_C-A"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [165, 125]
+        DstComponent  "R_th_H"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R_th_C-A"
+      SrcTerminal   1
+      Points        [265, 80]
+      Branch {
+        DstComponent  "R_th_J-C"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [265, 125]
+        DstComponent  "R_th_H"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R_th_J-C"
+      SrcTerminal   1
+      Points        [435, 80]
+      DstComponent  "P_diss"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "T_Housing"
+      SrcTerminal   2
+      Points        [85, 180; 255, 180]
+      Branch {
+        DstComponent  "Ground"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [435, 180]
+        DstComponent  "P_diss"
+        DstTerminal   1
+      }
+    }
+    Annotation {
+      Name          "T_C"
+      Position      [265, 65]
+    } 
+    Annotation {
+      Name          "T_J"
+      Position      [435, 65]
+    } 
+  }
+}
