@@ -71,7 +71,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 23; 1280, 636]
+    Location      [0, 26; 1280, 639]
     ZoomFactor    1
     SliderPosition [0, -1]
     ShowBrowser   on
@@ -920,11 +920,11 @@ Plecs {
       Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1283, 706]
+      Location      [0, 23; 1280, 660]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
 "GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAACXAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
 "///wAAAEwA////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAAC0AP///wAAB4QAAAPZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"AB4AAAAC0AP///wAAB4AAAAOZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1399,7 +1399,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [0, 26; 1283, 677]
+        Location      [0, 26; 1283, 675]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -1570,30 +1570,30 @@ Plecs {
             Variable      "UpdateFcn"
             Value         "V=V_in;\nI=I_in;\n\n\tswitch (SYSTEM_STATE){ \n\t\n"
 "\t\tcase STARTUP:// STATE 0\n\t\t{\n\t\t//if(V > V_OC_threshold) \n\t\t\t//{"
-"\n\t\t\t\t//delay_startup(1);\n\t\t\t\tcount_oc++;\n\t\t\t\tif(count_oc >5){"
-"\t\t\t\t\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD=0.25;}\n\t\t\t\t//}\t"
-"\n\t\t}break;\n\t\t\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpen_loop_increa"
-"se_D();\n\t\t\tcalculate_power();\n\t\t\tsave_variables();\n\t\t\t//startup_c"
-"ounter++;\n\t\t\t//if (startup_counter >= 5)\n\t\t\tSYSTEM_STATE = VOLTAGE_EV"
-"ALUATION;\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_EVALUATION: \n\t\t{\n\t\t\teva"
-"luate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t\t"
-"if (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\t\t\n\t\tcase VOL"
-"TAGE_INC: \n\t\t{\n\t\t\t\n\t\t\tcalculate_power();\n\t\t\t\n\t\t\tif (delta_"
-"V<0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n\t"
-"\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d \\n\", D_delta);\n\t\t"
-"\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased()){\n\t\t\tD = D - D_del"
-"ta; \n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tif (power_is_decreased()) {\n"
-"\t\t\tD_delta = D_delta/2;\n\t\t\tD = D + D_delta;\t\n\t\t\tif(D>Dmax) D=Dmax"
-";\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;"
-"\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tcalculate_power();\n"
-"\t\t\t\n\t\t\tif (delta_V>-0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (del"
-"ta_P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: "
-"%d \\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased"
-"()) D = D + D_delta;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decreased("
-")) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) D="
-"Dmin;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUAT"
-"ION;\n\t\t}break;\n\t\t\n}\nprintf(\"Delta_D is: %f \\n\", D_delta);\nprintf("
-"\"System state: %s \\n\", enumstate[ SYSTEM_STATE]);"
+"\n\t\t\t\t//delay_startup(1);\n\t\t\t\t\n\t\t\t\tif(startup_counter >5){\t\t"
+"\t\t\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD=0.25;}\n\t\t\t\tstartup_co"
+"unter++;\n\t\t\t\t//}\t\n\t\t}break;\n\t\t\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{"
+"\n\t\t\tOpen_loop_increase_D();\n\t\t\tcalculate_power();\n\t\t\tsave_variabl"
+"es();\n\t\t\tstartup_counter++;\n\t\t\tif (startup_counter >= 10)\n\t\t\tSYST"
+"EM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_EVALUATIO"
+"N: \n\t\t{\n\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE ="
+" VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break"
+";\n\t\t\n\t\tcase VOLTAGE_INC: \n\t\t{\n\t\t\t\n\t\t\tcalculate_power();\n\t"
+"\t\t\n\t\t\tif (delta_V<0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta_"
+"P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d "
+"\\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased())"
+"{\n\t\t\tD = D - D_delta; \n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tif (powe"
+"r_is_decreased()) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D + D_delta;\t\n\t"
+"\t\tif(D>Dmax) D=Dmax;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE "
+"= VOLTAGE_EVALUATION;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\t"
+"calculate_power();\n\t\t\t\n\t\t\tif (delta_V>-0.05){\n\t\t\t\tevaluate_power"
+"();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\tp"
+"rintf(\"Delta_D is: %d \\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif"
+" (power_is_increased()) D = D + D_delta;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif "
+"(power_is_decreased()) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D - D_delta;"
+"\n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_ST"
+"ATE = VOLTAGE_EVALUATION;\n\t\t}break;\n\t\t\n}\nprintf(\"Delta_D is: %f \\n"
+"\", D_delta);\nprintf(\"System state: %s \\n\", enumstate[ SYSTEM_STATE]);"
             Show          off
           }
           Parameter {
