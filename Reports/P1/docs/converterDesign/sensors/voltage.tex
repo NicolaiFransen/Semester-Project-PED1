@@ -127,10 +127,10 @@ The filter will be design with the same corner frequency at $500Hz$, as for the 
 
 The resistor of the filter will be $R_{26}$ in the voltage divider. The capacitor will be calculated as followed in equation \ref{voltage_sensor_out_filter_cap}:
 \begin{equation} \label{voltage_sensor_out_filter_cap}
-	C_{22} = \frac{1}{2\pi \cdot f_c \cdot R_{26}} = \frac{1}{2 \pi \cdot 500Hz \cdot 120k\Omega} = 2.6nF
+	C_{22} = \frac{1}{2\pi \cdot f_c \cdot R_{26}} = \frac{1}{2 \pi \cdot 500Hz \cdot 120k\Omega} = 2.7nF
 \end{equation}
 
-To achieve the capacitance $C_{22} = 3.3nF$ has been chosen. 
+To achieve the capacitance $C_{22} = 3.3nF$ has been chosen. By using these values the actual corner frequency will be $402 Hz$.
 
 \subsubsection{The circuit}
 The circuit regarding the input voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. 
