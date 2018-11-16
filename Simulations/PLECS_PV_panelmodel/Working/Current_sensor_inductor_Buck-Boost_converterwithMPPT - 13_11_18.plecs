@@ -71,9 +71,9 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 30; 1536, 776]
+    Location      [0, 23; 1280, 636]
     ZoomFactor    1
-    SliderPosition [0, 0]
+    SliderPosition [0, -1]
     ShowBrowser   on
     BrowserWidth  134
     Component {
@@ -920,11 +920,11 @@ Plecs {
       Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [0, 30; 1536, 811]
+      Location      [0, 26; 1283, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
-"GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAAB+AP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
-"///wAAAD8A////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAACXAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
+"///wAAAEwA////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"AB4AAAAC0AP///wAAB4QAAAPZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -932,7 +932,7 @@ Plecs {
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQA="
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Panel Voltage (V)"
@@ -1399,7 +1399,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [0, 86; 1536, 838]
+        Location      [0, 26; 1283, 677]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -1592,8 +1592,8 @@ Plecs {
 "()) D = D + D_delta;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decreased("
 ")) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) D="
 "Dmin;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUAT"
-"ION;\n\t\t}break;\n\t\t\n}\n\nprintf(\"System state: %s \\n\", enumstate[ SYS"
-"TEM_STATE]);"
+"ION;\n\t\t}break;\n\t\t\n}\nprintf(\"Delta_D is: %f \\n\", D_delta);\nprintf("
+"\"System state: %s \\n\", enumstate[ SYSTEM_STATE]);"
             Show          off
           }
           Parameter {
@@ -1921,20 +1921,20 @@ Plecs {
       Position      [1105, 575]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
+      Location      [0, 23; 1280, 660]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeAAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABbAP///wAAB4AAAAOxAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAPEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAgPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABpAP///wAAB4AAAAOZAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
 "QAAAJYAAAAIAAAAlgAAAAUAAACWAAAABAAAAJYAAAAHAAAAlgAAAAYAAACWAAAAAQAAAJYAAAADAA"
-"AAlgAAAAIAAACWAAAA2wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACqAAA"
+"AAlgAAAAIAAACWAAAA5AAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAACqAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAxAAAAAQAAAAAAAAPoAAAAADE="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -6019,40 +6019,11 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "MPPT Controller"
-      SrcTerminal   2
-      Points        [490, 410]
-      Branch {
-        DstComponent  "Mode decision"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Goto23"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "\n\n\n\n\n\nPWM"
       SrcTerminal   3
       Points        [820, 365; 820, 330]
       DstComponent  "Goto3"
       DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Moving Average"
-      SrcTerminal   1
-      Points        [275, 410]
-      Branch {
-        DstComponent  "MPPT Controller"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [275, 385]
-        DstComponent  "Goto24"
-        DstTerminal   1
-      }
     }
     Connection {
       Type          Signal
@@ -6113,6 +6084,35 @@ Plecs {
       Branch {
         Points        [150, 510]
         DstComponent  "Goto28"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "MPPT Controller"
+      SrcTerminal   2
+      Points        [490, 410]
+      Branch {
+        DstComponent  "Mode decision"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Goto23"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Moving Average"
+      SrcTerminal   1
+      Points        [275, 410]
+      Branch {
+        DstComponent  "MPPT Controller"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [275, 385]
+        DstComponent  "Goto24"
         DstTerminal   1
       }
     }
