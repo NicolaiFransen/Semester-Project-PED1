@@ -1,8 +1,8 @@
 \subsection{Switch sizing} \label{switch_sizing}
 
-The system must regulate the energy flow in order to maximize the energy generation. In order to achieve this, the system includes switches that control the current flow. The switches consist on MOSFET devices. The switching frequency of the system is $50 $ kHz. Although the market has IGBT which can switch at $50$ kHz, MOSFET devices allow lower losses than IGBTs for system's current rating. \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}
+The system must regulate the power flow in order to maximize the power generation. In order to achieve this, the system includes switches that control the current flow. The switches consist on MOSFET devices. The switching frequency of the system is $50 $ kHz. Although the market has IGBT which can switch at $50$ kHz, MOSFET devices allow lower losses than IGBTs for system's current rating. \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}
 
-The maximum output voltage of the system is $90 $V, however the voltage rating of the transistors was set to $150 $V in order to increase the reliability. The peak current through the transistors happens when the buck mode is activated. The peak current is equal to $14$ A. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired. This constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3GATMA1. It exhibits the features seen in table \ref{mosfet_features}.
+The maximum output voltage of the system is $90 $V, however the voltage rating of the transistors was set to $150 $V in order to increase the reliability. The peak current through the transistors happens when the buck mode is activated. The peak current is equal to $14$ A\todo{check with jesper if hhe did this calculation and then link, if not I calculated and have a photo of it}. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired. This constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3. It exhibits the features seen in table \ref{mosfet_features}.
 
 \begin{table}[htbp]
 	\centering
@@ -25,7 +25,7 @@ The maximum output voltage of the system is $90 $V, however the voltage rating o
 
 \subsection{Heat sink sizing}
 
-The power dissipated in the switches is equal to the sum of the conduction losses and the switching losses. The conduction loss might be calculated  as seen in \ref{conduction_losses_eq}.
+The power dissipated in the switches is equal to the sum of the conduction losses and the switching losses. The conduction loss might be calculated  as seen in equation \ref{conduction_losses_eq}.
 
 \begin{equation} \label{conduction_losses_eq}
 P_{cond} = i(t)^2 \cdot R_{DS}
