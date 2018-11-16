@@ -1,7 +1,27 @@
 \subsection{Input voltage sensor} \label{voltage_sensors}
-The voltage sensor selected is ACPL-C870 \cite{voltage_sensor}. This sensor includes optical isolation amplifiers, which makes it well suited for isolated voltage sensing. The amplifier includes unity gain $1V/V$ amplification, with an accuracy at $\pm 3 \%$. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
+The voltage sensor selected is ACPL-C870. This sensor includes a optical isolation amplifier, which makes it well suited for isolated voltage sensing. Some relevante electrical specifications have been included in table \ref{tab:voltage_sensor_features}. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
 
-\begin{figure}[htbp]
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|>{\centering}p{3.5cm}|>{\centering}p{3.5cm}|}
+		\hline
+		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Recommended ratings}} \\ \hline
+		Supply voltages 	& $V_{DD1}, V_{DD2}$ & $5$ [V]  \tabularnewline \hline
+		Input voltage range & $V_{in}$ 			 & $0-2$  [V]  \tabularnewline \hline
+		
+		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Other values of interest}} \\ \hline
+		Voltage gain 		& $G$ 				 & 1 [V/V]  \tabularnewline \hline
+		Output common-mode voltage & $V_{OCM}$ & 1.23 [V]  \tabularnewline \hline
+		Gain tolerance & -- & $\pm 3$ [$\%$]  \tabularnewline \hline
+		Bandwith 		& $BW$ & $100$ [kHz]	\tabularnewline \hline
+		Package & SSOP & [-] \tabularnewline \hline
+		
+	\end{tabular}
+	\caption{Electrical specifications ACPL-C870 \cite{voltage_sensor}}
+	\label{tab:voltage_sensor_features}
+\end{table}
+
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.7\linewidth]{../Pictures/P1/Sensors/voltage_sensors_placement.PNG}
 		\caption{Voltage sensors placement}
@@ -27,7 +47,7 @@ The maximum output voltage of the PV-module is the open-circuit voltage at $45.2
 To achieve these resistor values $R_{17} = 47k\Omega$ and $R_{18} = 2k\Omega$ have been chosen. 
 
 \subsubsection{Filtering} \label{voltage_sensor_filter}
-For a stable MPPT control, the measured voltage must have a very low ripple. To ensure this, a low-pass RC filter with a corner frequency at $500Hz$, will be placed between the voltage divider and the sensor. The resistor of the filter will be $R_1$ in the voltage divider. The capacitor will calculated as followed in equation \ref{voltage_sensor_in_filter_cap}:
+For a stable MPPT control, the measured voltage must have a very low ripple. To ensure this, a low-pass RC filter with a corner frequency at $500Hz$, will be placed between the voltage divider and the sensor. The resistor of the filter will be $R_{17}$ in the voltage divider. The capacitor will calculated as followed in equation \ref{voltage_sensor_in_filter_cap}:
 \begin{equation} \label{voltage_sensor_in_filter_cap}
 	C_{17} = \frac{1}{2\pi \cdot f_c \cdot R_{17}} = \frac{1}{2 \pi \cdot 500Hz \cdot 47k\Omega} = 6.7nF
 \end{equation}
@@ -35,7 +55,27 @@ For a stable MPPT control, the measured voltage must have a very low ripple. To 
 To achieve the capacitance $C_{17} = 6.6nF$ has been chosen. 
 
 \subsubsection{Amplification} \label{voltage_sensor_amplification}
-The input range of the ADC in the RT-Box is $0V-5V$. To take advantage of the entire range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484 quad operational amplifier \cite{sensor_opamp}. By using a quad amplifier, the same IC can be used for the output voltage sensor and the current sensor.
+The input range of the ADC in the RT-Box is $0V-5V$. To take advantage of the full range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484 quad operational amplifier. By using a quad amplifier, the same IC can be used for all the sensors. The relevant electrical specifications have been included in table \ref{tab:amplifier_specs}
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{6cm}|>{\centering}p{3.5cm}|>{\centering}p{3.5cm}|}
+		\hline
+		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Recommended ratings}} \\ \hline
+		Supply voltage 	& $V_{DD}$ 		& $3-15.5$ [V]  \tabularnewline \hline
+		Input voltage range & $V_{in}$ 	& $\pm V_{DD}$ [V]  \tabularnewline \hline
+		
+		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Other values of interest}} \\ \hline
+		Slew rate 					& $SR$ 	& $1.3$ [$V/\mu s$]  \tabularnewline \hline
+		Gain-Bandwith product 		& $GBW$ & $1.5$ [$MHz$]		\tabularnewline \hline
+		Number of amplifiers 		&  	--	& $4$ [-]			\tabularnewline \hline
+		Package 					&  	--	& SOIC [-] 				\tabularnewline \hline
+		
+	\end{tabular}
+	\caption{Electrical specifications LMC6484 \cite{sensor_opamp}}
+	\label{tab:amplifier_specs}
+\end{table}
 
 The resistors of the differential amplifier will be sized with equation \ref{voltage_sensor_gain}.
 \begin{equation} \label{voltage_sensor_gain}
@@ -52,7 +92,7 @@ Where $V_2-V_1$ is the difference between the output pins of the voltage sensor.
 To achieve the value of $R_{22}$ it's rounded to be $27k\Omega$. Furthermore $R_{19} = R_{20}$ and $R_{21} = R_{22}$, to get a balanced differential amplifier.
 
 \subsubsection{The circuit}
-The circuit regarding the input voltage measurement is shown at figure \ref{fig:input_voltage_sensor_circuit}. $V_{in}$ is the measured voltage from the PV-module. The points $OA1_+$ and $OA1_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA1_{out}$ is connected to the output of the amplifier. $C_{15}$ and $C_{16}$ are decoupling capacitors for the two supply voltages. 
+The circuit regarding the input voltage measurement is shown at figure \ref{fig:input_voltage_sensor_circuit}. $V_{in}$ is the measured voltage from the PV-module. The points $OA1_+$ and $OA1_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA1_{out}$ is connected to the output of the amplifier. $C_{15}$ and $C_{16}$ are decoupling capacitors for the two supply voltages. The maximum input voltage of the voltage sensor is $5V$. Because of this a $4.7V$ zener diode has been added at the input, to protect it from over-voltage.
 
 \begin{figure}[H]
 	\begin{center}
@@ -93,7 +133,7 @@ The resistor of the filter will be $R_{26}$ in the voltage divider. The capacito
 To achieve the capacitance $C_{22} = 3.3nF$ has been chosen. 
 
 \subsubsection{The circuit}
-The circuit regarding the input voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. $V_{out}$ is the measured voltage from the converter output. The points $OA2_+$ and $OA2_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA2_{out}$ is connected to the output of the amplifier. $C_{20}$ and $C_{21}$ are decoupling capacitors for the two supply voltages. 
+The circuit regarding the input voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. 
 
 \begin{figure}[H]
 	\begin{center}
