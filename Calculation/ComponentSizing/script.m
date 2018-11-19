@@ -1,7 +1,7 @@
 % clc;
 % clear all;
 
-f = 50000; %20000:10000:100000;  %100kHZ
+f = 50000 %20000:10000:100000;  %100kHZ
 V_inverter = 360; 
 n_mics = 4:1:15;
 Vmpp = 32.6;
@@ -22,7 +22,7 @@ C_out = zeros(size(f,2),size(n_mics,2));
 L = zeros(size(f,2),size(n_mics,2));
 
 for i = 1:size(M,2)
-    if (M(i) < 0.75) %Buck 
+    if (M(i) < 1) %Buck 
         D2 = 0; 
         D1 = Vout(i)/Vin; 
         Iout = P/Vout(i); 
@@ -42,23 +42,23 @@ for i = 1:size(M,2)
         ripple_Vin = percent_ripple_C_in * Vin;  %input voltage ripple 1% of Vin
         C_in(:,i) = (Iout * D1*(1-D1))./(ripple_Vin *f);
 
-    elseif M(i)<1.25 %Buck-boost
-        D1 = Vout(i) / (Vin + Vout(i)); 
-        D2 = D1; 
-        Iout = P/Vout(i); 
+    %elseif M(i)==1 %Buck-boost0
+     %   D1 = Vout(i) / (Vin + Vout(i)); 
+      %  D2 = D1; 
+       % Iout = P/Vout(i); 
 
         %Current through inductor: 
-        IL_avg = 1/(1-D1) * Iout; %From eq. 4
-        ripple_IL = percent_ripple_IL * IL_avg;   %Inductor current ripple is 10% the average current through inductor
-        L(:,i) = (Vin*D1)./(ripple_IL *f);  %From eq. 5
+        %IL_avg = 1/(1-D1) * Iout; %From eq. 4
+        %ripple_IL = percent_ripple_IL * IL_avg;   %Inductor current ripple is 10% the average current through inductor
+        %L(:,i) = (Vin*D1)./(ripple_IL *f);  %From eq. 5
 
         %Voltage through output capacitor: 
-        ripple_Vout = percent_ripple_C_out * Vout(i);  % Output voltage ripple 1% of Vout.
-        C_out(:,i) = (D1 * Iout) ./ (f * ripple_Vout); 
+        %ripple_Vout = percent_ripple_C_out * Vout(i);  % Output voltage ripple 1% of Vout.
+        %C_out(:,i) = (D1 * Iout) ./ (f * ripple_Vout); 
 
         %Voltage through input capacitor
-        ripple_Vin = percent_ripple_C_in * Vin;  %input voltage ripple 1% of Vin
-        C_in(:,i) = (Iout * D1*(1-D1)) ./ (ripple_Vin * f);
+        %ripple_Vin = percent_ripple_C_in * Vin;  %input voltage ripple 1% of Vin
+        %C_in(:,i) = (Iout * D1*(1-D1)) ./ (ripple_Vin * f);
     else %Boost
         D2 = (Vout(i) - Vin) ./ Vout(i); 
         D1 = 1; 
