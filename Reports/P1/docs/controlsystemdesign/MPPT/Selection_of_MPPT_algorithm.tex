@@ -1,1 +1,21 @@
 \section{Selection of MPPT algorithm}\label{MPPTselection}
+
+\begin{table}[H]
+	\centering 
+	\begin{tabular}{|p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+		\hline
+		\rowcolor{lightgray}{ \textbf{MPPT \newline Algorithm}} & 	
+		{ \textbf{measured parameters}} &
+		{ \textbf{Control complexibility}} &
+		{ \textbf{Oszillation around MPP}} &
+     	{ \textbf{Effiency}} &
+	    { \textbf{Repeatibility changing the ambient}}
+		\tabularnewline  \hline
+		Constant voltage 	& Voltage 		& simple loop & no (it stops at the MPP) & 92\% & is no working at high differnece in temperatur and fpr partly shaded \tabularnewline \hline
+		Perturb and observe & Voltage (+ current) 	& PI contoller (medium) & yes & 95\% & it is going to reach the MPP \tabularnewline \hline
+		Incremental conductance & Voltage + current & PI controller (higher) & no (it stops at the MPP) & 95\% & it is going to reach the MPP 	\tabularnewline	
+		
+	\end{tabular}
+	\caption{Summary the Pro and Contra from each MPPT algroithm }
+	\label{tab:summaryMPPT}
+\end{table}
