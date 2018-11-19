@@ -51,6 +51,7 @@
 % Adds support for full page background picture
 \usepackage[contents={},color=gray]{background}
 %\usepackage[contents=draft,color=gray]{background}
+\usepackage{float}
 
 % Adds support of multi cols and rows
 \usepackage{multirow}                		
@@ -90,6 +91,8 @@
 
 %Options: Sonny, Lenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
 \usepackage[Bjornstrup]{fncychap}
+\ChTitleVar{\raggedleft\Huge}
+
 
 \titleformat*{\section}{\normalfont\Large\bfseries}
 \titleformat*{\subsection}{\normalfont\large\bfseries}
@@ -174,6 +177,14 @@
 	pdfstartview=FitH%
 }
 
+%Package used for capital delta letter
+
+\usepackage{ upgreek }
+
+%Packages used for fancy table in switch sizing
+%\usepackage[table,xcdraw]{xcolor}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
 
 %%%% Special signs %%%%
 \newcommand{\decC}{^{\circ}\text{C}}

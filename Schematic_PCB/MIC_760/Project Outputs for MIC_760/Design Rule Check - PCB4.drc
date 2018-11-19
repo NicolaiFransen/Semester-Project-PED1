@@ -1,0 +1,80 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\aitor\Documents\GitHub\Semester-Project-PED1\Schematic_PCB\MIC_760\PCB4.PcbDoc
+Date     : 14/11/2018
+Time     : 15:43:34
+
+Processing Rule : Un-Connected Pin Constraint ( (All) )
+   Violation between Un-Connected Pin Constraint: Pad Dz1-NC(5527.559mil,2145.669mil) on Top Layer 
+   Violation between Un-Connected Pin Constraint: Pad Dz2-NC(5527.559mil,1712.599mil) on Top Layer 
+   Violation between Un-Connected Pin Constraint: Pad J1-(6086.614mil,2716.535mil) on Top Layer 
+   Violation between Un-Connected Pin Constraint: Pad U1-14(6833.858mil,2185.039mil) on Top Layer 
+   Violation between Un-Connected Pin Constraint: Pad Opto2-2(6102.362mil,4262.599mil) on Top Layer 
+   Violation between Un-Connected Pin Constraint: Pad Opto1-2(6102.362mil,3908.268mil) on Top Layer 
+   Violation between Un-Connected Pin Constraint: Pad Opto3-2(6102.362mil,3199.606mil) on Top Layer 
+   Violation between Un-Connected Pin Constraint: Pad Opto4-2(6102.362mil,3553.937mil) on Top Layer 
+Rule Violations :8
+
+Processing Rule : Clearance Constraint (Gap=15.748mil) (All),(All)
+   Violation between Clearance Constraint: (13.474mil < 15.748mil) Between Text "GNDin" (2637.795mil,748.032mil) on Top Layer And Pad GNDin-1(2716.535mil,1102.362mil) on Multi-Layer 
+   Violation between Clearance Constraint: (7.832mil < 15.748mil) Between Text "GNDout" (3425.197mil,728.346mil) on Top Layer And Pad GNDout-1(3543.307mil,1102.362mil) on Multi-Layer 
+   Violation between Clearance Constraint: (1.476mil < 15.748mil) Between Text "12out" (6102.362mil,5000mil) on Top Layer And Pad DS3-A(5885.827mil,4665.354mil) on Multi-Layer 
+   Violation between Clearance Constraint: (9.974mil < 15.748mil) Between Text "12out" (6102.362mil,5000mil) on Top Layer And Pad DS3-K(5964.567mil,4665.354mil) on Multi-Layer 
+   Violation between Clearance Constraint: (Collision < 15.748mil) Between Area Fill (2138.607mil,907.942mil) (2270.842mil,1109.774mil) on Top Layer And Text "+Vin-" (1437.008mil,787.402mil) on Top Layer 
+Rule Violations :5
+
+Processing Rule : Clearance Constraint (Gap=39.37mil) (InPolygon),(All)
+   Violation between Clearance Constraint: (35.306mil < 39.37mil) Between Polygon Region (14 hole(s)) Top Layer And Track (4212.598mil,2204.724mil)(4251.968mil,2204.724mil) on Top Layer 
+   Violation between Clearance Constraint: (21.545mil < 39.37mil) Between Polygon Region (4 hole(s)) Top Layer And Track (5449.961mil,2148.465mil)(5452.756mil,2145.669mil) on Top Layer 
+   Violation between Clearance Constraint: (11.177mil < 39.37mil) Between Polygon Region (4 hole(s)) Top Layer And Track (5452.756mil,2125.984mil)(5452.756mil,2145.669mil) on Top Layer 
+   Violation between Clearance Constraint: (38.811mil < 39.37mil) Between Polygon Region (4 hole(s)) Top Layer And Track (5629.921mil,2174.618mil)(5629.921mil,2181.89mil) on Top Layer 
+   Violation between Clearance Constraint: (38.341mil < 39.37mil) Between Polygon Region (55 hole(s)) Top Layer And Track (3444.882mil,2795.276mil)(3464.567mil,2814.961mil) on Top Layer 
+Rule Violations :5
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+   Violation between Net Antennae: Via (1062.992mil,4330.709mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (1850.394mil,4330.709mil) from Top Layer to Bottom Layer 
+Rule Violations :2
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Vin+1-1(1220.472mil,984.252mil) on Multi-Layer Actual Hole Size = 157.48mil
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Vin-1-1(2362.205mil,984.252mil) on Multi-Layer Actual Hole Size = 157.48mil
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Vout+1-1(2795.276mil,4763.779mil) on Multi-Layer Actual Hole Size = 157.48mil
+   Violation between Hole Size Constraint: (157.48mil > 100mil) Pad Vout-1-1(1220.472mil,4763.779mil) on Multi-Layer Actual Hole Size = 157.48mil
+   Violation between Hole Size Constraint: (137.795mil > 100mil) Pad S1-(866.142mil,964.567mil) on Multi-Layer Actual Hole Size = 137.795mil
+   Violation between Hole Size Constraint: (137.795mil > 100mil) Pad S2-(866.142mil,4763.779mil) on Multi-Layer Actual Hole Size = 137.795mil
+   Violation between Hole Size Constraint: (137.795mil > 100mil) Pad S3-(7086.614mil,4763.779mil) on Multi-Layer Actual Hole Size = 137.795mil
+   Violation between Hole Size Constraint: (137.795mil > 100mil) Pad S4-(7086.614mil,984.252mil) on Multi-Layer Actual Hole Size = 137.795mil
+Rule Violations :8
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=19.685mil) (Max=393.701mil) (Preferred=393.701mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=15.748mil) (InNet('No Net') And OnLayer('Top Layer')),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND_HV_HS_OUT Between Pad L1-2(1496.063mil,4133.858mil) on Multi-Layer And Via (1850.394mil,4330.709mil) from Top Layer to Bottom Layer 
+Rule Violations :1
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Area Fill (2138.607mil,907.942mil) (2270.842mil,1109.774mil) on Top Layer And Text "+Vin-" (1437.008mil,787.402mil) on Top Layer Location : [X = 2160.344mil][Y = 959.735mil]
+Rule Violations :1
+
+
+Violations Detected : 30
+Time Elapsed        : 00:00:01

@@ -74,7 +74,7 @@ Plecs {
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   on
-    BrowserWidth  149
+    BrowserWidth  148
     Component {
       Type          Subsystem
       Name          "PV_Villalva1"
@@ -757,7 +757,7 @@ Plecs {
       Type          Step
       Name          "Sun"
       Show          on
-      Position      [30, 140]
+      Position      [35, 155]
       Direction     right
       Flipped       off
       Parameter {
@@ -767,12 +767,12 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "[1]"
+        Value         "[0.2]"
         Show          off
       }
       Parameter {
         Variable      "After"
-        Value         "[1]"
+        Value         "[0.2]"
         Show          off
       }
       Parameter {
@@ -817,17 +817,17 @@ Plecs {
       Position      [1120, 200]
       Direction     up
       Flipped       off
-      Location      [0, 30; 1536, 811]
+      Location      [1, 30; 767, 803]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAJ0A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAAB+AP///wAAAAMAAAeEAAAAx/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4QAAABbAP///wAAA74AAAOnAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"wAAAJYAAAAGAAAAlgAAAAUAAACWAAAABAAAAJYAAAAJAAAAlgAAAAgAAACWAAAAAwAAAJYAAAACAA"
-"AAlgAAAAEAAACWAAAA5QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAJYAAAAJAAAAlgAAAAQAAACWAAAABQAAAJYAAAAGAAAAlgAAAAcAAACWAAAAAQAAAJYAAAACAA"
+"AAlgAAAAMAAACWAAAA5QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -922,7 +922,7 @@ Plecs {
       Location      [0, 30; 1536, 811]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
 "GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAAB+AP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
-"///wAAAD8A////AAAAAwAAB4AAAAB+/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"///wAAAD8A////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
 "AB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1274,7 +1274,7 @@ Plecs {
 "///8AAACWAP///wAABkAAAAL9AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAEAAAAYAFMAYQB2AGUAZAAgAHYAaQBlAHcAIAAxwBQAAAAAA"
-"ABATgAAAAAAAAAAAAEAv+AAAAAAAABAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+"ABATgAAAAAAAAAAAAEAf/gAAAAAAAB/+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
       HeaderState   ""
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
@@ -1575,30 +1575,30 @@ Plecs {
           Parameter {
             Variable      "UpdateFcn"
             Value         "V=V_in;\nI=I_in;\n\n\tswitch (SYSTEM_STATE){ \n\t\n"
-"\t\tcase STARTUP:// STATE 0\n\t\t{\n\t\t//if(V > V_OC_threshold) \n\t\t\t//{"
-"\n\t\t\t\tdelay_startup(1);\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD=0.2"
-"5;\n\t\t\t//\t}\t\n\t\t}break;\n\t\t\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t"
-"\tOpen_loop_increase_D();\n\t\t\tcalculate_power();\n\t\t\tsave_variables();"
-"\n\t\t\tstartup_counter++;\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE = VO"
-"LTAGE_EVALUATION;\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_EVALUATION: \n\t\t{\n"
-"\t\t\tevaluate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC"
-";\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\t\t\n\t"
-"\tcase VOLTAGE_INC: \n\t\t{\n\t\t\tcalculate_power();\n\t\t\t\n\t\t\tif (delt"
-"a_V<0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n"
-"\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d \\n\", D_delta);\n\t"
-"\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased()){\n\t\t\tD = D - D_d"
-"elta; \n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tif (power_is_decreased()) {"
-"\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D + D_delta;\t\n\t\t\tif(D>Dmax) D=Dm"
-"ax;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATIO"
-"N;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tcalculate_power();"
-"\n\t\t\t\n\t\t\tif (delta_V>-0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (d"
-"elta_P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is"
-": %d \\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increas"
-"ed()) D = D + D_delta;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decrease"
-"d()) {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) "
-"D=Dmin;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALU"
-"ATION;\n\t\t}break;\n\t\t\n}\n\nprintf(\"System state: %s \\n\", enumstate[ S"
-"YSTEM_STATE]);"
+"\t\tcase STARTUP:// STATE 0\n\t\t{\n\t\tif(V > V_OC_threshold) \n\t\t\t{\n\t"
+"\t\t\t//delay_startup(1);\n\t\t\t\tSYSTEM_STATE = OPEN_LOOP;\n\t\t\t\tD=0.25;"
+"\n\t\t\t\t}\t\n\t\t}break;\n\t\t\n\t\t\n\t\tcase OPEN_LOOP:\n\t\t{\n\t\t\tOpe"
+"n_loop_increase_D();\n\t\t\tcalculate_power();\n\t\t\tsave_variables();\n\t\t"
+"\tstartup_counter++;\n\t\t\tif (startup_counter >= 5) SYSTEM_STATE = VOLTAGE_"
+"EVALUATION;\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_EVALUATION: \n\t\t{\n\t\t\te"
+"valuate_voltage();\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;\n\t\t"
+"\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t}break;\n\t\t\n\t\tcase V"
+"OLTAGE_INC: \n\t\t{\n\t\t\tcalculate_power();\n\t\t\t\n\t\t\tif (delta_V<0.05"
+"){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta_P>3 | delta_P<-3){\n\t\t\t\t"
+"D_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d \\n\", D_delta);\n\t\t\t\t}"
+"\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased()){\n\t\t\tD = D - D_delta; "
+"\n\t\t\tif(D<Dmin) D=Dmin;\n\t\t\t}\n\t\t\tif (power_is_decreased()) {\n\t\t"
+"\tD_delta = D_delta/2;\n\t\t\tD = D + D_delta;\t\n\t\t\tif(D>Dmax) D=Dmax;\n"
+"\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n"
+"\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tcalculate_power();\n\t"
+"\t\t\n\t\t\tif (delta_V>-0.05){\n\t\t\t\tevaluate_power();\n\t\t\t\tif (delta"
+"_P>3 | delta_P<-3){\n\t\t\t\tD_delta = 0.01;\n\t\t\t\tprintf(\"Delta_D is: %d"
+" \\n\", D_delta);\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif (power_is_increased()"
+") D = D + D_delta;\n\t\t\tif(D>Dmax) D=Dmax;\n\t\t\tif (power_is_decreased())"
+" {\n\t\t\tD_delta = D_delta/2;\n\t\t\tD = D - D_delta;\n\t\t\tif(D<Dmin) D=Dm"
+"in;\n\t\t\t}\n\t\t\tsave_variables();\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATIO"
+"N;\n\t\t}break;\n\t\t\n}\n\nprintf(\"System state: %s \\n\", enumstate[ SYSTE"
+"M_STATE]);"
             Show          off
           }
           Parameter {
@@ -1668,9 +1668,9 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAH0AAAADAAAAfQAAAAEAAAB9AAAABgAAAH0AAAAHAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAIAA"
-"AAfQAAAAkAAAB9AAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB/AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAGAAAAfQAAAAcAAAB9AAAAAQAAAH0AAAACAA"
+"AAfQAAAAMAAAB9AAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAB/AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -3619,17 +3619,17 @@ Plecs {
       Position      [1310, 405]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
+      Location      [769, 30; 1535, 803]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABbAP///wAAA74AAAOnAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAAABAAAAfQAAAAIAAAB9AAAAAwAAAH0AAAAIAA"
-"AAfQAAAAkAAAB9AAAAlQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABkAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAQAAAB9AAAABQAAAH0AAAAGAAAAfQAAAAcAAAB9AAAAAQAAAH0AAAACAA"
+"AAfQAAAAMAAAB9AAAAlQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABkAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -4918,7 +4918,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Sun"
       SrcTerminal   1
-      Points        [60, 140; 60, 195]
+      Points        [60, 155; 60, 195]
       DstComponent  "PV_Villalva1"
       DstTerminal   4
     }
@@ -5553,14 +5553,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Am1"
-      SrcTerminal   3
-      Points        [145, 455]
-      DstComponent  "Moving Average1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "MPPT Controller"
       SrcTerminal   2
       Points        [470, 405]
@@ -5756,6 +5748,14 @@ Plecs {
       SrcTerminal   3
       DstComponent  "Goto7"
       DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Am1"
+      SrcTerminal   3
+      Points        [145, 455]
+      DstComponent  "Moving Average1"
+      DstTerminal   2
     }
   }
   ProbeBlock {
