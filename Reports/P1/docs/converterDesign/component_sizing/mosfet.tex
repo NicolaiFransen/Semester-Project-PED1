@@ -1,6 +1,6 @@
 \subsection{Switch sizing} \label{switch_sizing}
 
-The system must regulate the power flow in order to maximize the power generation. In order to achieve this, the system includes switches that control the current flow. The switches consist on MOSFET devices. The switching frequency of the system is $50 $ kHz. Although the market has IGBT which can switch at $50$ kHz, MOSFET devices allow lower losses than IGBTs for system's current rating. \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}
+The system must regulate the power flow in order to maximize the power generation \todo{power flow? Better the system must regulate input voltage and current to... AT}. In order to achieve this, the system includes switches that control the current flow \todo{switches themselves don't control the current flow, the whole topology does so. AT}. The switches consist on MOSFET devices. The switching frequency of the system is $50 $ kHz. Although the market has IGBT which can switch at $50$ kHz, MOSFET devices allow lower losses than IGBTs for system's current rating. \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}
 
 The maximum output voltage of the system is $90 $V, however the voltage rating of the transistors was set to $150 $V in order to increase the reliability. The peak current through the transistors happens when the buck mode is activated. The peak current is equal to $14$ A\todo{check with jesper if hhe did this calculation and then link, if not I calculated and have a photo of it}. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired. This constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3. It exhibits the features seen in table \ref{mosfet_features}.
 
@@ -25,6 +25,7 @@ The maximum output voltage of the system is $90 $V, however the voltage rating o
 	\caption{MOSFET figures of merit. T = 25 $\decC$. \cite{mosfet_datasheet}}
 	\label{mosfet_features}
 \end{table}
+\todo{Power dissipation 150W?¿ what does that mean? AT}
 
 \subsection{Heat sink sizing}
 
@@ -35,9 +36,9 @@ P_{cond} = i(t)^2 \cdot R_{DS}
 \end{equation}
 
 
-The switching losses depend upon the switching frequency and the transistor's manufacturing characteristics. In order to calculate the value, the MOSFET's SPICE model was obtained from the manufacturer's website. The next step was to perform the simulation of the system. The system was simulated in both Buck and Boost modes. Special attention was put into the dead-band between PWM signals of different switches, to avoid current shoot through. After simulating, the average power dissipation under steady state was calculated in both Buck and Boost modes. Within every mode, the simulation was performed under the most unfavorable conditions, this is: Buck's output is 24 V and Boost's output is 90 V. The results can be seen in table \ref{mosfet_power_consumption}.
+The switching losses depend upon the switching frequency and the transistor's manufacturing characteristics. In order to calculate the value, the MOSFET's SPICE model was obtained from the manufacturer's website. The next step was to perform the simulation of the system. The system was simulated in both Buck and Boost modes. Special attention was put into the dead-band between PWM signals of different switches, to avoid current shoot through. After simulating, the average power dissipation under steady state was calculated in both Buck and Boost modes. Within every mode, the simulation was performed under the most unfavorable conditions, this is: Buck's output is 24 V and Boost's output is 90 V.\todo{Is it possible that low voltage at input, meaning low power may result in more unfavorable conditions? I mean, maybe going from 5V -> 90V is worst than 32V to 90V even if the power is less... AT} The results can be seen in table \ref{mosfet_power_consumption}.
 
-$R_{DS}$ is mainly dependant on the temperature. The models found neglect the temperature difference. Then, in order to get an approximated value considering temperature, the procedure will be to calculate the total losses at constant temperature using the SPICE model and then add the additional conduction losses due to the increase of the resistance, as expressed by equation \ref{total_losses}.
+$R_{DS}$ is mainly dependent on the temperature. The models found neglect the temperature difference. Then, in order to get an approximated value considering temperature, the procedure will be to calculate the total losses at constant temperature using the SPICE model and then add the additional conduction losses due to the increase of the resistance, as expressed by equation \ref{total_losses}.
 
 \begin{table}[htbp]
 	\centering
@@ -60,12 +61,13 @@ $R_{DS}$ is mainly dependant on the temperature. The models found neglect the te
 	\label{mosfet_power_consumption}
 \end{table}
 
+\todo{Since you have made the simulations it would be a good idea to add them as appendices and refer to them. AT}
 
 \begin{equation} \label{total_losses}
 \overline{P} = \overline{P_{loss, T = K}} + \overline{i(t)^2 \cdot \Updelta R_{DS}}
 \end{equation}
 
-Now the junction temperature based on the power dissipation calculated using the SPICE model is calculated. The case temperature is set to 50 $\decC$, which is considered a realistic scenario. The thermal circuit can be seen in figure \ref{thermal_circuit}. The next step is to choose a commercial heat sink. The constraints are thermal resistance, size and price. TDEX6015/TH was found. Its features might be found in table \ref{heatsink_features}. The switch temperature will be analysed in order to validate the heat sink.
+Now the junction temperature based on the power dissipation calculated using the SPICE model is calculated. The case \todo{maybe change case with ambient since case might be interpreted as encapsulado ¿? AT} temperature is set to 50 $\decC$, which is considered a realistic scenario. The thermal circuit can be seen in figure \ref{thermal_circuit}. The next step is to choose a commercial heat sink \todo{It is a good idea to show the temperature that the mosfets would reach without heatsink to show why it is important AT}. The constraints are thermal resistance, size and price. TDEX6015/TH was found. Its features might be found in table \ref{heatsink_features}. The switch temperature will be analysed in order to validate the heat sink.
 
 \begin{table}[htbp]
 	\centering
@@ -83,17 +85,18 @@ Now the junction temperature based on the power dissipation calculated using the
 \begin{equation} \label{switch_temperature}
 T_{J} = T_{housing} + \overline{P_{loss, T = K}} + \cdot  R_{thermal}
 \end{equation}
+\todo{revise the upper equation, + and * are together. Also include units in the lower equation.}
 
 \begin{equation} \label{switch_temperature_w_values}
 T_{J} = 50 + 5.54 \cdot  2.06 = 61.41 \decC
 \end{equation}
 
-The resistance is calculated as explained in equation \ref{delta_resistance}. The resistance difference is relatively small.
+The resistance \todo{increase on the drain to source resistance AT} is calculated as explained in equation \ref{delta_resistance}. The resistance difference is relatively small.
 
 \begin{equation} \label{delta_resistance}
 \Updelta R_{DS} = R_{DS, T = 20 \decC} - R_{DS, T = 61.41\decC} = 4\; m \Omega
 \end{equation}
-
+\todo{either absolute value or the result should be negative, consider doing Rds60º - Rds20º instead.}
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -131,11 +134,12 @@ The resistance is calculated as explained in equation \ref{delta_resistance}. Th
 \end{table}
 
 
-The full power dissipation values can be found on table \ref{mosfet_final_dissipation}. To achieve an exact result, the new total power should be used with the thermal circuit in order to calculate again $\Updelta R_{DS}$, but this difference is small and thus neglected. Now that the power dissipation has been calculated, the junction temperature must be checked in order to confirm that the heat sink has been properly sized. Equation \ref{switch_temperature_w_values_2} is used. The difference is fairly small and the junction temperature remains within safe area. Then TDEX6015/TH has been validated as a proper heat sink.
+The full power dissipation values can be found on table \ref{mosfet_final_dissipation}. To achieve an exact result, the new total power should be used with the thermal circuit in order to calculate again $\Updelta R_{DS}$, but this difference is small and thus neglected \todo{if it's neglected then it should not be calculated AT}. Now that the power dissipation has been calculated, the junction temperature must be checked in order to confirm that the heat sink has been properly sized. Equation \ref{switch_temperature_w_values_2} is used. The difference is fairly small and the junction temperature remains within safe area. Then TDEX6015/TH has been validated as a proper heat sink.
 
 \begin{equation} \label{switch_temperature_w_values_2}
 T_{J} = 50 + 6.72 \cdot  2.06 = 63.84 \decC
 \end{equation}
 
+\todo{I dont understand the difference between equation 4.10 and 4.12. It seems that you have recalculated the losses but in the previous paragraph you state that the difference has been neglected. We should make it more clear. AT}
 
-
+\todo{So when i went to the next chapter i saw that you included another table with new values for power dissipation under temperature increase. I think it is located in the wrong place but also it should have the same appearance than the previous one, maybe best if both have the data that the second one has. AT}

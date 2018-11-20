@@ -2,36 +2,43 @@
 
 To calculate the values of the passive components which includes the inductor, $C_{in}$ and $C_{out}$, a matlab  script has been created. This was done to see the different component values when frequency, number of mics and thereby different output voltages was used. This also means that values for both buck and boost mode has been calculated.
 
-First of all the frequency was set to do a sweep from 20kH to 100kHz with steps of 10kHz. The different output voltages was calculated by the voltage of the inverter $V_{inverter}=360V$ divided by the number of mics. Again for the number of mics a sweep was made starting with 4 mics and ending with 15 in steps of 1.
+First of all the frequency was set to do a sweep from 20kH to 100kHz with steps of 10kHz \todo{This is done because we weren't sure yet the working freq that we were going to use, explain. AT}. 
+The different output voltages was calculated by the voltage of the inverter $V_{inverter}=360V$ divided by the number of mics. Again for the number of mics a sweep was made starting with 4 mics and ending with 15 in steps of 1.
 
-The maximum voltage from the PV panel is $V_{mpp}=32.6V$ and to get the maximum current ohms law can be used, since the maximum power from the PV panel is 300W.
+The maximum voltage from the PV panel is $V_{mpp}=32.6V$ \todo{is it? AT}
+and to get the maximum current ohms law can be used, since the maximum power from the PV panel is 300W.
 
 \begin{equation}
 I_{mpp} = 300W/32.6V = 9.2A
 \end{equation} 
 
-From the $V_{mpp}$ and $I_{mpp}$ a constant K is calculated. By doing this the behaviour of input voltage and current is seen as linear dependant.
+From the $V_{mpp}$ and $I_{mpp}$ a constant K is calculated \todo{Need to explain what K is (an approximation). AT}. 
+By doing this the behaviour of input voltage and current is seen as linear dependant.
 \begin{equation}
  K = 32.6V/9.2A = 3.54
  \end{equation} 
  
-To calculate which values the passive components will have with the different voltages, it has to be known, if the equations for buck or the equations for boost mode, should be used. The equations for the modes can be found in the appendix \ref{ch:Appbuckboost}. Here a value M is used which basically determines whether the voltage has to decrease or increase at the output. This value is calculated by:
+To calculate which values the passive components will have with the different voltages, it has to be known, if the equations for buck or the equations for boost mode, should be used.\todo{rephrase.AT}
+ The equations for the modes can be found in the appendix \ref{ch:Appbuckboost}. Here a value M is used which determines whether the voltage has to decrease or increase at the output. This value is calculated by:
 \begin{equation}
 M = V_{out}/V_{in}
 \end{equation}
-So a value smaller than one will need a decrease in voltage and therefore buck mode. On the other hand values bigger than one will need an increase in voltage which will be the boost mode.
+So a value smaller than one will need a decrease in voltage and therefore buck mode. On the other hand values bigger than one will need an increase in voltage which will be the boost mode. \todo{This is not the only reason for M, also to obtain duties and understand the increase or decrease factor. AT}
 
 All of this can be seen in the matlab script in the appendix folder \todo{Where will the script be??} 
 
 The worst case values for the 3 components with variable frequency, number of mics and voltage could then be obtained from the script. 
-In \ref{buckind} and \ref{boostind} the inductance L has been isolated and calculated with a current ripple of $10\%$ to get the different inductor values. For iteration 1 the frequency will be $50kHz$. Looking at the sheet the worst case will be in boost mode with $V_{out}=90V$ and $P=15W$ which is calculated below:
+In \ref{buckind} and \ref{boostind} the inductance L has been isolated and calculated with a current ripple of $10\%$ to get the different inductor values. For iteration 1 the frequency will be $50kHz$. Looking at the sheet the worst case will be in boost mode with $V_{out}=90V$ and $P=15W$ \todo{remind that 15W is the minimun power at which our mic will be working, otherwise with less W the L will be more critic. AT}
+which is calculated below:
 
 \begin{equation}\label{buckind}
 L = \frac{7.29V\cdot 0.919}{0.206A\cdot 50kHz} = 650\mu H
 \end{equation} 
+\todo{need to explain where this values come from. what is the 0.919 for example? AT}
 
 The capacitor values for the input and output is calculated in the same way by isolating the capacitance C in \ref{buckc} and \ref{boostc} for $C_{out}$ and \ref{buckcin} and \ref{boostcin} for $C_{in}$.
-The $C_{in}$ and $C_{out}$ values is calculated with different voltage ripple percentages. For the the output capacitor the allowed voltage ripple is set to $0.5\%$ while the input capacitors voltage ripple is even lower at $0.1\%$. Especially the input voltage ripple is important for this converter because as little as possible EMI/EMC should be allowed. \todo{Beskriv hvorfor så små rippler er vigtige}
+The $C_{in}$ and $C_{out}$ values is calculated with different voltage ripple percentages. For the the output capacitor the allowed voltage ripple is set to $0.5\%$ while the input capacitors voltage ripple is even lower at $0.1\%$. \todo{why these values tho?, also for the rest of the components.AT}
+ Especially the input voltage ripple is important for this converter because as little as possible EMI/EMC should be allowed. \todo{Beskriv hvorfor så små rippler er vigtige} \todo{This is not the reason for which this ripple has been selected.AT}
 
 For $C_{in}$ the worst case will be in buck mode with $V_{in}=32.6V$, $V_{out}=24V$ and $P=300W$ which is calculated below:
 
@@ -39,7 +46,7 @@ For $C_{in}$ the worst case will be in buck mode with $V_{in}=32.6V$, $V_{out}=2
 C_{in} = \frac{12.5A\cdot 0.736\cdot (1-0.736)}{0.033V\cdot 50kHz} = 1.49mF
 \end{equation}    
 
-The output capacitor worst case is also in buck mode but with $V_{out}=30V$ instead. This is calculated by isolating the capacitance C in \ref{buckc}. \todo{WTF?}
+The output capacitor worst case is also in buck mode but with $V_{out}=30V$ \todo{30V?¿?AT} instead. This is calculated by isolating the capacitance C in \ref{buckc}. \todo{WTF?}
 
 \begin{equation} \label{buckc} 
 C_{out} = \frac{32.6V}{8\cdot 48\mu H*50kHz^2\cdot 0.15V} = 226.39\mu F
@@ -47,8 +54,8 @@ C_{out} = \frac{32.6V}{8\cdot 48\mu H*50kHz^2\cdot 0.15V} = 226.39\mu F
    
 
 \subsubsection{Selection of passive components}
-For the output capacitor a $820\mu F$ has been used. \todo{insert datasheet} An electrolytic capacitor has been chosen to get a small ESR resistance which is about $0.091\Omega$. The voltage rating is 250V which is a fine margin to the 90V that is the highest possible output.
-The input capacitor is very big and therefore four electrolytic capacitors of $470\mu F$ \todo{insert datasheet} is placed in parallel to get a summed capacitance of $1.880\mu F$. The rating for these is 100V which again is a good margin to the maximum input voltage at 40V. These ESR resistances will be about $0.047\Omega$. Both input and output capacitor has a capacitance higher than the calculated worst case. This is because the converter maybe in the future will have a buck-boost mode as well. And in this mode the capacitance can get a bit higher. 
-Both for the input and output capacitors a $100nF$ and $1\mu F$ capacitor is placed in parallel for EMC/EMI reasons. This is to filtrate the high frequiency transients away. \todo{What are the reasons for these values?}
+For the output capacitor a $820\mu F$ has been used. \todo{why this cap if you explained before that we needed 226uF? Explain.AT} \todo{insert datasheet} An electrolytic capacitor has been chosen to get a small ESR resistance which is about $0.091\Omega$ \todo{NOT TRUE!!! Electrolytic is mostly chosen for size and price but also ceramic capacitors have LOWER ESR!! Come on Jesper!!!!!:S AT}. The voltage rating is 250V which is a fine margin to the 90V that is the highest possible output \todo{with max 90V a much lower voltage rating could have been chosen! margin is again not the reason for this value, true that maybe we did oversize it when designing. AT}.
+The input capacitor is very big \todo{what about "Achieving the necessary input capacitance with only one capacitor would result in very big size of the component, therefore... AT} and therefore four electrolytic capacitors of $470\mu F$ \todo{insert datasheet} are placed in parallel to get a summed capacitance of $1.880\mu F$. The rating for these is 100V which again is a good margin to the maximum input voltage at 40V \todo{we did this in case we the output to the input by accident, so the caps don't blow at 90V AT}. These ESR resistances will be about $0.047\Omega$. Both input and output capacitor have a capacitance higher than the calculated worst case. This is because the converter maybe in the future will have a buck-boost mode as well. And in this mode the capacitance can get a bit higher. \todo{I think this is not the best way to introduce the buck boost possibility. AT}
+Both for the input and output a $100nF$ and a $1\mu F$ capacitors are placed in parallel for EMC/EMI reasons \todo{for EMC/EMI reasons? what does that mean? not really EMI, it is more because the electrolytic is not able to supply the needed current at higher frequencies  AT}. This is to filter the high frequency transients away. \todo{What are the reasons for these values?}
 
-The inductor for first iteration will be with an inductance of around 1mH, \todo{exact value should be determined} because that is an inductor the supervisors had in-house already.     
+The inductor for first iteration \todo{What does first iteration mean? have we explained it previously? AT} will be with an inductance of around 1mH, \todo{exact value should be determined} because that is an inductor the supervisors had in-house already.
