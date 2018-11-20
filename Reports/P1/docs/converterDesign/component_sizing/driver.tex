@@ -39,9 +39,13 @@ The signal from the optocoupler has to be amplified in order to drive the switch
 	\label{driver_features}
 \end{table}
 
-As the MOSFET is a voltage controlled switch, the voltage between the gate and the source, $V_{GS}$ must be equal to its characteristic $V_{th}$ in order to allow current flow. The dynamics of the switching can be modelled as a simple RC circuit, see figure \ref{mosfet_rc_gate}.
+As the MOSFET is a voltage controlled device, the voltage between the gate and the source, $V_{GS}$ must be equal to its characteristic $V_{th}$ in order to allow current flow. The dynamics of the switching can be modelled as a simple RC circuit, see figure \ref{mosfet_rc_gate}. In order to size the limiting resistor, a time constraint was needed. This time constraint was set in relation with the switching frequency.
 
+\begin{equation} \label{time_constraint}
+t_{switching} = \frac{T_{sw}}{1000} = 0.1\% \; of\; T_{sw}
+\end{equation}
 
+ 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.4\textwidth]{../Pictures/P1/driver_resistor_sizing.png}

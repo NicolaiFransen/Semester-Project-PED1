@@ -85,6 +85,7 @@ A_inverse = inv(A);
 %to output. The matlab functions used are described in: 
 %https://se.mathworks.com/help/symbolic/formula-manipulation-and-simplification.html
     clearvars
+    close all
     clc
     
     I_k = 10 %Constant current
@@ -132,7 +133,7 @@ A_inverse = inv(A);
     G = sym2tf(rhs(Duty2out_real_values))
 
     bode(G)
-    margin(G)
+    %margin(G)
 
     legend('Buck Converter duty 2 output')
 
