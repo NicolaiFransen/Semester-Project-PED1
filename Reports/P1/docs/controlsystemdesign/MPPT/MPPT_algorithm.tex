@@ -30,7 +30,7 @@ With perturb and observe, the currently measured power is periodically compared 
 \subsection{Incremental conductancee}
 The approach of incremental conductance is that the MPP is at the position where the derivative of the power after the voltage is 0. The left side of the MPP is the derivative greater than 0 and the right side is the derivative less than 0, which is described by the following equations. The algorithm compares the incremental conductance with the previous one to then increase (left side of MPP) or decrease (right side of MPP) the voltage.  After the MPP has been reached, the algorithm is stopped. There will be no oscillation around the MPP. If a change in the current is detected, the algorithm starts to find the MPP again, as you can see in the flowchart in the picture.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{../Pictures/P1/Flow_chart/flow_chart_incremental_conductance}
 		\caption{flow chart from perturb and observe.picture should change }
