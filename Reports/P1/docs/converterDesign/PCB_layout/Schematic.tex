@@ -1,5 +1,10 @@
-\subsection{Input voltage sensor} \label{voltage_sensors}
-The voltage sensor selected is the ACPL-C870 \todo{include datasheet AT}. This sensor includes a optical isolation amplifier, which makes it well suited for isolated voltage sensing. Some relevant electrical specifications have been included in table \ref{tab:voltage_sensor_features}. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
+\section{PCB layout}
+\subsection{PCB Schematic} \label{voltage_sensors}
+In order to proceed with the creation of the PCB, a schematic circuit has been created. This compiles all the previously mentioned components as well as all the passive components for current limiting, decoupling and other needs.
+
+The schematic has been divided into four main sections, these are \textit{main topology}, \textit{power supplies}, \textit{drivers} and \textit{signal processing}.
+
+The main topology includes the power circuit, this is the MOSFETs, the inductor, the input and output capacitors and the input and output connectors. It also includes discharging resistors for the capacitors which have been sized for one minute discharge. The gate of the MOSFETs is also connected to the source through a resistor, in this case, the resistor added is of 1M$ohm$ assuring a discharge time of the MOSFETs gates of less than 5ms, this safety resistors are added to obtain 
 
 \begin{table}[H]
 	\centering
