@@ -2,7 +2,9 @@
 
 The system must regulate the power flow in order to maximize the power generation \todo{power flow? Better the system must regulate input voltage and current to... AT}. In order to achieve this, the system includes switches that control the current flow \todo{switches themselves don't control the current flow, the whole topology does so. AT}. The switches consist on MOSFET devices. The switching frequency of the system is $50 $ kHz. Although the market has IGBT which can switch at $50$ kHz, MOSFET devices allow lower losses than IGBTs for system's current rating. \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}
 
+
 The maximum output voltage of the system is $90 $V, however the voltage rating of the transistors was set to $150 $V in order to increase the reliability. The peak current through the transistors happens when the buck mode is activated. The peak current is equal to $14$ A\todo{check with jesper if hhe did this calculation and then link, if not I calculated and have a photo of it}. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired. This constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3 \todo{include datasheet AT}. It exhibits the features seen in table \ref{mosfet_features}.
+
 
 \begin{table}[htbp]
 	\centering
@@ -17,9 +19,9 @@ The maximum output voltage of the system is $90 $V, however the voltage rating o
 		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Other values of interest}} \\ \hline
 		$C_{GS} $ & 1.81 [nF]  \tabularnewline \hline
 		Package & D2PAK  \tabularnewline \hline
-		$V_{th} $ & 3 [V]  \tabularnewline \hline
+		$V_{th} $ $(V_{GS} = 3 V)$ & 3 [V]  \tabularnewline \hline
+		$V_{th} $ $(V_{GS} = 36 V)$ & 4.7 [V]  \tabularnewline \hline
 		$R_{Gate} $ & 2.4 [$\Omega$]  \tabularnewline \hline
-
 	
 	\end{tabular}
 	\caption{MOSFET figures of merit. T = 25 $\decC$. \cite{mosfet_datasheet}}

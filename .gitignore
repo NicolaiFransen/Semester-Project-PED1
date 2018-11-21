@@ -1,6 +1,7 @@
 ##Void .raw files from LTspice simulation
 *.raw
 *.net
+*.asv
 
 ##Avoiding the folders created after importing altium components
 *Schematic_PCB/Components_models/Imported*/
