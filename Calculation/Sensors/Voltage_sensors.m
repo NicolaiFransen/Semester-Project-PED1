@@ -35,6 +35,8 @@ R5 = (V_out*R3)/(V_plus-V_min)  % R6=R5
 fc = 500;
 C1 = 1/(2*pi*R1*fc);
 
+Gin = (R2/(R1+R2)) * (R5/R3);
+
 %% Output voltage sensor
 % Voltage divider
 Vout_max = 120;
@@ -53,3 +55,5 @@ R8 = 2e3;
 
 % Filter design
 C2 = 1/(2*pi*R7*fc);
+
+Gout = (R8/(R7+R8)) * (R5/R3);
