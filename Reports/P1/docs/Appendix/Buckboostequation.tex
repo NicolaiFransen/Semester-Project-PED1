@@ -9,7 +9,7 @@ The voltages and currents in the different switch stages can be seen in figure \
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{../Pictures/CCM_buck}
-		\caption{Ideal buck converter in CCM picture ref}
+		\caption{Ideal buck converter in CCM}
 		\label{CCM_buck}
 	\end{center}	
 \end{figure}
@@ -61,14 +61,14 @@ That equation will be used to calculate the peak current in the inductor:
 I_{Lmax} = I_o + \frac{\Delta I_{Lmax}}{2}
 \end{equation}
 
-There are several factors that contribute to the output voltage ripple. Basically the output voltage will rise and fall when the capacitor is charging and discharging. It can be found by calculating $\Delta V_o = \frac{\Delta Q}{C}$, where $\Delta Q$ is the amount of charge. This value is found by integrating $I_L$ from $t_1$ to $t_2$. By doing that $\Delta Q = \frac{\Delta I_L}{8}\cdot T_s$. where $\delta I_L = (V_o\cdot t_2)/L$ Which means the output voltage ripple can be calculated with:
+There are several factors that contribute to the output voltage ripple. Basically the output voltage will rise and fall when the capacitor is charging and discharging. It can be found by calculating $\Delta V_o = \frac{\Delta Q}{C}$, where $\Delta Q$ is the amount of charge. This value is found by integrating $I_L$ from $t_1$ to $t_2$. By doing that $\Delta Q = \frac{\Delta I_L}{8}\cdot T_s$. where $\Delta I_L = (V_o\cdot t_2)/L$ Which means the output voltage ripple can be calculated with:
  
 \begin{equation} \label{buckc} 
 \Delta V_o = \frac{V_{in}}{8\cdot C_{out}\cdot f^2\cdot L}
 \end{equation}    
 
 For the input capacitor the capacitance can be calculated with the equation below:
-
+D
 \begin{equation}
 \label{buckcin}
 C_{in} = \frac{I_o\cdot D\cdot (1-D)}{\Delta V_o\cdot f}
@@ -80,11 +80,11 @@ When working in boost mode the output voltage will be larger than the input volt
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{../Pictures/CCM_boost}
-		\caption{Ideal boost converter in CCM picture ref}
+		\caption{Ideal boost converter in CCM}
 		\label{CCM_boost}
 	\end{center}	
 \end{figure}
-
+\todo{picture ref}
 In the boost mode CCM will still be used. When the switch is on the voltage across the inductor will be:
 
 \begin{equation}
