@@ -1,46 +1,30 @@
 \section{Selection of MPPT algorithm}\label{MPPTselection}
 
-%\begin{table}[H]
-	%\centering 
-	%\begin{tabular}{|p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
-	%	\hline
-	%	\rowcolor{lightgray}{ \textbf{MPPT \newline Algorithm}} & 	
-		%{ \textbf{measured parameters}} &
-		%{ \textbf{Control complexibility}} &
-		%{ \textbf{Oszillation around MPP}} &
-     	%{ \textbf{Effiency}} &
-	    %{ \textbf{Repeatibility changing the ambient}}
-		%\tabularnewline  \hline
-		%Constant voltage 	& Voltage 		& simple loop & no (it stops at the MPP) & 92\% & is no working at high differnece in temperatur and fpr partly shaded \tabularnewline \hline
-		%Perturb and observe & Voltage (+ current) 	& PI contoller (medium) & yes & 95\% & it is going to reach the MPP \tabularnewline \hline
-		%Incremental conductance & Voltage + current & PI controller (higher) & no (it stops at the MPP) & 95\% & it is going to reach the MPP 	\tabularnewline	
-		
-	%\end{tabular}
-	%\caption{Summary the Pro and Contra from each %MPPT algroithm }
-	%\label{tab:summaryMPPT}
-%\end{table}
-
+The advantage of using constant voltage is that only the voltage is measured and the system is controlled by an a simple control loop. Therefore, implementation costs are low compared to the other two methods. The use of PV modules with the constant voltage as MPP algorithm is only possible in regions with low temperature fluctuations. The reason for this disadvantage is that the point of the MPP varies greatly with strong temperature fluctuations and the assumption of linear dependence is no longer valid. In addition, it is not possible to find the MPP with the algorithm if the PV module is partially shaded. Another disadvantage is the effort of calculating the optimal K for different irradiance and temperature is very high and therefore the complexity of the algorithm increase. \newline 
+The advantage of perturb and observe is that a current sensor does not necessarily have to be used. There is scientific paper where only a voltage sensor is used. \cite{} The required computing power of the microcontroller is low, because the algorithm is easy to realize. The algorithm contains the calculation of the power and the comparison with previous power for each step. There is a disadvantage when the algorithm is near to the MPP. The algorithm oscillates around the MPP, so that the MPP cannot be reached exactly. The oscillation depends on the value of the fixed step. If the fixed step value is high, the MPP will be reached quickly. On the other hand, the oscillation around the MPP is high, which reduces the efficiency. The advantage of a small value is that the oscillation is small, but it takes more time to reach the MPP. \newline
+An advantage of incremental conductance is that when the MPP is reached, the search is stopped and you remain exactly at the MPP. This increases the efficiency of the PV panel. As with perturb and observe, a fixed value is used to change the voltage. If the value is high, the probability is higher that the algorithm oscillated around the MPP. 
+Two sensors are used for the implementation. In addition, the microcontroller requires a higher computing power than perturb and observe, since many more commands are called up during an iteration step. The costs for the algorithm are highest compared to the other two algorithms because of the number of sensors and the microcontroller. \newline
+The table\ref{fcinccon} gives an overview of the advantages and disadvantages of the different algorithms.
 %\begin{table}[H]
 %	\centering 
-%	\begin{tabular}{|p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
-	%	\hline
-	%	\rowcolor{lightgray}{ \textbf{MPPT \newline Algorithm}} & 	
-	%	{ \textbf{Sensed Parameters}} &
-	%	{ \textbf{Microcontroller Computation}} &
-	%	{ \textbf{Periodic Tuning}} &
-	%	{ \textbf{Realization}} &
-	%	{ \textbf{Complexity}}&
-	%	{ \textbf{Reliability}}		&
-	%	{ \textbf{Overall Cost}}
-	%	\tabularnewline  \hline
-	%	Constant voltage 	& Voltage 		& absent/low & yes & Easy to implement & very simple but difficult to get a optimal $k_{1}$& Not accurate & Low \tabularnewline \hline
-	%	Perturb and observe & Voltage 	& Varies & Low & No & Take time to implement & Medium & Not so much accurate & Low/ Medium \tabularnewline \hline
-	%	Incremental conductance & Voltage + current & PI controller (higher) & no (it stops at the MPP) & 95\% & it is going to reach the MPP 	\tabularnewline	
-		
-	%\end{tabular}
-%	\caption{Summary the Pro and Contra from each MPPT algroithm }
-	%\label{tab:summaryMPPT}
+%		\begin{tabular}{{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|}
+%		\hline
+%		\rowcolor{lightgray}						{ \textbf{MPPT Algorithm}} & 	
+%		{ \textbf{Sensed Parameters}} &
+%		{ \textbf{Microcontroller \\Computation}} &
+%		{ \textbf{Complexity}}&
+%		{ \textbf{Reliability}}	&
+%		{ \textbf{Overall\\ Cost}}
+%		\tabularnewline  \hline
+%			Constant voltage 	& Voltage 		& absent/low &  very simple but difficult to get a optimal $k_{1}$& Not accurate & Low 										\tabularnewline \hline
+%			Perturb and observe & Voltage  & Low  &  Medium & Not so much accurate & Low/ Medium 		\tabularnewline \hline
+%			Incremental conductance & Voltage + Current & Medium &  Medium & Accurate and operate at MPP & Low/ Medium	\tabularnewline	
+%		
+%\end{tabular}
+%	\caption{Summary the Pro and Contra from each MPPT algroithm \cite{} }
+%\label{tab:summaryMPPT}
 %\end{table}
-
+\todo{I dont know how I get the right size for each columns in the table. Here should be a table}
+Constant voltage is not realized in the project work. One of the requirements of the work is that the algorithm can find the MPP despite changes in the environmental operation and this is not possible with an implementation of constant voltage. Since for the algorithm Incremental conductance the program is more complex to program, Perturb and observe was chosen because of the simpler implementation. For future purposes, the incremental conductance can be implemented to compare the efficiency and reliability of the two methods.
 
 
