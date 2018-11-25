@@ -45,12 +45,8 @@ ylabel('Breakdown voltage (kV)')
 
 %% Opt
 clear all
-
-A = [] %No inequalities
-b = []
-Aeq =[]
-beq =[]
-
-fun = @(x) top_area(x) * 2 + lateral_area(x) %function of total area
-
-x = fmincon(fun, 0.1, A, b, Aeq, beq, 0, 1)
+clc
+pd = 1;
+fun = @(x) x(1)*pd*10e3 + x(2)*sqrt(pd);
+x0 = [6, 24];
+x = fminsearch(fun, x0)

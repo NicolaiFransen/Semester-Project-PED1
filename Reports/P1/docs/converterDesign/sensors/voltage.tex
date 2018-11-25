@@ -1,5 +1,5 @@
 \subsection{Input voltage sensor} \label{voltage_sensors}
-The voltage sensor selected is ACPL-C870. This sensor includes a optical isolation amplifier, which makes it well suited for isolated voltage sensing. Some relevante electrical specifications have been included in table \ref{tab:voltage_sensor_features}. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
+The voltage sensor selected is the ACPL-C870 \todo{include datasheet AT}. This sensor includes a optical isolation amplifier, which makes it well suited for isolated voltage sensing. Some relevant electrical specifications have been included in table \ref{tab:voltage_sensor_features}. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
 
 \begin{table}[H]
 	\centering
@@ -33,6 +33,7 @@ The voltage sensor selected is ACPL-C870. This sensor includes a optical isolati
 The input voltage at the voltage sensor is recommended to be in the range of $0V-2V$. To divide the measured voltage into that range, a voltage divider will be implemented. 
 
 The maximum output voltage of the PV-module is the open-circuit voltage at $45.2V$. To achieve a safety margin and to make the converter adaptable to other types of PV-modules, $50V$ has been selected. The current flow in the voltage divider has been set at $1mA$, to secure a insignificant power loss. The resistors can be calculated with the following equations:
+\todo{Why R17 or R18? I think this references shouldn't have anything to do with the schematic (maybe that's not why)? Maybe one possibility is to rename the resistors and caps in the schematic so the names make sense. Anyway it isn't critical.}
 \begin{equation} \label{voltage_divider_R17_in}
 	R_{17} = \frac{V_{in,max}-V_{out}}{I} = \frac{50V-2V}{1mA} = 48k\Omega
 \end{equation}
@@ -55,7 +56,7 @@ For a stable MPPT control, the measured voltage must have a very low ripple. To 
 To achieve the capacitance $C_{17} = 6.6nF$ has been chosen. 
 
 \subsubsection{Amplification} \label{voltage_sensor_amplification}
-The input range of the ADC in the RT-Box is $0V-5V$. To take advantage of the full range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484 quad operational amplifier. By using a quad amplifier, the same IC can be used for all the sensors. The relevant electrical specifications have been included in table \ref{tab:amplifier_specs}
+The input range of the ADC in the RT-Box is $0V-5V$. To take advantage of the full range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484 \todo{include datasheet AT} quad operational amplifier. By using a quad amplifier, the same IC can be used for all the sensors. The relevant electrical specifications have been included in table \ref{tab:amplifier_specs}
 
 
 \begin{table}[H]
@@ -103,7 +104,7 @@ The circuit regarding the input voltage measurement is shown at figure \ref{fig:
 \end{figure}
 
 \subsection{Output voltage sensor}
-The voltage sensor at the output is design by the same procedure as the input sensor. The voltage divider will designed such that the values of the amplifier can be reused.
+The voltage sensor at the output is design with the same procedure as the input sensor. The voltage divider will designed such that the values of the amplifier can be reused.
 
 \subsubsection{Voltage divider}
 The maximum output voltage of the DC/DC converter will be $90V$, when only 4 PV-modules are used. To insert a safety margin if one converter fails, the maximum sensed voltage will be designed at $120V$.
