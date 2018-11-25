@@ -6,7 +6,7 @@ The purpose of the first test was to validate the different power supplies in th
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|>{\centering}p{1cm}|p{7cm}|p{4cm}|>{\centering}p{2cm}}
+	\begin{tabular}{|>{\centering}p{1cm}|p{7cm}|p{4cm}|>{\centering}p{2cm}|}
 		\hline
 		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of power supplies}} \\ \hline
 		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
@@ -21,3 +21,41 @@ The purpose of the first test was to validate the different power supplies in th
 \end{table}
 
 \subsection{Optocouplers} \label{sec:test_opto}
+The second part of the test is to validate the optocouplers. This includes that the output of the optocoupler should follow the input. For this test it's necessary to solder opto1-2, and an extra test-point at the output of the two optocouplers. Because of a wrongly chosen optocoupler with a supply voltage at $5V$, a voltage divider must be added. This will be placed between the supply pins of the IC, and will divide $12V$ into $5V$. Start the test by applying $5V$ at connector J4, $12V$ at connector J2 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. The test is conducted by following table \ref{tab:test_opto}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\centering}p{1cm}|p{7cm}|p{4cm}|>{\centering}p{2cm}|}
+		\hline
+		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of optocouplers}} \\ \hline
+		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
+		2.1 & Measure $5V$ between the supply pins of the optocouplers & IC pin 6(+) \& 4(-) & Pass  \tabularnewline \hline
+		2.2 & Measure $5V-50kHz$ at the input of optocoupler 1 & TST1 \& GND-LV & Pass \tabularnewline \hline
+		2.3 & Measure $5V-50kHz$ at the output of optocoupler 1 & Opto1-out \& L-in & Pass  \tabularnewline \hline
+		2.4 & Measure $5V-50kHz$ at the input of optocoupler 2 & TST2 \& GND-LV & Pass  \tabularnewline \hline
+		2.5 & Measure $5V-50kHz$ at the output of optocoupler 2 & Opto2-out \& GND-in & Pass  \tabularnewline \hline
+	\end{tabular}
+	\caption{Test of the optocouplers.}
+	\label{tab:test_opto}
+\end{table}
+
+\subsection{Drivers} \label{sec:test_drivers}
+The next part of the test consist of the drivers. For this it's necessary to solder drv1-2, M1-2 and the resistors R5-R10. The input threshold of the drivers is defined as $V_{DD}-3.1V$. Because of the $5V$ optocouplers, the supply voltage of the drivers must be lowered to $5V$, for the switching to work. A consequence of this is that the voltage divider that supplies the optocoupler should be removed. Start the test by applying $5V$ at connector J2 \& J4 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. The test is conducted by following table \ref{tab:test_drivers}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\centering}p{1cm}|p{7cm}|p{4cm}|>{\centering}p{2cm}|}
+		\hline
+		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of drivers}} \\ \hline
+		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
+		3.1 & Measure $5V$ between the supply pins of the drivers & IC pin 6-7(+) \& 2-3(-) & Pass  \tabularnewline \hline
+		3.2 & Measure $5V-50kHz$ at the output of driver 1 & PWM1 \& L-in & Pass \tabularnewline \hline
+		3.3 & Measure $5V-50kHz$ at the output of driver 2 & PWM2 \& GND-in & Pass  \tabularnewline \hline
+	\end{tabular}
+	\caption{Test of the drivers.}
+	\label{tab:test_drivers}
+\end{table}
+
+\subsection{Sensors} \label{sec:test_sensors}
+
+
