@@ -74,13 +74,14 @@ The operation of the algorithm, shown in figure \ref{fcfinal}, is an iterative p
 
 After the process, once the MPP has been reached, the algorithm oscillates around this optimal point of operation. However in this case, as a variable perturb step is applied, the oscillations around the MPP will be much lower than using fixed perturb step.  
 
-\vspace{2cm}
+
+\iffalse
 THINGS TO CHANGE IN THE ALGORITHM (code and flow chart):
 \begin{itemize}
 	\item Dmin=0.05 and Dmax=0.95 not necessary as D is not duty cycle! Check everywhere to change D for control variable. 
 	\item Logic for the reset of deltaD when the system detects a change in irradiance. I think we shouldn't include this condition in the flow chart we can just show the results in graphs (in the next section) and we make the flow chart easier to read and just showing the main code. 
 	\item Not necessary the start counter because with the counter for the open loop calculation the MPPT is enabled after the Voc has been reached. 
 \end{itemize}
-
+\fi
 
 
