@@ -4,15 +4,15 @@ In order to proceed with the creation of the PCB, a schematic circuit has been d
 
 The schematic has been divided into four main sections, these are \textit{main topology}, \textit{power supplies}, \textit{drivers} and \textit{signal processing}.
 
-The main topology includes the power circuit, this is the MOSFETs, the inductor, the input and output capacitors and the input and output connectors. It also includes discharging resistors for the capacitors which have been sized for one minute discharge. The gate of the MOSFETs is also connected to the source through a resistor designed for 5ms discharge time. These safety resistors are implemented in order to ensure that the circuit is fully discharged when disconnected. \todo{include reference to sch switches appendix AT.}
+The main topology includes the power circuit, this is the MOSFETs, the inductor, the input and output capacitors and the input and output connectors. It also includes discharging resistors for the capacitors which have been sized for one minute discharge. The gate of the MOSFETs is also connected to the source through a resistor designed for 5ms discharge time. These safety resistors are implemented in order to ensure that the circuit is fully discharged when disconnected. \todo{include reference to sch switches appendix AT.}\todo{Maybe explain why we have the protection diode, NHF}
 
 The power supplies include the 12V external input connector and two isolated commutative 12V supplies necessary to power the gates of the high side transistors and drivers, lastly a 5V dissipative supply has also been connected to feed the sensors, this 5V signal is connected to the power ground thus the input 5V signal could not be used since it does not share the same ground.\todo{include reference to sch power supplies appendix AT.}
 
-The drivers section in composed of the isolating optocouplers and the MOSFET gate drivers, the PWM signals to the optocouplers come directly from the RT-box, meaning that a connector is also implemented here. Finally decoupling capacitors are added in the vicinity of the ICs \todo{Include integrated circuit in nomenclature AT} in order to assure that the current peaks needed by these are granted.\todo{include reference to sch drivers appendix AT.}
+The drivers section in composed of the isolating optocouplers and the MOSFET gate drivers, the PWM signals to the optocouplers come directly from the RT-box, meaning that a connector is also implemented here. Finally decoupling capacitors are added in the vicinity of the ICs \todo{Include integrated circuit in nomenclature AT} in order to assure that the current peaks needed by these are granted.\todo{include reference to sch drivers appendix AT.} \todo{When you write appendix do you mean section?, NHF}
 
 The signal processing section is composed by the IC sensors and the operational amplifier. As stated previously, there are 2 isolated voltage sensors and a hall effect sensor for current measuring. Also, voltage dividers are located in this section, these include protection zenner diodes limiting 5V output voltage and filtering capacitors, finally amplification resistors are added. The current sensor also includes a selection pin header which will allow different filtering frequencies options. The operational amplifier is also included. \todo{include reference to sch signal processing appendix AT.}
 
-Finally, test points have been added to the signals that might be measured.
+Finally, test points have been added to the signals that might be measured. \todo{Guess the last part is a copy-paste error..., NHF}
 
 \begin{table}[H]
 	\centering
