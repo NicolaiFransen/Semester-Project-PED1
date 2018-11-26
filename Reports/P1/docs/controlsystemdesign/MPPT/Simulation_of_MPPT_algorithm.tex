@@ -5,9 +5,9 @@ The results obtained in simulation for the previously explained P\&O algorithm w
 
 \subsection{Model of the PV panel}
 
-This section shows the model and the results obtained from a commercial solar panel selected for the development of this project. The PV panel which will be utilized for the test of the MPPT is \textit{Suntech STP300-24/Vd} \todo{Ref to the datasheet of the panel. Remember to delete the old one. Stef}. As a result of the PV panel's model, the characteristic curves of the panel will be presented showing its behaviour under variations in irradiance and temperature.
+This section shows the model and the results obtained from a commercial solar panel selected for the development of this project. The PV panel which will be utilized for the test of the MPPT is \textit{Suntech STP300-24/Vd} \todo{Ref to the datasheet of the panel. Remember to delete the old one. Stef}. As a result of the PV panel's model, the characteristic curves of the panel will be presented showing its behavior under variations in irradiance and temperature.
 
-There are different modeling techniques for a solar panel being the most common method based on the equivalent circuit of a solar cell shown in figure \ref{fig:eq_circuit_PVcell}. It is observed that the model of the solar cell can be represented as a current source connected in antiparallel with an ideal p-n junction diode. In addition, to model the non-linear behaviour of the solar panel I-V curve the equivalent series and parallel resistance ($R_{s}$ and $R_{p}$) are inserted.
+There are different modeling techniques for a solar panel, being the most common method based on the equivalent circuit of a solar cell shown in figure \ref{fig:eq_circuit_PVcell} \todo{consider rephrasing. AT}. It is observed that the model of the solar cell can be represented as a current source connected in antiparallel with an ideal p-n junction diode \todo{wouldn't all the current flow through the diode? AT}. In addition, to model the non-linear behaviour of the solar panel I-V curve the equivalent series and parallel resistance ($R_{s}$ and $R_{p}$) are inserted.
 
 
 \begin{figure}[H]
@@ -18,7 +18,7 @@ There are different modeling techniques for a solar panel being the most common 
 	\end{center}	
 \end{figure}
 
-The mathematical equation that describes the equivalent circuit of the solar cell is presented in equation \ref{eq:pv_cell} \todo{REF to "Evaluation of main MPPT techniques... Stef} where $I_{pv}$ is the current output of the panel, $I_{ph}$ is the photogenerated current, the second term is the current drop in the diode and the last term is the current drop in the series resistance. 
+The mathematical equation that describes the equivalent circuit of the solar cell is presented in equation \ref{eq:pv_cell} \todo{REF to "Evaluation of main MPPT techniques... Stef} where $I_{pv}$ is the current output of the panel, $I_{ph}$ is the photogenerated current, the second term is the current drop in the diode and the last term is the current drop in the series resistance \todo{is current drop a thing? current flow or voltage drop i would say. AT}. 
 
 \begin{equation} \label{eq:pv_cell}
 I_{pv} = I_{ph} - I_{o} \cdot \left[ e^{\left({\dfrac{V_{pv} + R_s\cdot I_{pv}}{a \cdot V_{t}}}\right)}  - 1 \right]  - \dfrac{V_{pv} + R_{s}\cdot I_{pv}}{R_{p}}
@@ -55,7 +55,7 @@ However, as the focus of this project is not the modelling of the PV panel, the 
 	\label{el_charact_PV_panel_Suntech}
 \end{table}
 
-Using the aforementioned model of the PV panel it is possible to obtain the characteristic curves of the panel. Figures \ref{fig:PVcurves_T25} and \ref{fig:IVcurves_T25} show the P-V and I-V curves of the solar panel with constant cell temperature ($T=25\dec C$) and varying the level of irradiance. 
+Using the aforementioned model of the PV panel, it is possible to obtain the characteristic curves of the panel. Figures \ref{fig:PVcurves_T25} and \ref{fig:IVcurves_T25} show the P-V and I-V curves of the solar panel with constant cell temperature ($T=25\dec C$) and varying the level of irradiance. 
 As expected, the lower the level of irradiance the maximum power that the panel is capable of generating decreases. It can be validated that under STC the values for the optimal operating voltage and current from table \ref{el_charact_PV_panel_Suntech}  correspond to the values obtained in simulation. It is observed that a change in irradiance has as a consequence a high variation in $I_{mpp}$ but the optimal voltage $V_{mpp}$ does not reflect a significant variation. 
 
 \begin{figure}[H]
