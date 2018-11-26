@@ -10,11 +10,11 @@ The P\&O algorithm that will be implemented in this project is the \todo{a modif
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=\textwidth]{../Pictures/BD_implementation_POalgorithm}
-		\caption{Block diagram of the system including the MPPT.}\todo{change this figure! Stef}
+		\caption{Block diagram of the system including the MPPT.}
 		\label{BD_POalgorithm}
 	\end{center}	
 \end{figure}
-
+\todo{change this figure! Stef}
 From the previous figure it is observed that the output of the MPPT is a duty cycle which is send to another block called "Mode decision" \todo{i don't think this variable should be called duty cycle. AT}. This block is used to decide if the DC-DC converter operates in buck or in boost mode. The transfer function of the converter when it is operating in buck and in boost mode is shown in equations \ref{tfbuck} and \ref{tfboost}, respectively. Plotting this transfer functions in figure \ref{fig:tfmodes} and mapping them as shown in figure \ref{fig:modedecisionmapping} it is possible to obtain the corresponding duty cycle for the buck or the boost mode. If the duty cycle from the MPPT \todo{Not duty cycle!! Call it different: control variable,valg... Stef, +1 AT} is lower than 0.5 (D<0.5) means that the output voltage is lower than the input voltage and thus the converter will work as a buck converter with duty cycle $D_{buck}=2\cdot D$. On the other hand, if $D \geq 0.5$ means that the output voltage is higher or equal than the input voltage and, therefore, the converter will operate in boost mode with duty cycle $D_{boost}=2\cdot D - 1$.\todo{Even though it was a big issue of the design of the program i don't think it is important to specify how the decision is taken. Maybe better to say "With the variables blabla and blabla the decision is taken wether to work on buck or boost mode" or something like that, otherwise it is not going to be understood. AT} These duty cycles are used to generate the corresponding PWM signals according to the converter's mode of operation at each time. 
 
 \vspace{1cm}
@@ -42,12 +42,12 @@ From the previous figure it is observed that the output of the MPPT is a duty cy
 	\begin{minipage}[b]{0.9\linewidth}
 		\centering
 		\includegraphics[width=\textwidth]{../Pictures/Mode_decision_duty_vs_gain}
-		\caption{Mapping to decide the mode of operation.}\todo{change the x axis name. Stef}
+		\caption{Mapping to decide the mode of operation.}
 		\label{fig:modedecisionmapping}
 	\end{minipage}
 \end{figure}
 
-
+\todo{change the x axis name. Stef}
 The corresponding flow chart used for the implementation of the Perturb \& Observe algorithm is shown in figure \ref{fcfinal}.
 
 
@@ -55,10 +55,10 @@ The corresponding flow chart used for the implementation of the Perturb \& Obser
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{../Pictures/P1/Flow_chart/2018_11_15_Flow_chart_MPPT_Buck-Boost_converter}
 		\caption{Flow chart for the Perturb \& Observe algorithm.}
-		\label{fcfinal} \todo{modify the flow chart once we have the final! Stef}
+		\label{fcfinal} 
 	\end{center}	
 \end{figure}
-
+\todo{modify the flow chart once we have the final! Stef}
 From the flow chart it can be observed that the MPPT is enabled after five sample times to ensure that the panel's voltage has reached the value of the open-circuit voltage $V_{oc}=45 V$ before starting the comparison of the voltage measurements.
 It is important to notice from figure \ref{BD_POalgorithm} that the current measurement is carried out in the inductor instead of in the PV panel. This is done for possible future implementation of an outer PI control loop. For this reason, it is necessary to transform the measured current in order to get the corresponding measurement for the PV module's current. This current transformation is just necessary in the case of buck mode as explained in section \ref{current_sensor}. The MPPT evaluates if the converter is working in buck mode and if it is, it multiplies the measured current by the corresponding duty cycle $D_{buck}=2\cdot D$\todo{change D for control variable (check everywhere)}. In boost mode the average current through the inductor corresponds to the PV module's current. 
 
