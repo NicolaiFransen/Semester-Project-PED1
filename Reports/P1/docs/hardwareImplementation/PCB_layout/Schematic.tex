@@ -1,6 +1,6 @@
 \section{PCB creation}
 \subsection{PCB Schematic} \label{PCB_Schematic}
-In order to proceed with the creation of the PCB, a schematic circuit has been designed. This compiles all the previously mentioned components as well as all the passive components for current limiting, decoupling and other needs.
+In order to proceed with the creation of the PCB, a schematic circuit has been designed. This compiles all the previously mentioned components as well as all the passive components for current limiting, decoupling and other needs. \todo{what other needs? Write them down or delete "And other needs" JK}
 
 The schematic has been divided into four main sections, these are \textit{main topology}, \textit{power supplies}, \textit{drivers} and \textit{signal processing}.
 
@@ -10,7 +10,7 @@ The power supplies include the 12V external input connector and two isolated com
 
 The drivers section in composed of the isolating optocouplers and the MOSFET gate drivers, the PWM signals to the optocouplers come directly from the RT-box, meaning that a connector is also implemented here. Finally decoupling capacitors are added in the vicinity of the ICs \todo{Include integrated circuit in nomenclature AT} in order to assure that the current peaks needed by these are granted.\todo{include reference to sch drivers appendix AT.} \todo{When you write appendix do you mean section?, NHF}
 
-The signal processing section is composed by the IC sensors and the operational amplifier. As stated previously, there are 2 isolated voltage sensors and a hall effect sensor for current measuring. Also, voltage dividers are located in this section, these include protection zenner diodes limiting 5V output voltage and filtering capacitors, finally amplification resistors are added. The current sensor also includes a selection pin header which will allow different filtering frequencies options. The operational amplifier is also included. \todo{include reference to sch signal processing appendix AT.}
+The signal processing section is composed by the IC sensors and the operational amplifier. As stated previously, there are 2 isolated voltage sensors and a hall effect sensor for current measuring. Also, voltage dividers are located in this section, these include protection zenner\todo{zener JK} diodes limiting 5V output voltage and filtering capacitors, finally amplification resistors are added. The current sensor also includes a selection pin header which will allow different filtering frequencies options. The operational amplifier is also included. \todo{include reference to sch signal processing appendix AT.}
 
 Finally, test points have been added to the signals that might be measured. \todo{Guess the last part is a copy-paste error..., NHF}
 
