@@ -1,6 +1,6 @@
 \section{Evaluation of main MPPT techniques\label{MPPTalgo}}
 
-There are a variety of different techniques for finding the maximum power point. Therefore only three different methods are used in this thesis, otherwise it would go beyond the scope of this work. These three methods are the perturb and observe, constant voltage and incremental conductance. They were chosen because the perturb and observe and incremental conductance are the most used algorithms in commercial pv-panels. \todo{maybe "Perturb and observe and incremental conductance are the most used algorithms in commercial pv-panels, on the other hand, constant voltage has been selected due to..." AT} Constant voltage was selected as a comparison to methods that are not used so often \todo{why as a comparison? AT}. 
+There are a variety of different techniques for finding the maximum power point. Therefore only three different methods are used in this thesis, otherwise it would go beyond the scope of this work. These three methods are the perturb and observe, constant voltage and incremental conductance. Perturb and observe and incremental conductance are the most used algorithms in commercial pv-panels.on the other hand, constant voltage has been selected due to.. \todo{maybe "Perturb and observe and incremental conductance are the most used algorithms in commercial pv-panels, on the other hand, constant voltage has been selected due to..." AT} Constant voltage was selected as a comparison to methods that are not used so often \todo{why as a comparison? AT}. 
 
 \subsection{Constant voltage}
 Empirical experiments have shown that the voltage of the MPP has a linear dependence on the open circuit voltage at different ambient conditions.
@@ -12,7 +12,7 @@ In the equation \ref{voltage_MPP} k represents a constant that depends on the ch
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.35\textwidth]{../Pictures/P1/Flow_chart/Flow_chart_constant_voltage}
+		\includegraphics[width=0.5\textwidth]{../Pictures/P1/Flow_chart/Flow_chart_constant_voltage}
 		\caption{flow chart constant voltage\cite{}. }
 		\label{fcconstantvoltage}
 	\end{center}	
@@ -23,7 +23,7 @@ With the method "perturb and observe", the currently measured power is periodica
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{../Pictures/P1/Flow_chart/flow_chart_perturb_observe}
+		\includegraphics[width=0.7\textwidth]{../Pictures/P1/Flow_chart/flow_chart_perturb_observe}
 		\caption{flow chart from perturb and observe\cite{}.}
 		\label{fcperturbandobserve}
 	\end{center}	
@@ -31,11 +31,11 @@ With the method "perturb and observe", the currently measured power is periodica
 \todo{increase figure size. AT}
 
 \subsection{Incremental conductancee}
-The approach of incremental conductance is that the MPP is at the position where the derivative of the power after the voltage is 0 \todo{derivative of power after voltage? wrt maybe? AT}. On the left side of the MPP the derivative is greater than 0 while on the right side it is less than 0, this behavior is described by the following equations.\todo{I'll give you the equations later.}\newline
+The approach of incremental conductance is that the MPP is at the position where the derivative of the power with respect to the voltage is 0. On the left side of the MPP the derivative is greater than 0 while on the right side it is less than 0, this behavior is described by the following equations.\todo{I'll give you the equations later.}\newline
 The algorithm compares the incremental conductance with the previous one to increase (left side of MPP) or decrease (right side of MPP) the voltage. After the MPP has been reached, the algorithm is stopped. Thus, there will be no oscillation around the MPP. If a change in the current is detected, the algorithm starts to find the MPP again, as you can see in the flowchart in the figure \ref{fcinccon}\cite{}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.58\textwidth]{../Pictures/P1/Flow_chart/flow_chart_incremental_conductance}
+		\includegraphics[width=0.7\textwidth]{../Pictures/P1/Flow_chart/flow_chart_incremental_conductance}
 		\caption{flow chart incremental conductance }
 		\label{fcinccon}
 	\end{center}	
