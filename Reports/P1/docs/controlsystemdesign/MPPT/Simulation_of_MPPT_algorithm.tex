@@ -54,6 +54,8 @@ However, as the focus of this project is not the modelling of the PV panel, the 
 	\caption{Electrical characteristics PV module \textit{Suntech STP300-24/Vd} \cite{PV_panel}.}
 	\label{el_charact_PV_panel_Suntech}
 \end{table}
+
+
 \todo{Modify in the bibliography the reference to the datasheet of the panel}
 Using the aforementioned model of the PV panel, it is possible to obtain the characteristic curves of the panel. Figures \ref{fig:PVcurves_T25} and \ref{fig:IVcurves_T25} show the P-V and I-V curves of the solar panel with constant cell temperature ($T=25\dec C$) and varying the level of irradiance. 
 As expected, the lower the level of irradiance the maximum power that the panel is capable of generating decreases. It can be validated that under STC the values for the optimal operating voltage and current from table \ref{el_charact_PV_panel_Suntech}  correspond to the values obtained in simulation. It is observed that a change in irradiance has as a consequence a high variation in $I_{mpp}$ but the optimal voltage $V_{mpp}$ does not reflect a significant variation. 
@@ -97,10 +99,167 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 
 \subsection{MPPT algorithm results}
 
-THINGS TO WRITE:
-\begin{itemize}
-	\item For each load value (buck and boost) show the grahs corresponding to change in irradiance, change in temperature 
-	\item Graphs: Vin/Iin/Pin. Control variable/Dbuck/Dboost/Vinvsvout
-	\item Efficiency of the MPPT in buck and boost
-	
-\end{itemize}
+\iffalse
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=3)_STC} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=27)_STC} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{buck STC V,I,P.} % Left caption and label
+		\label{buckSTC}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{boost STC V,I,P} % Right caption and label
+		\label{boostSTC}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/Dutys_Vpv_Vout_buck(R=3)_STC} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/Dutys_Vpv_Vout_boost(R=27)_STC} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{buck STC duty vin vs vout} % Left caption and label
+		\label{buckSTC_duty}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{boost STC duty vin vs vout} % Right caption and label
+		\label{boostSTC_duty}
+	\end{minipage}
+\end{figure}
+\fi 
+
+STC buck mode ($R=3\Omega$, $V_{out}=30V$):  
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=3)_STC}
+		\caption{buck STC V,I,P}
+		\label{buckSTC} 
+	\end{center}	
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/Dutys_Vpv_Vout_buck(R=3)_STC}
+		\caption{buck STC duty vin vs vout}
+		\label{buckSTC_duty} 
+	\end{center}	
+\end{figure}
+
+STC boost mode ($R=27\Omega$, $V_{out}=90V$): 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=27)_STC}
+		\caption{boost STC V,I,P}
+		\label{boostSTC} 
+	\end{center}	
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/Dutys_Vpv_Vout_boost(R=27)_STC}
+		\caption{boost STC duty vin vs vout}
+		\label{boostSTC_duty} 
+	\end{center}	
+\end{figure}
+
+
+Change in irradiance from 1000-800:
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=3)_irradiance_1000_800} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=27)_irradiance_1000_800} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{buck irradiance vin vs vout} % Left caption and label
+		\label{buckirradiance}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{boost irradiance vin vs vout} % Right caption and label
+		\label{boostirradiance}
+	\end{minipage}
+\end{figure}
+
+\iffalse
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=3)_irradiance_1000_800}
+		\caption{buck change irradiance V,I,P}
+		\label{buckirradiance} 
+	\end{center}	
+\end{figure}
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=27)_irradiance_1000_800}
+		\caption{boost change irradiance V,I,P}
+		\label{boostirradiance} 
+	\end{center}	
+\end{figure}
+\fi
+
+
+Change in temperature from 25-45 degrees:
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=3)_temperature_25_45} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=27)_temperature_25_45} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{buck T vin vs vout} % Left caption and label
+		\label{bucktemperature}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{boost T vin vs vout} % Right caption and label
+		\label{boosttemperature}
+	\end{minipage}
+\end{figure}
+
+\iffalse
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=3)_temperature_25_45}
+		\caption{buck change T V,I,P}
+		\label{bucktemperature} 
+	\end{center}	
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=27)_temperature_25_45}
+		\caption{boost change T V,I,P}
+		\label{boostirradiance} 
+	\end{center}	
+\end{figure}
+\fi
