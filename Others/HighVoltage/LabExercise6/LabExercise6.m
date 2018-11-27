@@ -31,22 +31,21 @@ data_min = [mu_02-2*std_02 mu_05-2*std_05 mu_1-2*std_1 mu_2-2*std_2 mu_3-2*std_3
 
 
 %% Plot
+
+
 data_mean = [mu_02; mu_05; mu_1; mu_2; mu_3];
 pd = [0.2; 0.5; 1; 2; 3];
+
+Official = 6.72*sqrt(pd)+24.36*(pd);
+Fitted = 18.2*sqrt(pd)+7.279*(pd)
 
 figure(1)
 semilogx(pd, data_mean, 'b')
 hold on
-semilogx(pd, data_max, '--r')
-semilogx(pd, data_min, '--g')
-legend('Mean value', '+2*sd', '-2*sd')
+semilogx(pd, Official, '--r')
+semilogx(pd, Fitted, '--g')
+legend('Measurements', 'Official', 'Fitted')
 xlabel('Pressure, pd (Bar)') 
 ylabel('Breakdown voltage (kV)')
 
-%% Opt
-clear all
-clc
-pd = 1;
-fun = @(x) x(1)*pd*10e3 + x(2)*sqrt(pd);
-x0 = [6, 24];
-x = fminsearch(fun, x0)
+
