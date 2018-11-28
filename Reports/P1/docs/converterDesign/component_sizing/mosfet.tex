@@ -3,7 +3,7 @@
 The system must regulate the power flow in order to maximize the power generation \todo{power flow? Better the system must regulate input voltage and current to... AT. Discuss}. In order to achieve this, the system includes switches that control the current flow \todo{switches themselves don't control the current flow, the whole topology does so. AT Discuss}. The switches consist on MOSFET devices. The switching frequency of the system is $50 $ kHz. Although the market has IGBT which can switch at $50$ kHz, MOSFET devices allow lower losses than IGBTs for system's current rating. \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}
 
 
-The maximum output voltage of the system is $90 $V, however the voltage rating of the transistors was set to $150 $V in order to increase the reliability. The peak current through the transistors happens when the buck mode is activated. The peak current is equal to $14$ A\todo{check with jesper if hhe did this calculation and then link, if not I calculated and have a photo of it}. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired. This constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3. It exhibits the features seen in table \ref{mosfet_features}.
+The maximum output voltage of the system is $90 $V, however the voltage rating of the transistors was set to $150 $V in order to increase the reliability \todo{to have a safety margin to avoid damage of the switching device. Reliability? Stf}. The peak current through the transistors happens when the buck mode is activated. The peak current is equal to $14$ A\todo{check with jesper if hhe did this calculation and then link, if not I calculated and have a photo of it}. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired. This constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3 \todo{include datasheet AT}. It exhibits the features seen in table \ref{mosfet_features}.
 
 
 \begin{table}[htbp]
@@ -96,13 +96,13 @@ T_{J} = 50 \decC + 5.54 W \cdot 75 \frac{\decC}{W} = 465.5 \decC
 
 \begin{equation} \label{switch_temperature_w_values}
 T_{J} = 50 \decC + 5.54 W \cdot  2.06\frac{\decC}{W} = 61.41 \decC
-\end{equation}
+\end{equation}\todo{missing units in the eq. Where do the 5.54 and 2.06 come from? Stef}
 
 The Drain to Source resistance increase is calculated as explained in equation \ref{delta_resistance}. The resistance difference is relatively small.
 
 \begin{equation} \label{delta_resistance}
 \Updelta R_{DS} = |R_{DS, T = 20 \decC} - R_{DS, T = 61.41\decC}| = 4\; m \Omega
-\end{equation}
+\end{equation}\todo{what are the values? you got them in simulation? Stef}
 
 \begin{table}[]
 	\centering

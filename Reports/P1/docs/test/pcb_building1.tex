@@ -21,7 +21,7 @@ The purpose of the first test was to validate the different power supplies in th
 \end{table}
 
 \subsection{Optocouplers} \label{sec:test_opto}
-The second part of the test is to validate the optocouplers. This includes that the output of the optocoupler should follow the input. For this test it's necessary to solder opto1-2, and an extra test-point at the output of the two optocouplers. Because of a wrongly chosen optocoupler with a supply voltage at $5V$, a voltage divider must be added. This will be placed between the supply pins of the IC, and will divide $12V$ into $5V$. Start the test by applying $5V$ at connector J4, $12V$ at connector J2 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. The test is conducted by following table \ref{tab:test_opto}.
+The second part of the test is to validate the optocouplers. This includes that the output of the optocoupler should follow the input. For this test it's necessary to solder opto1-2, and an extra test-point at the output of the two optocouplers. Because of a wrongly chosen optocoupler with a supply voltage at $5V$, a voltage divider must be added. This will be placed between the supply pins of the IC, and will divide $12V$ into $5V$. Start the test by applying $5V$ at connector J4, $12V$ at connector J2 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. 
 
 \begin{table}[H]
 	\centering
@@ -29,7 +29,7 @@ The second part of the test is to validate the optocouplers. This includes that 
 		\hline
 		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of optocouplers}} \\ \hline
 		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
-		2.1 & Measure $5V$ between the supply pins of the optocouplers & IC pin 6(+) \& 4(-) & Pass  \tabularnewline \hline
+		2.1 & Measure $5V$ at the supply of opto1-2 & IC pin 6(+) \& 4(-) & Pass  \tabularnewline \hline
 		2.2 & Measure $5V-50kHz$ at the input of optocoupler 1 & TST1 \& GND-LV & Pass \tabularnewline \hline
 		2.3 & Measure $5V-50kHz$ at the output of optocoupler 1 & Opto1-out \& L-in & Pass  \tabularnewline \hline
 		2.4 & Measure $5V-50kHz$ at the input of optocoupler 2 & TST2 \& GND-LV & Pass  \tabularnewline \hline
@@ -40,7 +40,7 @@ The second part of the test is to validate the optocouplers. This includes that 
 \end{table}
 
 \subsection{Drivers} \label{sec:test_drivers}
-The next part of the test consist of the drivers. For this it's necessary to solder drv1-2, M1-2 and the resistors R5-R10. The input threshold of the drivers is defined as $V_{DD}-3.1V$. Because of the $5V$ optocouplers, the supply voltage of the drivers must be lowered to $5V$, for the switching to work. A consequence of this is that the voltage divider that supplies the optocoupler should be removed. Start the test by applying $5V$ at connector J2 \& J4 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. The test is conducted by following table \ref{tab:test_drivers}
+The next part of the test consist of the drivers. For this it's necessary to solder drv1-2, M1-2 and the resistors R5-R10. The input threshold of the drivers is defined as $V_{DD}-3.1V$. Because of the $5V$ optocouplers, the supply voltage of the drivers must be lowered to $5V$, for the switching to work. A consequence of this is that the voltage divider that supplies the optocoupler should be removed. Start the test by applying $5V$ at connector J2 \& J4 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. The test is conducted by following table \ref{tab:test_drivers}.
 
 \begin{table}[H]
 	\centering
@@ -48,7 +48,7 @@ The next part of the test consist of the drivers. For this it's necessary to sol
 		\hline
 		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of drivers}} \\ \hline
 		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
-		3.1 & Measure $5V$ between the supply pins of the drivers & IC pin 6-7(+) \& 2-3(-) & Pass  \tabularnewline \hline
+		3.1 & Measure $5V$ at the supply of the drivers & IC pin 6-7(+) \& 2-3(-) & Pass  \tabularnewline \hline
 		3.2 & Measure $5V-50kHz$ at the output of driver 1 & PWM1 \& L-in & Pass \tabularnewline \hline
 		3.3 & Measure $5V-50kHz$ at the output of driver 2 & PWM2 \& GND-in & Pass  \tabularnewline \hline
 	\end{tabular}
@@ -57,5 +57,28 @@ The next part of the test consist of the drivers. For this it's necessary to sol
 \end{table}
 
 \subsection{Sensors} \label{sec:test_sensors}
+The last part of the control system test consist of the sensor circuits. For this test it's necessary to solder the input voltage sensor U2, the current sensor and the operational amplifier. Furthermore the resistors $R_{17}-R_{22}+R_{25}+R_{32}+R_{33}$ and capacitors $C_{17}+C_{22}$ should be soldered. Before testing a jumper should be placed between J5-2 and J5-3, to select the bandwidth of the current sensor to $80kHz$. The inductor, M1 and M3 should also be shorted to achieve a current flow through the current sensor. 
 
+Attach a load resistor at $100\Omega$. With an input voltage at $10V$, this should correspond to a output current at $100mA$. Because of the differential offset in the current sensor, this should be equal to $2.6V$. After test 4.3, raise the input voltage to $20V$ for validation of linearity in the sensors.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\centering}p{1cm}|p{7cm}|p{4cm}|>{\centering}p{2cm}|}
+		\hline
+		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of sensors}} \\ \hline
+		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
+		4.1 & Measure $10V$ at the input of the converter & Vin \& GND-in & Pass  \tabularnewline \hline
+		4.2 & Measure $1V$ at the output of the voltage sensor & Vi-sen \& GND-sen & Pass \tabularnewline \hline
+		4.3 & Measure $2.6V$ at the output of the current sensor & IL-sen-Raw \& GND-sen & Pass  \tabularnewline \hline
+		4.4 & Measure $20V$ at the input of the converter & Vin \& GND-in & Pass  \tabularnewline \hline
+		4.5 & Measure $2V$ at the output of the voltage sensor & Vi-sen \& GND-sen & Pass \tabularnewline \hline
+		4.6 & Measure $2.7V$ at the output of the current sensor & IL-sen-Raw \& GND-sen & Pass  \tabularnewline \hline
+	\end{tabular}
+	\caption{Test of the sensors.}
+	\label{tab:test_sensors}
+\end{table}
+
+
+
+ 
 
