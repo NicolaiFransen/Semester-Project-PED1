@@ -1,5 +1,6 @@
 Plecs {
-  Name          "Current_sensor_inductor_Buck-Boost_converterwithMPPT_Final"
+  Name          "Current_sensor_inductor_Buck-Boost_converterwithMPPT_Final_re"
+"sistor_input"
   Version       "4.2"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -23,34 +24,34 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
-  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPTQ7I"
-"CAgJSBbXSAtIG51bWJlciBvZiBwYW5lbHMgY29ubmVjdGVkIGluIHNlcmllcyBpbiB0aGUgc3lzdG"
-"VtClRzID0gMC4xOyAgJXNhbXBsZSB0aW1lIE1QUFQgCiUlJSBTb2xhciBQYW5lbCAoU3VudGVjaCB"
-"Qb3dlciBTVFAzMDAtMjRfVmQpJSBzZWxlY3QgdmFsdWVzIGZyb20gc2ltdWxpbmsgYW5kIG5vdCBm"
-"cm9tIHRoZSBkYXRhc2hlZXQgYmVjYXVzZSBvZiBkaWZmZXJlbnQgdmFsdWVzCgpTUC5OcyA9IDcyO"
-"yAgICAgICAlIFtdIC0gbnVtYmVyIG9mIHNvbGFyIGNlbGxzIGluIGEgc3RyaW5nIGluIHNvbGFyIG"
-"FycmF5ClNQLk5wID0gMTsgICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sYXIgY2VsbCBzdHJpbmd"
-"zIGluIHBhcmFsbGVsIHNvbGFyIGFycmF5CiVTUC5WX01QUCA9IDM2LjlbVl0KJVNQLklfTVBQID0g"
-"OC4xNCBbQV0KJVNQLlBfTVBQID0gMzAwLjM2NiBbV10KUG1wcCA9IDMwMDsgJVtXXSBJcnJhZGlhb"
-"mNlIDEwMDBXL20yClNQLlRfbiA9IDI1OyAgICAgICUgW0NdIC0gbm9taW5hbCB0ZW1wZXJhdHVyZS"
-"BvZiBzb2xhciBjZWxscwpTUC5HX24gPSAxMDAwOyAgICAlIFtXL21eMl0gLSBub21pbmFsIGlycmF"
-"kaWF0aW9uIG9mIHNvbGFyIGNlbGxzClNQLlZfT0NfbiA9IDQ1OyAlIFtWXSAtIG5vbWluYWwgb3Bl"
-"biBjaXJjdWl0IHZvbHRhZ2Ugb2YgYXJyYXkgKHNpbmdsZSBwYW5lbCBpbiBzeXN0ZW0pClNQLklfU"
-"0NfbiA9IDguNjc7ICUgW0FdIC0gbm9taW5hbCBzaG9ydCBjaXJjdWl0IGN1cnJlbnQgb2YgYXJyYX"
-"kKClNQLlJzID0gMC4yNjYwMzsgICAgJSBbb2htXSAtIGVxdXZhbGVudCBzZXJpZXMgcmVzaXN0YW5"
-"jZSBvZiBhcnJheQpTUC5ScCA9IDY2NS4xOTkzOyAgJSBbb2htXSAtIGVxdXZhbGVudCBwYXJhbGxl"
-"bCByZXNpc3RhbmNlIG9mIGFycmF5ICh3ZSBkaWRudCBjaGFuZ2UpCgpTUC5hID0gMS4xMDk4OyAgI"
-"CAgICAlIFtdIC0gZGlvZGUgaWRlYWxpdHkgY29uc3RhbnQgKHdlIGRpZG50IGNoYW5nZSkKClNQLk"
-"tfViA9IC0gMC40Mjc5MTsgJSBbJS/CsENdIC0gdGhlcm1hbCB2b2x0YWdlIGNvZWZmaWNpZW50IG9"
-"mIGFycmF5IC0wLjEyMzAgZnJvbSBvdGhlciBwYW5lbApTUC5LX0kgPSAwLjA4NjcwMTsgICUgWyUv"
-"wrBDXSAtIHRoZXJtYWwgY3VycmVudCBjb2VmZmljaWVudCBvZiBhcnJheQoKU1AuQ19pbiA9IDEuO"
-"GUtMzsgICUgW0ZdIC0gaW5wdXQgY2FwYWNpdGFuY2Ugb2YgdGhlIERDL0RDIGNvbnZlcnRlciAoaG"
-"lnaCB2YWx1ZSB0byBmaWx0ZXIgYW5kIHRoZSB2YWx1ZSBpcyBmcm9tIHRoZSBzdXBlcnZpc29yKQo"
-"KJSBCdWNrLWJvb3N0IGNvbnZlcnRlcgoKVl9vdXQ9IDM2MC9OdW1iZXJPZlNlcmllc0Nvbm5lY3Rl"
-"ZFBhbmVsczsKCkJ1Y2suTCA9IDFlLTM7JTQ3MGUtNjsgJVtIXSAtIGluZHVjdG9yICVjYWxjdWxhd"
-"GUgNDcwZS02CkJ1Y2suQyA9IDQ3MGUtNjsgJVtGXSAtIG91dHB1dCBjYXBhY2l0b3IgJWNhbGN1bG"
-"F0ZSAxMzRlLTYKQnVjay5SID0gKFZfb3V0XjIpL1BtcHA7ICUgW09obV0gLSBMb2FkCm91dHB1dF9"
-"jYXAgPSA4NjBlLTY7Cg=="
+  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPTEwO"
+"yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
+"RlbQpUcyA9IDAuMTsgICVzYW1wbGUgdGltZSBNUFBUIAolJSUgU29sYXIgUGFuZWwgKFN1bnRlY2g"
+"gUG93ZXIgU1RQMzAwLTI0X1ZkKSUgc2VsZWN0IHZhbHVlcyBmcm9tIHNpbXVsaW5rIGFuZCBub3Qg"
+"ZnJvbSB0aGUgZGF0YXNoZWV0IGJlY2F1c2Ugb2YgZGlmZmVyZW50IHZhbHVlcwoKU1AuTnMgPSA3M"
+"jsgICAgICAgJSBbXSAtIG51bWJlciBvZiBzb2xhciBjZWxscyBpbiBhIHN0cmluZyBpbiBzb2xhci"
+"BhcnJheQpTUC5OcCA9IDE7ICAgICAgICAlIFtdIC0gbnVtYmVyIG9mIHNvbGFyIGNlbGwgc3RyaW5"
+"ncyBpbiBwYXJhbGxlbCBzb2xhciBhcnJheQolU1AuVl9NUFAgPSAzNi45W1ZdCiVTUC5JX01QUCA9"
+"IDguMTQgW0FdCiVTUC5QX01QUCA9IDMwMC4zNjYgW1ddClBtcHAgPSAzMDA7ICVbV10gSXJyYWRpY"
+"W5jZSAxMDAwVy9tMgpTUC5UX24gPSAyNTsgICAgICAlIFtDXSAtIG5vbWluYWwgdGVtcGVyYXR1cm"
+"Ugb2Ygc29sYXIgY2VsbHMKU1AuR19uID0gMTAwMDsgICAgJSBbVy9tXjJdIC0gbm9taW5hbCBpcnJ"
+"hZGlhdGlvbiBvZiBzb2xhciBjZWxscwpTUC5WX09DX24gPSA0NTsgJSBbVl0gLSBub21pbmFsIG9w"
+"ZW4gY2lyY3VpdCB2b2x0YWdlIG9mIGFycmF5IChzaW5nbGUgcGFuZWwgaW4gc3lzdGVtKQpTUC5JX"
+"1NDX24gPSA4LjY3OyAlIFtBXSAtIG5vbWluYWwgc2hvcnQgY2lyY3VpdCBjdXJyZW50IG9mIGFycm"
+"F5CgpTUC5ScyA9IDAuMjY2MDM7ICAgICUgW29obV0gLSBlcXV2YWxlbnQgc2VyaWVzIHJlc2lzdGF"
+"uY2Ugb2YgYXJyYXkKU1AuUnAgPSA2NjUuMTk5MzsgICUgW29obV0gLSBlcXV2YWxlbnQgcGFyYWxs"
+"ZWwgcmVzaXN0YW5jZSBvZiBhcnJheSAod2UgZGlkbnQgY2hhbmdlKQoKU1AuYSA9IDEuMTA5ODsgI"
+"CAgICAgJSBbXSAtIGRpb2RlIGlkZWFsaXR5IGNvbnN0YW50ICh3ZSBkaWRudCBjaGFuZ2UpCgpTUC"
+"5LX1YgPSAtIDAuNDI3OTE7ICUgWyUvwrBDXSAtIHRoZXJtYWwgdm9sdGFnZSBjb2VmZmljaWVudCB"
+"vZiBhcnJheSAtMC4xMjMwIGZyb20gb3RoZXIgcGFuZWwKU1AuS19JID0gMC4wODY3MDE7ICAlIFsl"
+"L8KwQ10gLSB0aGVybWFsIGN1cnJlbnQgY29lZmZpY2llbnQgb2YgYXJyYXkKClNQLkNfaW4gPSAxL"
+"jhlLTM7ICAlIFtGXSAtIGlucHV0IGNhcGFjaXRhbmNlIG9mIHRoZSBEQy9EQyBjb252ZXJ0ZXIgKG"
+"hpZ2ggdmFsdWUgdG8gZmlsdGVyIGFuZCB0aGUgdmFsdWUgaXMgZnJvbSB0aGUgc3VwZXJ2aXNvcik"
+"KCiUgQnVjay1ib29zdCBjb252ZXJ0ZXIKClZfb3V0PSAzNjAvTnVtYmVyT2ZTZXJpZXNDb25uZWN0"
+"ZWRQYW5lbHM7CgpCdWNrLkwgPSAxZS0zOyU0NzBlLTY7ICVbSF0gLSBpbmR1Y3RvciAlY2FsY3VsY"
+"XRlIDQ3MGUtNgpCdWNrLkMgPSA0NzBlLTY7ICVbRl0gLSBvdXRwdXQgY2FwYWNpdG9yICVjYWxjdW"
+"xhdGUgMTM0ZS02CkJ1Y2suUiA9IChWX291dF4yKS9QbXBwOyAlIFtPaG1dIC0gTG9hZApvdXRwdXR"
+"fY2FwID0gODYwZS02Owo="
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -73,736 +74,9 @@ Plecs {
   Schematic {
     Location      [0, 30; 1280, 649]
     ZoomFactor    0.999997
-    SliderPosition [0, -1]
+    SliderPosition [33, -1]
     ShowBrowser   on
     BrowserWidth  130
-    Component {
-      Type          Subsystem
-      Name          "PV_Villalva1"
-      Show          off
-      Position      [115, 195]
-      Direction     up
-      Flipped       off
-      Frame         [-10, -20; 10, 20]
-      LabelPosition [-13, -23]
-      LabelAlign    bottomright
-      SampleTime    "-1"
-      CodeGenTarget "Generic"
-      MaskType      "PV String"
-      MaskDescription "Single-diode model of Photovoltaic String as proposed i"
-"n \"Comprephensive Approach to Modeling and Simulation of Photovoltaic Arrays"
-"\""
-      MaskDisplay   "line([-10 0 10], [-20 -7 -20])"
-      MaskIconFrame on
-      MaskIconOpaque off
-      MaskIconRotates on
-      MaskInit      "k = 1.3806503e-23; % [J/K] - Boltzmann constant\nq = 1.60"
-"217646e-19; % [C] - electron charge"
-      Parameter {
-        Variable      "Ns"
-        Prompt        "Number of PV cells in string"
-        Type          FreeText
-        Value         "SP.Ns"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "Np"
-        Prompt        "Number of strings in parallel"
-        Type          FreeText
-        Value         "SP.Np"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "Tn"
-        Prompt        "Nominal Temperature"
-        Type          FreeText
-        Value         "SP.T_n"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "Gn"
-        Prompt        "Nominal Irradiation"
-        Type          FreeText
-        Value         "SP.G_n"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "V_OCn"
-        Prompt        "Nominal Open-Circuit Cell Voltage"
-        Type          FreeText
-        Value         "SP.V_OC_n"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "I_SCn"
-        Prompt        "Nominal Short-Circuit Cell Current"
-        Type          FreeText
-        Value         "SP.I_SC_n"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "Rs"
-        Prompt        "Equivalent Panel Series Resistance"
-        Type          FreeText
-        Value         "SP.Rs"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "Rp"
-        Prompt        "Equivalent Panel Shunt Resistance"
-        Type          FreeText
-        Value         "SP.Rp"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "a"
-        Prompt        "Diode Ideality Constant"
-        Type          FreeText
-        Value         "SP.a"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "KV"
-        Prompt        "Voltage-Temperature Coefficient"
-        Type          FreeText
-        Value         "SP.K_V"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "KI"
-        Prompt        "Current-Temperature Coefficient"
-        Type          FreeText
-        Value         "SP.K_I"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Parameter {
-        Variable      "t_delay"
-        Prompt        "Low Pass Filter Time Constant"
-        Type          FreeText
-        Value         "1e-5"
-        Show          off
-        Tunable       off
-        TabName       ""
-      }
-      Terminal {
-        Type          Port
-        Position      [0, -25]
-        Direction     up
-      }
-      Terminal {
-        Type          Port
-        Position      [0, 25]
-        Direction     down
-      }
-      Terminal {
-        Type          Input
-        Position      [-10, 10]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-10, 0]
-        Direction     left
-      }
-      Schematic {
-        Location      [649, 304; 1338, 518]
-        ZoomFactor    1
-        SliderPosition [1, 0]
-        ShowBrowser   off
-        BrowserWidth  100
-        Component {
-          Type          Ammeter
-          Name          "I_PV"
-          Show          off
-          Position      [510, 85]
-          Direction     left
-          Flipped       off
-        }
-        Component {
-          Type          SignalMux
-          Name          "CMux"
-          Show          off
-          Position      [560, 30]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "Width"
-            Value         "2"
-            Show          off
-          }
-        }
-        Component {
-          Type          CurrentSource
-          Name          "Im"
-          Show          on
-          Position      [390, 125]
-          Direction     down
-          Flipped       on
-          Parameter {
-            Variable      "DiscretizationBehavior"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "StateSpaceInlining"
-            Value         "2"
-            Show          off
-          }
-        }
-        Component {
-          Type          Voltmeter
-          Name          "V1"
-          Show          off
-          Position      [555, 125]
-          Direction     down
-          Flipped       on
-        }
-        Component {
-          Type          Function
-          Name          "Power"
-          Show          on
-          Position      [615, 30]
-          Direction     right
-          Flipped       off
-          Frame         [-20, -10; 20, 10]
-          LabelPosition [0, 13]
-          LabelAlign    up
-          Parameter {
-            Variable      "f(u)"
-            Value         "u[1]*u[2]"
-            Show          off
-          }
-        }
-        Component {
-          Type          Port
-          Name          "+"
-          Show          off
-          Position      [617, 85]
-          Direction     right
-          Flipped       on
-          Parameter {
-            Variable      "Index"
-            Value         "1"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Port
-          Name          "-"
-          Show          off
-          Position      [617, 165]
-          Direction     right
-          Flipped       on
-          Parameter {
-            Variable      "Index"
-            Value         "2"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Input
-          Name          "T"
-          Show          on
-          Position      [70, 165]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "Index"
-            Value         "3"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Resistor
-          Name          "Rp"
-          Show          on
-          Position      [430, 125]
-          Direction     up
-          Flipped       off
-          Parameter {
-            Variable      "R"
-            Value         "Rp"
-            Show          off
-          }
-        }
-        Component {
-          Type          Resistor
-          Name          "Rs"
-          Show          on
-          Position      [465, 85]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "R"
-            Value         "Rs"
-            Show          off
-          }
-        }
-        Component {
-          Type          Input
-          Name          "G"
-          Show          on
-          Position      [30, 130]
-          Direction     left
-          Flipped       on
-          Parameter {
-            Variable      "Index"
-            Value         "4"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          SignalMux
-          Name          "CMux2"
-          Show          off
-          Position      [130, 125]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "Width"
-            Value         "4"
-            Show          off
-          }
-        }
-        Component {
-          Type          TransferFunction
-          Name          "LPF"
-          Show          on
-          Position      [325, 125]
-          Direction     left
-          Flipped       on
-          Frame         [-30, -15; 30, 15]
-          LabelPosition [0, -18]
-          LabelAlign    down
-          Parameter {
-            Variable      "Numerator"
-            Value         "[1]"
-            Show          off
-          }
-          Parameter {
-            Variable      "Denominator"
-            Value         "[t_delay 1]"
-            Show          off
-          }
-          Parameter {
-            Variable      "X0"
-            Value         "0"
-            Show          off
-          }
-        }
-        Component {
-          Type          Gain
-          Name          "Normalize"
-          Show          off
-          Position      [80, 130]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "K"
-            Value         "Gn"
-            Show          off
-          }
-          Parameter {
-            Variable      "Multiplication"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "DataType"
-            Value         "11"
-            Show          off
-          }
-        }
-        Component {
-          Type          CScript
-          Name          "C-Script"
-          Show          on
-          Position      [185, 125]
-          Direction     up
-          Flipped       off
-          Parameter {
-            Variable      "NumInputs"
-            Value         "4"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumOutputs"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumContStates"
-            Value         "0"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumDiscStates"
-            Value         "0"
-            Show          off
-          }
-          Parameter {
-            Variable      "NumZCSignals"
-            Value         "0"
-            Show          off
-          }
-          Parameter {
-            Variable      "DirectFeedthrough"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "Ts"
-            Value         "0"
-            Show          off
-          }
-          Parameter {
-            Variable      "Parameters"
-            Value         "Ns,Np,Tn,Gn,V_OCn,I_SCn,Rs,Rp,a,KV,KI,k,q"
-            Show          off
-          }
-          Parameter {
-            Variable      "LangStandard"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "GnuExtensions"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "RuntimeCheck"
-            Value         "2"
-            Show          off
-          }
-          Parameter {
-            Variable      "Declarations"
-            Value         "#include <math.h>\n\nstatic double Ns;\nstatic doub"
-"le Np;\n\nstatic double Tn;\nstatic double Gn;\nstatic double V_OC_n;\nstatic"
-" double I_SC_n;\n\nstatic double Rs;\nstatic double Rp;\n\nstatic double a;\n"
-"\nstatic double KV;\nstatic double KI;\n\nstatic double k;\nstatic double q;"
-"\n\nstatic double I_PV_n;\n\n#define I InputSignal(0,0)\n#define V InputSigna"
-"l(0,1)\n#define G InputSignal(0,2)\n#define T InputSignal(0,3)"
-            Show          off
-          }
-          Parameter {
-            Variable      "StartFcn"
-            Value         "Ns = ParamRealData(0,0);\nNp = ParamRealData(1,0);"
-"\n\nTn = ParamRealData(2,0) + 273.15;\nGn = ParamRealData(3,0);\nV_OC_n = Par"
-"amRealData(4,0);\nI_SC_n = ParamRealData(5,0);\n\nRs = ParamRealData(6,0);\nR"
-"p = ParamRealData(7,0);\n\na = ParamRealData(8,0);\n\nKV = ParamRealData(9,0)"
-";\nKI = ParamRealData(10,0);\n\nk = ParamRealData(11,0);\n\nq = ParamRealData"
-"(12,0);\n\nI_PV_n = I_SC_n;"
-            Show          off
-          }
-          Parameter {
-            Variable      "OutputFcn"
-            Value         "double I_pv_cell, I_pv_array, I_0_cell, I_0_array, "
-"I_m;\n\ndouble T_Kelvin = T + 273.15;\n\ndouble delta_T = T_Kelvin - Tn;\n\nd"
-"ouble V_t = Ns*k*T_Kelvin/q;\n\nI_pv_cell = (I_PV_n + KI * delta_T) * (G/Gn);"
-"\nI_pv_array = I_pv_cell * Np;\n\nI_0_cell = (I_SC_n + KI * delta_T) / ( exp("
-" (V_OC_n + KV * delta_T) / (a*V_t) ) - 1);\nI_0_array = I_0_cell * Np;\n\nI_m"
-" = I_pv_array - I_0_array * ( exp( (V + Rs * I) / (a*V_t) ) - 1) ;\n\nif (I_m"
-" < -1e9)\n{\n  I_m = -1e9;   // helps solver avoid setting I_m to -inf during"
-" minor step\n}\n\nOutputSignal(0,0) = I_m;"
-            Show          off
-          }
-          Parameter {
-            Variable      "UpdateFcn"
-            Value         ""
-            Show          off
-          }
-          Parameter {
-            Variable      "DerivativeFcn"
-            Value         ""
-            Show          off
-          }
-          Parameter {
-            Variable      "TerminateFcn"
-            Value         ""
-            Show          off
-          }
-        }
-        Component {
-          Type          Saturation
-          Name          "Saturation"
-          Show          off
-          Position      [250, 125]
-          Direction     right
-          Flipped       off
-          Parameter {
-            Variable      "UpperLimit"
-            Value         "inf"
-            Show          off
-          }
-          Parameter {
-            Variable      "LowerLimit"
-            Value         "0"
-            Show          off
-          }
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "-"
-          SrcTerminal   1
-          Points        [555, 165]
-          Branch {
-            Points        [430, 165]
-            Branch {
-              Points        [390, 165]
-              DstComponent  "Im"
-              DstTerminal   1
-            }
-            Branch {
-              DstComponent  "Rp"
-              DstTerminal   2
-            }
-          }
-          Branch {
-            DstComponent  "V1"
-            DstTerminal   2
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "CMux"
-          SrcTerminal   1
-          DstComponent  "Power"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "V1"
-          SrcTerminal   1
-          Points        [555, 85]
-          Branch {
-            DstComponent  "I_PV"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "+"
-            DstTerminal   1
-          }
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "I_PV"
-          SrcTerminal   1
-          DstComponent  "Rs"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "CMux2"
-          SrcTerminal   1
-          DstComponent  "C-Script"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "T"
-          SrcTerminal   1
-          Points        [105, 165; 105, 140]
-          DstComponent  "CMux2"
-          DstTerminal   5
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "LPF"
-          SrcTerminal   2
-          DstComponent  "Im"
-          DstTerminal   3
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "G"
-          SrcTerminal   1
-          DstComponent  "Normalize"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Normalize"
-          SrcTerminal   2
-          DstComponent  "CMux2"
-          DstTerminal   4
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "V1"
-          SrcTerminal   3
-          Points        [535, 125; 535, 25]
-          Branch {
-            Points        [105, 25; 105, 120]
-            DstComponent  "CMux2"
-            DstTerminal   3
-          }
-          Branch {
-            DstComponent  "CMux"
-            DstTerminal   2
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "I_PV"
-          SrcTerminal   3
-          Points        [510, 35]
-          Branch {
-            DstComponent  "CMux"
-            DstTerminal   3
-          }
-          Branch {
-            Points        [115, 35]
-            DstComponent  "CMux2"
-            DstTerminal   2
-          }
-        }
-        Connection {
-          Type          Wire
-          SrcComponent  "Rs"
-          SrcTerminal   2
-          Points        [430, 85]
-          Branch {
-            Points        [390, 85]
-            DstComponent  "Im"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "Rp"
-            DstTerminal   1
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "C-Script"
-          SrcTerminal   2
-          DstComponent  "Saturation"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "Saturation"
-          SrcTerminal   2
-          DstComponent  "LPF"
-          DstTerminal   1
-        }
-      }
-      MaskProbe {
-        Name          "Voltage (V)"
-        Probe {
-          Component     "V1"
-          Path          ""
-          Signals       {"Measured voltage"}
-        }
-      }
-      MaskProbe {
-        Name          "Current (A)"
-        Probe {
-          Component     "I_PV"
-          Path          ""
-          Signals       {"Measured current"}
-        }
-      }
-      MaskProbe {
-        Name          "Power (W)"
-        Probe {
-          Component     "Power"
-          Path          ""
-          Signals       {"Output"}
-        }
-      }
-    }
-    Component {
-      Type          Step
-      Name          "Sun"
-      Show          on
-      Position      [35, 155]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Time"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "Before"
-        Value         "[0]"
-        Show          off
-      }
-      Parameter {
-        Variable      "After"
-        Value         "[1]"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Temperature"
-      Show          on
-      Position      [35, 205]
-      Direction     right
-      Flipped       off
-      Frame         [-10, -10; 10, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "25"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
     Component {
       Type          Voltmeter
       Name          "Vm5"
@@ -818,20 +92,20 @@ Plecs {
       Position      [1120, 200]
       Direction     up
       Flipped       off
-      Location      [641, 30; 1280, 669]
+      Location      [1, 30; 640, 324]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAACXAP///wAAAAMAAAO/AAAAnfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA78AAABpAP///wAAA78AAAL5AAAA"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAACXAP///wAAAAMAAAO+AAAAx/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA74AAABpAP///wAAA74AAADJAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAJYAAAAJAAAAlgAAAAYAAACWAAAABwAAAJYAAAAEAAAAlgAAAAUAAACWAAAAAgAAAJYAAAADAA"
-"AAlgAAAAEAAACWAAADpQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADTAAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"ALSAAAAAQAAAAAAAAPoAAAAADo="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL+AMAAAAHAAAAA"
+"wAAAJYAAAAFAAAAlgAAAAQAAACWAAAABwAAAJYAAAAGAAAAlgAAAAkAAACWAAAACAAAAJYAAAO+AA"
+"AACwEAAAEAAAAAAAAAAAAAAACW/////wAAAIEAAAAAAAAACwAAANMAAAABAAAAAAAAAJYAAAABAAA"
+"AAAAAAJYAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAB"
+"AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAb8AAAABAAAAAAAAA+gAA"
+"AAAOg=="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQAAAAABAAAAAQAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAAAAA=="
@@ -903,7 +177,7 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
 "GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAACXAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
 "///wAAAEwA////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAAC0AP///wAAA74AAAObAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"AB4AAAAC0AP///wAAA78AAAOcAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -978,7 +252,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [213, 439; 468, 577]
+        Location      [213, 439; 468, 579]
         ZoomFactor    1
         SliderPosition [6, 0]
         ShowBrowser   off
@@ -1483,22 +757,23 @@ Plecs {
 "XZhbHVhdGVfdm9sdGFnZSh2b2lkKXsKCWRlbHRhX1YgPSBWIC0gVnByZXZpb3VzOwoJcHJpbnRmKC"
 "JWcHJldmlvdXMgaXM6ICVmIFxuIiwgVnByZXZpb3VzKTsKCXByaW50ZigiViBpczogJWYgXG4iLCB"
 "WKTsKCn0KCnZvaWQgc2F2ZV92b2x0YWdlX2N1cnJlbnQodm9pZCl7CglWcHJldmlvdXMgPSBWOwoJ"
-"SXByZXZpb3VzID0gSTsKCX0KCmludCBwb3dlcl9pc19pbmNyZWFzZWQodm9pZCl7CglyZXR1cm4gU"
-"CA+IFBwcmV2aW91czsKfQoKaW50IHBvd2VyX2lzX2RlY3JlYXNlZCh2b2lkKXsKCXJldHVybiBQID"
-"wgUHByZXZpb3VzOwp9CgppbnQgdm9sdGFnZUlzQ2xvc2VUb01QUCh2b2lkKXsgCQpkb3VibGUgdm9"
-"sdGFnZV90aHJlc2hvbGQ7CgoJdm9sdGFnZV90aHJlc2hvbGQgPSA4ICogZmFicygxL2xvZzEwKERf"
-"ZGVsdGEpKTsKCglwcmludGYoInZvbHRhZ2UgdGhyZXNob2xkIGlzICVmIFxuIiwgdm9sdGFnZV90a"
-"HJlc2hvbGQpOwogICBwcmludGYoIlYgLSBWbWF4KjAuOTAgaXMgJWYgXG4iLCBmYWJzKFYgLSBWbW"
-"F4KjAuOTApKTsKCXByaW50ZigiZmFicyhWIC0gVm1heCowLjkwKSA8IHZvbHRhZ2VfdGhyZXNob2x"
-"kKSBpcyAlZCBcbiIsIGZhYnMoViAtIFZtYXgqMC45MCkgPCB2b2x0YWdlX3RocmVzaG9sZCk7Cgly"
-"ZXR1cm4gKGZhYnMoViAtIFZtYXgqMC45MCkgPCB2b2x0YWdlX3RocmVzaG9sZCk7Cn0KCi8qdm9pZ"
-"CBwb3dlcl9tYXBwaW5nX2F2ZygpewoJaWYgKFBfYXZnID4gUG1heF9hdmcpCgkJewkKCQkJcHJpbn"
-"RmKCJQbWF4IGlzICVmIFxuIiwgUG1heF9hdmcpOwoJCQlQbWF4X2F2ZyA9IFBfYXZnOwoJCQlWbWF"
-"4ID0gVjsKCQkJb3V0X29mX01QUF9jb3VudGVyID0gMDsKCQl9CgllbHNlIG91dF9vZl9NUFBfY291"
-"bnRlcisrOwp9Ki8KCnZvaWQgcG93ZXJfbWFwcGluZ19pbnN0YW50KHZvaWQpewoJaWYgKFAgPiBQb"
-"WF4KQoJCXsJCgkJCXByaW50ZigiUG1heCBpcyAlZiBcbiIsIFBtYXgpOwoJCQlQbWF4ID0gUDsKCQ"
-"kJVm1heCA9IFY7CgkJCW91dF9vZl9NUFBfY291bnRlciA9IDA7CgkJfQoJZWxzZSBvdXRfb2ZfTVB"
-"QX2NvdW50ZXIrKzsKCn0="
+"SXByZXZpb3VzID0gSTsKCX0KCmludCBwb3dlcl9pc19pbmNyZWFzZWQodm9pZCl7CglpZiAoUCA+I"
+"FBwcmV2aW91cykgcHJpbnRmKCJQb3dlciBoYXMgaW5jcmVhc2VkXG4iKTsKCWVsc2UgcHJpbnRmKC"
+"JQb3dlciBoYXMgZGVjcmVhc2VkXG4iKTsKCXJldHVybiBQID4gUHByZXZpb3VzOwp9CgppbnQgcG9"
+"3ZXJfaXNfZGVjcmVhc2VkKHZvaWQpewoJcmV0dXJuIFAgPCBQcHJldmlvdXM7Cn0KCmludCB2b2x0"
+"YWdlSXNDbG9zZVRvTVBQKHZvaWQpeyAJCmRvdWJsZSB2b2x0YWdlX3RocmVzaG9sZDsKCgl2b2x0Y"
+"WdlX3RocmVzaG9sZCA9IDggKiBmYWJzKDEvbG9nMTAoRF9kZWx0YSkpOwoKCXByaW50Zigidm9sdG"
+"FnZSB0aHJlc2hvbGQgaXMgJWYgXG4iLCB2b2x0YWdlX3RocmVzaG9sZCk7CiAgIHByaW50ZigiViA"
+"tIFZtYXgqMC45MCBpcyAlZiBcbiIsIGZhYnMoViAtIFZtYXgqMC45MCkpOwoJcHJpbnRmKCJmYWJz"
+"KFYgLSBWbWF4KjAuOTApIDwgdm9sdGFnZV90aHJlc2hvbGQpIGlzICVkIFxuIiwgZmFicyhWIC0gV"
+"m1heCowLjkwKSA8IHZvbHRhZ2VfdGhyZXNob2xkKTsKCXJldHVybiAoZmFicyhWIC0gVm1heCowLj"
+"kwKSA8IHZvbHRhZ2VfdGhyZXNob2xkKTsKfQoKLyp2b2lkIHBvd2VyX21hcHBpbmdfYXZnKCl7Cgl"
+"pZiAoUF9hdmcgPiBQbWF4X2F2ZykKCQl7CQoJCQlwcmludGYoIlBtYXggaXMgJWYgXG4iLCBQbWF4"
+"X2F2Zyk7CgkJCVBtYXhfYXZnID0gUF9hdmc7CgkJCVZtYXggPSBWOwoJCQlvdXRfb2ZfTVBQX2Nvd"
+"W50ZXIgPSAwOwoJCX0KCWVsc2Ugb3V0X29mX01QUF9jb3VudGVyKys7Cn0qLwoKdm9pZCBwb3dlcl"
+"9tYXBwaW5nX2luc3RhbnQodm9pZCl7CglpZiAoUCA+IFBtYXgpCgkJewkKCQkJcHJpbnRmKCJQbWF"
+"4IGlzICVmIFxuIiwgUG1heCk7CgkJCVBtYXggPSBQOwoJCQlWbWF4ID0gVjsKCQkJb3V0X29mX01Q"
+"UF9jb3VudGVyID0gMDsKCQl9CgllbHNlIG91dF9vZl9NUFBfY291bnRlcisrOwoKfQ=="
             Show          off
           }
           Parameter {
@@ -1530,35 +805,34 @@ Plecs {
 " is: %f \\n\", delta_V);\n\t\t\tif (delta_V >= 0) SYSTEM_STATE = VOLTAGE_INC;"
 "\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t\tsave_voltage_curr"
 "ent();\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_INC: \n\t\t{\n\t\t\tcalculate_pow"
-"er();//you are comparing the power right now with the previous power which wa"
-"s saved on voltage evaluation (but was calculated \n\n\t\t\tif (power_is_incr"
-"eased()) control_variable = control_variable - D_delta; \n\t\t\tif (power_is_"
-"decreased()) control_variable = control_variable + D_delta;\t\n\t\t\tsave_pow"
-"er();\n\n\t\t\tSYSTEM_STATE = WAIT;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: "
-"\n\t\t{\n\t\t\tcalculate_power();\n\n\t\t\tif (power_is_increased()) control_"
-"variable = control_variable + D_delta;\n\t\t\tif (power_is_decreased()) contr"
-"ol_variable = control_variable - D_delta;\n\t\t\tsave_power();\n\n\t\t\tSYSTE"
-"M_STATE = WAIT;\n\t\t}break;\n\t\t\n\t\tcase WAIT:\n\t\t{\n\t\t\tSYSTEM_STATE"
-" = VOLTAGE_EVALUATION;\n\t\t}break;\n}\nprintf(\"Control Variable is : %f \\n"
-"\", control_variable);\n\nprintf(\"****\\n\");\nprintf(\"Delta Duty state: %s"
-" \\n\", enumstateduty[DELTA_DUTY_CYCLE_FSM]);\n\n\nswitch(DELTA_DUTY_CYCLE_FS"
-"M)\n{\n\tcase IDLE:\n\t{\n\t\tif (SYSTEM_STATE > 2) DELTA_DUTY_CYCLE_FSM = CO"
-"ARSE_POWER_MAPPING; //If V_INC or V_DEC start\n\t}break;\n\t\n\tcase COARSE_P"
-"OWER_MAPPING:\n\t{\n\t\tD_delta = 0.01;\n\t\tconditions_changed = 0;\n\t\tFSM"
-"2_counter = 0;\n\t\tpower_mapping_instant();\n\t\tif (out_of_MPP_counter > 10"
-") DELTA_DUTY_CYCLE_FSM = DECREASE_D_DELTA;\n\t\tprintf(\"Coarse mapping count"
-"er %d \\n\", out_of_MPP_counter);\n\t}break;\n\n\tcase DECREASE_D_DELTA:\n\t{"
-"\n\t\tprintf(\"Vmax is %f \\nPmax is %f \\n\", Vmax, Pmax);\n\t\tif (D_delta "
-"> 0.0005 && voltageIsCloseToMPP()) D_delta = D_delta*0.3;\n\t\t\n\t\tif (P < "
-"Pmax * 0.8) DELTA_DUTY_CYCLE_FSM = CONDITIONS_CHANGED;\n\t\tif (D_delta <= 0."
-"005 && (FSM2_counter > 15)){\n\t\t\tFSM2_counter = 0;\n\t\t\tPmax = 0;\n\t\t"
-"\tDELTA_DUTY_CYCLE_FSM = FINE_POWER_MAPPING;\n\t\t}\n\t\telse FSM2_counter++;"
-"\n\t\t\n\t}break;\n\t\n\tcase CONDITIONS_CHANGED:\n\t{\n\t\tPmax = 0;\n\t\tDE"
-"LTA_DUTY_CYCLE_FSM = COARSE_POWER_MAPPING;\n\t}break;\n\t\n\tcase FINE_POWER_"
-"MAPPING:\n\t{\n\t\tpower_mapping_instant();\n\t\tFSM2_counter++;\n\t\tif (FSM"
-"2_counter > 15)\n\t\t{\n\t\t\tDELTA_DUTY_CYCLE_FSM = DECREASE_D_DELTA;\n\t\t"
-"\tFSM2_counter = 0;\n\t\t}\n\t}break;\n}\n\n\nprintf(\"Delta_D is: %f \\n\", "
-"D_delta);\nprintf(\"--------------\\n\");\n"
+"er();\n\t\t\t\n\t\t\tif (power_is_increased()) control_variable = control_var"
+"iable - D_delta; \n\t\t\tif (power_is_decreased()) control_variable = control"
+"_variable + D_delta;\t\n\t\t\tsave_power();\n\n\t\t\tSYSTEM_STATE = WAIT;\n\t"
+"\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tcalculate_power();\n\n\t"
+"\t\tif (power_is_increased()) control_variable = control_variable + D_delta;"
+"\n\t\t\tif (power_is_decreased()) control_variable = control_variable - D_del"
+"ta;\n\t\t\tsave_power();\n\n\t\t\tSYSTEM_STATE = WAIT;\n\t\t}break;\n\t\t\n\t"
+"\tcase WAIT:\n\t\t{\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}break;\n}"
+"\nprintf(\"Control Variable is : %f \\n\", control_variable);\n\nprintf(\"***"
+"*\\n\");\nprintf(\"Delta Duty state: %s \\n\", enumstateduty[DELTA_DUTY_CYCLE"
+"_FSM]);\n\n\nswitch(DELTA_DUTY_CYCLE_FSM)\n{\n\tcase IDLE:\n\t{\n\t\tif (SYST"
+"EM_STATE > 2) DELTA_DUTY_CYCLE_FSM = COARSE_POWER_MAPPING; //If V_INC or V_DE"
+"C start\n\t}break;\n\t\n\tcase COARSE_POWER_MAPPING:\n\t{\n\t\tD_delta = 0.01"
+";\n\t\tconditions_changed = 0;\n\t\tFSM2_counter = 0;\n\t\tpower_mapping_inst"
+"ant();\n\t\tif (out_of_MPP_counter > 10) DELTA_DUTY_CYCLE_FSM = DECREASE_D_DE"
+"LTA;\n\t\tprintf(\"Coarse mapping counter %d \\n\", out_of_MPP_counter);\n\t}"
+"break;\n\n\tcase DECREASE_D_DELTA:\n\t{\n\t\tprintf(\"Vmax is %f \\nPmax is %"
+"f \\n\", Vmax, Pmax);\n\t\tif (D_delta > 0.0005 && voltageIsCloseToMPP()) D_d"
+"elta = D_delta*0.3;\n\t\t\n\t\tif (P < Pmax * 0.8) DELTA_DUTY_CYCLE_FSM = CON"
+"DITIONS_CHANGED;\n\t\tif (D_delta <= 0.005 && (FSM2_counter > 15)){\n\t\t\tFS"
+"M2_counter = 0;\n\t\t\tPmax = 0;\n\t\t\tDELTA_DUTY_CYCLE_FSM = FINE_POWER_MAP"
+"PING;\n\t\t}\n\t\telse FSM2_counter++;\n\t\t\n\t}break;\n\t\n\tcase CONDITION"
+"S_CHANGED:\n\t{\n\t\tPmax = 0;\n\t\tDELTA_DUTY_CYCLE_FSM = COARSE_POWER_MAPPI"
+"NG;\n\t}break;\n\t\n\tcase FINE_POWER_MAPPING:\n\t{\n\t\tpower_mapping_instan"
+"t();\n\t\tFSM2_counter++;\n\t\tif (FSM2_counter > 15)\n\t\t{\n\t\t\tDELTA_DUT"
+"Y_CYCLE_FSM = DECREASE_D_DELTA;\n\t\t\tFSM2_counter = 0;\n\t\t}\n\t}break;\n}"
+"\n\n\nprintf(\"Delta_D is: %f \\n\", D_delta);\nprintf(\"--------------\\n\")"
+";\n"
             Show          off
           }
           Parameter {
@@ -1747,17 +1021,17 @@ Plecs {
       Position      [1100, 320]
       Direction     up
       Flipped       off
-      Location      [1, 375; 640, 669]
+      Location      [1, 30; 640, 669]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAPEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABpAP///wAAA78AAAGWAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABpAP///wAAA74AAAObAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAJYAAAADAAAAlgAAAAEAAACWAAAABgAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAAIAA"
-"AAlgAAAAkAAACWAAAA7gAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAC0AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAABAAAAlgAAAAIAAACWAAAAAwAAAJYAAAAIAA"
+"AAlgAAAAkAAACWAAABBwAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADNAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AA6AAAAAQAAAAAAAAPoAAAAADo="
@@ -1795,7 +1069,7 @@ Plecs {
         BaselineValue 0
       }
       Axis {
-        Name          "D"
+        Name          "control_variable"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -2826,7 +2100,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "Buck.R"
+        Value         "10"
         Show          off
       }
     }
@@ -3072,28 +2346,28 @@ Plecs {
       Position      [1085, 500]
       Direction     up
       Flipped       off
-      Location      [1, 375; 640, 669]
+      Location      [0, 26; 1280, 673]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAALoA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAA74AAAGWAAAA"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAsvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABpAP///wAAB4AAAALwAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
 "AAAAJYAAAAJAAAAlgAAAAYAAACWAAAABwAAAJYAAAAEAAAAlgAAAAUAAACWAAAAAgAAAJYAAAADAA"
-"AAlgAAAAEAAACWAAABDgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADUAAA"
+"AAlgAAAAEAAACWAAAHZgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADUAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AA6AAAAAQAAAAAAAAPoAAAAADo="
+"AaSAAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
-"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-"=="
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAv//LuD//8zMAAAAAAABAA"
+"AAAQAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAABAAAAAT/wAAAAAAAAAAAAAQAAAAEA"
       Axes          "3"
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "100e-6"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -3120,7 +2394,7 @@ Plecs {
         BaselineValue 0
       }
       Axis {
-        Name          ""
+        Name          "Pin"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -3224,60 +2498,6 @@ Plecs {
     Component {
       Type          Reference
       SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average"
-      Show          on
-      Position      [955, 565]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "0.05"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average1"
-      Show          on
-      Position      [960, 625]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "0.05"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
       Name          "Periodic Average2"
       Show          on
       Position      [360, 460]
@@ -3374,20 +2594,156 @@ Plecs {
         Show          off
       }
     }
-    Connection {
-      Type          Signal
-      SrcComponent  "Temperature"
-      SrcTerminal   1
-      DstComponent  "PV_Villalva1"
-      DstTerminal   3
+    Component {
+      Type          Resistor
+      Name          "R2"
+      Show          on
+      Position      [105, 140]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "R"
+        Value         "10"
+        Show          on
+      }
     }
-    Connection {
-      Type          Signal
-      SrcComponent  "Sun"
-      SrcTerminal   1
-      Points        [65, 155; 65, 195]
-      DstComponent  "PV_Villalva1"
-      DstTerminal   4
+    Component {
+      Type          DCVoltageSource
+      Name          "V_dc"
+      Show          on
+      Position      [45, 205]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "V"
+        Value         "25"
+        Show          on
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto28"
+      Show          off
+      Position      [305, 510]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "I_L_no_avg"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Product
+      Name          "Product1"
+      Show          on
+      Position      [985, 665]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "Inputs"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From37"
+      Show          off
+      Position      [925, 675]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "I_L_no_avg"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux1"
+      Show          off
+      Position      [1075, 575]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [440, 540]
+      Direction     up
+      Flipped       off
+      Location      [0, 23; 1280, 670]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4AAAAOnAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAABAAAAlgAAAAIAAACWAAAAAwAAAJYAAAAIAA"
+"AAlgAAAAkAAACWAAABBQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADLAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
     }
     Connection {
       Type          Signal
@@ -3451,40 +2807,41 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "PV_Villalva1"
-      SrcTerminal   1
-      Points        [115, 140; 165, 140]
+      SrcComponent  "FET1"
+      SrcTerminal   2
+      Points        [240, 140]
       Branch {
-        Points        [240, 140]
+        Points        [165, 140]
         Branch {
-          DstComponent  "FET1"
-          DstTerminal   2
+          DstComponent  "Vm5"
+          DstTerminal   1
         }
         Branch {
-          DstComponent  "C3"
+          DstComponent  "R2"
           DstTerminal   1
         }
       }
       Branch {
-        DstComponent  "Vm5"
+        DstComponent  "C3"
         DstTerminal   1
       }
     }
     Connection {
       Type          Wire
-      SrcComponent  "Vm1"
-      SrcTerminal   2
-      Points        [890, 265; 825, 265]
+      SrcComponent  "Am1"
+      SrcTerminal   1
+      Points        [630, 265]
       Branch {
         Points        [735, 265]
         Branch {
-          Points        [630, 265]
+          Points        [825, 265]
           Branch {
-            DstComponent  "Am1"
-            DstTerminal   1
+            Points        [890, 265]
+            DstComponent  "Vm1"
+            DstTerminal   2
           }
           Branch {
-            DstComponent  "FET4"
+            DstComponent  "R1"
             DstTerminal   2
           }
         }
@@ -3494,7 +2851,7 @@ Plecs {
         }
       }
       Branch {
-        DstComponent  "R1"
+        DstComponent  "FET4"
         DstTerminal   2
       }
     }
@@ -3653,20 +3010,6 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Wire
-      SrcComponent  "Vm1"
-      SrcTerminal   1
-      Points        [890, 140; 825, 140]
-      Branch {
-        DstComponent  "Am2"
-        DstTerminal   2
-      }
-      Branch {
-        DstComponent  "R1"
-        DstTerminal   1
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "From21"
       SrcTerminal   1
@@ -3687,14 +3030,6 @@ Plecs {
       SrcTerminal   3
       DstComponent  "Goto7"
       DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Am7"
-      SrcTerminal   2
-      Points        [115, 265]
-      DstComponent  "PV_Villalva1"
-      DstTerminal   2
     }
     Connection {
       Type          Signal
@@ -3770,14 +3105,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Product"
-      SrcTerminal   1
-      Points        [1055, 540; 955, 540; 955, 510]
-      DstComponent  "Vin, Iin, Pin1"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "From36"
       SrcTerminal   1
       Points        [915, 510]
@@ -3787,32 +3114,10 @@ Plecs {
         DstTerminal   2
       }
       Branch {
-        Points        [915, 625]
-        DstComponent  "Periodic Average1"
-        DstTerminal   2
+        Points        [915, 625; 1000, 625; 1000, 575]
+        DstComponent  "Product"
+        DstTerminal   3
       }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average"
-      SrcTerminal   1
-      DstComponent  "Product"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average1"
-      SrcTerminal   1
-      Points        [1000, 625; 1000, 575]
-      DstComponent  "Product"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "HW current filter"
-      SrcTerminal   2
-      DstComponent  "Periodic Average2"
-      DstTerminal   2
     }
     Connection {
       Type          Signal
@@ -3843,21 +3148,6 @@ Plecs {
       SrcTerminal   1
       DstComponent  "HW Voltage filter"
       DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average2"
-      SrcTerminal   1
-      Points        [415, 460]
-      Branch {
-        DstComponent  "Goto25"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [445, 460; 445, 420]
-        DstComponent  "MPPT Controller"
-        DstTerminal   3
-      }
     }
     Connection {
       Type          Signal
@@ -3917,13 +3207,119 @@ Plecs {
       SrcTerminal   1
       Points        [920, 490]
       Branch {
-        DstComponent  "Vin, Iin, Pin1"
-        DstTerminal   1
+        Points        [935, 490]
+        Branch {
+          DstComponent  "Vin, Iin, Pin1"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [935, 660]
+          DstComponent  "Product1"
+          DstTerminal   2
+        }
       }
       Branch {
         Points        [920, 565]
-        DstComponent  "Periodic Average"
+        DstComponent  "Product"
         DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "V_dc"
+      SrcTerminal   2
+      Points        [45, 265]
+      DstComponent  "Am7"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "V_dc"
+      SrcTerminal   1
+      Points        [45, 140]
+      DstComponent  "R2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "HW current filter"
+      SrcTerminal   2
+      Points        [280, 460]
+      Branch {
+        DstComponent  "Periodic Average2"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [280, 510]
+        Branch {
+          DstComponent  "Goto28"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [280, 540]
+          DstComponent  "Scope"
+          DstTerminal   1
+        }
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From37"
+      SrcTerminal   1
+      Points        [945, 675; 945, 670]
+      DstComponent  "Product1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Product"
+      SrcTerminal   1
+      DstComponent  "Mux1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Product1"
+      SrcTerminal   1
+      Points        [1035, 665; 1035, 580]
+      DstComponent  "Mux1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux1"
+      SrcTerminal   1
+      Points        [1085, 545; 955, 545; 955, 510]
+      DstComponent  "Vin, Iin, Pin1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Vm1"
+      SrcTerminal   1
+      Points        [890, 140; 825, 140]
+      Branch {
+        DstComponent  "Am2"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "R1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Periodic Average2"
+      SrcTerminal   1
+      Points        [415, 460]
+      Branch {
+        DstComponent  "Goto25"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [445, 460; 445, 420]
+        DstComponent  "MPPT Controller"
+        DstTerminal   3
       }
     }
     Annotation {
@@ -3932,8 +3328,8 @@ Plecs {
     } 
   }
   ProbeBlock {
-    Tag           "Current_sensor_inductor_Buck-Boost_converterwithMPPT_Final/"
-"PV V, I"
+    Tag           "Current_sensor_inductor_Buck-Boost_converterwithMPPT_Final_"
+"resistor_input/PV V, I"
     Probe {
       Component     "Vm5"
       Path          ""
