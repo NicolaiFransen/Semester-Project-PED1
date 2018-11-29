@@ -1,14 +1,15 @@
 \section{Buck converter\label{Buck-C}}
 
-A buck converter is one of the simplest DC-DC converters with the task of decreasing the input voltage. The required components are a DC-source for the input voltage, two switches (a diode and a transistor), an inductor, a capacitor and a load. The equivalent diagram in figure \ref{Buck-converter} illustrates a buck-converter. 
+A buck converter is one of the simplest DC-DC converters with the task of decreasing the input voltage. The required components are a DC-source for the input voltage, two switches (a diode and a transistor), an inductor, a capacitor and a load. The equivalent diagram in figure \ref{Buck-converter} illustrates a buck-converter \todo{why buck-converter separated like that? Stef}. 
 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{../Pictures/Buck-converter}
-		\caption{Buck-converter.}
+		\caption{Equivalent circuit for the DC-DC buck converter.}
 		\label{Buck-converter}
 	\end{center}	
 \end{figure}
+\todo{I've changed the figure's name. Stef}
 
 A buck-converter performs in two operating states. 
 During the first state, the MOSFET is conducting and the diode is working as an open-circuit, the voltage drop  then is divided between the inductor and load. Since the voltage is split, the voltage drop on the load is lower than the one of the input source. In addition, both the capacitor and the inductor are being charged. In the second state, the MOSFET is switched off and the current flows through the diode. During this state, the inductor works as a current source and the capacitor stabilizes the voltage \cite{schematicbuckandboost}.
@@ -27,7 +28,7 @@ The circuit consists of two switches (a transistor and a diode), an inductor, a 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{../Pictures/Boost-converter}
-		\caption{Boost-converter.}
+		\caption{Equivalent circuit for the DC-DC boost converter.}
 		\label{Boost-converter}
 	\end{center}	
 \end{figure}
