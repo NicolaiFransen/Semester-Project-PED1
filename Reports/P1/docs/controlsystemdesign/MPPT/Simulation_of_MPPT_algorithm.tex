@@ -96,6 +96,8 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 	\end{center}	
 \end{figure}
 
+Usually, PV panels are tested under standard test conditions (STC) to indicate the performance of the PV modules. The STC test is carried out at a solar cell's temperature of $25^\circ$C and at a solar irradiance of 1000 $W/ m^2$ \cite{handbook}. When the temperature of the PV cell is higher than $25^\circ$C, the PV panel generates less power and at a lower temperature the electricity generation is improved \cite{handbook}.\todo{From "Usually, PV panels are... until the end of the paragraph should be deleted and included in the PV panel model section. Stef. FIND A GOOD PLACE TO PUT THIS!}
+
 
 \subsection{MPPT algorithm results}
 
@@ -143,11 +145,10 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 \end{figure}
 \fi 
 
-In this section, the results obtained in simulation for the entire system will be presented. The system includes the solar panel, the non-inverting buck-boost converter and the MPPT controller unit as shown in figure \ref{BD_POalgorithm}. The simulated results will be analyzed to determine the performance of the MPPT and will be divided in three parts: 
+In this section, the results obtained in simulation for the entire system will be presented. The system includes the solar panel, the non-inverting buck-boost converter and the MPPT controller unit as shown in figure \ref{BD_POalgorithm}. The simulated results will be analyzed to determine the performance of the MPPT and will be divided in two parts: 
 \begin{itemize}
 	\item[--] Results obtained under STC. The STC test is carried out at a solar cell's temperature of $25^\circ$C and at a solar irradiance of 1000 $W/ m^2$ \cite{handbook}.
-	\item[--] Results obtained under a sudden change in the solar irradiance.
-	\item[--] Results obtained under a sudden change in the cell's temperature.
+	\item[--] Results obtained under a sudden change in the solar irradiance and temperature.
 \end{itemize}
 
  It was decided to use a resistive load to validate the results obtained in the simulation with the experimental results. All the simulations will be carried out for two different resistive loads: $R_{L}=3\Omega$ and $R_{L}=27\Omega$. This is done in order to validate the performance of the MPPT controller in both modes of operation.
@@ -178,8 +179,7 @@ The simulation is run under STC and using a resistive load of $3\Omega$. From th
 	\end{center}	
 \end{figure}
 
-The same simulation was implemented but in this case using a value of the resistive load of $27\Omega$. From figure \ref{boostSTC} it is observed that the MPPT needs more time than before to converge to the MPP. The P\&O algorithm needs 4 seconds to reach the MPP which means double of the time than with $R_{L}=3\Omega$. This occurs because.... ?????\todo{I don't know why it is oscillating that much in boost mode.Is it because the control variable increases every 0.01s and to reach the boost mode it has to have a value higher than 0.5? so in all the cases the boost mode will need higher time to reach the MPP because the control variable is initialize to 0. Stef} 
-Despite the higher converging time to the MPP the P\&O algorithm performance has not experience a significant difference. The MPPT is able to operate with an efficiency of $\eta_{MPPT} = 99.82\% $\todo{P=299.47.Stef}
+The same simulation was implemented but in this case using a value of the resistive load of $27\Omega$. From figure \ref{boostSTC} it is observed that the MPPT needs more time than before to converge to the MPP. The P\&O algorithm needs 4 seconds to reach the MPP which means double of the time than with $R_{L}=3\Omega$. This occurs because the output voltage starts increasing from 0 to its final value. This means that the system will start working in buck mode and once the output voltage reaches the value of the input voltage it will switch to boost mode. Despite the higher converging time to the MPP, the P\&O algorithm performance has not experience a significant difference. The MPPT is able to operate with an efficiency of $\eta_{MPPT} = 99.82\% $\todo{P=299.47.Stef}
 
 
 \begin{figure}[H]
@@ -203,7 +203,9 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 	\end{center}	
 \end{figure}
 
- \subsubsection*{Change in irradiance 1000-800 $W/ m^2$}
+\subsubsection*{Change in irradiance and temperature}
+
+Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode until the output voltage equals the input voltage. At this point is the limit between the two modes of operation and the converter starts working in boost mode. The value of the duty cycle under these load and environment conditions is $D_{boost}= 0.5971$. sing the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{mpp}=36.9 V$: 
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.6\textwidth}
@@ -216,12 +218,12 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=27)_irradiance_1000_800} % Right picture
 	\end{minipage} \\ % Captions og labels
 	\begin{minipage}[t]{0.6\textwidth}
-		\caption{buck irradiance vin vs vout} % Left caption and label
+		\caption{$V_{pv}$, $I_{pv}$ and $P_{pv}$ for irradiance step 1000-800 $W/ m^2$($R_{L}=3\Omega$).} % Left caption and label
 		\label{buckirradiance}
 	\end{minipage}%
 	\hfill
 	\begin{minipage}[t]{0.6\textwidth}
-		\caption{boost irradiance vin vs vout} % Right caption and label
+		\caption{$V_{pv}$, $I_{pv}$ and $P_{pv}$ for irradiance step 1000-800 $W/ m^2$($R_{L}=27\Omega$).} % Right caption and label
 		\label{boostirradiance}
 	\end{minipage}
 \end{figure}
@@ -245,9 +247,7 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 \end{figure}
 \fi
 
-
- \subsubsection*{Change in temperature: 25-45 $\dec$C}
-
+\vspace{1cm}
 \begin{figure}[H]
 	\begin{minipage}[c]{0.6\textwidth}
 		\centering

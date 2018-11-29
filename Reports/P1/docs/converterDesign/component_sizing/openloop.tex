@@ -9,7 +9,7 @@ To check that the calculations have been made correctly, an open loop simulation
 		\label{openloop}
 	\end{center}
 \end{figure}
-
+\todo{Modify this figure because the duty cycle D1 is not connected. Stef}
 The values for the components are $C_{in}=1880\mu F$, $C_{out}=820\mu F$ and $L1=1mH$ as described earlier and $V_{in}=32.6V$. At first the buck mode is simulated. In this mode D2 is 0. This means that FET2 is 0 and FET4 is one because of the NOT operator. The dutycycle for D1 and thereby FET1 is sat to 0.736 which was calculated in \ref{buckduty}. This should give an output voltage of 24V which can be seen in figure \ref{bucksimulation}. The load is $1.92\Omega$ because that gives 300W with an output voltage of 24V.     
 \begin{figure}[H]
  	\begin{center}
@@ -18,6 +18,7 @@ The values for the components are $C_{in}=1880\mu F$, $C_{out}=820\mu F$ and $L1
  		\label{bucksimulation}
  	\end{center}
 \end{figure} 
+\todo{Modify this scope!In PLECS there is an option to export the scope and it will have a white background. Also make the figure bigger and the line width of the signals is hard to see. I use for the simulation results graphs a linewidth of 1.1. Stef}
 In buck mode the current through the inductor should be equal to the output current \ref{iavg} which with a load of $1.92\Omega$ should be:
 \begin{equation}
 I_{out} = \frac{V_{out}}{\Omega} = \frac{24V}{1.92\Omega} = 12.5A
