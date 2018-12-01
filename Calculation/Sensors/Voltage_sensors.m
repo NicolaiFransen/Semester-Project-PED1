@@ -11,7 +11,7 @@ Vin_min = 10;
 V_sens = 2;
 I_sens = 1e-3;
 
-R1 = (Vin_max-V_sens)/I_sens
+R1 = (Vin_max-V_sens)/I_sens;
 R1 = 47e3;
 
 syms R
@@ -29,10 +29,10 @@ V_out = 5;
 
 R3 = 11e3;                      % R4=R3
 
-R5 = (V_out*R3)/(V_plus-V_min)  % R6=R5
+R5 = (V_out*R3)/(V_plus-V_min);  % R6=R5
 
 % Filter design
-fc = 500;
+fc = 50;
 C1 = 1/(2*pi*R1*fc);
 
 Gin = (R2/(R1+R2)) * (R5/R3);
@@ -45,15 +45,16 @@ Vout_min = 24;
 V_sens = 2;
 I_sens = 1e-3;
 
-R7 = (Vout_max-V_sens)/I_sens
+R7 = (Vout_max-V_sens)/I_sens;
 R7 = 120e3;
 
 syms R
 eqn = V_sens == Vout_max * (R/(R+R7));
-R8 = solve(eqn, R)
+R8 = solve(eqn, R);
 R8 = 2e3;
 
 % Filter design
 C2 = 1/(2*pi*R7*fc);
+C2 = 33e-9;
 
 Gout = (R8/(R7+R8)) * (R5/R3);
