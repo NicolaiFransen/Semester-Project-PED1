@@ -1,4 +1,3 @@
-\subsection{Passive components}  \label{passives}
 \todo{Brief intro to the whole chapteR?}
 To calculate the values of the passive components which includes the inductor, $C_{in}$ and $C_{out}$, a matlab  script has been created. This was done to see the different component values when frequency, number of mics and thereby different output voltages was used \todo{switching frequency, MICs, were used. Stef}. This also means that values for both buck and boost mode has been calculated \todo{different component values for... have been calculated. Stef}.
 
@@ -76,10 +75,3 @@ Since the converter is not working in worst case and the inductor is bigger, a m
 \end{equation}
 \todo{even lower because the actual inductor is bigger as well. JK}  
    
-
-\subsubsection{Selection of passive components}
-For the output capacitor a $820\mu F$\todo{in equation 4.9 we have a completely different value.. why? Stef } has been used \cite{cout}. An electrolytic capacitor has mostly been chosen because of small size and low cost. The voltage rating is 250V which is a fine margin to the 90V that is the highest possible output. \todo{with max 90V a much lower voltage rating could have been chosen! margin is again not the reason for this value, true that maybe we did oversize it when designing. AT} \todo{well not saying that the margin is the reason. Just mentioning it. Can't see that is a problem? JK}
-Achieving the necessary input capacitance with only one capacitor would result in very big size of the component, therefore four electrolytic capacitors of $470\mu F$ \cite{cin} are placed in parallel to get a summed capacitance of $1.880\mu F$ \todo{1.8 mF isn't it? Stef}. The rating for these is 100V which has been chosen in case the output is connected to the input by accident. In this case that will not ruin the input capacitor. These ESR resistances\todo{which ESR resistance? and how do you get this value?Stef} will be about $0.047\Omega$. Both input and output capacitor have a capacitance higher than the calculated worst case. This is because the converter maybe in the future will have a buck-boost mode as well. And in this mode the capacitance can get a bit higher. \todo{I think this is not the best way to introduce the buck boost possibil<ity. AT}
-Both for the input and output a $100nF$ and a $1\mu F$ \todo{where do these values come from?Stef} capacitors are placed in parallel. This is mostly done because the big electrolytic capacitors is not able to supply the needed current at higher frequencies. With these extra capacitors the high frequency transients should be filtered away.
-
-The inductor for first iteration \todo{What does first iteration mean? have we explained it previously? AT} will be with an inductance of around 1mH, \todo{exact value should be determined JK} because that is an inductor the supervisors had in-house already.

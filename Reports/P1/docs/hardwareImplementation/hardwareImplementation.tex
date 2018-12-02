@@ -3,6 +3,24 @@
 \chapter{Hardware implementation} \label{ch:hardware_implementation}
  \todo[inline,color=green]{Add a short introduction to this chapter, NHF.}
 
+\section{Selection of commercial components}
+
+\subsection{Passive components}
+For the output capacitor a $820\mu F$\todo{in equation 4.9 we have a completely different value.. why? Stef } has been used \cite{cout}. An electrolytic capacitor has mostly been chosen because of small size and low cost. The voltage rating is 250V which is a fine margin to the 90V that is the highest possible output. \todo{with max 90V a much lower voltage rating could have been chosen! margin is again not the reason for this value, true that maybe we did oversize it when designing. AT} \todo{well not saying that the margin is the reason. Just mentioning it. Can't see that is a problem? JK}
+Achieving the necessary input capacitance with only one capacitor would result in very big size of the component, therefore four electrolytic capacitors of $470\mu F$ \cite{cin} are placed in parallel to get a summed capacitance of $1.880\mu F$ \todo{1.8 mF isn't it? Stef}. The rating for these is 100V which has been chosen in case the output is connected to the input by accident. In this case that will not ruin the input capacitor. These ESR resistances\todo{which ESR resistance? and how do you get this value?Stef} will be about $0.047\Omega$. Both input and output capacitor have a capacitance higher than the calculated worst case. This is because the converter maybe in the future will have a buck-boost mode as well. And in this mode the capacitance can get a bit higher. \todo{I think this is not the best way to introduce the buck boost possibil<ity. AT}
+Both for the input and output a $100nF$ and a $1\mu F$ \todo{where do these values come from?Stef} capacitors are placed in parallel. This is mostly done because the big electrolytic capacitors is not able to supply the needed current at higher frequencies. With these extra capacitors the high frequency transients should be filtered away.
+
+The inductor for first iteration \todo{What does first iteration mean? have we explained it previously? AT} will be with an inductance of around 1mH, \todo{exact value should be determined JK} because that is an inductor the supervisors had in-house already.
+
+\subsection{Swithing circuitry}
+\input{docs/converterDesign/Component_sizing/mosfet.tex}
+\input{docs/converterDesign/Component_sizing/driver.tex}
+
+\input{docs/converterDesign/sensors/sensors.tex}
+
+\input{docs/converterDesign/component_sizing/power_supplies.tex}
+
+
 \input{docs/hardwareImplementation/PCB_layout/Schematic.tex}
 
 \input{docs/hardwareImplementation/PCB_layout/PCB_layout.tex}

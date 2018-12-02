@@ -1,4 +1,4 @@
-\subsection{Input voltage sensor} \label{voltage_sensors}
+\subsubsection{Input voltage sensor} \label{voltage_sensors}
 The voltage sensor selected is the ACPL-C870 \cite{voltage_sensor}. This sensor includes a optical isolation amplifier, which makes it well suited for isolated voltage sensing. Some relevant electrical specifications have been included in table \ref{tab:voltage_sensor_features}. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
 
 \begin{table}[H]
@@ -92,7 +92,7 @@ Where $V_2-V_1$ is the difference between the output pins of the voltage sensor.
 \end{center}
 To be able to select commercial resistors the value of $R_{3}$ it's rounded to be $27k\Omega$. Furthermore $R_{2} = R_{1}$ and $R_{4} = R_{3}$, to get a balanced differential amplifier.
 
-\subsubsection{The circuit}
+\paragraph{The circuit}
 The circuit regarding the input voltage measurement is shown at figure \ref{fig:input_voltage_sensor_circuit}. $V_{in}$ is the measured voltage from the PV-module. The points $OA1_+$ and $OA1_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA1_{out}$ is connected to the output of the amplifier. $C_{15}$ and $C_{16}$ are decoupling capacitors for the two supply voltages. The maximum input voltage of the voltage sensor is $5V$. Because of this a $4.7V$ zener diode has been added at the input, to protect it from over-voltage.
 
 \begin{figure}[H]
@@ -103,7 +103,7 @@ The circuit regarding the input voltage measurement is shown at figure \ref{fig:
 	\end{center}
 \end{figure}
 
-\subsection{Output voltage sensor}
+\subsubsection{Output voltage sensor}
 The voltage sensor at the output is design with the same procedure as the input sensor. The voltage divider will designed such that the values of the amplifier can be reused.
 
 \subsubsection{Voltage divider}
