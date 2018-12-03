@@ -1,0 +1,199 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+# Exam 4
+
+In this exercise you will study a dataset concerning vital capacity,
+which is the maximal amount of air, that can be exhaled after a maximal inhalation.
+
+Read in the data:
+```{r}
+vitcap <- read.table("http://asta.math.aau.dk/dan/static/datasets?file=vitcap.dat", header=TRUE)
+head(vitcap)
+```
+
+In the dataset, the variable `vital.capacity` has been measured
+on 84 workers in the cadmium industry.
+
+The next variable is the factor `exposure` with 3
+levels, indicating the level of cadmium exposure:
+
+- A: None
+ -  B: Less than 10 years
+ -  C: More than 10 years
+
+The data set also contains dummy variables for the factor
+`exposure`:
+
+ -  `z1=1` if `exposure=B` and 0 otherwise.
+ -  `z2=1` if `exposure=C` and 0 otherwise.
+
+You will use these two variables later on.
+
+## First part. Only Exposure
+
+Make a model and carry out an analysis investigating the effect of the
+factor `exposure` on the response `vital.capacity`. In
+that connection **you should calculate/interpret the F-test for no effect of `exposure`**.
+
+```{r message=FALSE}
+library(mosaic)
+```
+
+```{r, echo = FALSE, fig.width=8, }
+boxplot(vital.capacity~exposure, data = vitcap)
+abline(h=mean(vitcap$vital.capacity), col = "red", lwd = 2)
+
+
+```
+
+*1-The workers of exposure type A and B in overall have more people with a better vital capacity than in type C. As 50% of the workers are above the value 4, whereas the Q1 of the type C starts at 3. You can also see that for exposure type A and B the box atleast the box is 50% higher than the mean (red line) whereas type C is bellow 50%.*
+
+*2-We can also see that there are people with higher vital capacity rate at the exposure type A and C (around 6) whereas type b record is around 5.2.*
+
+```{r, echo = FALSE, fig.width=8, }
+xyplot(vital.capacity~exposure, data = vitcap)
+```
+
+```{r, echo=FALSE, results='hide'}
+names(vitcap)
+
+```
+```{r}
+model_exposure <- lm(vital.capacity~exposure, data = vitcap)
+model_exposure
+```
+
+```{r}
+summary(model_exposure)
+```
+
+*It can be seen the slope of each of the parameters beta1, beta2, intercept. The degrees of freedom can be calculated by df=n-3=84-3=81*
+
+*tvalue=estimate/stand_error. We can also see that the tvalue and the pvalue have an inverse relation. When t-value increases, the p-value decreases.*
+
+*Looking to the p values of the table, we can see that there are some predictors that not good predictors for the model such as exposureB (p=95%). ExposureB in not influencing or may not affect the model,so it can be stated that exposure b is not a good predictor*
+
+*On the other hand We can reject the alternative hypothesis due to the F-statistics pvalue is higher than %5. *
+
+
+*R_Sqaured value as well as the F statitics value is very low which again states that we can reject the alternative hypothesis, in other words we can accept the null hypothesis.*
+
+*We cannot reject the zero hypothesis (in my words accept the 0 hyp) we can see in the boxplot that the means if we take more samples probably would be equal so that is why we can say the zero hyp is true.*
+
+## Second part. Including Age
+
+**We expand the analysis to include the workers age** -
+the variable `age` - as a predictor.
+
+Make a model and carry out an analysis investigating the effect of the
+**predictors `exposure` and `age`** on the response
+`vital.capacity`. In that connection you should:
+
+
+```{r }
+xyplot(vital.capacity~age, groups = exposure, data = vitcap, type = c("p","r"), auto.key = TRUE)
+```  
+
+*This plot shows that the slopes of the different exposure groups are different, altough we cannot be sure whether this difference is relevant or not. For having a more powerfull evidence, we implement a model including the two variables 'age' and 'exposure'.*
+
+```{r }
+model_main<-lm(vital.capacity~exposure+age,data = vitcap)
+
+
+```
+```{r }
+
+summary(model_main)
+```
+
+*In this model without interaction, we can see that the efect of age has much more influence in the model than the difference exposures.* 
+
+*We can argue that exposure b and c are not good predictors for this model as its p value is bigger than 5%*
+
+*this time the degrees of freedom are 80 instead of 81 as we have included one more variable to the model (age)*
+
+*Looking at the p value of the f statistic we can state that we can reject the null hypothesis as the p value doesnt exceed the 5%.Afterwards another model has been impleented in order to see the results applying an interaction.*
+
+```{r, echo=FALSE, results='hide'}
+model_age<-lm(vital.capacity~age,data = vitcap)
+summary(model_age)
+```
+
+ -  investigate whether there is **interaction between the effects of  `exposure` and `age`**
+
+
+```{r}
+model_interaction<-lm(vital.capacity~age*exposure,data = vitcap)
+summary(model_interaction)
+```
+
+*The model with interaction shows that there is a relevant interaction between age and exposure C, that should be taken into account in the model.*
+
+*Interaction between age and exposureB is not relevan at all, it is not a good predictor for the model.*
+
+*Exposure C now is a good predictor, whereas in the model without interaction we can clearly see that it was not a relevant parameter.*
+
+*Looking at the F statistic pvalue, we still can reject he null hypothesis. The pvalue is lower in the model with interacion than the one without ineraction.*
+
+*So far we can expect that the model with interation is better than the one without.*
+
+*Then, we make an anova comparison between the three models considered above (model only with exposure, model with exposure and age without interaction and model with both variables and interaction). *
+
+```{r }
+anova(model_exposure, model_main)
+
+```
+*The model wihtout interaction including the age is a better model, significant pvalue.*
+
+```{r }
+anova(model_main,model_interaction)
+```
+*The anova test shows that both the models with two variables are better than the one with only one variable. Considering these last two models(without and with interacion), the model WITH INTERACTION is better than the one without interaction.*
+
+ -  give a graphical interpretation of such an interaction
+```{r }
+xyplot(vital.capacity~age, groups = exposure, data = vitcap, type = c("p","r"), auto.key = TRUE)
+```  
+*Looking at the xyplot, we can see that the slopes of the three exposures types(A,B,C) are different. If there is no interaction, all the slopes should be equal so that they would be in paralel. The only difference between the curves would be the offset. However, as the anova test shows, there are some interactions between the different exposures which looking at the plotthe different slopes are reasonable because there are some interactions.*
+
+## Third part. Comparing Exposure B and C
+
+Consider the following two models, where we introduce the dummy variables.
+
+*In this part, we make two different models, one with both exposure A and B together (model1) and another with the three exposures separated (model2).*
+
+```{r}
+model1 <- lm(vital.capacity ~ age*z2, data = vitcap)
+model2 <- lm(vital.capacity ~ age*z1 + age*z2, data = vitcap)
+```
+
+ -  Use an F-test to show that there is no significant difference
+  between `model1` and `model2`.
+
+
+
+```{r}
+anova(model1,model2)
+```
+
+*We can see from the ANOVA comparison that the complex model is not better than the simple model (p-value = 0.5064). The F test, has a F value of 0.68 and a Pvalue of 0.5 which is not significant.*
+  
+ -  Give an interpretation of the difference between the two models.
+
+```{r }
+summary(model1)
+summary(model2)
+```
+
+*From the first model We can actually see that the parameters used for model 1 are very significant, which are good predictors, whereas in the more complex model(second) we can see that there are some parameters such as z1, and interaction between age and z1 that are not relevant at all. So it could be interesting to analize how the model behaves without one of there predictors.*
+
+*As a conclusion we could say that the simplest model (model1) is a better model as the p value is lower than in the model 2.*
+
+
+
+

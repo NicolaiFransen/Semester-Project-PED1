@@ -1,0 +1,191 @@
+---
+title: "Exam - stochastic processes"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = TRUE)
+```
+
+# CO2 concentration in atmosphere
+
+R's built-in dataset `co2` is a time series of atmospheric CO2 concentration at the Mauna Loa observatory. We will analyse this dataset below.
+
+## Explorative data analysis
+
+- Start as always by plotting the data.
+```{r}
+plot(co2)
+```
+
+```{r}
+CO1 <-ts(co2, start=1959, frequency = 12) 
+CO1
+```
+
+```{r}
+cyc1 <- cycle(CO1)
+cyc1
+cyc <- factor(cyc1, labels = month.abb)
+boxplot(CO1 ~ cyc1)
+```
+
+- Is this a second order stationary time series (explain what it means)?
+This is not stationary, as there is clearly a trend and seasonality. The covariance in the 4th and 6th leg should be the same as in the 5th and 7th.
+
+There is a small seasonality with an increase in months 4,5,6 but nothing significant
+
+- Use `decompose` to make a decomposition of the data to remove any trend and seasonal component and explain the method of how this is done.
+
+```{r}
+CO1_decomp <- decompose(CO1)
+CO1_trend <- CO1_decomp$trend
+CO1_no_trend <- co2 - CO1_trend
+ts.plot(CO1_trend, CO1_no_trend+CO1_trend,lty = c(1,2))
+```
+
+ $$x=m+s+z$$
+in which m is the trend and we subtract the trend from x thus eliminating it.
+
+- Save the random component as `co2rand` (omit any `NA` values), plot the correlogram of `co2rand` and explain the correlogram: What is it used for and how is it interpreted? What is assumed about the underlying process?
+```{r}
+co2rand <- na.omit(CO1_decomp$random)
+acf(co2rand)
+```
+*We decomposed the timeseries by taking the random component out and plotting in the correlogram above. The legs extend the H0 hypothesis band in a periodical fashion (at 0.5 is negative, at 1 is positive, at 1.5 is negative again and finaly at 2 it is positive)*
+
+## Auto-regressive model of order 1
+
+- Manually fit a AR(1) model using `lm` without an intercept:
+```{r}
+n <- length(co2rand)
+y <- co2rand[2:n]
+x <- co2rand[1:(n-1)]
+fitlm <- lm(y ~ x - 1)
+summary(fitlm)
+```
+
+- Explain the output of the last command above. Is there significant autocorrelation? What is the estimated lag 1 autocorrelation coefficient?
+
+*The p-value is low so there is a strong correlation between the current value and the last value.*
+
+- Write down the equation expressing the fitted model.
+                            $$x_t=\alpha_1*x_{t-1}+w_t$$
+*The estimate is random, if the co2rand is ran a couple of times*
+- Based on the data $x_1,\dots,x_n$ what is the predicted value for $x_{n+1}$?
+Based on the following equation the $x_{n+1}$ factor can be calculated as:
+                  $${x}_{n+1}=\alpha_1*x_n$$
+```{r}
+xn_1<- 0.40841* co2rand[n]
+xn_1
+```
+
+where $\alpha_1=0.4084139$ which is coef(fitlm) in our case.
+                  
+
+- What is the predicted value for $x_{n+10}$?
+                          $$ x_{n+10} = \alpha^{10}*x_n$$
+```{r}
+xn_10<- 0.40841^10* co2rand[n]
+xn_10
+```
+
+- Save the model residuals (use `residuals(fitlm)`) and plot the correlogram. What is the theoretical acf for this model?
+```{r}
+residuals(fitlm)
+par(mfrow = c(2,1), mar = c(4,4,1,1))
+plot(residuals(fitlm))
+acf(residuals(fitlm))
+```
+
+From the plot we obtained we could've said that it is white noise, but from the correlogram it is shown that there is some seasonality with the legs at 5, 11, 12, 17 .
+- Is the AR(1) model a good fit?
+
+## Higher order autoregressive moving average (ARMA) models
+
+- How do we define higher order AR(p) processes?
+$$ x_t=\alpha*x_{t-1}+\alpha_2*x_{t-2}+\dots+\alpha_p*x_{t-p}$$
+- Use `lm` as above to estimate an AR(2) model for `co2rand`. Is the lag 2 autocorrelation coefficient significant according to a `summary` of the fitted model?
+```{r}
+n <- length(co2rand)
+x <- co2rand[3:n]
+x1 <- co2rand[2:(n-1)]
+x2 <- co2rand[1:(n-2)]
+fitlm1 <- lm(x ~ x1 +x2 - 1)
+summary(fitlm1)
+```
+-1 is from removing the intercept.
+The lag 2 autocorrelation coefficient is not significant because x2 is not significant on a 5% level (p-value)
+
+- What is the partial autocorrelation function and how is it useful in relation to AR(p) processes?
+The partial autocorrelation is the function that shows if there is any correlation between values that are not consecutive. The function is :
+
+$$x_t=\beta_0+\beta_1*x_{t-1}+\beta_2*x_{t-2}+\epsilon $$
+- How is a MA(q) process defined?
+$$x_t=w_t+\beta_1*w_{t-1}+\beta_2*w{t-2}+\dots+\beta_q*w_{t-q} $$
+where $w_t$ is the white noise and $ \beta_1,\beta_2, \beta_3  $ are the parameters to be estimated.
+
+- Try to fit a collection of ARMA(p,q) models for $p$ and $q$ at most 2, and find the best fitting one based on AIC. (Hint: If you called the models `ar1`, `ar2`, `ma1`, `ma2`, `arma11`, `arma12`, `arma21`, and `arma22` you can compare them all in a single call to `AIC`; `AIC(ar1, ar2, ma1, ma2, arma11, arma12, arma21, arma22)`)
+
+```{r}
+ar1 <- arima(co2rand, order= c(1,0,0))
+ar2 <- arima(co2rand, order= c(2,0,0))
+ma1 <- arima(co2rand, order= c(0,0,1))
+ma2 <- arima(co2rand, order= c(0,0,2))
+arma11 <- arima(co2rand, order= c(1,0,1))
+arma12 <- arima(co2rand, order= c(1,0,2))
+arma21 <- arima(co2rand, order= c(2,0,1))
+arma22 <- arima(co2rand, order= c(2,0,2))
+AIC(ar1,ar2,ma1,ma2,arma11,arma12,arma21,arma22)
+```
+
+The btst fitting ones are the last arma21 arma22 which have an AIC of -89.839092	and -102.569646	. In arma22 you take in consideration the last 2 previous values and the last 2 white noise values
+
+- Write down the parameter estimates of the final model, and check whether it is a good fit to the data.
+```{r}
+arma22
+```
+
+- Give 95% confidence intervals for the parameter estimates of the final model selected by AIC. (Hint: Use `confint`.)
+```{r}
+confint(arma22)
+```
+
+## Prediction
+
+- Make a prediction with an approximate 95% prediction interval for the next value of the random component $x_{n+1}$ based on this model.
+
+```{r}
+pred12 <- predict(arma22, n.ahead =  40)
+pred12
+```
+
+```{r}
+pred1 <- predict(arma22, n.ahead = 1)
+lower1 <- pred1$pred-2*pred1$se
+upper1 <- pred1$pred+2*pred1$se
+ts.plot(co2rand, pred1$pred, lower1, upper1, lty = c(1,2,3,3), xlim=c(1980,2000))
+```
+*We can see from the prediction plot that the values predicte tend to stabilize around the mean (0, 0.5, -0.5)
+
+- If there was no autocorrelation in the random component the approximate 95% prediction interval is given by $$\bar{x} \pm 2\sqrt{s^2(1+1/n)}$$.
+Calculate this prediciton interval and compare it with the one obtained above. What is the difference? Try to explain this.
+
+
+```{r}
+posint <- mean(co2rand)+2*sd(co2rand)*sqrt(1+1/n)
+posint
+negint <- mean(co2rand)-2*sd(co2rand)*sqrt(1+1/n)
+negint
+pred12
+```
+
+This equation is just a correction to the previous one by taking the mean and adding a standard deviation to get a new prediction. We don't into account the last values in making this confidence interval(which sometimes it's a good ideea to do that)
+
+```{r}
+ts.plot(window(co2rand,start=1996),pred12$pred-2*pred12$se,pred12$pred+2*pred12$se,col=c(1,2,2))
+```
+

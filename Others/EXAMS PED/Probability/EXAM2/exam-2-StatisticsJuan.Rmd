@@ -1,0 +1,215 @@
+---
+title: "Exam 2"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+Remember to load the `mosaic` package first:
+```{r message=FALSE}
+library(mosaic)
+```
+
+## Part I: Directed reading activities
+
+An educator conducted an experiment to test whether new directed reading
+activities in the classroom will help elementary school pupils improve
+some aspects of their reading ability.
+
+She arranged for a third grade class of 21 students to follow these activities for an 8-week period. A control classroom of 23 third graders followed the same curriculum without the activities. At the end of the 8 weeks, all students took a Degree of Reading Power (DRP) test, which measures the aspects of reading ability that the treatment is designed to improve.
+
+
+Read in the data:
+```{r}
+reading <- read.table("http://asta.math.aau.dk/dan/static/datasets?file=reading.dat", header=TRUE)
+head(reading)
+```
+
+Use a boxplot to compare the of measurements of `DRP` for `Treated`(direct reading activities) and `Control` visually.
+```{r}
+bwplot(Response ~ Treatment , data = reading)
+```
+
+*As it can be seen in the boxplots, the response dispersion for the Treated students is more narrow that the one for Control students. Also, the mean value is slightly higher for the Treated students. There are not outliers in any sample*
+
+Use `favstats` to make a numerical summary of the measurements for `Treated` and `Control`.
+
+```{r}
+favstats(Response ~ Treatment, data = reading)
+```
+
+*The summary results are in concordance with the boxplots. The mean for the Treated students is higher, whereas the standard deviation is lower.*
+
+### Working with Treated students
+
+-   Write down a point estimate of the mean of DRP for students
+    following the new *directed reading activities* and explain how this
+    is calculated.
+    
+*The point estimate of the mean for Treated students is the mean of the partial sample of those students. The same approximation is done for the Control Students.*
+
+$$\overline y_{Treated} = \frac{1}{n_1} \sum\limits_{i=1}^{n_1}{y_i} \quad \text{, where } y_i \text { are the values for the Treated group} $$
+
+```{r, echo = FALSE}
+Control <- subset(reading, Treatment == "Control")
+Treated <- subset(reading, Treatment == "Treated")
+y1 = mean(~ Response, data = Control)
+y2 = mean(~ Response, data = Treated)
+y2
+```
+
+*Also, a point estimate of the mean can be the average yT of the sample upper and lower quartiles.Altough this approximation is good when there are outliers, it is biased when the population is skewed. *
+
+
+-   Write down a point estimate of the standard deviation of DRP for
+    this group and explain how this is calculated.
+    
+*The point estimate of the standard deviation for Treated students is the standard deviation of the partial sample of those students. The same approximation is done for the Control Students. *
+
+$$s = \sqrt{\frac{\sum\limits_{i=1}^{n_1}{(y_i-\overline y_T)^2}}{n_1-1}}$$
+*The -1 in the denominator is due to the Bessel correction. *
+
+```{r, echo = FALSE}
+n1 = 23
+n2 = 21
+s1 = sd(~ Response, data = Control)
+s2 = sd(~ Response, data = Treated)
+s2
+s1
+```
+
+*Also, the standard error is aproximated by the next formula* $$se = \frac{\sigma}{\sqrt n}$$
+
+```{r, echo = FALSE}
+se2 = s2/sqrt(n2)
+se2
+```
+
+-   Write down a 95% confidence interval for the mean of DRP for this
+    group and explain how this is calculated.
+    
+*The 95% confidence interval for the Treated group is defined as follows: * $(a,b) = \overline y \pm t(se)$
+
+```{r}
+t<-qdist("t", p = 0.025, df = 21-1, plot = FALSE)
+y2+c(t*se2,-t*se2)
+```
+
+*All those results can be obtained by the comand* `t.test`
+
+```{r}
+t.test( ~Response, data = Treated, conf.level = 0.95)
+```
+
+
+### Comparing Treated and Control students
+
+Use the command `t.test` to compare the mean DRP of the two groups.
+
+```{r}
+t.test(Response ~ Treatment , data = reading)
+```
+
+Go through the details of the output from t.test.
+
+-   What the relevant null hypothesis and the corresponding alternative
+    hypothesis is.
+    
+*The null hypothesis is* $H_0:\hat\mu_1=\hat\mu_2$ *and the alternative hypothesis is * $H_a:\hat\mu_1\neq\hat\mu_2$
+
+-   Choice and calculation of test statistic.
+
+*For obtaining this value, is neccesary to calculate the standartd error of the sample difference, as follows:*
+
+$se_d=\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$
+
+```{r, echo=FALSE}
+sed = sqrt(s1^2/n1+s2^2/n2)
+sed
+```
+
+*The value of t for the t.test is calculated as follows:* $t=\frac{\overline y_2-\overline y_1}{se_d}$
+
+```{r, echo = FALSE}
+t = (y1-y2)/sed
+t
+```
+
+
+-   Calculation of p-value and its interpretation in connection to a
+    conclusion of the analysis.
+    
+*Once obtained the t value, the probability of occurrence of this value is obtained by the t curve. The p-value is defined as the left probability of this value times two. When the p-value is small, we can consider rejecting the* $H_0$ *hypothesis.*    
+
+```{r, echo = FALSE}
+P = 2*pdist("t", q = t, df = 37.855)
+P
+```
+
+
+-   Calculation and interpretation of a relevant confidence interval.
+
+*The confidence interval represents the range in between the difference of means is, with some certainty. It is calculated by the t value, the difference of means and the standard error, as follows:* $$(a,b) = (\bar y_2-\bar y_1)\pm t(se_d)$$
+
+*First, we have to calculate the t value, with a 95% confidence.*
+
+```{r, echo = FALSE}
+t2 <- qdist("t", p = 0.025, df = 37.855)
+t2
+```
+
+*Then, we calculate the confidence interval (95%).*
+
+```{r, echo = FALSE}
+d = y1-y2
+d+c(t2*sed,-t2*sed)
+```
+
+
+## Part II: Determining sample size
+
+To estimate the proportion of danish companies with less than 10
+employees determine the necessary sample size for the estimate to be
+accurate to within 0.06 with probability 0.90. Based on results from a
+previous study in 2013, we expect the proportion to be about 0.70.
+
+*The margin of error when estimating a proportion is*
+
+$M = z \sqrt {\frac{\pi(1-\pi)}{n}}$
+
+*Solving the equation for obtaining n*
+
+$n = \pi(1-\pi)(\frac{z}{M})^2$
+
+*With the given values, the sample size can be calculated*
+
+```{r}
+M = 0.06
+pi = 0.7
+z<-qdist("norm", p= 0.05, mean = 0, sd = 1, plot = FALSE) 
+n = pi*(1-pi)*(z/M)^2
+n
+```
+
+*If we want to be more conservative, we can use the value of* $\pi=0.5$
+
+$n = (\frac{z}{2M})^2$
+
+```{r, echo=FALSE}
+M = 0.06
+pi = 0.5
+z<-qdist("norm", p= 0.05, mean = 0, sd = 1, plot = FALSE) 
+n = pi*(1-pi)*(z/M)^2
+n
+```
+
+
+
+
+
+
+
+
+
+

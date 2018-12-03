@@ -1,0 +1,244 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+# Exam 2
+
+You can download the combined lecture notes for this module at:
+<http://asta.math.aau.dk/dan/2017f/asta/?file=handouts/module-B.pdf>
+
+It is highly recommended that you answer the exam using Rmarkdown
+(you can simply use the exam Rmarkdown file as a starting point).
+
+Remember to load the `mosaic` package first:
+```{r message=FALSE}
+library(mosaic)
+```
+
+## Part I: Directed reading activities
+
+An educator conducted an experiment to test whether new directed reading
+activities in the classroom will help elementary school pupils improve
+some aspects of their reading ability.
+
+She arranged for a third grade class of 21 students
+to follow these activities for an 8-week period. A control classroom of
+23 third graders followed the same curriculum without the activities. At
+the end of the 8 weeks, all students took a Degree of Reading Power
+(DRP) test, which measures the aspects of reading ability that the
+treatment is designed to improve.
+
+
+Read in the data:
+```{r}
+reading <- read.table("http://asta.math.aau.dk/dan/static/datasets?file=reading.dat", header=TRUE)
+head(reading)
+```
+
+Use a boxplot to compare the of measurements of `DRP` for `Treated`(direct reading activities) and `Control` visually.
+```{r}
+'we want to see the score of each group, DRP=the experiment they have done'
+
+bwplot(Response~Treatment,data=reading)
+
+'WHAT CAN BE SEEN IN THIS BOXPLOT? 
+1-treated group all the quartos are higehr than in the control
+some childresn score higher because the y axes is higher, but the treated perform better, this is not statisticaly significant cause if you change the observation you will obtain different values...'
+```
+
+Use `favstats` to make a numerical summary of the measurements for `Treated` and `Control`.
+
+```{r}
+a<-favstats(Response ~ Treatment, data = reading)
+a
+'now we see the response in relation to treatmeant, so the mean is 10 points higher!, the min, q1 compare it with the previous quartil graph, interesting
+favstats(Respose~Treatment,)'
+```
+```{r}
+Control <- subset(reading, Treatment == "Control")
+Treated <- subset(reading, Treatment == "Treated")
+y1 = mean(~ Response, data = Control)
+y2 = mean(~ Response, data = Treated)
+y1
+y2
+s1 = sd(~ Response, data = Control)
+s2 = sd(~ Response, data = Treated)
+s2
+s1
+'S es la variacion y s^2 es la S=Sd desviacion tipica'
+```
+-   Write down a point estimate of the mean of DRP for students
+    following the new *directed reading activities* and explain how this
+    is calculated. 
+    $$\overline{y}_{Treated}=\frac{1}{n_2}\sum_{i=1}^{n_2}{y_i};   \mbox{with }{y_1}\mbox{in the treated group}$$
+```{r}
+'we just need to multiply each observation and divide it by the size of our variable.'
+    
+```
+$$se=\sqrt{\frac{\pi(1-\pi)}{n}}$$
+    
+    the sum of all the obs, divided by the obs of the group, explain the formula
+    'how the mean is calc'
+
+-   Write down a point estimate of the standard deviation of DRP for
+    this group and explain how this is calculated.
+    $$S_{treated}=\sqrt{\frac{\sum(yi-\overline{y})^2}{n-1}}$$
+
+-   Write down a 95% confidence interval for the mean of DRP for this
+    group and explain how this is calculated.
+```{r}
+'we use t score because the number of samples is less than 30'
+yvar=51.447619
+s=11.00736
+n=21
+t<-qdist("t", 1-0.025, df=n-1)
+t
+'remember that s/sqrt(n) is equal to se'
+interval951<-yvar-t*s/sqrt(n)
+
+interval952<-yvar+t*s/sqrt(n)
+interval951
+interval952
+' So you are 95% confident that the real mean will be between those interval=56.46 and 46.44'
+```
+*All those results can be obtained by the comand* `t.test`
+
+```{r}
+'So we use t.test to comare it with the actual results calculated previously and we can say that in interval confidence for a 95 % is more or less the same'
+t.test( ~Response, data = Treated, conf.level = 0.95)
+```
+Use the command `t.test` to compare the mean DRP of the two groups.
+
+```{r}
+t.test(Response ~ Treatment , data = reading)
+
+
+'If Pvalue is less than 0.05 we can say that we reject the zero hypothesis as it is unprobable to occur, as a consequence we can say that the mean will be more probable to happen in the alternative hypothesis.
+
+Dentro del resultado t test el intervalo de confianza del 95% es para la hypothesis, If 0 is inside the interval and the pvalue is more than 0.05 we can say that our zero hypothesis is probable to happen In the contrary if the 0 is not in the interval and p-value<0.05 we can reject the zero hyp because is unprobable to happen, as a conseqence we can tanke the alternative hypotehsis.'
+'What does the -18 and -1 confidence interval mean?? that if you make another experiment with new samples, your difference (d=10) will be always between (18 and 1) with the 95% of probability sometimes d could be=9, 11, 15 being still inside the interval.'
+```
+
+Go through the details of the output from t.test. Your analysis must
+include an account of
+
+-   What the relevant null hypothesis and the corresponding alternative
+    hypothesis is.
+```{r}
+' 
+dependent sample: if we take the wiegh of our class one day, then we ate some chocholoate and see the weghts tomorrow for the same sample=the same class.
+independent sample: if we take the weights of different classes.
+
+WE ASSUME THAT IT IS INDEPENDENT for the calculations.the first 3 questions are related making a hypothesis and the last question is related to'
+
+```
+*The null hypothesis is* $$H_0:\hat\mu_1=\hat\mu_2$$ *and the alternative hypothesis is * $$H_a:\hat\mu_1\neq\hat\mu_2$$
+
+-   Choice and calculation of test statistic.
+```{r}
+'For obtaining the test statistic, it is neccesary to calculate the standard error of the difference, as follows: we choose the t score as there are 22 observations for treatment and 22 observations for control the samples which is less than 30. it is true that in overall there are 44 samples, however you have to count each of the samples independently to choose the best suitble statistic calculation (t-score, z-score).
+'
+```
+
+$$se_d=\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$$
+
+```{r, echo=FALSE}
+a<-favstats(Response ~ Treatment, data = reading)
+a
+Control <- subset(reading, Treatment == "Control")
+Treated <- subset(reading, Treatment == "Treated")
+s1 <- sd(~ Response, data = Control)
+s2 <- sd(~ Response, data = Treated)
+n1<-23
+n2<-21
+s2
+s1
+sed = sqrt((s1^2/n1)+(s2^2/n2))
+sed
+'es lo q se desvia de la diferencia por arriba y por abajo. en este caso la d= es 10 mas o menos (y1(media del sampel)-y2(media del sample2)) the Sed is 4.3 which means thatif we make another sample or a new experiment, we can say that if we make the difference between both means again the error will vary between 10+4.3 and 10-4.3 (divided by 2???? nose preguntar). '
+```
+*The value of t for the t.test is calculated as follows:* $$t=\frac{\overline y_2-\overline y_1}{se_d}\mbox{     }{\mu_1} and {\mu_2}\mbox{the difference is equal to 0}$$
+
+```{r, echo = FALSE}
+tobs = (y1-y2)/sed
+tobs
+'tenemos una z , teniendo la t=z (eje X) miramos la probabilidad de estar a la derecha de esa observacion'
+```
+
+
+-   Calculation of p-value and its interpretation in connection to a
+    conclusion of the analysis.
+```{r}
+
+
+'qdits("norm") we use it for the z score
+qdits("t") we use it for the z score
+degree od freedom because the t score varies with the degree of freedom.
+n=number of observations bigger than 30  you use a z score
+n=number of observations less than 30 you use a t score'
+
+```
+*Once obtained the t value, the probability of occurrence of this value is obtained by the t curve. The p-value is defined as the left probability of this value times two. When the p-value is small, we can consider rejecting the* $H_0$ *hypothesis.*    
+
+```{r, echo = FALSE}
+'you obtain the degrees of freedom df from the t.test previous exercises, which is 38, t.test(Response ~ Treatment , data = reading)'
+t.test(Response ~ Treatment , data = reading)
+
+P <- 2*pdist("t", q = tobs, df = 37.855)
+P
+```
+
+and if we put t for the t score
+-   Calculation and interpretation of a relevant confidence interval.
+```{r}
+'independent they are not all the same students'
+```
+## Part II: Determining sample size
+
+_In this part there is no dataset to load into R and analyze. You should just
+use R as a calculator when you apply the relevant formulas (which are towards
+the end of the lecture notes for module 1)._
+
+To estimate the proportion of danish companies with less than 10
+employees determine the necessary sample size for the estimate to be
+accurate to within 0.06 with probability 0.90. Based on results from a
+previous study in 2013, we expect the proportion to be about 0.70.
+```{r}
+#how many companies you have to take to be ass aquerrate as 0.7 with a prob of 0.9'
+#90% means you can be on the right 5% and to the left %5'
+```
+
+*The margin of error when estimating a proportion is*
+
+$$M = z \sqrt {\frac{\pi(1-\pi)}{n}}$$
+
+*Solving the equation for obtaining n*
+prop.test(Chile$vote, 2532, success="N", correct=FALSE)
+$$n = \pi(1-\pi)(\frac{z}{M})^2$$
+
+*With the given values, the sample size can be calculated*
+
+```{r}
+M = 0.06
+pi = 0.7
+z<-qdist("norm", p= 0.05, mean = 0, sd = 1, plot = FALSE) 
+'with q dist you calculate the z value for a probability of 10 %. 5% to the right and 5% to the left'
+n = pi*(1-pi)*(z/M)^2
+n
+```
+
+*If we want to be more conservative, we can use the value of* $\pi=0.5$
+
+$$n = (\frac{z}{2M})^2$$
+
+```{r, echo=FALSE}
+'now if we decrease the pi we have less information about the proportion, so if we want a 90 percent of te confidence interval we have to increase the samples.'
+M = 0.06
+pi = 0.5
+z<-qdist("norm", p= 0.05, mean = 0, sd = 1, plot = FALSE) 
+n = pi*(1-pi)*(z/M)^2
+n
+
+```
