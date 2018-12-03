@@ -29,7 +29,7 @@ The voltage sensor selected is the ACPL-C870 \cite{voltage_sensor}. This sensor 
 	\end{center}
 \end{figure} 
 
-\subsubsection{Voltage divider}
+\paragraph{Voltage divider}
 The input voltage at the voltage sensor is recommended to be in the range of $0V-2V$. To divide the measured voltage into that range, a voltage divider will be implemented. 
 
 The maximum output voltage of the PV-module is the open-circuit voltage at $45.2V$. To achieve a safety margin and to make the converter adaptable to other types of PV-modules, $50V$ has been selected. The current flow in the voltage divider has been set at $1mA$, to secure a insignificant power loss. The resistors can be calculated with the following equations:
@@ -47,15 +47,15 @@ The maximum output voltage of the PV-module is the open-circuit voltage at $45.2
 
 To be able to select commercial resistors the values $R_{1} = 47k\Omega$ and $R_{2} = 2k\Omega$ have been chosen. 
 
-\subsubsection{Filtering} \label{voltage_sensor_filter}
+\paragraph{Filtering} \label{voltage_sensor_filter}
 For a stable MPPT control, the measured voltage must have a very low ripple. To ensure this, a low-pass RC filter with a corner frequency at $50Hz$, will be placed between the voltage divider and the sensor. The resistor of the filter will be $R_{1}$ in the voltage divider. The capacitor will calculated as followed in equation \ref{voltage_sensor_in_filter_cap}:
 \begin{equation} \label{voltage_sensor_in_filter_cap}
 	C_{filter} = \frac{1}{2\pi \cdot f_c \cdot R_{1}} = \frac{1}{2 \pi \cdot 50Hz \cdot 47k\Omega} = 67.7nF
 \end{equation}
 
-To be able to select a commercial capacitor, $C_{filter} = 68nF$ has been chosen. 
+\noindent To be able to select a commercial capacitor, $C_{filter} = 68nF$ has been chosen. 
 
-\subsubsection{Amplification} \label{voltage_sensor_amplification}
+\paragraph{Amplification} \label{voltage_sensor_amplification}
 The input range of the ADC in the RT-Box is $0V-5V$. To take advantage of the full range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484\cite{sensor_opamp}  quad operational amplifier. By using a quad amplifier, the same IC can be used for all the sensors. The relevant electrical specifications have been included in table \ref{tab:amplifier_specs}.
 
 
@@ -78,7 +78,7 @@ The input range of the ADC in the RT-Box is $0V-5V$. To take advantage of the fu
 	\label{tab:amplifier_specs}
 \end{table}
 
-The resistors of the differential amplifier will be sized with equation \ref{voltage_sensor_gain}.
+\noindent The resistors of the differential amplifier will be sized with equation \ref{voltage_sensor_gain}.
 \begin{equation} \label{voltage_sensor_gain}
 	V_{out} = \frac{R_{3}}{R_{1}} \cdot (V_2-V_1)
 \end{equation}
@@ -106,10 +106,10 @@ The circuit regarding the input voltage measurement is shown at figure \ref{fig:
 \subsubsection{Output voltage sensor}
 The voltage sensor at the output is design with the same procedure as the input sensor. The voltage divider will designed such that the values of the amplifier can be reused.
 
-\subsubsection{Voltage divider}
+\paragraph{Voltage divider}
 The maximum output voltage of the DC/DC converter will be $90V$, when only 4 PV-modules are used. To insert a safety margin if one converter fails, the maximum sensed voltage will be designed at $120V$.
 
-The resistors will be sized by reusing equation \ref{voltage_divider_R17_in} and \ref{voltage_divider_R18_in}.
+\noindent The resistors will be sized by reusing equation \ref{voltage_divider_R17_in} and \ref{voltage_divider_R18_in}.
 \begin{equation}
 	R_{1} = \frac{V_{in,max}-V_{out}}{I} = \frac{120V-2V}{1mA} = 118k\Omega	
 \end{equation}
@@ -121,9 +121,9 @@ The resistors will be sized by reusing equation \ref{voltage_divider_R17_in} and
 	$R_{2} = 2.03k\Omega$
 \end{center}
 
-To be able to select commercial resistors $R_{26} = 120k\Omega$ and $R_{27} = 2k\Omega$ have been chosen. 
+\noindent To be able to select commercial resistors $R_{26} = 120k\Omega$ and $R_{27} = 2k\Omega$ have been chosen. 
 
-\subsubsection{Filtering}
+\paragraph{Filtering}
 The filter will be design with the same corner frequency at $50Hz$, as for the input sensor.
 
 The resistor of the filter will be $R_{1}$ in the voltage divider. The capacitor will be calculated as followed in equation \ref{voltage_sensor_out_filter_cap}:
@@ -133,7 +133,7 @@ The resistor of the filter will be $R_{1}$ in the voltage divider. The capacitor
 
 To be able to select a commercial capacitor $C_{filter} = 33nF$ has been chosen. By using these values the actual corner frequency will be $40.2 Hz$.
 
-\subsubsection{The circuit}
+\paragraph{The circuit}
 The circuit regarding the input voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. 
 
 \begin{figure}[H]
