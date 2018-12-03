@@ -1,0 +1,278 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+# Exam
+
+It is highly recommended that you answer the exam using Rmarkdown
+(you can simply use the exam Rmarkdown file as a starting point).
+
+# Part I: Estimating probabilities
+
+Remember to load the `mosaic` package first:
+```{r message=FALSE}
+library(mosaic)
+options(digits = 4)
+```
+
+## Chile referendum data
+
+In this part we will use the dataset `Chile`. Remember to read the [description](http://www.rdocumentation.org/packages/car/functions/Chile) of the dataset as well as the [Wikipedia](https://en.wikipedia.org/wiki/Chilean_national_plebiscite,_1988) entry about the background.
+
+```{r}
+Chile <- read.table("http://asta.math.aau.dk/dan/static/datasets?file=Chile.dat", header=TRUE, quote="\"")
+```
+
+NB: This dataset has several missing values (`NA`). To remove these when you use `tally` you
+can add the argument `useNA = "no"`.
+
+-   Do a cross tabulation of the variables `vote` and `sex`.
+```{r}
+
+TableChile<-tally(~vote+sex, data=Chile, useNA = "no")
+
+```
+
+-   Estimate the probability of `vote=N`.
+```{r}
+suma<-sum(TableChile[2,1:2])/(sum(TableChile[1:4,1:2]))
+suma
+a<-(sum(TableChile[1:4,1:2]))
+a
+VoteN<-(363+526)/2532
+VoteN
+
+```
+
+-   Make a 95% confidence interval for the probability of `vote=N`.
+```{r}
+'What is pi_hat? is a proportion. the ones voting N among the other ones. the probablity '
+n<-2532
+pi_hat<-((363+526)/2532)
+pi_hat
+'p-value: which is 0.05, so you obtain the z value, why divided by 2?? because R only takes the whole area of the left side of the graph. So you know that for 95 percent there must be 2.5 to the right and 2.5 to the left. But R only calculates the whole area to the left... so you do the 97.5 probability and the multiplied by two to know the 95% of confidence interval.'
+z1<-qdist("norm", 1-0.05/2)
+
+
+z1
+estimated_standard_error<-sqrt(pi_hat*(1-pi_hat)/(n))
+estimated_standard_error
+confidence_interval991<-pi_hat+z1*estimated_standard_error
+confidence_interval991
+confidence_interval992<-pi_hat-z1*estimated_standard_error
+confidence_interval992
+prop.test(Chile$vote,p=pi_hat, 2532, success="N", correct=FALSE)
+'we use prop test for a proportion. in this case it calculates all the parameters for N, saying that the other votes are bad. that is made by the command success. the answer of the prop test:
+1-pvalue>0.05 so we can say that the zero hyp is true. 2-we calculate the interval confidence which is betwween 0.3328-0.3699, where our pi_hat value is in that interval=zero hyp TRUE.
+
+So you are sure, if you do another experiment with different samples that your proportion(pihat)will be between that interval (0.33-0.36) with a 95% of confidence level'
+```
+
+-   Estimate the probability of `vote=N`, given that `sex=F`.
+```{r}
+'Conditional probability (probablity of vote N having a condiotion, in this case those which are N have to be female F.'
+ProbabilityNFemale<-363/(sum(TableChile[1:4,1:1]))
+ProbabilityNFemale
+#or you can do it this way:
+sumaF<-sum(TableChile[2,1:1])/(104+363+362+480)
+sumaF
+```
+
+-   What would these probabilities satisfy if `vote` and `sex` were
+    statistically independent?
+```{r}
+'Now both probabilities are independent, so the answer is the probability to be a woman and have voted for N?'
+P_independent<-((363+526)/2532)*(1309/2532)
+P_independent
+```
+
+# Part II: Sampling distributions and the central limit theorem
+
+This is a purely theoretical exercise where we investigate the random
+distribution of samples from a known population.
+
+## House prices in Denmark
+
+The Danish real estate agency HOME has a database containing approximately
+80.000 house prices for one-family houses under DKK 10 million for the period
+2004-2016. The house prices (without all the additional information such as
+house size, address etc.) are available as a R data file `Home.RData` on the
+course webpage. If you download it you can load it using `load("Home.RData")`
+assuming you have saved it in the same directory as this Rmarkdown document.
+This will add the vector `price` to your work space. Alternatively,
+you can add it directly from the course website (this will download it every time
+you run the Rmarkdown document, so make sure you have a decent internet connection):
+
+```{r}
+load(url("http://asta.math.aau.dk/dan/static/datasets?file=Home.RData"))
+```
+
+Make a histogram of all the house prices using a command like
+
+`histogram(price, breaks = 30)` inserted in a new code chunk
+(try to do experiments with the number of breaks):
+```{r}
+'this command makes an histogram with 30 columns, if you change the number30 to 100 it will make 100 columns'
+
+histogram(price, breaks =30)
+
+```
+```{r}
+'or you can use the next command to put the colummns, for example for 3 columns'
+histogram(price, breaks=c(0,3.333,6.666,10))
+```
+- Explain how a histogram is constructed.
+```{r}
+'A histogram is an accurate graphical representation of the distribution of numerical data. It is an estimate of the probability distribution of a continuous variable (quantitative variable) and was first introduced by Karl Pearson.[1] It is a kind of bar graph. To construct a histogram, the first step is to "bin" the range of values-that is, divide the entire range of values into a series of intervals-and then count how many values fall into each interval. The bins are usually specified as consecutive, non-overlapping intervals of a variable. The bins (intervals) must be adjacent, and are often (but are not required to be) of equal size.[2]
+
+If the bins are of equal size, a rectangle is erected over the bin with height proportional to the frequency - the number of cases in each bin. A histogram may also be normalized to display relative frequencies. It then shows the proportion of cases that fall into each of several categories, with the sum of the heights equaling '
+```
+- Does this histogram look like a normal distribution?
+```{r}
+'no, because it does not have the characteristic bell shaped curve'
+```
+In this database (our population) the mean price is `r mean(price)` and the
+standard deviation is `r sd(price)`.
+```{r}
+mean_value<-mean(price)
+mean_value
+
+standard_deviation<- sd(price)
+standard_deviation
+```
+
+In many cases access to such databases is restrictive and in the following we
+imagine that we are only allowed access to a random sample of 40 prices and the
+mean of this sample will be denoted `y_bar`.
+
+Before obtaining this sample we will use the Central Limit Theorem (CLT) to
+predict the distribution of `y_bar`:
+```{r}
+'(page 97) For random sampling with a large sample size n, the sampling distribution of the sample
+mean y is approximately a normal distribution.
+
+http://onlinestatbook.com/stat_sim/sampling_dist/
+
+The approximate normality of the sampling distribution applies no matter what
+the shape of the population distribution. This is quite remarkable. For large
+random samples, the sampling distribution of y is approximately normal even
+if the population distribution is highly skewed, U shaped.'
+```
+
+- What is the expected value of `y_bar`?
+```{r}
+y_bar<-mean(price)
+y_bar
+```
+
+- What is the standard deviation of `y_bar` (also called the standard error)?
+```{r}
+'see example page 97'
+se<-sd(price)/sqrt(40)
+se
+```
+- What is the approximate distribution of `y_bar`?
+```{r}
+'it is a normal distribution with a mean of 1.929 and a standard deviation of 0.2015'
+```
+*the aproximate distribution of y_bar is a normal distribution with the mean od the sample and the standard deviation eual to the standard deviation of the samples over the square root of the number of sampas*
+
+
+Now make a random sample of 40 house prices and calculate the sample mean:
+```{r}
+'First of all we make a random sample (40 elements) of the price vector, with the next command:'
+y <- sample(price, 40)
+y
+'and we calculate the mean for this new sample'
+mean_valuey<-mean(y)
+mean_valuey
+'this is the actual mean of the other sample(80000 elements) calculated previously:'
+mean_value<-mean(price)
+mean_value
+```
+
+Repeat this command a few times. Is each mean price close to what you expected?
+
+Use `replicate` to repeat the sampling 200 times and save each mean value in the
+vector `y_bar`:
+
+```{r}
+'so now we take 200 means of a vector of different 40 samples.'
+y_bar2 <- replicate(200, mean(sample(price, 40)))
+y_bar2
+```
+
+Calculate the mean and standard deviation of the values in `y_bar`.
+```{r}
+Final_mean<-mean(y_bar2)
+Final_mean
+Final_standard_deviation<-sd(y_bar2)
+Final_standard_deviation
+'Now we compare these values to the first 80000 elements mean and standard deviation and we expect that it will be more or less the same
+page100 example interestinf'
+y_bar
+se
+```
+
+- How do they match with what you expected?
+
+- Make a histogram of the values in `y_bar` and add the density curve for the
+approximate distribution you predicted previously using `plotDist` with the
+argument `add = TRUE`. For example if you predicted a normal distribution with
+mean 2 and standard deviation 0.2:
+
+```{r fig.keep='last'}
+histogram(y_bar2, breaks = 15, type = "density")
+plotDist("norm", mean = 2, sd = 0.2, add = TRUE, col = "red")
+```
+
+- Make a boxplot of `y_bar` and explain how a boxplot is constructed.
+```{r }
+boxplot(y_bar2)
+```
+# Part III: Theoretical boxplot for a normal distribution
+ 
+Finally, consider the theoretical boxplot of a general normal distribution with
+mean $\mu$ and standard deviation $\sigma$, and find the probability of being an
+outlier according to the 1.5$\cdot$IQR criterion:
+
+- First find the $z$-score of the lower/upper quartile. I.e. the value of $z$ such that
+  $\mu \pm z\sigma$ is the lower/upper quartile.
+```{r}
+'lowe quartile is the first quartile Q1 (25%) and the upper quartile is the thir onde Q3(%75)'
+z1<-qdist("norm", 0.75)
+'Z will be the same for a normal distribution (mu=0, se=1) for the upper Q3 and lower Q1 quartil'
+
+```
+
+- Use this to find the IQR (expressed in terms of $\sigma$).
+```{r}
+'inter quartil range=coeficiente de los quartiles: En estadística descriptiva, se le llama rango intercuartílico o rango intercuartil, a la diferencia entre el tercer y el primer cuartil de una distribución'
+mu=0
+sigma=1
+IQR=(mu+sigma*z1)-(mu-sigma*z1)
+IQR
+'si estas 1.5 veces el IQR significa q estas fuera de tu rango '
+```
+
+- Now find the $z$-score of the maximal extent of the whisker. I.e. the value of $z$ such that
+  $\mu \pm z\sigma$ is the endpoint of lower/upper whisker.
+```{r}
+
+mu=0
+sigma=1
+IQR=(mu+sigma*z1)-(mu-sigma*z1)
+```
+  
+
+- Find the probability of being an outlier.
+```{r}
+'la poabilidad de estar en los limites. Asiq vas a tneer una probabilidad q es el area (%2.2 mas o menos) a la izquierda y otros 2.2 a la derecha.'
+z1<-qdist("norm", 0.25)
+z1
+outlier<-2*pdist("norm", z1-1.5*IQR)
+outlier
+```

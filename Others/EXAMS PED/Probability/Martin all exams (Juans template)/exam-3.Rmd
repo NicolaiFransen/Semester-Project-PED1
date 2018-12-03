@@ -1,0 +1,189 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+# Exam 3
+
+You can download the combined lecture notes for this module at:
+<http://asta.math.aau.dk/dan/2017f/asta/?file=handouts/module-C.pdf>
+
+
+Remember to load the `mosaic` package first:
+```{r message=FALSE}
+library(mosaic)
+```
+
+
+## House prices
+
+In this exercise you will study the data described in Agresti EXAMPLE 9.10. 
+
+You are studying house sales in Gainesville, Florida, where among other things the data contain the selling price (`Price`), property taxes (`Taxes`) and house size (`Size`).
+
+Read in the data:
+```{r}
+HousePrices <-read.table("http://asta.math.aau.dk/dan/static/datasets?file=HousePrice.dat", header=TRUE)
+head(HousePrices)
+```
+
+- **Make a relevant plot of the variables** and discuss how they are related.
+
+```{r, fig.width = 6, fig.height = 6, echo=FALSE}
+splom(HousePrices, pch = 16, cex = 0.5)
+
+```
+
+*we can see that the 3 variables are highly related to each other in a sense that they make a more or less a linear correlation. AS one of the variables increase the other one also, so we expect to have high values of correlation between variables*
+
+
+- **Explain the concept of correlation** and determine whether there is significant positive **correlation between `Taxes` and `Size`**. 
+
+*The Correlation measures the strength of dependence between the variable y and variable x. In other words refers to how close two variables are to having a linear relationship with each other.*
+
+*Lets take x and y as parameters that could be correlated. * 
+*Thus, *$s_y$ *and* $s_x$ *denote the sample standard deviation of y and x.*
+*The corresponding prediction equation is then * $$\hat y_t = \frac{a}{s_y}+\frac{s_x}{s_y}bx_t$$
+*Then, the standardized regression coefficient, also called the correlation is: *
+$$r = \frac{s_x}{s_y}b$$
+*In this model we can calculate the correlation of Taxes and Size by means of the next command:*
+```{r}
+cor(HousePrices)
+```
+*As could be deduced before plotting, there are a strong relation between Prices and Taxes, and also between Size and Prices. This graphic also shows that there is a correlation between Size and Taxes.*
+*Some values are extremes, and coud be removed to get a more accurate model*
+
+*using the next command a correlation test has been made:*
+```{r}
+cor.test(~Taxes+Size, data=HousePrices)
+```
+*We can say watching the p-value that our zero hypothesis is rejected due to the value is bellow %5... which accomplishes the alternative hypothesis.It also can be stated that there is a significant (p=2.2e-16) correlation between taxes and size.*
+
+
+*On te other hand, we can say with a 95% of confidence level that the correlation will be around 0.7416 and 0.8745.*
+
+
+
+**Fit a multiple regression model** with **Price as the response** variable and **`Taxes` and `Size` as predictors**.
+
+```{r}
+model <- lm( Price ~ Taxes+Size, data = HousePrices )
+model
+```
+
+- What are the parameters of the model and what is the **interpretation of these parameters**?
+*The intercept point (-28608.74) means the price when both Taxes and Size are equal to zero. In other words it is the offset of the equation. We can also see the slope of each of the explanatory variables(x1 and x2) which are beta1=66.51 for Taxes and beta2=39.6 for Size*
+
+
+- What is the **prediction equation**?
+$$
+\widehat y = -28608.74+39.60x_1+66.51x_2 \quad \text{,where x1 is Taxes and x2 is Size}
+$$
+
+**Explain the output of the model**
+
+where `model` is the fitted multiple regression model.
+This explanation should as a minimum include:
+
+*Model without interactions:*
+
+$$y = \alpha+\beta_1x_{1}+\beta 2·{x_2}+e$$
+
+```{r}
+summary(model)
+
+```
+- **Calculation of `t value`** and determination and **interpretation of p-value**.
+
+*The t-value is calculated as shown:*
+$$
+t = \frac{\text Estimate}{\text {Standard Error}}
+$$
+
+
+*Once obtained the t value, the probability of occurrence of this value is obtained by the t curve. The p-value is defined as the left probability of this value times two.*   
+
+
+```{r }
+P = 2*pdist("t", q = 5.72, df = 97)
+P
+```
+
+*In this case, the t-value for Taxes and Size is high, so the P-value is small. In both cases the Pvalue is almost zero, what means that there is almost no probability that the variables Taxes ans Size are not related with the variable Price. *
+
+- **Degrees of freedom**
+
+*In this case, we have 100 observations and 3 variables. Thus, the model have 100-3=97 degrees of freedom.*
+
+- **Interpretation of `Multiple R-squared`.**
+
+*The Multiple R-Squared means the relative reduction in prediction error. For calculating the R-squared there is a need to calculate to variables the TSS and SSE. The Tss is the squarred error between the observation and the mean, and the SSE, which is the squarred error between the regression line and the observation.*
+
+$$R^2  = \frac{TSS-SSE}{TSS} \quad \text {}$$
+
+
+
+- How the table of output can be used to construct **confidence intervals for parameters**.
+
+*We can construct a confidence interval for each parameter by following the next graph.*
+```{r }
+t<-qdist("t", p = 0.025, df = 100-3)
+t
+```
+$$ \text {for a 95% confidence interval: }\quad t = 1.9847$$
+
+
+$$\text {for the variable Taxes} \quad (min,max) = b_1 \pm tse_b = 39.601 \pm 1.9847\cdot 6.917 = (25.87, \quad 53.33)$$
+$$\text {for the variable Size} \quad (min,max) = b_2 \pm tse_b = 66.512 \pm 1.9847\cdot 12.817 = (41.07, \quad 91.95)$$
+
+
+*Checking the results with the confint function for a 95% of the confidence level:*
+```{r}
+confint(model)
+```
+
+- **Interpretation of F-statistic**
+
+*It shows if the model can be reduced into a single value (the intercept point), because all the predictors are not significant (Null Hypothesis), depending on the p-value.*
+
+$$F = \frac{(n-k-1)R^2}{k(1-R^2)} = \frac{(100-2-1)\cdot0.7722}{2(1-0.7722)} = 164.4$$
+```{r}
+1 - pdist("f", 164.4, df1=2, df2=97, plot = FALSE)
+```
+
+
+Finally, you have to investigate whether or not there is an **interaction between the effect of `Taxes` and the effect of `Size` as predictors of `Price`**.
+
+*interaction model equation:*
+
+$$y = \alpha+\beta_1x_{1}+\beta_2·{x_2}+\beta_3·{x_1}·{x_2}$$
+
+```{r}
+model2 <- lm( Price ~ Taxes*Size, data = HousePrices )
+summary(model2)
+```
+*df=n-4=100-4=96, we have for parameters (x1,x1,x1x2,y)*
+
+*Looking at the predictors in this model, it seems that the single predictors are not needed for explaining the model, but only the multiple predictor. *
+
+
+*We can say that the first model has a lower p value is so its a better model comparing to the new one with interactions. According to the p value we can see that the two predictros(taxes and size) are dependent due to a very low p value.t value (the x axis) of the bell, it is positive (right side). the higher is the t value, you are more separeted from the mean and more to the edge, which is very unprobable to happen.*
+*You can also say that you can reject the null hypothesis as the pvalue is lower than %5*
+
+*Again we can see that the t value is calculated by the estimate divided the sandard error.*
+
+*As a conclusion we finally we choose the first model as the best model, as the significance (the estimates are more close to be next to the regression line than the new one.*
+*comparing both R squares we can see that the new model has a higher value of R^2=0.78 whereas the old ones was 0.77, getting as close to 1 is favorable or better as your SSE will get to 0 having a a line as fitted as possible.*
+
+
+*if you remove one you have to run the model again and see the results because the p values will change and maybe you can reject one variable or not. don know, run it !*
+
+*About the  R-squared, it is slightly higher because we introduce one new predictor. Although, this second model is not as good as the previous one.*
+
+
+
+
+
+

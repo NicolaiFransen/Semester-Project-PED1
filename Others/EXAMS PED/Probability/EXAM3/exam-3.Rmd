@@ -1,0 +1,153 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+# Exam 3
+
+You can download the combined lecture notes for this module at:
+<http://asta.math.aau.dk/dan/2017f/asta/?file=handouts/module-C.pdf>
+
+
+Remember to load the `mosaic` package first:
+```{r message=FALSE}
+library(mosaic)
+```
+
+
+## House prices
+
+In this exercise you will study the data described in Agresti EXAMPLE 9.10. 
+
+You are studying house sales in Gainesville, Florida, where among other things the data contain the selling price (`Price`), property taxes (`Taxes`) and house size (`Size`).
+
+Read in the data from the next link:
+```{r}
+HousePrices <- read.table("http://asta.math.aau.dk/dan/static/datasets?file=HousePrice.dat", header=TRUE)
+head(HousePrices)
+'we can see that we have a sample of 100 observations relating prices, taxes and size.'
+```
+
+- Make a relevant plot of the variables and discuss how they are related.
+```{r }
+x11();splom(HousePrices,pch=16,cex=0.5)
+'prof: so here you can see size y x taxes, very gh corrreltaion so , intrersting the covariant linearly independent'
+'how to read the graph? each of the rows variable is in the y axes. so for example the first square 1left upper part, the size is Y and X is Taxes.'
+'we can see that the 3 variables are highly related to each other in a sense that they make a more or less a linear correlation. AS one of the variables increase the other one also, so we expect to have high values of correlation between variables'
+
+
+```
+
+
+- Explain the concept of correlation and determine whether there is significant positive correlation between `Taxes` and `Size`. 
+
+```{r}
+'Correlation measures the strength of dependence between y and x OR refers to how close two variables are to having a linear relationship with each other.WHEN=-1 NEGATIVE SLOPE'
+
+correlation<-cor(HousePrices)
+correlation
+'A higher correlation value means that while one variable is increasing the other one is also increasing proportionally. However tha imporatnt thing is: the higher the value of the correlation(max=1) the the slope of the curvewill be more similar to a line. However the correlation can be also negative, which means that it is inversamente proportional(negative proportional) to the previous slope, which in that case will be the opposite thing making an X. So from the houseprices file we can say that the 3 varaibles (taxes, price and size) are highly correlated due to the fact that its values are close to 1 (higher than %80).Price and taxes are the one that are more correlated with a (84 %). which means that when prices increase the taxes will also increase more or less proportional to each other.'
+relation_between_variables<-cor.test(~Taxes+Size, data=HousePrices)
+relation_between_variables
+'We can say watching the p-value that our zero hypothesis is not accomplished due to the value is bellow %5... it means that your value will be more probable to be close to one, which accomplishes the alternative hypothesis.
+
+So the 0 hypothesis is rejected because the p value is less than 5%. consequently the alternative hypothesis is the one that it is valid. 
+On te other hand, you can say with the 95% of confidence interval that the correlation will be around 0.7416 and 0.8745.
+```
+
+Fit a multiple regression model with Price as the response variable and `Taxes` and `Size` as predictors.
+
+```{r}
+
+linear_model<-lm(Price~Size+Taxes, data=HousePrices)
+model<-linear_model
+model
+'prof:if the size is increase by one you have 66.1 multiplied'
+'cut of the line, when x=0 y takes that value= -28608.74 value. when x1 and x2 are 0, in other words it is an offset. we can also see the slope of each of the explanatory variables which are 66.51=beta1 for Size and 39.6=beta2 forTaxes. it is a surface in 3-D. -the mean response is in other words a 2 dimensional plane in 3 dimensional space.we determine alfa beta1 and beta 2 via least squares deviation from the plane.'
+```
+
+- What are the parameters of the model and what is the interpretation of these parameters?
+
+- What is the prediction equation?
+$$
+\widehat y = -28608.74+66.51*x1+39.6*x2
+
+$$
+
+Explain the output of
+```{r }
+s<-summary(model)
+s
+'We can see the most significant paameters of our model, firs of all the residuals, which are the gneral parameters of our model, where we can see which has been the maximum and minimum points of the plot,MIN=THe largest minimum deviation is-- and the largest deviation is---. as well as the median and the first Quartile and 3 quartil location?. Afterwards we can see the information of each of the variables, in this case the intercept (alfa) the size and the taxes an its corresponding values. The intercept is also described as an offset, the starting point is displaced in a higher or lower value than 0.
+It can be also seen the estimated slope of each of the variables, its standard error as well as the t value, which is the estimate ((alfa, beta )=slope) divided by the standard error.
+stand error=tita(y|x)=which is the standard deviation of the deviations from the line.
+The table also provides us with the most important parameter of our model, the p value,which tell us how sure we are that the estimates are 0. we can say that any of the values can be rejected as anyone exceeds %5 of p value, so every variable is needed for the prediction of the model.We can also obtain the estimated values and the standard erro, the dividin this two values you obtain the t-value.
+the command itself also reminds you the best probabilities for your model with stars; *** being the highest and the best result, and * the less best which is equal to the 5%. the other values bellow that one are rejected.
+
+p value=is a good predictor p value for 0 hyp:
+*** very unlikely to happen in the 0 hyp
+** very sign
+* is significant but we are not imprressed
+no stars-we have to look for conclusions'
+y_hat<-predict(model)
+y_hat
+'we have 3 variables,size, taxes and Price so we have a plane. if we had 2 varibales we would have a line instead of having a surface.in this VECTOR we have two rows one with the round numbers which is the x1 and x2 (predictors) and the other one for the y(predicted value). so when x1 and x2 are =1 y is 230527.67.'
+```
+where `model` is the fitted multiple regression model.
+This explanation should as a minimum include
+
+- Calculation of `t value` and determination and interpretation of p-value.
+```{r}
+'estimated which is the slope'
+estimated_INTERCEPT<--28608.744
+standard_error_INTERCEPT<-13519.09
+t_value=estima_INTERCEPT<-estimated_INTERCEPT/standard_error_INTERCEPT
+
+estimated_SIZE<-66.512
+standard_error_SIZE<-12.817
+t_value=estima_SIZE<-estimated_SIZE/standard_error_SIZE
+
+estimated_TAXES<-39.601
+standard_error_TAXES<-6.917
+t_value=estima_TAXES<-estimated_TAXES/standard_error_TAXES
+
+```
+- Interpretation of `Multiple R-squared`.
+```{r}
+'
+correletaion about th epredctive value and the real value, also r sqr is the relation between the values 
+look the notebook grph
+tts= is the sum of squared errors from the mean
+SSE=Sum of squared errors from the prediction line.=it is the sum of errors agains the y hat line. Where y_hat is the predicted line
+'
+
+```
+
+- How the table of output can be used to construct confidence intervals for parameters. This should be supplemented by actual calculation for the current data using `confint`.
+```{r}
+confint(model)
+'the confidence interval which is calculated : estimated +-z*se'
+
+```
+
+Finally, you have to investigate whether or not there is an interaction between the effect of `Taxes` and the effect of `Size` as predictors of `Price`.
+```{r}
+
+new_model<-lm(Price~Size*Taxes, data=HousePrices)
+summary(model)
+summary(new_model)
+'prof:you should make another interaction no only taxes and size, look at the output and see if there is interaction or not.'
+'NOTES FROM PDFwe are making a prediction plane, y has to be normally distribuited in this plane depending on its variables.'
+'we can say that the first model has a lower p value is so its a better model comparing to the new one. According to the p value we can see that the two predictros(taxes and size) are dependent due to a very low p value.
+t value the x axis of the bell, only one part, it is positive so in the right side. the higher you are you are more separeted from the mean and more to the edge'
+'You can also say that you can reject'
+'Conclusion we finally we choose the first model as the right or best model, as the significance (the estimates are more close to be next to the previous line than the new one)is better.'
+'comparing both R squares we can see that the new model has a higher value of R^2=0.78 whereas the old ones was 0.77, getting as close to 1 is favorable or better as your SSE will get to 0 having a a line as fitted as possible.'
+'noTE:it is better not to include education for the model because it is not agood predictable model with this vareable, so remove it.
+
+if you remove one you have to run the model again and see the results because the p values will change and maybe you can reject one variable or not. don know, run it !'
+
+'f statisticsyou can simplify the model rjectring the variables, if p value of this model is close to 0 you cannot reject any of the variables. so the variables are strong to the model.'
+```

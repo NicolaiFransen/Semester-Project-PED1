@@ -1,0 +1,296 @@
+
+---
+title: "Exam 1"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+# Part I: Estimating probabilities
+
+Remember to load the `mosaic` package first:
+```{r message=FALSE, echo=FALSE}
+library(mosaic)
+options(digits = 4)
+library(pander)
+```
+
+## Chile referendum data
+
+In this part we will use the **dataset `Chile`**. Remember to read the [description](http://www.rdocumentation.org/packages/car/functions/Chile) of the dataset as well as the [Wikipedia](https://en.wikipedia.org/wiki/Chilean_national_plebiscite,_1988) entry about the background.
+
+```{r }
+Chile <- read.table("http://asta.math.aau.dk/dan/static/datasets?file=Chile.dat", header=TRUE, quote="\"")
+```
+
+NB: **This dataset has several missing values (`NA`)**. To remove these when you use `tally` you
+can add the argument `useNA = "no"`.
+
+-   Do a **cross tabulation of the variables `vote` and `sex`**.
+```{r size="small"}
+tally( ~ vote + sex, data = Chile, useNA = "no")
+
+```
+-   Estimate the **probability of `vote=N`**.
+```{r size="small"}
+tally( ~ vote + sex, data = Chile, useNA = "no", format  ="percent", margin = 1)
+```
+
+```{r size="small"}
+P1 = 14.336+20.7747
+P1
+
+```
+-   Make a **95% confidence interval** for the probability of **`vote=N`**.
+
+*estimated standard error* of $\hat{\pi}$:
+  $$se=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n}}$$
+```{r, fig.height = 3, fig.width = 5}
+n = 2532 #removing the NA
+se1 = sqrt((P1/100*(1-P1/100))/n)
+se1
+```
+
+*Then we calculate the z value for a 95% of confidence interval using the next command:*
+
+```{r, fig.height = 3, fig.width = 5}
+z = qdist("norm", 1-0.05/2)
+z
+```
+*the 95% of confidence interval is given by:* 
+$$conf.int = \hat{\pi} \pm z·(se)$$
+```{r, echo = FALSE,fig.height = 3, fig.width = 5}
+
+P1inter = P1+z*100*c(-se1, se1)
+P1inter
+```
+Thus, the confidence interval is [33.25%     36.97%]
+
+
+**Checking** the results with *prop.test*
+```{r}
+prop.test(~ vote, data = Chile, correct = FALSE, success= "N")
+```
+
+*We can see that both of the results match.*
+
+-   Estimate the **probability of `vote=N` given that `sex=F`**.
+
+*Conditional probability* of the event $A$ given the
+event $B$:
+$$P(A|B)=\frac{P(A \text{ and } B)}{P(B)}$$
+
+*The probability of being a female and voting N divided by the probability of bring female.*
+
+```{r size="small"}
+P_NF = 14.336
+tally( ~ vote + sex, data = Chile, useNA = "no", format  ="percent", margin = 1)
+P_F = (4.107+14.336+14.297+18.957)
+P2 =  P_NF/P_F
+```
+By looking at the table, 
+$$P(F)=4.107+14.336+14.297+18.957 = 51.697\text{ %} $$
+$$P(N\text{ and }F)=14.336 \text{ %}  $$
+$$P(N|F)=\frac{14.336}{51.697} =27.73 \text{ %}  $$
+
+-   What would these probabilities satisfy if `vote` and `sex` were
+    statistically independent?
+
+If information about $B$ doesn't change the probability of $A$ we talk
+about independence, i.e. $A$ is **independent** of $B$ if
+
+$$P(A|B) = P(A) \Leftrightarrow P(A \text{ and } B) = P(A)P(B)$$
+*In this case, can be easily checked that the combined probability assuming that both A and B are independent, is different that the probability calculated previously.*
+
+
+```{r  }
+P1 = 0.35111*0.5107
+P1
+```
+
+# Part II: Sampling distributions and the central limit theorem
+
+This is a purely theoretical exercise where we investigate the random
+distribution of samples from a known population.
+
+## House prices in Denmark
+
+The Danish real estate agency HOME has a database containing approximately
+80.000 house prices for one-family houses under DKK 10 million for the period
+2004-2016. The house prices (without all the additional information such as
+house size, address etc.) are available as a R data file `Home.RData` on the
+course webpage. If you download it you can load it using `load("Home.RData")`
+assuming you have saved it in the same directory as this Rmarkdown document.
+This will add the vector `price` to your work space. Alternatively,
+you can add it directly from the course website (this will download it every time
+you run the Rmarkdown document, so make sure you have a decent internet connection):
+
+```{r echo=FALSE}
+load(url("http://asta.math.aau.dk/dan/static/datasets?file=Home.RData"))
+#load("Home.RData")
+```
+
+**Make a histogram of all the house prices** using a command like
+`histogram(price, breaks = 30)` inserted in a new code chunk
+(try to do experiments with the number of breaks):
+
+```{r}
+par(mfrow=c(2,2))
+hist(price, breaks = 30)
+hist(price, breaks = 60)
+hist(price, breaks = 100)
+hist(price, breaks = 200)
+```
+
+- **Explain** how a histogram is constructed.
+
+*In an Histogram, the area of each box corresponds to the relative frequency of the variable in each interval.*
+
+*In theory we can imagine an infinite number of observations, which would produce a nice smooth curve, where the area below the curve is 1. A function derived this way is also what we call the probability density function.*
+
+- Does this **histogram look like a normal distribution**?
+
+*This Histogram is not a Normal distribution, but a Right skew density shape.For example we can clearly see that the mean is not 0 (nomral distribution), but 1.9.*
+```{r}
+mean(price)
+sd(price)
+```
+
+```{r}
+median(price)
+```
+*It can be seen that, in this case, the median is lower than de mean. What means is that there are more samples at the left to the mean than at the right.*
+
+
+
+
+
+In this database (our population) the mean price is `r mean(price)` and the
+standard deviation is `r sd(price)`.
+
+**In many cases access to such databases is restrictive** and in the following we
+imagine that we are only allowed access to **a random sample of 40 prices** and the mean of this sample will be denoted `y_bar`.
+
+Before obtaining this sample we will use the Central Limit Theorem (CLT) to
+predict the distribution of `y_bar`:
+
+- What is the expected value of **`y_bar`**?
+
+By the CLT, it is known that the value of `y_bar` is the mean of the values in the sample. 
+```{r}
+y_bar = mean(price)
+y_bar
+```
+- What is the **standard deviation** of `y_bar` (also called the standard error)?
+
+By the same way, the standard error follows the next formula: 
+  $standard\text{ } error = \frac{\sigma}{\sqrt{n}}$
+```{r}
+sigma = sd(price)
+sd_error = sigma/sqrt(40)
+sd_error
+```  
+
+- What is the **approximate distribution of `y_bar`**?
+
+*The approximate distribution of* `y_bar` *is a Normal distribution with the mean of the sample and the standard deviation equal to the standar deviation of the samples over the square root of the number of samples*
+
+$\hat y = N(\mu, \text{ }\frac{\sigma}{\sqrt{n}})$
+
+Now **make a random sample of 40 house prices** and **calculate** the sample **mean**:
+```{r}
+y <- sample(price, 40)
+y_bar2 = mean(y)
+y_bar2
+sigma2 = sd(y)
+sigma2
+
+```
+
+Repeat this command a few times. Is each mean price close to what you expected?
+
+*The mean price is close to the real value, as the standard error is small compared with the mean value.However, the standar deviation of the sample is higher than real the standard deviation* 
+
+Use `replicate` to repeat the sampling 200 times and save each mean value in the vector `y_bar2`:
+
+```{r}
+y_bar2 <- replicate(200, mean(sample(price, 40)))
+```
+
+Calculate the mean and standard deviation of the values in `y_bar2`.
+```{r}
+mean(y_bar2)
+sd(y_bar2)
+
+```
+- How do they match with what you expected?
+
+*The mean of the vector is practically the same as the real mean* 
+
+*The standard deviation of the vector is close to the standard error of the previous sample (with 40 samples)* 
+
+- **Make a histogram** of the values in `y_bar` and **add the density curve** for the
+approximate distribution you predicted previously using `plotDist` with the
+argument `add = TRUE`.For example for a normal distribution with mean 2 and standard deviation of 0.2:
+
+```{r fig.keep='last'}
+histogram(y_bar2, breaks = 15, type = "density")
+plotDist("norm", mean = y_bar, sd = sd_error, add = TRUE, col = "red")
+```
+
+*We can see that the colums have more or less similar shape than a normal distribution with a mean being around 2 and a sd of 0.2*
+
+- **Make a boxplot** of `y_bar` and explain how a boxplot is constructed.
+
+
+
+```{r}
+bwplot( y_bar2)
+minim<-min(y_bar2)
+minim
+maximum<-max(y_bar2)
+maximum
+```
+
+*interquartile range =IQR=Q3-Q1;*
+*outlier<Q1-1.5·IQR;*
+*outlier>Q3+1.5·IQR*
+
+# Part III: Theoretical boxplot for a normal distribution
+ 
+Finally, consider the theoretical boxplot of a general normal distribution with
+mean $\mu$ and standard deviation $\sigma$, and find the probability of being an
+outlier according to the 1.5$\cdot$IQR criterion:
+
+- First **find the $z$-score of the lower/upper quartile**. I.e. the value of $z$ such that $\mu \pm z\sigma$ is the lower/upper quartile.
+
+q1=$\mu + z·sigma$
+
+q3=$\mu - z·sigma$
+```{r}
+q1 <- qdist("norm", 0.25, plot = FALSE)
+q3 <-qdist("norm", 0.75, plot = FALSE)
+q1
+q3
+```
+  
+- Use this to **find the IQR** (expressed in terms of $\sigma$).
+The IQR then is $(\mu+0.6745\sigma)-(\mu-0.6745\sigma) = 2\cdot0.6745\sigma = 1.349\sigma$ 
+
+- Now find the $z$-score of **the maximal extent of the whisker**. I.e. the value of $z$ such that $\mu \pm z\sigma$ is the endpoint of lower/upper whisker.
+```{r}
+Ll = -0.6745-1.5*1.349
+Ul = 0.6745+1.5*1.349
+Ll
+Ul
+```
+
+- Find the probability of being an outlier.
+```{r}
+PLl = pdist("norm", q = Ll, mean = 0, sd = 1, plot = FALSE)
+PUl = pdist("norm", q = Ul, mean = 0, sd = 1, plot = FALSE)
+PIN = PUl-PLl
+POUT = 1-PIN
+POUT
+```
