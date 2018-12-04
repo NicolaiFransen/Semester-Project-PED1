@@ -4,12 +4,12 @@ The way the buck-boost converter works has been discussed in the introductory ch
 
 \section{Buck mode}
 
-The voltages and currents in the different switch stages can be seen in figure \ref{CCM_buck}
+The voltages and currents in the different switch stages can be seen in figure \ref{CCM_buck} \todo{needs different pic}
 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{../Pictures/CCM_buck}
-		\caption{Ideal buck converter in CCM \cite{CCM_buck}}
+		\caption{Ideal buck converter in CCM}
 		\label{CCM_buck}
 	\end{center}	
 \end{figure}
@@ -29,7 +29,7 @@ V_L = -V_o
 
 As seen in the figure \ref{CCM_buck} the current will decrease in this state but never reaches zero.
 
-These equations show that energy will be stored in the inductor during the on time and decreases in the off time. This means that the inductor is used to transfer the energy from the input to the output of the converter. 
+This equations shows that energy will be stores in the inductor during the on time and decreases in the off time. This means that the inductor is used to transfer the energy from the input to the output of the converter. 
 Looking at the voltage part of the figure the yellow surface corresponds to $(V_i-V_o)\cdot t_{on}$ and the orange correndsponds to the $-V_o\cdot t_{on}$. When working in a steady state operation these areas must be equal which in reduced form will be:
 
 \begin{equation}
@@ -59,20 +59,20 @@ That equation will be used to calculate the peak current in the inductor:
 
 \begin{equation}
 I_{Lmax} = I_o + \frac{\Delta I_{Lmax}}{2}
-\end{equation} 
+\end{equation}
 
-There are several factors that contribute to the output voltage ripple. Basically the output voltage will rise and fall when the capacitor is charging and discharging. It can be found by calculating $\Delta V_o = \frac{\Delta Q}{C}$, where $\Delta Q$ is the amount of charge. This value is found by integrating $I_L$ from $t_1$ to $t_2$. By doing that $\Delta Q = \frac{\Delta I_L}{8\cdot f}$. where $\Delta I_L = (V_o\cdot t_2)/L$ Which means the output voltage ripple can be calculated with:
+There are several factors that contribute to the output voltage ripple. Basically the output voltage will rise and fall when the capacitor is charging and discharging. It can be found by calculating $\Delta V_o = \frac{\Delta Q}{C}$, where $\Delta Q$ is the amount of charge. This value is found by integrating $I_L$ from $t_1$ to $t_2$. By doing that $\Delta Q = \frac{\Delta I_L}{8}\cdot T_s$. where $\Delta I_L = (V_o\cdot t_2)/L$ Which means the output voltage ripple can be calculated with:
  
 \begin{equation} \label{buckc} 
-\Delta V_o = \frac{V_{o}\cdot (1-D)}{8\cdot C_{out}\cdot f^2\cdot L}
-\end{equation}  \cite{buck_equation}  
+\Delta V_o = \frac{V_{in}}{8\cdot C_{out}\cdot f^2\cdot L}
+\end{equation}    
 
 For the input capacitor the capacitance can be calculated with the equation below:
-
+D
 \begin{equation}
 \label{buckcin}
 C_{in} = \frac{I_o\cdot D\cdot (1-D)}{\Delta V_o\cdot f}
-\end{equation} \cite{underthehood} 
+\end{equation}  
 
 \section{Boost mode}
 When working in boost mode the output voltage will be larger than the input voltage. The voltages and currents in the different switch stages can be seen in figure \ref{CCM_boost}
@@ -80,10 +80,11 @@ When working in boost mode the output voltage will be larger than the input volt
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{../Pictures/CCM_boost}
-		\caption{Ideal boost converter in CCM \cite{CCM_boost}}
+		\caption{Ideal boost converter in CCM}
 		\label{CCM_boost}
 	\end{center}	
 \end{figure}
+\todo{picture ref}
 In the boost mode CCM will still be used. When the switch is on the voltage across the inductor will be:
 
 \begin{equation}
@@ -124,15 +125,15 @@ With the above equation the peak current through the inductor can be found like 
 I_{Lmax} = \frac{1}{1-D}\cdot Io+\frac{\Delta I_{Lmax}}{2}
 \end{equation}
 
- The output voltage ripple can be calculated with:
+ The output voltage ripple can be found by calculating $\Delta V_o = \frac{\Delta Q}{C}$, where $\Delta Q$ is the amount of charge. This value is found by integrating $\frac{-I_o}{c}$ from $D$ to $0$. By doing that the output voltage ripple can be calculated with:
 
 \begin{equation}\label{boostc}
 \Delta V_o = \frac{D\cdot I_o}{f\cdot c}
-\end{equation} \cite{boost_equation}
+\end{equation}
 
 The input capacitor value can be found with the equation below:
 
 \begin{equation}
 \label{boostcin}
 C_{in} = \frac{I_o\cdot D\cdot (1-D)}{\Delta V_o\cdot f}
-\end{equation}  \cite{underthehood}
+\end{equation}  

@@ -61,14 +61,14 @@ D = \frac{V_{out}}{V_{in}} = \frac{24V}{32.6V} = 0.736
 The output capacitor worst case is also in buck mode but with $V_{out}=30V$ \todo{30V?¿?AT} instead. This is calculated by isolating the capacitance C in \ref{buckc}. \todo{WTF?}
 
 \begin{equation} \label{buckc} 
-C_{out} =\frac{V_{0}\cdot (1-D)}{8\cdot L*f^2\cdot \Delta V_o} = \frac{30V\cdot (1-0.92)}{8\cdot 48\mu H*50kHz^2\cdot 0.15V} = 16.616\mu F
+C_{out} =\frac{V_{in}}{8\cdot L*f^2\cdot \Delta V_o} = \frac{32.6V}{8\cdot 48\mu H*50kHz^2\cdot 0.15V} = 16.718\mu F
 \end{equation}
 
 where $0.15V$ is the allowed ripple voltage at the output and $48\mu H$ is the inductance. This inductance is calculated at worst case. 
 Since the converter is not working in worst case and the inductor is bigger, a much lower ripple voltage than the 0.15V will be obtained. As seen in the next section the actual output capacitor is $820\mu F$ which will give a ripple voltage as below:
 
 \begin{equation} \label{buckc} 
-\Delta V_o = \frac{V_{o}\cdot (1-D)}{8\cdot L*f^2\cdot C_{out}} = \frac{30V\cdot (1-0.92)}{8\cdot 650\mu H*50kHz^2\cdot 820\mu F} = 0.224mV
+\Delta V_o = \frac{V_{in}}{8\cdot L*f^2\cdot C_{out}} = \frac{32.6V}{8\cdot 650\mu H*50kHz^2\cdot 820\mu F} = 0.003V
 \end{equation}
-\todo{I have no idea how to argument for this, since our capacitor is way to big. We calculated it wrong in the script.}  
+\todo{even lower because the actual inductor is bigger as well. JK}  
    
