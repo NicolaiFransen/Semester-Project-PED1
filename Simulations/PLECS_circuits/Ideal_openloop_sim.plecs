@@ -45,7 +45,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [520, 113; 1375, 715]
+    Location      [14, 163; 869, 765]
     ZoomFactor    1.33333
     SliderPosition [63, 0]
     ShowBrowser   off
@@ -241,7 +241,7 @@ Plecs {
       Type          Scope
       Name          "Scope"
       Show          on
-      Position      [660, 180]
+      Position      [610, 95]
       Direction     up
       Flipped       off
       Location      [770, 30; 1536, 803]
@@ -355,7 +355,7 @@ Plecs {
       Type          PulseGenerator
       Name          "Pulse\nGenerator1"
       Show          off
-      Position      [315, 345]
+      Position      [190, 340]
       Direction     right
       Flipped       off
       Parameter {
@@ -419,7 +419,7 @@ Plecs {
       Type          SignalMux
       Name          "Mux"
       Show          off
-      Position      [625, 180]
+      Position      [575, 95]
       Direction     right
       Flipped       off
       Parameter {
@@ -440,14 +440,6 @@ Plecs {
         Value         "Load"
         Show          off
       }
-    }
-    Component {
-      Type          Ammeter
-      Name          "i_L1"
-      Show          on
-      Position      [505, 110]
-      Direction     up
-      Flipped       off
     }
     Connection {
       Type          Wire
@@ -516,21 +508,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Pulse\nGenerator1"
-      SrcTerminal   1
-      Points        [360, 345; 360, 320]
-      Branch {
-        DstComponent  "FET_2"
-        DstTerminal   3
-      }
-      Branch {
-        Points        [290, 320]
-        DstComponent  "Logical\nOperator1"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Logical\nOperator1"
       SrcTerminal   1
       Points        [340, 115]
@@ -545,13 +522,6 @@ Plecs {
       DstTerminal   2
     }
     Connection {
-      Type          Signal
-      SrcComponent  "Mux"
-      SrcTerminal   1
-      DstComponent  "Scope"
-      DstTerminal   1
-    }
-    Connection {
       Type          Wire
       SrcComponent  "FET_4"
       SrcTerminal   1
@@ -564,7 +534,7 @@ Plecs {
           DstTerminal   1
         }
         Branch {
-          DstComponent  "i_L1"
+          DstComponent  "Load"
           DstTerminal   1
         }
       }
@@ -572,14 +542,6 @@ Plecs {
         DstComponent  "C2"
         DstTerminal   1
       }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vo"
-      SrcTerminal   3
-      Points        [580, 150; 580, 185]
-      DstComponent  "Mux"
-      DstTerminal   3
     }
     Connection {
       Type          Signal
@@ -598,14 +560,6 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "V_PV"
-      SrcTerminal   1
-      Points        [95, 75; 270, 75]
-      DstComponent  "FET_1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "FET_2"
       SrcTerminal   1
       Points        [395, 165]
@@ -620,18 +574,55 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "i_L1"
+      SrcComponent  "Mux"
+      SrcTerminal   1
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vo"
       SrcTerminal   3
-      Points        [565, 110; 565, 175]
+      DstComponent  "Mux"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "i_L"
+      SrcTerminal   3
+      Points        [360, 60; 560, 60]
       DstComponent  "Mux"
       DstTerminal   2
     }
     Connection {
       Type          Wire
-      SrcComponent  "i_L1"
-      SrcTerminal   2
-      DstComponent  "Load"
-      DstTerminal   1
+      SrcComponent  "V_PV"
+      SrcTerminal   1
+      Points        [95, 75; 165, 75]
+      Branch {
+        Points        [270, 75]
+        DstComponent  "FET_1"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "C1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pulse\nGenerator1"
+      SrcTerminal   1
+      Points        [290, 340]
+      Branch {
+        Points        [360, 340]
+        DstComponent  "FET_2"
+        DstTerminal   3
+      }
+      Branch {
+        DstComponent  "Logical\nOperator1"
+        DstTerminal   2
+      }
     }
   }
 }
