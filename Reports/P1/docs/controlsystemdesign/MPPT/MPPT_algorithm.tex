@@ -24,7 +24,7 @@ The advantage of using constant voltage is that only the voltage is measured and
 With the method "perturb and observe", the currently measured power is periodically compared with the previous power. If the measured power is greater than the power from the previous measurement, the algorithm is moving in the right direction to the MPP. If a power reduction is detected after the comparison, the algorithm is moving away from the MPP. The next step is the identification of a voltage increase or reduction to regulate the voltage for getting the MPP voltage. This depends on which side of the MPP the algorithm is working. If the algorithm detects less voltage than the MPP, the voltage for the next step should increase. If more voltage than the MPP is detected,the algorithm decreases the voltage for the next step to reach the MPP.
 The flowchart in the figure \ref{fcperturbandobserve} illustrates this method. The classical algorithm uses a fixed step to change the voltage. When the MPP is reached, the algorithm oscillates around the MPP\cite{flowchartVC}. 
 
-The required computing power of the perturb and observe algorithm is also low, because it is easy to compute. The algorithm contains the calculation of the power and the comparison with previous power for each step. Another advantage of perturb and observe is that a current sensor does not necessarily have to be used. There are scientific paper where only a voltage sensor is used. \cite{withoutcurrent} \todo{fix cite error, NHF}There is a disadvantage when the algorithm is near to the MPP since, at this point, the algorithm oscillates around the MPP, so that the MPP cannot be reached exactly. The oscillation depends on the value of the fixed step. If the fixed step value is high, the MPP will be reached quickly. On the other hand, the oscillation around the MPP is high, which reduces the efficiency. The advantage of a small value is that the oscillation is small, but it takes more time to reach the MPP\cite{AN1521_MC}. \todo{Fix arrow in figure, NHF}
+The required computing power of the perturb and observe algorithm is also low, because it is easy to compute. The algorithm contains the calculation of the power and the comparison with previous power for each step. Another advantage of perturb and observe is that a current sensor does not necessarily have to be used. There are scientific paper where only a voltage sensor is used. \cite{withoutcurrent} \todo{fix cite error, NHF}There is a disadvantage when the algorithm is near to the MPP since, at this point, the algorithm oscillates around the MPP, so that the MPP cannot be reached exactly. The oscillation depends on the value of the fixed step. If the fixed step value is high, the MPP will be reached quickly. On the other hand, the oscillation around the MPP is high, which reduces the efficiency. The advantage of a small value is that the oscillation is small, but it takes more time to reach the MPP\cite{AN1521_MC}. 
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -60,7 +60,7 @@ Two sensors are used for the implementation. In addition, the microcontroller re
 The table\ref{fcinccon} gives an overview of the advantages and disadvantages of the different algorithms.
 \begin{table}[H]
 	\centering 
-	\begin{tabular}{|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+	\begin{tabular}{|>{\centering}m{2cm}|>{\centering}m{2cm}|>{\centering}m{2cm}|>{\centering}m{2cm}|>{\centering}m{2cm}|>{\centering}m{2cm}|}
 		\hline
 		\rowcolor{lightgray}						 \textbf{MPPT Algorithm} & 	
 		\textbf{Sensed Parameters} &
@@ -76,6 +76,6 @@ The table\ref{fcinccon} gives an overview of the advantages and disadvantages of
 	\caption{Summary the Pro and Contra from each MPPT algroithm \cite{flowchartVC} }
 	\label{tab:summaryMPPT}
 \end{table}
-\todo{center cells}
+
 
 
