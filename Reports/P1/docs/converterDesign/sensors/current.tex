@@ -4,13 +4,13 @@ The current along with the voltage of the PV allows the system to perform power 
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{../Pictures/current_sensor_placement.png}
+		\includegraphics[width=0.6\textwidth]{../Pictures/current_sensor_placement.png}
 		\caption{Current sensor placement.}
 		\label{current_sensor_placement}
 	\end{center}	
 \end{figure}
 
-The sensor is a ACS723-20AB \todo{Include datasheet AT} which is a Hall effect sensor. Its features might be found in table \ref{current_sensor_features}.
+The sensor is a ACS723-20AB \cite{current_sensor} which is a Hall effect sensor. Its features might be found in table \ref{current_sensor_features} and its connection might be found in \ref{current_sensor_application}.
 
 \begin{table}[htbp]
 	\centering
@@ -29,26 +29,31 @@ The sensor is a ACS723-20AB \todo{Include datasheet AT} which is a Hall effect s
 	\label{current_sensor_features}
 \end{table}
 
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{../Pictures/P1/Sensors/current_sensor}
+		\caption{Current sensor connection.}
+		\label{current_sensor_application}
+	\end{center}	
+\end{figure}
+
 The output of the sensor is a voltage proportional to the current following the next equation:
- \todo[inline,color=green]{maybe the gain is 0.125, to be confirmed by test.}
+
 \begin{equation} 
 V_{current} = \frac{1}{10} \, i + 2.5
 \end{equation}
 
-In order to ease the task of the control, the signals are filtered by hardware. The current will be used by the MPPT, which frequency is $100 Hz$ \todo{check final implementation}. The sensor output is filtered by a LPF \todo{Include in annotations. AT} which cut-off frequency is $500 Hz$. The cut-off frequency has been calculated by a hundredth of the switching frequency, which is $50 kHz$. Also the current might be used in the current controller, this signal will be filtered at $80 KHz$ in order to remove high frequency noise, this cut-off frequency was selected as it is the sensor's bandwidth. The filters are first order low-pass filters implemented with a resistor in series with a capacitor.\todo{has the current control been implemented? was enough this filtering?}
+In order to ease the task of the control, the signals are filtered by hardware. The current will be used by the MPPT, which frequency is $100 Hz$ \todo{check final implementation}. The sensor output is filtered by a LPF which cut-off frequency is $50 Hz$. The cut-off frequency has been calculated by a thousandth of the switching frequency, which is $50 kHz$. Also the current might be used in the current controller, this signal will be filtered at $80 KHz$ in order to remove high frequency noise, this cut-off frequency was selected as it is the sensor's bandwidth. The filters are first order low-pass filters implemented with a resistor in series with a capacitor.\todo{has the current control been implemented? was enough this filtering?}
 
 In order to calculate the current from the PV module, the converter working mode will have to be taken into account. Assuming continuous conduction mode, the average PV current is:
 
 
 \begin{equation} 
-	Buck \; mode \rightarrow \overline{I_{in}} = i_{measured} \cdot \delta
+	Buck \; mode \rightarrow \overline{I_{in}} = \overline{i_{measured}} \cdot \delta
 \end{equation}
 \begin{equation} 
-Boost \; mode \rightarrow \overline{I_{in}} = i_{measured} \cdot
+Boost \; mode \rightarrow \overline{I_{in}} = \overline{i_{measured}}
 \end{equation}
 \begin{equation} 
-Buck-Boost \; mode \rightarrow \overline{I_{in}} = i_{measured} \cdot \delta
+Buck-Boost \; mode \rightarrow \overline{I_{in}} = \overline{i_{measured}} \cdot \delta
 \end{equation}
-
-\todo{I think it's better to include this in the layout explanation.} The IC has been placed far from the inductor in order to avoid undesired magnetic flux.
-
