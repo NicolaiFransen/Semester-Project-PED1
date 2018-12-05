@@ -8,7 +8,7 @@ The voltages and currents in the different switch stages can be seen in figure \
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.7\textwidth]{../Pictures/CCM_buck}
+		\includegraphics[width=0.6\textwidth]{../Pictures/CCM_buck}
 		\caption{Ideal buck converter in CCM \cite{CCM_buck}}
 		\label{CCM_buck}
 	\end{center}	
@@ -27,7 +27,7 @@ When the switch is off(open) the diode will be forward biased which means the vo
 V_L = -V_o
 \end{equation} 
 
-As seen in the figure \ref{CCM_buck} the current will decrease in this state but never reaches zero.
+As seen in the figure \ref{CCM_buck} the current will decrease in this state, until the switch turns on again.
 
 This equations show that energy will be stored in the inductor during the on time and decreases in the off time. This means that the inductor is used to transfer the energy from the input to the output of the converter. 
 Looking at the voltage part of the figure the yellow surface corresponds to $(V_i-V_o)\cdot t_{on}$ and the orange correndsponds to the $-V_o\cdot t_{on}$. When working in a steady state operation these areas must be equal which in reduced form will be:
@@ -76,9 +76,9 @@ C_{in} = \frac{I_o\cdot D\cdot (1-D)}{\Delta V_o\cdot f}
 \section{Boost mode}
 When working in boost mode the output voltage will be larger than the input voltage. The voltages and currents in the different switch stages can be seen in figure \ref{CCM_boost}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.7\textwidth]{../Pictures/CCM_boost}
+		\includegraphics[width=0.5\textwidth]{../Pictures/CCM_boost}
 		\caption{Ideal boost converter in CCM \cite{CCM_boost}}
 		\label{CCM_boost}
 	\end{center}	

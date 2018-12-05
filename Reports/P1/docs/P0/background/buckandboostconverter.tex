@@ -4,7 +4,7 @@ A buck converter is one of the simplest DC-DC converters with the task of decrea
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.7\textwidth]{../Pictures/Buck-converter}
+		\includegraphics[width=0.8\textwidth]{../Pictures/Buck-converter}
 		\caption{Equivalent circuit for the DC-DC buck converter.}
 		\label{Buck-converter}
 	\end{center}	
@@ -15,7 +15,7 @@ During the first state, the MOSFET is conducting and the diode is working as an 
 
 The main advantage for using the buck converter is that the structure is very simple and only one controlled  switch is needed. Also, the component count and thus cost of components is low. Furthermore, the buck converter can reach efficiencies up to 99\% \cite{Efficiencybuck}. 
 
-However, this topology is not very versatile since it does not allow the increase of output voltage with respect to the input. Another drawback is the lack of galvanic isolation between the input and the output \cite{advantagebuck}.
+However, this topology is not very versatile since it does not allow the increase of output voltage with respect to the input. Another drawback is the lack of galvanic isolation between the input and the output \cite{advantagebuckboost}.
 %%http://www.completepowerelectronics.com/buck-converter-tutorial-topology-working-advantages-applications/
 
 \subsection{Boost converter\label{Boost-C}}
@@ -35,7 +35,7 @@ The circuit consists of two switches (a transistor and a diode), an inductor, a 
 Similarly to the buck converter, this topology has two states, when the MOSFET is on, the current flows only trough the inductor because the diode  is working as an open-circuit. Energy is then stored in the inductor, which voltage is equal to the input voltage, and current increases. Meanwhile, the capacitor releases the previously stored energy to the load.
 During the second state, the MOSFET is turned off, the current then loops trough the inductor, diode, capacitor and the load. Since the inductor had been previously charged, it now works as a current source in series with the voltage source of the circuit. The voltage across the load is then risen with respect to that at the input. Furthermore, the capacitor is charging \cite{schematicbuckandboost}.
 
-An advantage for a boost converter is that it can raise the output voltage without using a transformer. It is also a cheap converter easy to control \cite{advantageboost}. 
+An advantage for a boost converter is that it can raise the output voltage without using a transformer. It is also a cheap converter easy to control \cite{advantagebuckboost}. 
 
 However, as it happened with the buck, the boost converter is also limited to rising the voltage and lowering it cannot be achieved. Also, if an error happens in the control of the MOSFET and it is left in ON-mode for a long time, a short-circuit is created and the current will increase until a component fails. Finally, this converter does not have galvanic isolation either. 
  
