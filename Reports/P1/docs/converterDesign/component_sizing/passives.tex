@@ -1,74 +1,18 @@
-To calculate the values of the passive components which includes the inductor, $C_{in}$ and $C_{out}$, a matlab  script has been created. This was done to see the different component values when switching frequency, number of MICs and thereby different output voltages were used. This also means that different component values for both buck and boost mode have been calculated.
+The power circuit includes three main passive components which are the inductor, the input capacitor ($C_{in}$) and the output capacitor ($C_{out}$). In order to calculate the values for minimal inductance and capacitance that components need to have, the worst case scenario was considered. According to these values, the coil will influence the maximum current ripple that there will flow through it while the capacitors will set the voltage ripple at the input and at the output of the MIC. 
 
-First of all the frequency was set to do a sweep from 20kH to 100kHz with steps of 10kHz. This was done because at this moment a switching frequency was not chosen yet, and in this way it was possible to see, how the passive components would change with different frequencies. 
-The different output voltages was calculated by the voltage of the inverter $V_{inverter}=360V$ divided by the number of MICs. Again for the number of MICs a sweep was made starting with 4 MICs and ending with 15 in steps of 1.
+Therefore, in order to calculate these values the ripples have been set. For the current through the coil, a 10\% maximum ripple has been chosen. The output capacitor will  have a maximum of 0.5\% voltage ripple. However, the input capacitor makes the PV-module output voltage flat, therefore the ripple found at $C_{in}$ directly influences the maximum power extracted from the PV since it produces a deviation from the MPP. Giving this, a low input voltage ripple of 0.1\% has been selected.
 
-The maximum voltage from the PV panel is $V_{mpp}=32.6V$ \todo{is it? AT}
-and to get the maximum current ohms law can be used, since the maximum power from the PV panel is 300W.
+The ripple, however, also depends on the working frequency of the switches. In the case of this converter, such frequency has been set to 50kHz. 
 
-\begin{equation}
-I_{mpp} = 300W/32.6V = 9.2A
-\end{equation} 
+On the other hand, since the ripples are a percentage of the absolute current or voltage, the worst case scenario for calculating the ripples will be when the current or voltages are lowest. A lower limit is then implemented at which the values will be calculated, this is the solar panel working at $400 W/m^3$ and at a temperature of $25 ºC$.
 
-From the $V_{mpp}$ and $I_{mpp}$ a constant K is calculated which will be an approximation of the relationship between the input voltage and input current.
-By doing this the behaviour is seen as linear dependant. The real relation between V and I in the solar panel is not completely linear but this is a good approximation. \todo{Why linear dependant? The relation between V and I in the solar panel isn't linear. Stef}.
-\begin{equation}
- K = 32.6V/9.2A = 3.54
- \end{equation} 
+Under this conditions, the MPP voltage obtained is $V_{mpp} = 36.25V$ and the MPP current is $I_{mpp} = 3.23A$.
 
-The converter can operate in both buck and boost mode. The equations used to calculate the passive components for these modes is not the same ones. Therefore it is important to know which mode the converter will be in for a specific output voltage.  
-The equations for the modes can be found in the appendix \ref{ch:Appbuckboost}. Here a value M is used which determines whether the voltage has to decrease or increase at the output \todo{We don't control the output voltage but the input voltage. Stef}. This value is calculated by:
-\begin{equation}
-M = V_{out}/V_{in}
-\end{equation}
-So a value smaller than one will need a decrease in voltage and therefore buck mode. On the other hand values higher than one will need an increase in voltage which will be the boost mode. The exact value also tells how big an increase or decrease factor in voltage the converter needs to perform.
+The minimum current flow through the coil is achieved when the boost mode is working. For this, the inductance is calculated for the maximum output voltage, which is when 4 MICs are connected in series. According to the equations stated in the appendix \ref{ch:Appbuckboost}, the inductance has been sized to $I_{L} = 1.3mH$.
 
-The worst case values for the 3 components with variable frequency, number of mics and voltage could then be obtained from the script. 
-In \ref{buckind} and \ref{boostind} the inductance L has been isolated and calculated with a current ripple of $10\%$ to get the different inductor values. For iteration 1 the frequency will be $50kHz$. Looking at the output of the script the worst case will be in boost mode with $V_{out}=90V$ and $P=15W$\todo{How do you get this and why is the minimum power?Stef}. This is the minimum power which the MIC will be working at which has been determined by the group. If lower power could be obtained, the inductance would be higher. The inductance is calculated below:
+On the other hand, the voltage used for $C_{in}$ will be found when buck mode is working with 15 MICs connected in series. This is a total output voltage of $24 V$. 
+With the equations stated in appendix \ref{ch:Appbuckboost}, $C_{in} = 603 \mu F$.
 
-\begin{equation}\label{buckind}
-L = \frac{V_{in}\cdot D}{\Delta I_L\cdot f}= \frac{7.29V\cdot 0.919}{0.206A\cdot 50kHz} = 650\mu H
-\end{equation}
-
-Where $7.29V$ is the input voltage at $15W$ and 0.919 is the dutycycle which has been calculated in this way:
-
-\begin{equation} \label{boostD}
-D = \frac{V_{out}-V_{in}}{V_{out}} = \frac{90V-7.29V}{90V} = 0.919
-\end{equation} 
-
-The capacitor values for the output is calculated in the same way by isolating the capacitance C in \ref{buckc} and \ref{boostc}. For the input capacitance equations \ref{buckcin} and \ref{boostcin} are used.\todo{Cout?Stef}
-The $C_{in}$ and $C_{out}$ values are calculated with different voltage ripple percentages. For the output capacitor the allowed voltage ripple is set to $0.5\%$ while the input capacitors voltage ripple is even lower at $0.1\%$. \todo{why these values tho?, also for the rest of the components.AT}
-
-For $C_{in}$ the worst case will be in buck mode\todo{why??Stef} with $V_{in}=32.6V$, $V_{out}=24V$ and $P=300W$ which is calculated below:
-
-\begin{equation}
-C_{in} = \frac{I_{out}\cdot D\cdot (1-D)}{\Delta V_o\cdot f} = \frac{12.5A\cdot 0.736\cdot (1-0.736)}{0.033V\cdot 50kHz} = 1.49mF
-\end{equation}  
-
-Where $12.5A$ is the output current calculated below:
-
-\begin{equation}
-I_{out} = P/V_{out} = 300W/24V = 12.5A
-\end{equation}
-
-$0.033V$ is the allowed ripple voltage at the input and 0.736 the dutycycle which is calculated as below:
-
-\begin{equation} \label{buckduty}
-D = \frac{V_{out}}{V_{in}} = \frac{24V}{32.6V} = 0.736
-\end{equation} 
-
-
-The output capacitor worst case is also in buck mode but with $V_{out}=30V$ \todo{30V?¿?AT} instead. This is calculated by isolating the capacitance C in \ref{buckc}. \todo{WTF?}
-
-\begin{equation} \label{buckc} 
-C_{out} =\frac{V_{o}\cdot (1-D)}{8\cdot L*f^2\cdot \Delta V_o} = \frac{30V\cdot (1-0.92)}{8\cdot 48\mu H*50kHz^2\cdot 0.15V} = 16.616\mu F
-\end{equation}
-
-where $0.15V$ is the allowed ripple voltage at the output and $48\mu H$ is the inductance. This inductance is calculated at worst case. 
-Since the converter is not working in worst case and the inductor is bigger, a much lower ripple voltage than the 0.15V will be obtained. As seen in the next section the actual output capacitor is $820\mu F$ which will give a ripple voltage as below:
-
-\begin{equation} \label{buckc} 
-\Delta V_o = \frac{V_{o}\cdot (1-D)}{8\cdot L*f^2\cdot C_{out}} = \frac{30V\cdot (1-0.92)}{8\cdot 650\mu H*50kHz^2\cdot 820\mu F} = 0.224mV
-\end{equation}
-\todo{I have no idea how to argument for this, since our capacitor is way to big. We calculated it wrong in the script.}  
+Finally, $C_{out}$ was calculated for the worst case scenario, which in this case is working in boost mode with a duty cycle of $D = 0.5$ (Appendix \ref{ch:Appbuckboost}). Also, the worst case scenario for $C_{out}$ is when the power generated by the PV-module is maximum, 300W.
+In this case, the obtained value for the ouput capacitance is $C_{out} = 65 \mu F$, (appendix \ref{ch:Appbuckboost}).
    

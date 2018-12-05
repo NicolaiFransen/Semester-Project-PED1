@@ -1,19 +1,19 @@
 % clc;
 % clear all;
 
-f = 50000 %20000:10000:100000;  %100kHZ
+f = 50000; %20000:10000:100000;  %100kHZ
 V_inverter = 360; 
 n_mics = 4:1:15;
-Vmpp = 32.6;
-Impp = 300/Vmpp; %Being 300W the maximum power (when there is 32.6V). 
-K = Vmpp/Impp; 
-P = 300; 
-Iin = sqrt(P/K);
-Vin = K * Iin;  
+Vmpp = 36.9; %36.25V is voltage obtained during simulation for a 400W/m3 irradiance and 25ºC (P = 117W).
+Impp = 8.14; %3.23A is current obtained during simulation for a 400W/m3 irradiance and 25ºC (P = 117W).
+
+Iin = Impp;
+Vin = Vmpp;  
 Vout = V_inverter./n_mics; 
+P = Vmpp*Impp
 
 percent_ripple_IL = 0.1;
-percent_ripple_C_out = 0.005; %0.5% voltage ripple at the output (really Vout is controlled by the inverter).
+percent_ripple_C_out = 0.01; %0.5% voltage ripple at the output (really Vout is controlled by the inverter).
 percent_ripple_C_in = 0.001;  %0.1% voltage ripple at the input in order to maintain MPP conditions.
 
 M = Vout./Vin; 
@@ -35,7 +35,7 @@ for i = 1:size(M,2)
         %Voltage through output capacitor: 
 
         ripple_Vout = percent_ripple_C_out * Vout(i);  % Output voltage ripple 1% of Vout.
-        C_out(:,i) = Vin./(8*L(:,i)'.*f.^2*ripple_Vout); 
+        C_out(:,i) = Vout(i) * (1-D1) ./ (8.*L(:,i)'.*f.^2.*ripple_Vout); 
 
         %Voltage through input capacitor
 
