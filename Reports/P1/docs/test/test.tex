@@ -2,7 +2,12 @@
 
 \chapter{Test and validation of results} \label{ch:test_validation}
 
-\todo[inline,color=green]{Add a short introduction to this chapter, NHF.}
+When the design stage is completed, it must be validated. The system design consisted of hardware and control design. The validation checks whether the system is compliant with the initial goals. The validation is performed in two steps: first the design is validated through software simulation. This step was explained in previous chapters. The second step consists on the validation over the physical implementation and will be addressed in this chapter.
+
+The hardware design testing is performed following an incremental fashion. The components are individually soldered to the PCB and tested. The tests are short and with clear boundaries. This features ease the errors' finding and troubleshooting. This procedure validates the proper behaviour in the single component but also lets analyse the effect of additional components. The assembly and test procedure will be defined prior to the PCB assembly. The tests and its expected results are clear before starting. When the PCB is assembled and all the integration tests are passed, the complete converter is tested. This system test is performed by running the converter with a fixed duty cycle. This test allows the validation of the converter as a whole, including voltage and current ripples, thermal test, gain and losses.
+
+The control design testing must demonstrate that the control signals are properly calculated in order to achieve maximum power generation. This signals are received by the previously tested hardware implementation. The testing consists on black box testing where only a few internal parameters are monitored through the controller's console. The 
+system's stability and dynamic behaviour will analysed.
 
 %% Section decribing the PCB building of the first iteration %%
 \input{docs/test/pcb_building1.tex}

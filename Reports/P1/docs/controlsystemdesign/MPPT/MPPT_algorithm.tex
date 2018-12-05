@@ -1,6 +1,6 @@
 \section{Maximum Power Point Tracking techniques\label{MPPTalgo}}
 
-There are a variety of different techniques for finding the maximum power point. Therefore only three different methods are used in this thesis, otherwise it would go beyond the scope of this work. These three methods are the perturb and observe, constant voltage and incremental conductance. Perturb and observe and incremental conductance are the most used algorithms in commercial pv-panels. On the other hand, constant voltage has been selected as an idea for other less used methods.
+There are a variety of different techniques for finding the maximum power point. Therefore only three different methods are used in this thesis, otherwise it would go beyond the scope of this work. These three methods are the perturb and observe, constant voltage and incremental conductance. Perturb and Observe (P\&O) and incremental conductance are the most used algorithms in commercial PV-panels. On the other hand, constant voltage has been selected as an idea for other less used methods. Each methods are described with a flow chart. Also there are mentioned the advantage and disadvantage from the methods.
 
 \subsection{Constant voltage}
 Empirical experiments have shown that the voltage of the MPP has a linear dependence on the open circuit voltage at different ambient conditions.
@@ -14,7 +14,7 @@ The advantage of using constant voltage is that only the voltage is measured and
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{../Pictures/P1/Flow_chart/Flow_chart_constant_voltage}
+		\includegraphics[width=0.35\textwidth]{../Pictures/P1/Flow_chart/Flow_chart_constant_voltage}
 		\caption{flow chart constant voltage\cite{flowchartVC}. }
 		\label{fcconstantvoltage}
 	\end{center}	
@@ -24,7 +24,7 @@ The advantage of using constant voltage is that only the voltage is measured and
 With the method "perturb and observe", the currently measured power is periodically compared with the previous power. If the measured power is greater than the power from the previous measurement, the algorithm is moving in the right direction to the MPP. If a power reduction is detected after the comparison, the algorithm is moving away from the MPP. The next step is the identification of a voltage increase or reduction to regulate the voltage for getting the MPP voltage. This depends on which side of the MPP the algorithm is working. If the algorithm detects less voltage than the MPP, the voltage for the next step should increase. If more voltage than the MPP is detected,the algorithm decreases the voltage for the next step to reach the MPP.
 The flowchart in the figure \ref{fcperturbandobserve} illustrates this method. The classical algorithm uses a fixed step to change the voltage. When the MPP is reached, the algorithm oscillates around the MPP\cite{flowchartVC}. 
 
-The required computing power of the perturb and observe algorithm is also low, because it is easy to compute. The algorithm contains the calculation of the power and the comparison with previous power for each step. Another advantage of perturb and observe is that a current sensor does not necessarily have to be used. There are scientific paper where only a voltage sensor is used \cite{withoutcurrent}.There is a disadvantage when the algorithm is near to the MPP since, at this point, the algorithm oscillates around the MPP, so that the MPP cannot be reached exactly. The oscillation depends on the value of the fixed step. If the fixed step value is high, the MPP will be reached quickly. On the other hand, the oscillation around the MPP is high, which reduces the efficiency. The advantage of a small value is that the oscillation is small, but it takes more time to reach the MPP\cite{AN1521_MC}. 
+The required computing power of the P\&O algorithm is also low, because it is easy to compute. The algorithm contains the calculation of the power and the comparison with previous power for each step. Another advantage of P\&O is that a current sensor does not necessarily have to be used. There are scientific paper where only a voltage sensor is used \cite{withoutcurrent}.There is a disadvantage when the algorithm is near to the MPP since, at this point, the algorithm oscillates around the MPP, so that the MPP cannot be reached exactly. The oscillation depends on the value of the fixed step. If the fixed step value is high, the MPP will be reached quickly. On the other hand, the oscillation around the MPP is high, which reduces the efficiency. The advantage of a small value is that the oscillation is small, but it takes more time to reach the MPP\cite{AN1521_MC}. 
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -51,7 +51,7 @@ An advantage of incremental conductance is remaining exactly at the MPP that whe
 Two sensors are used for the implementation. In addition, the microcontroller requires a higher computing power than perturb and observe, since many more commands are called up during an iteration step. The costs for the algorithm development and microcontroller are higher compared to the other two algorithms\cite{AN1521_MC}.
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.63\textwidth]{../Pictures/P1/Flow_chart/flow_chart_incremental_conductance}
+		\includegraphics[width=0.605\textwidth]{../Pictures/P1/Flow_chart/flow_chart_incremental_conductance}
 		\caption{flow chart incremental conductance \cite{AN1521_MC} }
 		\label{fcinccon}
 	\end{center}	
