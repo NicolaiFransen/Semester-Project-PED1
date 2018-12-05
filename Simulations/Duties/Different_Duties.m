@@ -19,7 +19,7 @@ plot(duty_cycle_05_to_1, M_boost, 'Linewidth',1)
 hold on
 plot(duty_cycle_0_to_05, M_buck,'Linewidth',1)
 ylim([0 10])
-xlabel('Duty Cycle')
+xlabel('Control variable valg')
 ylabel('Vout/Vin')
 legend('Boost Mode','Buck Mode')
 %hold on
@@ -40,6 +40,25 @@ ylim([0 10])
 xlabel('Duty Cycle')
 ylabel('Vout/Vin')
 legend('Boost Mode','Buck Mode')
+
+figure(3)
+subplot(2,1,1)
+plot(duty_cycle_0_to_1, M_buck_single,'r','Linewidth',1)
+hold on
+plot(duty_cycle_0_to_1, M_boost_single, 'b', 'Linewidth',1)
+ylim([0 10])
+xlabel('Duty Cycle')
+ylabel('Vout/Vin')
+legend('Boost Mode','Buck Mode')
+subplot(2,1,2)
+plot(duty_cycle_05_to_1, M_boost, 'Linewidth',1)
+hold on
+plot(duty_cycle_0_to_05, M_buck,'Linewidth',1)
+ylim([0 10])
+xlabel('Control variable valg')
+ylabel('Vout/Vin')
+legend('Boost Mode','Buck Mode')
+
 
 function y = buck_evaluation(x)
 y = x*2;
