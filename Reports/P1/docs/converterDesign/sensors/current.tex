@@ -43,7 +43,7 @@ The output of the sensor is a voltage proportional to the current following the 
 V_{current} = \frac{1}{10} \, i + 2.5
 \end{equation}
 
-In order to ease the task of the control, the signals are filtered by hardware. The current will be used by the MPPT, which frequency is $100 Hz$ \todo{check final implementation}. The sensor output is filtered by a LPF which cut-off frequency is $50 Hz$. The cut-off frequency has been calculated by a thousandth of the switching frequency, which is $50 kHz$. Also the current might be used in the current controller, this signal will be filtered at $80 KHz$ in order to remove high frequency noise, this cut-off frequency was selected as it is the sensor's bandwidth. The filters are first order low-pass filters implemented with a resistor in series with a capacitor.\todo{has the current control been implemented? was enough this filtering?}
+In order to ease the task of the control, the signals are filtered by hardware. The current will be used by the MPPT, which frequency is $100 Hz$ \todo{check final implementation}. The sensor output is filtered by a LPF which cut-off frequency is $50 Hz$. The cut-off frequency has been calculated by a thousandth of the switching frequency, which is $50 kHz$. Also the current might be used in the current controller, this signal will be filtered at $80 KHz$ in order to remove high frequency noise, this cut-off frequency was selected as it is the sensor's bandwidth. The filters are first order low-pass filters implemented with a resistor in series with a capacitor.
 
 In order to calculate the current from the PV module, the converter working mode will have to be taken into account. Assuming continuous conduction mode, the average PV current is:
 

@@ -9,8 +9,6 @@ This section shows the model and the results obtained from a commercial solar pa
 
 One of the most common methods for modeling a solar panel is using the equivalent circuit of a solar cell shown in figure \ref{fig:eq_circuit_PVcell}. The model can be represented as a current source connected in antiparallel with a diode \cite{MPPTResearch}. In addition, to model the non-linear behaviour of the solar panel I-V curve the equivalent series and parallel resistance ($R_{s}$ and $R_{p}$) are inserted \cite{MPPTResearch}.
 
-\todo{wouldn't all the current flow through the diode? AT. When there is no sun or almost not light the cell behaves as a diode with a behaviour based on the Shockley equation. When there is irradiance then it's modelled by a current source proportional to to the photogenerated current. When the irradiance increases then it's seen as a superposition of both behaviours(when there is light and when there isn't resulting in the model of figure 5.4). I don't know if you understand it better like that but I dont think we should write about it in that detail. I've tried to find a reference where it explains it in more DETAIL but I've just found one in spanish. It's in bibliography papers, MPPT, spanish report PV panel model. Stef}
-
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{../Pictures/schematic_solar_cell}
