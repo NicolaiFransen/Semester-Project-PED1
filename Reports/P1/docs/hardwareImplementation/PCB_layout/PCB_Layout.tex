@@ -1,10 +1,30 @@
 \subsection{Design considerations} \label{PCB_Considerations}
-Before starting the design of the PCB, some features were considered. First and most importantly, the power side is physically separated from the control side. This separation is done to reduce the electromagnetic coupling that the higher currents and voltages might induce in traces or ICs. A clear differentiation of the hot and cold sides of the PCB is seen in the layout.  Also, test points have been located in the periphery of the PCB for easiest and safest testing. Current loops have been minimized as much as possible and ground planes are located across the PCB. \todo{Include image of the PCB layout. AT}
+Before starting the design of the PCB, some features were considered. First and most importantly, the power side is physically separated from the control side. This separation is done to reduce the electromagnetic coupling that the higher currents and voltages might induce in traces or ICs. A clear differentiation of the hot and cold sides of the PCB is seen in the layout.  Also, test points have been located in the periphery of the PCB for easiest and safest testing. Current loops have been minimized as much as possible and ground planes are located across the PCB.
 
 \subsection{Power Side} \label{PCB_Power}
-One of the most important issues to take into consideration when designing the power traces of the converter has been the size of these. In order to allow a high flow of current through the traces while maintaining a relatively low temperature and a low impedance, the traces have been designed for minimum 10mm wide. With this thickness traces have been calculated to have a temperature increase of 5ºC and an impedance of ¿?¿?¿?. \todo{include Nico's calculations. AT} 
+One of the most important issues to take into consideration when designing the power traces of the converter has been the size of these. In order to allow a high flow of current through the traces while maintaining a relatively low temperature and a low impedance, the trace minimum width must be properly sized. For that goal a temperature constraint is needed. This constraint was arbitrarily set to 10 $\decC$. Which will be the temperature increase of the traces working at full power. This constraint will lead to a high trace width, which is acceptable for a prototype.
+The calculation of the width has been performed following IPC-2221A section "6.2 Conductive Material Requirements" recommendations regarding trace width sizing. First, the needed cross sectional area of the trace must be calculated, as explained in equation \ref{trace_sizing_IPC}.
 
-The heat sink has conditioned the design of the power side of the PCB since most of the passive components do not fit underneath. The four MOSFETS are located at even distances and at the corners of the heat sink to allow the best possible dissipation. The drivers are also located very close to each one of the transistors to have the shortest path to the gate.
+\begin{equation} \label{trace_sizing_IPC}
+A = \sqrt[\leftroot{-2}\uproot{2}0.725]{\frac{I}{0.048\cdot \Delta T^{0.44}}}
+\end{equation}
+
+ $I$ stands for the current, and $\Delta T$ is the temperature difference constraint. The highest average current will be used. See in equation \ref{trace_sizing_IPC_w_numbers} the result.
+ 
+ \begin{equation} \label{trace_sizing_IPC_w_numbers}
+ A = \sqrt[\leftroot{-2}\uproot{2}0.725]{\frac{12.5 A}{0.048\cdot 10^{0.44}}} = 530,9 \; mils^2
+ \end{equation}\todo{The unit of the temperature difference would be $K^{0.44}$, but that doesnt looks really nice, what should we do?}
+ 
+When the needed area is known, the width is calculated by dividing the area by the copper thickness. In our case, using $1 oz$ PCB, the thickness is $35 \mu m$. See equation \ref{width_calc}. It's necessary to perform unit conversion from $mils^2$ to $mm^2$.
+
+\begin{equation} \label{width_calc}
+Width = \frac{A}{Thickness} = \frac{0.342 mm^2}{0.035 mm} = 9.78 mm
+\end{equation}
+
+Then 10 mm is set as trace minimum width.
+
+
+The heat sink has conditioned the design of the power side of the PCB since most of the passive components do not fit underneath. The four MOSFETs are located at even distances and at the corners of the heat sink to allow the best possible dissipation. The drivers are also located very close to each one of the transistors to have the shortest path to the gate.
 
 The coil has been cornered since it might induce high interference to other sensible devices. Especially the current sensor, which is hall-effect, has been located as far as possible from its influence. Also the ground plane has been removed from under the inductor in order to reduce interferences.
 
@@ -15,5 +35,4 @@ The control side has two different parts which are separated according to the gr
  
 This way, it is possible to separate the grounds at both sides reducing the possibility of having a short-circuit which may damage the control unit, in this case, the RT-box. However, the current sensor had to be located directly in the power side of the converter since the main current needs to flow through it. Since the current sensor shares the ground with the control unit, bigger clearances are included in all the traces coming from this sensor to reduce the possibility of short-circuit. 
 
-The test points located at the periphery break at some points this isolation clearance that was implemented in most parts of the circuit. However, and since test points would always be removed in a final version of the PCB, this problem has not been considered.
- \todo{include pictures. AT}
+The test points located at the periphery break at some points this isolation clearance that was implemented in most parts of the circuit. However, since the test points are not carrying current and test points would always be removed in a final version of the PCB, this problem has not been considered.
