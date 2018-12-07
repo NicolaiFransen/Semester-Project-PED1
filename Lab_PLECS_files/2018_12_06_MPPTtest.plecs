@@ -1,0 +1,2317 @@
+Plecs {
+  Name          "2018_12_06_MPPTtest"
+  Version       "4.2"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  StopTime      "1.0"
+  Timeout       ""
+  Solver        "dopri"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "50e-6"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPTEwO"
+"yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
+"RlbQpUcyA9IDAuMTsgICVzYW1wbGUgdGltZSBNUFBUIApUZmlsdGVyID0gNTBlLTY7ICVzYW1wbGU"
+"gdGltZSBsb3cgZmlsdGVyCiUlJSBTb2xhciBQYW5lbCAoU3VudGVjaCBQb3dlciBTVFAzMDAtMjRf"
+"VmQpJSBzZWxlY3QgdmFsdWVzIGZyb20gc2ltdWxpbmsgYW5kIG5vdCBmcm9tIHRoZSBkYXRhc2hlZ"
+"XQgYmVjYXVzZSBvZiBkaWZmZXJlbnQgdmFsdWVzCgpTUC5OcyA9IDcyOyAgICAgICAlIFtdIC0gbn"
+"VtYmVyIG9mIHNvbGFyIGNlbGxzIGluIGEgc3RyaW5nIGluIHNvbGFyIGFycmF5ClNQLk5wID0gMTs"
+"gICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sYXIgY2VsbCBzdHJpbmdzIGluIHBhcmFsbGVsIHNv"
+"bGFyIGFycmF5CiVTUC5WX01QUCA9IDM2LjlbVl0KJVNQLklfTVBQID0gOC4xNCBbQV0KJVNQLlBfT"
+"VBQID0gMzAwLjM2NiBbV10KUG1wcCA9IDMwMDsgJVtXXSBJcnJhZGlhbmNlIDEwMDBXL20yClNQLl"
+"RfbiA9IDI1OyAgICAgICUgW0NdIC0gbm9taW5hbCB0ZW1wZXJhdHVyZSBvZiBzb2xhciBjZWxscwp"
+"TUC5HX24gPSAxMDAwOyAgICAlIFtXL21eMl0gLSBub21pbmFsIGlycmFkaWF0aW9uIG9mIHNvbGFy"
+"IGNlbGxzClNQLlZfT0NfbiA9IDQ1OyAlIFtWXSAtIG5vbWluYWwgb3BlbiBjaXJjdWl0IHZvbHRhZ"
+"2Ugb2YgYXJyYXkgKHNpbmdsZSBwYW5lbCBpbiBzeXN0ZW0pClNQLklfU0NfbiA9IDguNjc7ICUgW0"
+"FdIC0gbm9taW5hbCBzaG9ydCBjaXJjdWl0IGN1cnJlbnQgb2YgYXJyYXkKClNQLlJzID0gMC4yNjY"
+"wMzsgICAgJSBbb2htXSAtIGVxdXZhbGVudCBzZXJpZXMgcmVzaXN0YW5jZSBvZiBhcnJheQpTUC5S"
+"cCA9IDY2NS4xOTkzOyAgJSBbb2htXSAtIGVxdXZhbGVudCBwYXJhbGxlbCByZXNpc3RhbmNlIG9mI"
+"GFycmF5ICh3ZSBkaWRudCBjaGFuZ2UpCgpTUC5hID0gMS4xMDk4OyAgICAgICAlIFtdIC0gZGlvZG"
+"UgaWRlYWxpdHkgY29uc3RhbnQgKHdlIGRpZG50IGNoYW5nZSkKClNQLktfViA9IC0gMC40Mjc5MTs"
+"gJSBbJS/CsENdIC0gdGhlcm1hbCB2b2x0YWdlIGNvZWZmaWNpZW50IG9mIGFycmF5IC0wLjEyMzAg"
+"ZnJvbSBvdGhlciBwYW5lbApTUC5LX0kgPSAwLjA4NjcwMTsgICUgWyUvwrBDXSAtIHRoZXJtYWwgY"
+"3VycmVudCBjb2VmZmljaWVudCBvZiBhcnJheQoKU1AuQ19pbiA9IDEuOGUtMzsgICUgW0ZdIC0gaW"
+"5wdXQgY2FwYWNpdGFuY2Ugb2YgdGhlIERDL0RDIGNvbnZlcnRlciAoaGlnaCB2YWx1ZSB0byBmaWx"
+"0ZXIgYW5kIHRoZSB2YWx1ZSBpcyBmcm9tIHRoZSBzdXBlcnZpc29yKQoKJSBCdWNrLWJvb3N0IGNv"
+"bnZlcnRlcgoKVl9vdXQ9IDM2MC9OdW1iZXJPZlNlcmllc0Nvbm5lY3RlZFBhbmVsczsKCkJ1Y2suT"
+"CA9IDFlLTM7JTQ3MGUtNjsgJVtIXSAtIGluZHVjdG9yICVjYWxjdWxhdGUgNDcwZS02CkJ1Y2suQy"
+"A9IDQ3MGUtNjsgJVtGXSAtIG91dHB1dCBjYXBhY2l0b3IgJWNhbGN1bGF0ZSAxMzRlLTYKQnVjay5"
+"SID0gKFZfb3V0XjIpL1BtcHA7ICUgW09obV0gLSBMb2FkCm91dHB1dF9jYXAgPSA4NjBlLTY7Cg=="
+  InitialState  "1"
+  SystemState   ""
+  CodeGenParameterInlining "2"
+  CodeGenInliningExceptions "AAAACwAAAAAA"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "PLECS RT Box 1"
+  CodeGenTargetSettings "AAAAfwAAAAAWUU1hcDxRU3RyaW5nLFFTdHJpbmc+AAAAAA4AAAAeA"
+"HMAeQBuAGMAaAByAG8AbgBpAHoAZQBUAGkAbQBlAAAAAgAwAAAAGABzAHQAYQByAHQAdQBwAFMARg"
+"BQAF8ARAAAAAIAMAAAABgAcwB0AGEAcgB0AHUAcABTAEYAUABfAEMAAAACADAAAAAYAHMAdABhAHI"
+"AdAB1AHAAUwBGAFAAXwBCAAAAAgAwAAAAGABzAHQAYQByAHQAdQBwAFMARgBQAF8AQQAAAAIAMAAA"
+"ABoAcwBhAG0AcABsAGkAbgBnAEQAZQBsAGEAeQAAAAIAMAAAABgAbQBhAHgAXwBvAHYAZQByAHIAd"
+"QBuAHMAAAACADUAAAASAG0AYQBzAHQAZQByAFMARgBQAAAAAgAxAAAAJABkAGkAZwBpAHQAYQBsAE"
+"8AdQB0AHAAdQB0AEwAZQB2AGUAbAAAAAIAMgAAABwAYQBuAGEAbABvAGcAUwBhAG0AcABsAGkAbgB"
+"nAAAAAgAxAAAAIgBhAG4AYQBsAG8AZwBPAHUAdABwAHUAdABSAGEAbgBnAGUAAAACADQAAAAgAGEA"
+"bgBhAGwAbwBnAEkAbgBwAHUAdABSAGEAbgBnAGUAAAACADEAAAAaAFQAQQBSAEcARQBUAF8ARABFA"
+"FYASQBDAEUAAAAaADEANwAyAC4AMgA3AC4AOQAxAC4AMgA0ADkAAAAaAEUAWABUAEUAUgBOAEEATA"
+"BfAE0ATwBEAEUAAAACADE="
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings "AAAAfwAAAAAWUU1hcDxRU3RyaW5nLFFTdHJpbmc+AAAAAAcAAAAYAF"
+"QAcgBpAGcAZwBlAHIAVgBhAGwAdQBlAAAACAAtADAALAAxAAAAGABUAHIAaQBnAGcAZQByAEQAZQB"
+"sAGEAeQAAAAIAMAAAABwAVAByAGkAZwBnAGUAcgBDAGgAYQBuAG4AZQBsAAAABAAtADEAAAAWAFMA"
+"ZQBuAHMAaQB0AGkAdgBpAHQAeQAAAAIAMAAAABYAUgBlAGYAcgBlAHMAaABSAGEAdABlAAAABAAyA"
+"DAAAAAUAE4AdQBtAFMAYQBtAHAAbABlAHMAAAAIADgAMQA5ADIAAAAUAEQAZQBjAGkAbQBhAHQAaQ"
+"BvAG4AAAACADE="
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  Terminal {
+    Type          Output
+    Index         "2"
+  }
+  Terminal {
+    Type          Input
+    Index         "2"
+  }
+  Terminal {
+    Type          Input
+    Index         "3"
+  }
+  Terminal {
+    Type          Output
+    Index         "1"
+  }
+  Terminal {
+    Type          Input
+    Index         "1"
+  }
+  Terminal {
+    Type          Output
+    Index         "3"
+  }
+  Terminal {
+    Type          Output
+    Index         "4"
+  }
+  Schematic {
+    Location      [0, 27; 1920, 995]
+    ZoomFactor    1
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          Reference
+      SrcComponent  "PLECSRTBoxLib/PWM Out"
+      Name          "PWM M1-M2"
+      Show          on
+      Position      [1015, 185]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -20; 25, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "channel"
+        Value         "[3 5]"
+        Show          off
+      }
+      Parameter {
+        Variable      "type"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "fc"
+        Value         "50e3"
+        Show          off
+      }
+      Parameter {
+        Variable      "limits"
+        Value         "[0 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "delay_sec"
+        Value         "100e-9"
+        Show          off
+      }
+      Parameter {
+        Variable      "polar"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "update"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "sync"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "1"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, -10]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 10]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Phase shift1"
+      Show          on
+      Position      [815, 225]
+      Direction     right
+      Flipped       off
+      Frame         [-30, -10; 30, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "[0 0.5]"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Scalar1"
+      Show          on
+      Position      [815, 185]
+      Direction     right
+      Flipped       off
+      Frame         [-30, -10; 30, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "C-Script1"
+      Show          on
+      Position      [630, 150]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "NumInputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "0.01"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "Output(0) = Input(0);\nOutput(1)= 1 - Input(0);"
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "PLECSRTBoxLib/Analog In1"
+      Name          "Voltage input sensor"
+      Show          on
+      Position      [1220, 150]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -20; 25, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "channel"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "scale"
+        Value         "10.22"
+        Show          off
+      }
+      Parameter {
+        Variable      "offset"
+        Value         "0.5612"
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "1"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [29, 0]
+        Direction     right
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "PLECSRTBoxLib/Analog In1"
+      Name          "Current sensor 80 kHz"
+      Show          on
+      Position      [1225, 225]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -20; 25, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "channel"
+        Value         "3"
+        Show          off
+      }
+      Parameter {
+        Variable      "scale"
+        Value         "10.109"
+        Show          off
+      }
+      Parameter {
+        Variable      "offset"
+        Value         "-24.365"
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "2"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [29, 0]
+        Direction     right
+      }
+    }
+    Component {
+      Type          Gain
+      Name          "Gain"
+      Show          on
+      Position      [1435, 225]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "K"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Multiplication"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+    }
+    Component {
+      Type          Gain
+      Name          "Gain1"
+      Show          on
+      Position      [1435, 150]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "K"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Multiplication"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "Low-pass filter"
+      Show          on
+      Position      [1335, 150]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "NumInputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "Tfilter"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         "double output = 0;"
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "Output(0) = output;"
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         "output += 500e-6 * (Input(0) - output);\n\n"
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "Low-pass filter3"
+      Show          on
+      Position      [1360, 225]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "NumInputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "Tfilter"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         "double output3 = 0;"
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "Output(0) = output3;"
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         "output3 += 500e-6 * (Input(0) - output3);\n\n"
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto1"
+      Show          off
+      Position      [1490, 225]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Current sensor 80 kHz"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto2"
+      Show          off
+      Position      [1525, 150]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Voltage input sensor"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope \nCurrent sensor 80 kHz"
+      Show          on
+      Position      [1310, 355]
+      Direction     up
+      Flipped       off
+      Location      [0, 27; 1920, 1024]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAL3AAAAf/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAAvcAAABQAP///wAAB4AAAAPKAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAeAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABRAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAnAAAAAQAAAAAAAAPoAAAAACc="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEB/////xcXAgIAAAAAAAEAAAABAQAAA"
+"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/GZmZmZmZoAAAABAAAAAQEAAAABAAAAAQAAAAEAAA"
+"ABAv//LuD//8zMAAAAAAABAAAAAQAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAABAAAAAT/xmZmZmZm"
+"aAAAAAQAAAAEB"
+      Axes          "2"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          "IL"
+        AutoScale     0
+        MinValue      0
+        MaxValue      3
+        Signals       {"IL"}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          "Vin"
+        AutoScale     1
+        MinValue      35
+        MaxValue      37
+        Signals       {"Vin"}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope1"
+      Show          on
+      Position      [1310, 435]
+      Direction     up
+      Flipped       off
+      Location      [0, 27; 1920, 1024]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPKAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAhQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABeAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAnAAAAAQAAAAAAAAPoAAAAACc="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     0
+        MinValue      10
+        MaxValue      17
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          From
+      Name          "From1"
+      Show          off
+      Position      [1245, 340]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Current sensor 80 kHz"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From2"
+      Show          off
+      Position      [1275, 435]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Voltage input sensor"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From9"
+      Show          off
+      Position      [1245, 370]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Voltage input sensor"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "PLECSRTBoxLib/PWM Out"
+      Name          "PWM M3-M4"
+      Show          on
+      Position      [1015, 380]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -20; 25, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "channel"
+        Value         "[1 7]"
+        Show          off
+      }
+      Parameter {
+        Variable      "type"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "fc"
+        Value         "50e3"
+        Show          off
+      }
+      Parameter {
+        Variable      "limits"
+        Value         "[0 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "delay_sec"
+        Value         "100e-9"
+        Show          off
+      }
+      Parameter {
+        Variable      "polar"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "update"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "sync"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "2"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, -10]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 10]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Phase shift2"
+      Show          on
+      Position      [815, 420]
+      Direction     right
+      Flipped       off
+      Frame         [-30, -10; 30, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "[0 0.5]"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Scalar2"
+      Show          on
+      Position      [815, 380]
+      Direction     right
+      Flipped       off
+      Frame         [-30, -10; 30, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "C-Script2"
+      Show          on
+      Position      [640, 345]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "NumInputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "0.01"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "Output(0) = Input(0);\nOutput(1)= 1 - Input(0);"
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          Subsystem
+      Name          "MPPT Controller1"
+      Show          on
+      Position      [375, 225]
+      Direction     up
+      Flipped       off
+      Frame         [-35, -30; 35, 30]
+      LabelPosition [0, 33]
+      LabelAlign    up
+      SampleTime    "-1"
+      CodeGenTarget "Generic"
+      MaskDisplayLang "2"
+      MaskIconFrame on
+      MaskIconOpaque off
+      MaskIconRotates on
+      Terminal {
+        Type          Input
+        Position      [-35, -15]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [39, -10]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-35, 5]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [39, 5]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [39, 20]
+        Direction     right
+      }
+      Schematic {
+        Location      [1122, 340; 1761, 954]
+        ZoomFactor    1
+        SliderPosition [0, 0]
+        ShowBrowser   off
+        BrowserWidth  100
+        Component {
+          Type          Input
+          Name          "V_in"
+          Show          on
+          Position      [60, 80]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "1"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "Dbuck"
+          Show          on
+          Position      [445, 75]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "2"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "I_in"
+          Show          on
+          Position      [60, 120]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "3"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalMux
+          Name          "Mux"
+          Show          off
+          Position      [105, 100]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Width"
+            Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          CScript
+          Name          "C-Script"
+          Show          on
+          Position      [180, 100]
+          Direction     up
+          Flipped       off
+          Parameter {
+            Variable      "NumInputs"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumOutputs"
+            Value         "3"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumContStates"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumDiscStates"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "NumZCSignals"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "DirectFeedthrough"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ts"
+            Value         "Ts"
+            Show          off
+          }
+          Parameter {
+            Variable      "Parameters"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "LangStandard"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "GnuExtensions"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "RuntimeCheck"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "Declarations"
+            Value         base64 "LypTdHVmZiB0byBzb2x2ZToKLi5JcnJhZGlhbmNlIHN0"
+"ZXAgaXMgbm90IHdlbGwgaGFuZGxlZAouLiBXaGVuIHRoZSBzeXN0ZW0gaXMgaW4gTVBQLCBpdCBzb"
+"G93bHkgZHJpZnRzIGF3YXlzIGZyb20gaXQuCi4uTG9hZCBjaGFuZ2Ugbm90IHRlc3RlZAouLmFkZC"
+"BoZWFkZXIgZm9yIEZTTSwgZ3JvdXAgdmFyaWFibGVzIHVuZGVyIEZTTSwgZ3JvdXAgZnVuY3Rpb24"
+"gZGVmaW5pdGlvbiB1bmRlciBGU00uw6cKLi4gY29tbWVudCBEX291dCBvdXRwdXQgI2RlZmluZQou"
+"LndoeSA4IGlzIHVzZWQgaW4gVnRoIGNhbGN1bGF0aW9uCi4uIHBvd2VyIGlzIHVzZWQgaW4gRlNNM"
+"iBidXQgbm90IGNhbGN1bGF0ZWQgaW4gRlNNMgouLlJlbW92ZSBzdGF0aWMgZnJvbSBnbG9iYWwgdm"
+"FyaWFibGVzCi4ucG93ZXIgY2FsY3VsYXRpb24gY2hhbmdlIGxvZ2ljIHRvIG5vdCBtb2RpZnkgY3V"
+"ycmVudAouLgoKLS1WYXJpYWJsZXMgdG8gdHVuZTogCglQIGNvbmRpdGlvbnMgY2hhbmdlIHRocmVz"
+"aG9sZCAoMC44IHJpZ2h0IG5vdykKCU9wZW4gbG9wcCBjb3VudGVyCglGU00yIG91dCBvZiBtcHAgY"
+"291bnRlcgoJCiovCgojaW5jbHVkZTxzdGRpby5oPgojaW5jbHVkZTxtYXRoLmg+CiNpbmNsdWRlPH"
+"N0ZGxpYi5oPgoKCmRvdWJsZSBsb2cxMChkb3VibGUgeCk7CmRvdWJsZSBmYWJzKGRvdWJsZSB4KTs"
+"KCmVudW0gc3RhdGUgewoJU1RBUlRVUCwKCU9QRU5fTE9PUCwKCVZPTFRBR0VfRVZBTFVBVElPTiwK"
+"CVZPTFRBR0VfSU5DLAoJVk9MVEFHRV9ERUMsCglXQUlULAoJfTsKc3RhdGljIGVudW0gc3RhdGUgU"
+"1lTVEVNX1NUQVRFID0gU1RBUlRVUDsKCgkKZW51bSBwb3dlcl9hbmFseXNpc19zdGF0ZXsKCUlETE"
+"UsCglDT0FSU0VfUE9XRVJfTUFQUElORywKCURFQ1JFQVNFX0RfREVMVEEsCglDT05ESVRJT05TX0N"
+"IQU5HRUQsCglGSU5FX1BPV0VSX01BUFBJTkcsCn07CnN0YXRpYyBlbnVtIHBvd2VyX2FuYWx5c2lz"
+"X3N0YXRlIERFTFRBX0RVVFlfQ1lDTEVfRlNNID0gSURMRTsKZG91YmxlIFZtYXggPSAwLCBQbWF4I"
+"D0gMDsKaW50IEZTTTJfY291bnRlciwgb3V0X29mX01QUF9jb3VudGVyLCBjb25kaXRpb25zX2NoYW"
+"5nZWQ7CmludCBmaW5lX3Bvd2VyX2NvdW50ZXIgPSAwLCBmaW5lX3Bvd2VyX21hcHBpbmdfaGFwcGV"
+"uZWQgPSAwOwpkb3VibGUgUG1heF9hdmcgPSAwOwoKCgpkb3VibGUgViwgSSwgUCwgVnByZXZpb3Vz"
+"LCBJcHJldmlvdXMsIFBwcmV2aW91cywgZGVsdGFfViwgZGVsdGFfUC8qLHRpbWVfYmFyKi87CnN0Y"
+"XRpYyBkb3VibGUgRF9kZWx0YT0wLjAxOwpzdGF0aWMgZG91YmxlIGNvbnRyb2xfdmFyaWFibGUgPS"
+"AwLCBEbWluPTAuMDUsIERtYXg9MC44NTsKaW50IHN0YXJ0dXBfY291bnRlciA9IDE7IApzdGF0aWM"
+"gY2hhciogZW51bXN0YXRlW10gPSB7IlNUQVJUVVAiLCJPUEVOIExPT1AiLCAiVk9MVEFHRSBFViIs"
+"ICJWT0xUQUdFIElOQyIsICJWT0xUQUdFIERFQyIsICJXQUlUIn07CnN0YXRpYyBjaGFyKiBlbnVtc"
+"3RhdGVkdXR5W10gPSB7IklETEUiLCAiQ09BUlNFX1BPV0VSX01BUFBJTkciLCJERUNSRUFTRV9EX0"
+"RFTFRBIiwgIkNPTkRJVElPTlNfQ0hBTkdFRCIsICJGSU5FX1BPV0VSX01BUFBJTkcifTsKCgoKCiN"
+"kZWZpbmUgVl9pbiBJbnB1dCgwKTsKI2RlZmluZSBJX2luIElucHV0KDEpOwovKiNkZWZpbmUgdGlt"
+"ZV9pbiBJbnB1dCgyKTsqLwoKCiNkZWZpbmUgRF9vdXQgT3V0cHV0KDApOwoKCgp2b2lkIE9wZW5fb"
+"G9vcF9pbmNyZWFzZV9EKHZvaWQpewoJY29udHJvbF92YXJpYWJsZSA9IGNvbnRyb2xfdmFyaWFibG"
+"UgKyBEX2RlbHRhOwp9CgoKdm9pZCBjYWxjdWxhdGVfcG93ZXIodm9pZCl7CglpZihjb250cm9sX3Z"
+"hcmlhYmxlIDwgMC41KSBJPUkqMipjb250cm9sX3ZhcmlhYmxlOwoJUCA9IFYgKiBJOwp9Cgp2b2lk"
+"IGV2YWx1YXRlX3Bvd2VyKHZvaWQpewoJZGVsdGFfUCA9IFAgLSBQcHJldmlvdXM7Cn0KCnZvaWQgc"
+"2F2ZV9wb3dlcih2b2lkKXsKCVBwcmV2aW91cyA9IFA7Cn0KCgp2b2lkIGV2YWx1YXRlX3ZvbHRhZ2"
+"Uodm9pZCl7CglkZWx0YV9WID0gViAtIFZwcmV2aW91czsKCXByaW50ZigiVnByZXZpb3VzIGlzOiA"
+"lZiBcbiIsIFZwcmV2aW91cyk7CglwcmludGYoIlYgaXM6ICVmIFxuIiwgVik7Cgp9Cgp2b2lkIHNh"
+"dmVfdm9sdGFnZV9jdXJyZW50KHZvaWQpewoJVnByZXZpb3VzID0gVjsKCUlwcmV2aW91cyA9IEk7C"
+"gl9CgppbnQgcG93ZXJfaXNfaW5jcmVhc2VkKHZvaWQpewoJaWYgKFAgPiBQcHJldmlvdXMpIHByaW"
+"50ZigiUG93ZXIgaGFzIGluY3JlYXNlZFxuIik7CgllbHNlIHByaW50ZigiUG93ZXIgaGFzIGRlY3J"
+"lYXNlZFxuIik7CglyZXR1cm4gUCA+IFBwcmV2aW91czsKfQoKaW50IHBvd2VyX2lzX2RlY3JlYXNl"
+"ZCh2b2lkKXsKCXJldHVybiBQIDwgUHByZXZpb3VzOwp9CgppbnQgdm9sdGFnZUlzQ2xvc2VUb01QU"
+"Ch2b2lkKXsgCQpkb3VibGUgdm9sdGFnZV90aHJlc2hvbGQ7CgoJdm9sdGFnZV90aHJlc2hvbGQgPS"
+"A4ICogZmFicygxL2xvZzEwKERfZGVsdGEpKTsKCglwcmludGYoInZvbHRhZ2UgdGhyZXNob2xkIGl"
+"zICVmIFxuIiwgdm9sdGFnZV90aHJlc2hvbGQpOwogICBwcmludGYoIlYgLSBWbWF4KjAuOTAgaXMg"
+"JWYgXG4iLCBmYWJzKFYgLSBWbWF4KjAuOTApKTsKCXByaW50ZigiZmFicyhWIC0gVm1heCowLjkwK"
+"SA8IHZvbHRhZ2VfdGhyZXNob2xkKSBpcyAlZCBcbiIsIGZhYnMoViAtIFZtYXgqMC45MCkgPCB2b2"
+"x0YWdlX3RocmVzaG9sZCk7CglyZXR1cm4gKGZhYnMoViAtIFZtYXgqMC45MCkgPCB2b2x0YWdlX3R"
+"ocmVzaG9sZCk7Cn0KCi8qdm9pZCBwb3dlcl9tYXBwaW5nX2F2ZygpewoJaWYgKFBfYXZnID4gUG1h"
+"eF9hdmcpCgkJewkKCQkJcHJpbnRmKCJQbWF4IGlzICVmIFxuIiwgUG1heF9hdmcpOwoJCQlQbWF4X"
+"2F2ZyA9IFBfYXZnOwoJCQlWbWF4ID0gVjsKCQkJb3V0X29mX01QUF9jb3VudGVyID0gMDsKCQl9Cg"
+"llbHNlIG91dF9vZl9NUFBfY291bnRlcisrOwp9Ki8KCnZvaWQgcG93ZXJfbWFwcGluZ19pbnN0YW5"
+"0KHZvaWQpewoJaWYgKFAgPiBQbWF4KQoJCXsJCgkJCXByaW50ZigiUG1heCBpcyAlZiBcbiIsIFBt"
+"YXgpOwoJCQlQbWF4ID0gUDsKCQkJVm1heCA9IFY7CgkJCW91dF9vZl9NUFBfY291bnRlciA9IDA7C"
+"gkJfQoJZWxzZSBvdXRfb2ZfTVBQX2NvdW50ZXIrKzsKCn0="
+            Show          off
+          }
+          Parameter {
+            Variable      "StartFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "OutputFcn"
+            Value         "Output(2) = control_variable;\n\nif (control_variab"
+"le < Dmin) control_variable = Dmin;\nif (control_variable > Dmax) control_var"
+"iable = Dmax;\n\n\nif (control_variable < 0.5){\n\tOutput(0) = 2 * control_va"
+"riable;\n\tOutput(1) = 0;\n}\nelse {\n\tOutput(0) = 1;\n\tOutput(1) = 2 * con"
+"trol_variable - 1;\n}"
+            Show          off
+          }
+          Parameter {
+            Variable      "UpdateFcn"
+            Value         "V=V_in;\nI=I_in;\n/*time_bar = time_in;\n\nprintf("
+"\"--------------\\n\");\nprintf(\"Timestamp: %f \\n\", time_bar);\nprintf(\"S"
+"ystem state: %s \\n\", enumstate[SYSTEM_STATE]);*/\n\n\n\tswitch (SYSTEM_STAT"
+"E){ \n\t\n\t\tcase STARTUP:\n\t\t{\n\t\t\tevaluate_voltage();\n\t\t\tsave_vol"
+"tage_current();\n\t\t\tsave_power();\n\t\t\tif (delta_V < 0.1) SYSTEM_STATE ="
+" OPEN_LOOP;\n\t\t\tcontrol_variable = 0;\n\t\t}break;\n\t\t\n\t\tcase OPEN_LO"
+"OP:\n\t\t{\n\t\t\tOpen_loop_increase_D();\n\t\t\tcalculate_power();\n\t\t\tsa"
+"ve_voltage_current();\n\t\t\tsave_power();\n\t\t\tstartup_counter++;\n\t\t\ti"
+"f (startup_counter >= 15)\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION;\n\t\t}bre"
+"ak;\n\t\t\n\t\tcase VOLTAGE_EVALUATION: \n\t\t{\n\t\t\tevaluate_voltage();\n"
+"\t\t\tprintf(\"Delta_V is: %f \\n\", delta_V);\n\t\t\tif (delta_V >= 0) SYSTE"
+"M_STATE = VOLTAGE_INC;\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n"
+"\t\t\tsave_voltage_current();\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_INC: \n\t"
+"\t{\n\t\t\tcalculate_power();\n\t\t\t\n\t\t\tif (power_is_increased()) contro"
+"l_variable = control_variable - D_delta; \n\t\t\tif (power_is_decreased()) co"
+"ntrol_variable = control_variable + D_delta;\t\n\t\t\tsave_power();\n\n\t\t\t"
+"SYSTEM_STATE = WAIT;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tc"
+"alculate_power();\n\n\t\t\tif (power_is_increased()) control_variable = contr"
+"ol_variable + D_delta;\n\t\t\tif (power_is_decreased()) control_variable = co"
+"ntrol_variable - D_delta;\n\t\t\tsave_power();\n\n\t\t\tSYSTEM_STATE = WAIT;"
+"\n\t\t}break;\n\t\t\n\t\tcase WAIT:\n\t\t{\n\t\t\tSYSTEM_STATE = VOLTAGE_EVAL"
+"UATION;\n\t\t}break;\n}\nprintf(\"Control Variable is : %f \\n\", control_var"
+"iable);\n\nprintf(\"****\\n\");\nprintf(\"Delta Duty state: %s \\n\", enumsta"
+"teduty[DELTA_DUTY_CYCLE_FSM]);\n\n\nswitch(DELTA_DUTY_CYCLE_FSM)\n{\n\tcase I"
+"DLE:\n\t{\n\t\tif (SYSTEM_STATE > 2) DELTA_DUTY_CYCLE_FSM = COARSE_POWER_MAPP"
+"ING; //If V_INC or V_DEC start\n\t}break;\n\t\n\tcase COARSE_POWER_MAPPING:\n"
+"\t{\n\t\tD_delta = 0.01;\n\t\tconditions_changed = 0;\n\t\tFSM2_counter = 0;"
+"\n\t\tpower_mapping_instant();\n\t\tif (out_of_MPP_counter > 10) DELTA_DUTY_C"
+"YCLE_FSM = DECREASE_D_DELTA;\n\t\tprintf(\"Coarse mapping counter %d \\n\", o"
+"ut_of_MPP_counter);\n\t}break;\n\n\tcase DECREASE_D_DELTA:\n\t{\n\t\tprintf("
+"\"Vmax is %f \\nPmax is %f \\n\", Vmax, Pmax);\n\t\tif (D_delta > 0.0005 && v"
+"oltageIsCloseToMPP()) D_delta = D_delta*0.3;\n\t\t\n\t\tif (P < Pmax * 0.8) D"
+"ELTA_DUTY_CYCLE_FSM = CONDITIONS_CHANGED;\n\t\tif (D_delta <= 0.005 && (FSM2_"
+"counter > 15)){\n\t\t\tFSM2_counter = 0;\n\t\t\tPmax = 0;\n\t\t\tDELTA_DUTY_C"
+"YCLE_FSM = FINE_POWER_MAPPING;\n\t\t}\n\t\telse FSM2_counter++;\n\t\t\n\t}bre"
+"ak;\n\t\n\tcase CONDITIONS_CHANGED:\n\t{\n\t\tPmax = 0;\n\t\tDELTA_DUTY_CYCLE"
+"_FSM = COARSE_POWER_MAPPING;\n\t}break;\n\t\n\tcase FINE_POWER_MAPPING:\n\t{"
+"\n\t\tpower_mapping_instant();\n\t\tFSM2_counter++;\n\t\tif (FSM2_counter > 1"
+"5)\n\t\t{\n\t\t\tDELTA_DUTY_CYCLE_FSM = DECREASE_D_DELTA;\n\t\t\tFSM2_counter"
+" = 0;\n\t\t}\n\t}break;\n}\n\n\nprintf(\"Delta_D is: %f \\n\", D_delta);\npri"
+"ntf(\"--------------\\n\");\n"
+            Show          off
+          }
+          Parameter {
+            Variable      "DerivativeFcn"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "TerminateFcn"
+            Value         ""
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalDemux
+          Name          "Demux"
+          Show          off
+          Position      [335, 100]
+          Direction     right
+          Flipped       on
+          Parameter {
+            Variable      "Width"
+            Value         "3"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "Dboost"
+          Show          on
+          Position      [425, 120]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "4"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "D"
+          Show          on
+          Position      [420, 165]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "5"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "V_in"
+          SrcTerminal   1
+          Points        [85, 80; 85, 95]
+          DstComponent  "Mux"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "I_in"
+          SrcTerminal   1
+          Points        [85, 120; 85, 105]
+          DstComponent  "Mux"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Mux"
+          SrcTerminal   1
+          DstComponent  "C-Script"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   3
+          Points        [370, 100; 370, 120]
+          DstComponent  "Dboost"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   2
+          Points        [380, 90; 380, 75]
+          DstComponent  "Dbuck"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "C-Script"
+          SrcTerminal   2
+          DstComponent  "Demux"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   4
+          Points        [365, 110; 365, 165]
+          DstComponent  "D"
+          DstTerminal   1
+        }
+      }
+    }
+    Component {
+      Type          From
+      Name          "From10"
+      Show          off
+      Position      [175, 195]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Voltage input sensor"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Dbuck, Dboost, valg"
+      Show          on
+      Position      [600, 480]
+      Direction     up
+      Flipped       off
+      Location      [0, 27; 1920, 1024]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPKAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAmAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABxAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAnAAAAAQAAAAAAAAPoAAAAACc="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"=="
+      Axes          "3"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [1115, 85]
+      Direction     up
+      Flipped       off
+      Location      [157, 278; 507, 505]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADIAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAngAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB3AAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAnAAAAAQAAAAAAAAPoAAAAACc="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope2"
+      Show          on
+      Position      [990, 290]
+      Direction     up
+      Flipped       off
+      Location      [640, 280; 990, 507]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADIAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAZwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABAAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAnAAAAAQAAAAAAAAPoAAAAACc="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "1"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "PLECSRTBoxLib/Analog In1"
+      Name          "Current sensor 50 Hz"
+      Show          on
+      Position      [1180, 550]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -20; 25, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "channel"
+        Value         "4"
+        Show          off
+      }
+      Parameter {
+        Variable      "scale"
+        Value         "10.424"
+        Show          off
+      }
+      Parameter {
+        Variable      "offset"
+        Value         "-25.764"
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "3"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [29, 0]
+        Direction     right
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "Low-pass filter2"
+      Show          on
+      Position      [1320, 550]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "NumInputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "Tfilter"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         "double output2 = 0;"
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "Output(0) = output2;"
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         "output2 += 500e-6 * (Input(0) - output2);\n\n"
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto"
+      Show          off
+      Position      [1445, 550]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Current sensor 50 Hz"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From"
+      Show          off
+      Position      [175, 250]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "Current sensor 50 Hz"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "PLECSRTBoxLib/Analog Out1"
+      Name          "Analog Out1"
+      Show          on
+      Position      [1310, 635]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -20; 25, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "channel"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "scale"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "offset"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "minOutput"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "maxOutput"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "3"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "PLECSRTBoxLib/Analog Out1"
+      Name          "Analog Out2"
+      Show          on
+      Position      [1305, 755]
+      Direction     up
+      Flipped       off
+      Frame         [-25, -20; 25, 20]
+      LabelPosition [0, 23]
+      LabelAlign    up
+      Parameter {
+        Variable      "channel"
+        Value         "4"
+        Show          off
+      }
+      Parameter {
+        Variable      "scale"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "offset"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "minOutput"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "maxOutput"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "4"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto3"
+      Show          off
+      Position      [470, 120]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D buck"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto4"
+      Show          off
+      Position      [505, 180]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D boost"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From3"
+      Show          off
+      Position      [1205, 645]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D buck"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From4"
+      Show          off
+      Position      [1190, 755]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D boost"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "M1 M2"
+      Show          on
+      Position      [850, 65]
+      Direction     right
+      Flipped       off
+      Frame         [-30, -10; 30, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "[0.5 0.5]"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "M3 M4"
+      Show          on
+      Position      [830, 290]
+      Direction     right
+      Flipped       off
+      Frame         [-30, -10; 30, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "[1 0]"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Phase shift1"
+      SrcTerminal   1
+      Points        [895, 225; 895, 195]
+      DstComponent  "PWM M1-M2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Scalar1"
+      SrcTerminal   1
+      DstComponent  "PWM M1-M2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Gain"
+      SrcTerminal   2
+      DstComponent  "Goto1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Gain1"
+      SrcTerminal   2
+      DstComponent  "Goto2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Low-pass filter3"
+      SrcTerminal   2
+      DstComponent  "Gain"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Low-pass filter"
+      SrcTerminal   2
+      DstComponent  "Gain1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Voltage input sensor"
+      SrcTerminal   1
+      DstComponent  "Low-pass filter"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Current sensor 80 kHz"
+      SrcTerminal   1
+      DstComponent  "Low-pass filter3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From1"
+      SrcTerminal   1
+      Points        [1270, 340; 1270, 350]
+      DstComponent  "Scope \nCurrent sensor 80 kHz"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From2"
+      SrcTerminal   1
+      DstComponent  "Scope1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From9"
+      SrcTerminal   1
+      Points        [1270, 370; 1270, 360]
+      DstComponent  "Scope \nCurrent sensor 80 kHz"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Phase shift2"
+      SrcTerminal   1
+      Points        [895, 420; 895, 390]
+      DstComponent  "PWM M3-M4"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Scalar2"
+      SrcTerminal   1
+      DstComponent  "PWM M3-M4"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From10"
+      SrcTerminal   1
+      Points        [255, 195; 255, 210]
+      DstComponent  "MPPT Controller1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "MPPT Controller1"
+      SrcTerminal   5
+      Points        [490, 245; 490, 490]
+      DstComponent  "Dbuck, Dboost, valg"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Low-pass filter2"
+      SrcTerminal   2
+      DstComponent  "Goto"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Current sensor 50 Hz"
+      SrcTerminal   1
+      DstComponent  "Low-pass filter2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From"
+      SrcTerminal   1
+      Points        [255, 250; 255, 230]
+      DstComponent  "MPPT Controller1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "MPPT Controller1"
+      SrcTerminal   4
+      Points        [485, 230]
+      Branch {
+        Points        [500, 230]
+        Branch {
+          Points        [560, 230; 560, 345]
+          DstComponent  "C-Script2"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [500, 480]
+          DstComponent  "Dbuck, Dboost, valg"
+          DstTerminal   2
+        }
+      }
+      Branch {
+        DstComponent  "Goto4"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "MPPT Controller1"
+      SrcTerminal   2
+      Points        [445, 215]
+      Branch {
+        Points        [530, 215]
+        Branch {
+          Points        [560, 215; 560, 150]
+          DstComponent  "C-Script1"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [530, 470]
+          DstComponent  "Dbuck, Dboost, valg"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [445, 120]
+        DstComponent  "Goto3"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From4"
+      SrcTerminal   1
+      DstComponent  "Analog Out2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From3"
+      SrcTerminal   1
+      Points        [1240, 645; 1240, 635]
+      DstComponent  "Analog Out1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      Points        [930, 85]
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      Points        [960, 325]
+      DstComponent  "Scope2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "C-Script1"
+      SrcTerminal   2
+      Points        [820, 150; 820, 155; 975, 155]
+      DstComponent  "PWM M1-M2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "C-Script2"
+      SrcTerminal   2
+      Points        [825, 345; 825, 355; 975, 355]
+      DstComponent  "PWM M3-M4"
+      DstTerminal   1
+    }
+  }
+}
+DemoSignature "otomkzGSjadWfpfa1Rtl8JKH+7ZRPpBNVrWz9wWIqHE="
