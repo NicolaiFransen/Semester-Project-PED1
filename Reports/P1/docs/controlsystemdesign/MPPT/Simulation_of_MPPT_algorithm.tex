@@ -219,7 +219,7 @@ The same simulation was implemented but in this case using a value of the resist
 	\end{center}	
 \end{figure}
 
-Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode until the output voltage equals the input voltage. At this point is the limit between the two modes of operation and the converter starts working in boost mode. The value of the duty cycle under these load and environment conditions is $D_{boost}= 0.5971$. sing the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{mpp}=36.9 V$: 
+Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode until the output voltage equals the input voltage. At this point is the limit between the two modes of operation and the converter starts working in boost mode. The value of the duty cycle under these load and environment conditions is $D_{boost}= 0.5971$. \todo{here is something missing}sing the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{mpp}=36.9 V$: 
 \begin{equation}
 \frac{V_{out}}{V_{in}}= \frac{1}{1-D} \rightarrow D = 1 - \frac{V_{in}}{V_{out}} = 1 - \frac{36.9}{90} = 0.5900
 \end{equation}
@@ -232,11 +232,12 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 	\end{center}	
 \end{figure}
 
+\todo{it isn't control variable. We call it valg }
 \subsubsection*{Change in irradiance and temperature}
 
 This section shows the performance of the MPPT when the PV panel is exposed to a sudden change in irradiance and in temperature. First, figures \ref{buckirradiance} and \ref{boostirradiance} show the results obtained for a change in irradiance for the case of buck and boost mode, respectively. The irradiance change is from 1000 $W/ m^2$ to 800 $W/ m^2$ while the cell temperature is kept constant at 25 $\dec$C. 
 Figures \ref{bucktemperature} and \ref{boosttemperature}  show the results for a sudden increase of the solar cell's temperature for both modes of operation. The temperature changes from 25 $\dec$C to 35 $\dec$C by keeping constant the irradiance to a value of 1000 $W/ m^2$. 
-In all the cases the P\&O algorithm can track the MPP by maintaining an efficiency higher than 99\%. This way it is validated that the MPPT algorithm works efficiently under sudden changes of irradiance and temperature. However, this situations are not realistic because in real environmental conditions the sunlight and the temperature will not experience such a sudden change. 
+In all the cases the P\&O algorithm can track the MPP by maintaining an efficiency higher than 99\%. This way it is validated that the MPPT algorithm works efficiently under sudden changes of irradiance and temperature. However, this situations are not realistic because in real environmental conditions the sunlight and the temperature will not experience such a sudden change. \todo{if you write here the test are not realistic, what is the reason for this test then?}
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.6\textwidth}
