@@ -1,9 +1,59 @@
 \section{System test}
 
+
 \subsection{Open loop test}
+
+\begin{itemize}
+	\item Graph current in the inductor and output voltage to validate figure 3.2. 
+	\item Graph current in the inductor and input voltage to check the ripple. 
+\end{itemize}
 
 \subsection{Thermal test}
 
 \subsection{MPPT}
 
+\begin{itemize}	
+	\item Set irradiance 1000 $W /m2$ and T= 25 $\decC$. This is: 
+		\begin{itemize}
+		\item Isc = 8.67 A (in the simulator in the lab set this current to the max which is 8.6 A), Voc=45 V, Impp=8.14 A and Vmpp=36.9 V.
+		\end{itemize} 
+	\item For load resistance R=3 $\Omega$ (buck) and R=27 $\Omega$ (boost), plot the next graphs in the oscilloscope:
+		\begin{enumerate}
+		\item Input voltage vs Input current 
+		\item Input power. Pmpp=300.4W
+		\item XY graph of Vin and Iin. I-V curve
+		\item Input voltage vs Output voltage
+		\item Duty cycles for buck and boost mode using the Analog output from RT-box. 
+		\item Optional plot input power vs output power to show the efficiency of the converter.
+		\end{enumerate}
+	
+	\item Set the PV simulator to detect a step change in irradiance keeping T=25 $\decC$. Save 2 lists of data, one for 1000 $W /m2$ of irradiance (same values as before) and the other for 800 $W /m2$. This is:
+		\begin{itemize}
+		\item Isc = 6.94 A, Voc= 44.52 V, Impp= 6.49 A and Vmpp= 36.9 V.
+      	\end{itemize} 
+      \item For load resistance R=3 $\Omega$ (buck) and R=27 $\Omega$ (boost), plot the next graphs in the oscilloscope:
+      \begin{enumerate}
+      	\item Input voltage vs Input current 
+      	\item Input power. Pmpp = 300.4 to Pmpp = 240W
+      	\item XY graph of Vin and Iin. I-V curve
+      	\item Optional plot input power vs output power to show the efficiency of the converter.
+      \end{enumerate}
+  
+  \item Set the PV simulator to detect a step change in temperature keeping irradiance to 1000 $W /m2$.
+  Save 2 lists of data, one for T=25$\decC$ (same values as before) and the other for T=20$\decC$. This is:\todo{In simulations the step change in temperature is 25- 35$\decC$, however, for 35$\decC$ the short circuit current is 9.5 which is higher than the max. allowed for the PV simulator(8.6A) so a change to a higher temperature would not be possible in the lab.}
+  \begin{itemize}
+  	\item Isc = 8.2 A, Voc= 47.1 V \todo{We must check if the PV simulator can work with these values}, Impp= 7.75 A and Vmpp= 39.1 V.
+  \end{itemize} 
+
+  \item For load resistance R=3 $\Omega$ (buck) and R=27 $\Omega$ (boost), plot the next graphs in the oscilloscope:\todo{In case we can simulate this change, modify the graphs obtained in simulation for 25-35 $\decC$}
+  \begin{enumerate}
+  	\item Input voltage vs Input current 
+  	\item Input power. Pmpp=300.4 to  Pmpp=303.2W
+  	\item XY graph of Vin and Iin. I-V curve
+  	\item Optional plot input power vs output power to show the efficiency of the converter.
+  \end{enumerate}
+  
+  
+\end{itemize}
+	
 \subsection{Experimental results}

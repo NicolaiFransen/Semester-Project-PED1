@@ -3,7 +3,7 @@ Before starting the design of the PCB, some features were considered. First and 
 
 \subsection{Power Side} \label{PCB_Power}
 One of the most important issues to take into consideration when designing the power traces of the converter has been the size of these. In order to allow a high flow of current through the traces while maintaining a relatively low temperature and a low impedance, the trace minimum width must be properly sized. For that goal a temperature constraint is needed. This constraint was arbitrarily set to 10 $\decC$. Which will be the temperature increase of the traces working at full power. This constraint will lead to a high trace width, which is acceptable for a prototype.
-The calculation of the width has been performed following IPC-2221A section "6.2 Conductive Material Requirements" recommendations regarding trace width sizing. First, the needed cross sectional area of the trace must be calculated, as explained in equation \ref{trace_sizing_IPC}.
+The calculation of the width has been performed following IPC-2221A section "6.2 Conductive Material Requirements" \todo{Add this to bib file if it isn't there yet and refer to it. Stef} recommendations regarding trace width sizing. First, the needed cross sectional area of the trace must be calculated, as explained in equation \ref{trace_sizing_IPC}.
 
 \begin{equation} \label{trace_sizing_IPC}
 A = \sqrt[\leftroot{-2}\uproot{2}0.725]{\frac{I}{0.048\cdot \Delta T^{0.44}}}

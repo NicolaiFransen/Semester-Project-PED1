@@ -196,7 +196,7 @@ In this section, the results obtained in simulation for the entire system will b
 The simulation is run under STC and using a resistive load of $3\Omega$. From the first graph of figure \ref{buckSTC_duty} it is observed that the converter is working in buck mode during all the MPPT process. This is because the output voltage does not exceeds the input voltage with this resistive load as shown in the second graph. The value of the duty cycle, obtained in simulation under these load and environment conditions, is $D_{buck}= 0.8155$. Using the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{mpp}=36.9 V$: 
 
 \begin{equation}\label{buckmodeTF}
-\frac{V_o}{V_i} = D  \rightarrow D = \frac{30V}{36.9V}= 0.8130 
+\frac{V_{out}}{V_{in}} = D  \rightarrow D = \frac{30V}{36.9V}= 0.8130 
 \end{equation}
 
 
@@ -221,7 +221,7 @@ The same simulation was implemented but in this case using a value of the resist
 
 Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode until the output voltage equals the input voltage. At this point is the limit between the two modes of operation and the converter starts working in boost mode. The value of the duty cycle under these load and environment conditions is $D_{boost}= 0.5971$. sing the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{mpp}=36.9 V$: 
 \begin{equation}
-\frac{V_o}{V_i}= \frac{1}{1-D} \rightarrow D = 1 - \frac{V_i}{V_o} = 1 - \frac{36.9}{90} = 0.5900
+\frac{V_{out}}{V_{in}}= \frac{1}{1-D} \rightarrow D = 1 - \frac{V_{in}}{V_{out}} = 1 - \frac{36.9}{90} = 0.5900
 \end{equation}
  
 \begin{figure}[H]
