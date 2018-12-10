@@ -1,7 +1,8 @@
 \section{System test}
-
+After the Assembling of the PCB and testing the components behave like the expectation, the whole converter will be tested about the system test. At first the converter is subjected the open loop test. The reason is to compare the results with the values in the ideal open loop simulation in section \ref{opsimresult}. The second test includes the thermal test. The converter is runed for a longer time. This will be done to identify which parts of the PCB will produce too much heat to damage other components. The last test is about checking the P\&O MPPT algorithm, if it behaves like same as in the simulation from section \ref{MPPTSimulation}.
 
 \subsection{Open loop test}
+For the open loop test the converter is tested one time in buck and boost mode. Both mode will be test at the maximum power point. So, the constant input voltage for both test is 36.9 V. The environmental condition in these cases is 1000 $W /m^2$ for the irradiance 1000 $W /m^2$ and for the temperature 25 $\decC$. For both test it will measure the current ripple and the output voltage to check if they have same value as calculate. Also it will validate the steady state of the experimental result with the values from the simulation.
 
 \begin{itemize}
 	\item Graph current in the inductor and output voltage to validate figure 3.2. 
