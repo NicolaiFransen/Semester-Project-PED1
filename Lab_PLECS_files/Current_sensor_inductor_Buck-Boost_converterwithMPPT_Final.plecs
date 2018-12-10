@@ -3,12 +3,12 @@ Plecs {
   Version       "4.2"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  StopTime      "3"
+  StopTime      "25"
   Timeout       ""
-  Solver        "dopri"
-  MaxStep       "100e-6"
+  Solver        "radau"
+  MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "5e-7"
+  FixedStep     "5e-8"
   Refine        "10"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
@@ -23,34 +23,34 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "2"
   AssertionAction "1"
-  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPTE0O"
+  InitializationCommands base64 "TnVtYmVyT2ZTZXJpZXNDb25uZWN0ZWRQYW5lbHMgPTE1O"
 "yAgICUgW10gLSBudW1iZXIgb2YgcGFuZWxzIGNvbm5lY3RlZCBpbiBzZXJpZXMgaW4gdGhlIHN5c3"
-"RlbQpUcyA9IDAuMDE7ICAlc2FtcGxlIHRpbWUgTVBQVCAKJSUlIFNvbGFyIFBhbmVsIChTdW50ZWN"
-"oIFBvd2VyIFNUUDMwMC0yNF9WZCklIHNlbGVjdCB2YWx1ZXMgZnJvbSBzaW11bGluayBhbmQgbm90"
-"IGZyb20gdGhlIGRhdGFzaGVldCBiZWNhdXNlIG9mIGRpZmZlcmVudCB2YWx1ZXMKClNQLk5zID0gN"
-"zI7ICAgICAgICUgW10gLSBudW1iZXIgb2Ygc29sYXIgY2VsbHMgaW4gYSBzdHJpbmcgaW4gc29sYX"
-"IgYXJyYXkKU1AuTnAgPSAxOyAgICAgICAgJSBbXSAtIG51bWJlciBvZiBzb2xhciBjZWxsIHN0cml"
-"uZ3MgaW4gcGFyYWxsZWwgc29sYXIgYXJyYXkKJVNQLlZfTVBQID0gMzYuOVtWXQolU1AuSV9NUFAg"
-"PSA4LjE0IFtBXQolU1AuUF9NUFAgPSAzMDAuMzY2IFtXXQpQbXBwID0gMzAwOyAlW1ddIElycmFka"
-"WFuY2UgMTAwMFcvbTIKU1AuVF9uID0gMjU7ICAgICAgJSBbQ10gLSBub21pbmFsIHRlbXBlcmF0dX"
-"JlIG9mIHNvbGFyIGNlbGxzClNQLkdfbiA9IDEwMDA7ICAgICUgW1cvbV4yXSAtIG5vbWluYWwgaXJ"
-"yYWRpYXRpb24gb2Ygc29sYXIgY2VsbHMKU1AuVl9PQ19uID0gNDU7ICUgW1ZdIC0gbm9taW5hbCBv"
-"cGVuIGNpcmN1aXQgdm9sdGFnZSBvZiBhcnJheSAoc2luZ2xlIHBhbmVsIGluIHN5c3RlbSkKU1AuS"
-"V9TQ19uID0gOC42NzsgJSBbQV0gLSBub21pbmFsIHNob3J0IGNpcmN1aXQgY3VycmVudCBvZiBhcn"
-"JheQoKU1AuUnMgPSAwLjI2NjAzOyAgICAlIFtvaG1dIC0gZXF1dmFsZW50IHNlcmllcyByZXNpc3R"
-"hbmNlIG9mIGFycmF5ClNQLlJwID0gNjY1LjE5OTM7ICAlIFtvaG1dIC0gZXF1dmFsZW50IHBhcmFs"
-"bGVsIHJlc2lzdGFuY2Ugb2YgYXJyYXkgKHdlIGRpZG50IGNoYW5nZSkKClNQLmEgPSAxLjEwOTg7I"
-"CAgICAgICUgW10gLSBkaW9kZSBpZGVhbGl0eSBjb25zdGFudCAod2UgZGlkbnQgY2hhbmdlKQoKU1"
-"AuS19WID0gLSAwLjQyNzkxOyAlIFslL8KwQ10gLSB0aGVybWFsIHZvbHRhZ2UgY29lZmZpY2llbnQ"
-"gb2YgYXJyYXkgLTAuMTIzMCBmcm9tIG90aGVyIHBhbmVsClNQLktfSSA9IDAuMDg2NzAxOyAgJSBb"
-"JS/CsENdIC0gdGhlcm1hbCBjdXJyZW50IGNvZWZmaWNpZW50IG9mIGFycmF5CgpTUC5DX2luID0gM"
-"S44ZS0zOyAgJSBbRl0gLSBpbnB1dCBjYXBhY2l0YW5jZSBvZiB0aGUgREMvREMgY29udmVydGVyIC"
-"hoaWdoIHZhbHVlIHRvIGZpbHRlciBhbmQgdGhlIHZhbHVlIGlzIGZyb20gdGhlIHN1cGVydmlzb3I"
-"pCgolIEJ1Y2stYm9vc3QgY29udmVydGVyCgpWX291dD0gMzYwL051bWJlck9mU2VyaWVzQ29ubmVj"
-"dGVkUGFuZWxzOwoKQnVjay5MID0gMWUtMzslNDcwZS02OyAlW0hdIC0gaW5kdWN0b3IgJWNhbGN1b"
-"GF0ZSA0NzBlLTYKQnVjay5DID0gNDcwZS02OyAlW0ZdIC0gb3V0cHV0IGNhcGFjaXRvciAlY2FsY3"
-"VsYXRlIDEzNGUtNgpCdWNrLlIgPSAoVl9vdXReMikvUG1wcDsgJSBbT2htXSAtIExvYWQKb3V0cHV"
-"0X2NhcCA9IDg2MGUtNjsK"
+"RlbQpUcyA9IDAuMTsgICVzYW1wbGUgdGltZSBNUFBUIAolJSUgU29sYXIgUGFuZWwgKFN1bnRlY2g"
+"gUG93ZXIgU1RQMzAwLTI0X1ZkKSUgc2VsZWN0IHZhbHVlcyBmcm9tIHNpbXVsaW5rIGFuZCBub3Qg"
+"ZnJvbSB0aGUgZGF0YXNoZWV0IGJlY2F1c2Ugb2YgZGlmZmVyZW50IHZhbHVlcwoKU1AuTnMgPSA3M"
+"jsgICAgICAgJSBbXSAtIG51bWJlciBvZiBzb2xhciBjZWxscyBpbiBhIHN0cmluZyBpbiBzb2xhci"
+"BhcnJheQpTUC5OcCA9IDE7ICAgICAgICAlIFtdIC0gbnVtYmVyIG9mIHNvbGFyIGNlbGwgc3RyaW5"
+"ncyBpbiBwYXJhbGxlbCBzb2xhciBhcnJheQolU1AuVl9NUFAgPSAzNi45W1ZdCiVTUC5JX01QUCA9"
+"IDguMTQgW0FdCiVTUC5QX01QUCA9IDMwMC4zNjYgW1ddClBtcHAgPSAzMDA7ICVbV10gSXJyYWRpY"
+"W5jZSAxMDAwVy9tMgpTUC5UX24gPSAyNTsgICAgICAlIFtDXSAtIG5vbWluYWwgdGVtcGVyYXR1cm"
+"Ugb2Ygc29sYXIgY2VsbHMKU1AuR19uID0gMTAwMDsgICAgJSBbVy9tXjJdIC0gbm9taW5hbCBpcnJ"
+"hZGlhdGlvbiBvZiBzb2xhciBjZWxscwpTUC5WX09DX24gPSA0NTsgJSBbVl0gLSBub21pbmFsIG9w"
+"ZW4gY2lyY3VpdCB2b2x0YWdlIG9mIGFycmF5IChzaW5nbGUgcGFuZWwgaW4gc3lzdGVtKQpTUC5JX"
+"1NDX24gPSA4LjY3OyAlIFtBXSAtIG5vbWluYWwgc2hvcnQgY2lyY3VpdCBjdXJyZW50IG9mIGFycm"
+"F5CgpTUC5ScyA9IDAuMjY2MDM7ICAgICUgW29obV0gLSBlcXV2YWxlbnQgc2VyaWVzIHJlc2lzdGF"
+"uY2Ugb2YgYXJyYXkKU1AuUnAgPSA2NjUuMTk5MzsgICUgW29obV0gLSBlcXV2YWxlbnQgcGFyYWxs"
+"ZWwgcmVzaXN0YW5jZSBvZiBhcnJheSAod2UgZGlkbnQgY2hhbmdlKQoKU1AuYSA9IDEuMTA5ODsgI"
+"CAgICAgJSBbXSAtIGRpb2RlIGlkZWFsaXR5IGNvbnN0YW50ICh3ZSBkaWRudCBjaGFuZ2UpCgpTUC"
+"5LX1YgPSAtIDAuNDI3OTE7ICUgWyUvwrBDXSAtIHRoZXJtYWwgdm9sdGFnZSBjb2VmZmljaWVudCB"
+"vZiBhcnJheSAtMC4xMjMwIGZyb20gb3RoZXIgcGFuZWwKU1AuS19JID0gMC4wODY3MDE7ICAlIFsl"
+"L8KwQ10gLSB0aGVybWFsIGN1cnJlbnQgY29lZmZpY2llbnQgb2YgYXJyYXkKClNQLkNfaW4gPSAxL"
+"jhlLTM7ICAlIFtGXSAtIGlucHV0IGNhcGFjaXRhbmNlIG9mIHRoZSBEQy9EQyBjb252ZXJ0ZXIgKG"
+"hpZ2ggdmFsdWUgdG8gZmlsdGVyIGFuZCB0aGUgdmFsdWUgaXMgZnJvbSB0aGUgc3VwZXJ2aXNvcik"
+"KCiUgQnVjay1ib29zdCBjb252ZXJ0ZXIKClZfb3V0PSAzNjAvTnVtYmVyT2ZTZXJpZXNDb25uZWN0"
+"ZWRQYW5lbHM7CgpCdWNrLkwgPSAxZS0zOyU0NzBlLTY7ICVbSF0gLSBpbmR1Y3RvciAlY2FsY3VsY"
+"XRlIDQ3MGUtNgpCdWNrLkMgPSA0NzBlLTY7ICVbRl0gLSBvdXRwdXQgY2FwYWNpdG9yICVjYWxjdW"
+"xhdGUgMTM0ZS02CkJ1Y2suUiA9IChWX291dF4yKS9QbXBwOyAlIFtPaG1dIC0gTG9hZApvdXRwdXR"
+"fY2FwID0gODYwZS02Owo="
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -71,11 +71,11 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [0, 27; 1920, 995]
+    Location      [0, 23; 1280, 645]
     ZoomFactor    0.999997
-    SliderPosition [0, 0]
+    SliderPosition [-1, 190]
     ShowBrowser   on
-    BrowserWidth  143
+    BrowserWidth  130
     Component {
       Type          Subsystem
       Name          "PV_Villalva1"
@@ -763,17 +763,17 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Time"
-        Value         "0"
+        Value         "0.02"
         Show          off
       }
       Parameter {
         Variable      "Before"
-        Value         "[0.1]"
+        Value         "[1]"
         Show          off
       }
       Parameter {
         Variable      "After"
-        Value         "[0.1]"
+        Value         "[1]"
         Show          off
       }
       Parameter {
@@ -794,7 +794,7 @@ Plecs {
       LabelAlign    up
       Parameter {
         Variable      "Value"
-        Value         "30"
+        Value         "25"
         Show          off
       }
       Parameter {
@@ -815,23 +815,23 @@ Plecs {
       Type          Scope
       Name          "Vin, Iin, Pin"
       Show          on
-      Position      [1120, 200]
+      Position      [1125, 140]
       Direction     up
       Flipped       off
-      Location      [961, 31; 1919, 1019]
+      Location      [641, 30; 1280, 669]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAABmAP///wAAAAMAAAJ/AAAAZfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAAn8AAABQAP///wAAA74AAAPBAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAACXAP///wAAAAMAAAO/AAAAnfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA78AAABpAP///wAAA78AAAL5AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAJYAAAAJAAAAlgAAAAIAAACWAAAAAwAAAJYAAAABAAAAlgAAAAYAAACWAAAABwAAAJYAAAAEAA"
-"AAlgAAAAUAAACWAAAAwwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACcAAA"
+"AAAAJYAAAAJAAAAlgAAAAYAAACWAAAABwAAAJYAAAAEAAAAlgAAAAUAAACWAAAAAgAAAJYAAAADAA"
+"AAlgAAAAEAAACWAAADpQAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADTAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAnAAAAAQAAAAAAAAPoAAAAACc="
+"ALSAAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQAAAAABAAAAAQAAAAAAAA"
 "AAAAAAAAAAAAAAAAAAAAAAAA=="
@@ -899,11 +899,11 @@ Plecs {
       Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [961, 31; 1919, 1019]
+      Location      [1, 30; 640, 669]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
-"GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAABmAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
-"///wAAADQA////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAAB4AP///wAAA74AAAPBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAACXAP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
+"///wAAAEwA////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"AB4AAAAC0AP///wAAA78AAAOcAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1446,43 +1446,59 @@ Plecs {
           }
           Parameter {
             Variable      "Declarations"
-            Value         "/*Stuff to solve:\n..Irradiance step is not well ha"
-"ndled\n.. When the system is in MPP, it slowly drifts aways from it.\n..Load "
-"change not tested\n..TBD\n*/\n\n#include<stdio.h>\n#include<math.h>\n#include"
-"<stdlib.h>\n\n\ndouble log10(double x);\ndouble fabs(double x);\n\nenum state"
-" {\n\tSTARTUP,\n\tOPEN_LOOP,\n\tVOLTAGE_EVALUATION,\n\tVOLTAGE_INC,\n\tVOLTAG"
-"E_DEC,\n\tWAIT,\n\t};\nstatic enum state SYSTEM_STATE = STARTUP;\n\n\t\nenum "
-"power_analysis_state{\n\tIDLE,\n\tCOARSE_POWER_MAPPING,\n\tDECREASE_D_DELTA,"
-"\n\tCONDITIONS_CHANGED,\n\tFINE_POWER_MAPPING,\n};\nstatic enum power_analysi"
-"s_state DELTA_DUTY_CYCLE_FSM = IDLE;\ndouble Pmax_avg = 0, Vmax = 0, Pmax = 0"
-";\nint FSM2_counter, out_of_MPP_counter, conditions_changed;\nint fine_power_"
-"counter = 0, fine_power_mapping_happened = 0;\n\n\n\n\ndouble V, I, P, Vprevi"
-"ous, Iprevious, Pprevious, delta_V, delta_P;\nstatic double D_delta=0.01;\nst"
-"atic double control_variable = 0, Dmin=0.05, Dmax=0.85;\nint startup_counter "
-"= 1; \nstatic char* enumstate[] = {\"STARTUP\",\"OPEN LOOP\", \"VOLTAGE EV\","
-" \"VOLTAGE INC\", \"VOLTAGE DEC\", \"WAIT\"};\nstatic char* enumstateduty[] ="
-" {\"IDLE\", \"COARSE_POWER_MAPPING\",\"DECREASE_D_DELTA\", \"CONDITIONS_CHANG"
-"ED\", \"FINE_POWER_MAPPING\"};\n\n\n\n\n#define V_in Input(0);\n#define I_in "
-"Input(1);\n\n\n#define D_out Output(0);\n\n\n\nvoid Open_loop_increase_D(void"
-"){\n\tcontrol_variable = control_variable + D_delta;\n}\n\n\nvoid calculate_p"
-"ower(void){\n\tif(control_variable < 0.5) I=I*2*control_variable;\n\tP = V * "
-"I;\n}\n\nvoid evaluate_power(void){\n\tdelta_P = P - Pprevious;\n}\n\nvoid sa"
-"ve_power(){\n\tPprevious = P;\n}\n\n\nvoid evaluate_voltage(void){\n\tdelta_V"
-" = V - Vprevious;\n\tprintf(\"Vprevious is: %f \\n\", Vprevious);\n\tprintf("
-"\"V is: %f \\n\", V);\n\n}\n\nvoid save_voltage_current(void){\n\tVprevious ="
-" V;\n\tIprevious = I;\n\t}\n\nint power_is_increased(void){\n\treturn P > Ppr"
-"evious;\n}\n\nint power_is_decreased(void){\n\treturn P < Pprevious;\n}\n\nin"
-"t voltageIsCloseToMPP(){ \t\ndouble voltage_threshold;\n\n\tvoltage_threshold"
-" = 8 * fabs(1/log10(D_delta));\n\n\tprintf(\"voltage threshold is %f \\n\", v"
-"oltage_threshold);\n   printf(\"V - Vmax*0.95 is %f \\n\", fabs(V - Vmax*0.90"
-"));\n\tprintf(\"fabs(V - Vmax*0.90) < voltage_threshold) is %d \\n\", fabs(V "
-"- Vmax*0.90) < voltage_threshold);\n\treturn (fabs(V - Vmax*0.90) < voltage_t"
-"hreshold);\n}\n\n/*void power_mapping_avg(){\n\tif (P_avg > Pmax_avg)\n\t\t{"
-"\t\n\t\t\tprintf(\"Pmax is %f \\n\", Pmax_avg);\n\t\t\tPmax_avg = P_avg;\n\t"
-"\t\tVmax = V;\n\t\t\tout_of_MPP_counter = 0;\n\t\t}\n\telse out_of_MPP_counte"
-"r++;\n}*/\n\nvoid power_mapping_instant(){\n\tif (P > Pmax)\n\t\t{\t\n\t\t\tp"
-"rintf(\"Pmax is %f \\n\", Pmax);\n\t\t\tPmax = P;\n\t\t\tVmax = V;\n\t\t\tout"
-"_of_MPP_counter = 0;\n\t\t}\n\telse out_of_MPP_counter++;\n\n}"
+            Value         base64 "LypTdHVmZiB0byBzb2x2ZToKLi5JcnJhZGlhbmNlIHN0"
+"ZXAgaXMgbm90IHdlbGwgaGFuZGxlZAouLiBXaGVuIHRoZSBzeXN0ZW0gaXMgaW4gTVBQLCBpdCBzb"
+"G93bHkgZHJpZnRzIGF3YXlzIGZyb20gaXQuCi4uTG9hZCBjaGFuZ2Ugbm90IHRlc3RlZAouLmFkZC"
+"BoZWFkZXIgZm9yIEZTTSwgZ3JvdXAgdmFyaWFibGVzIHVuZGVyIEZTTSwgZ3JvdXAgZnVuY3Rpb24"
+"gZGVmaW5pdGlvbiB1bmRlciBGU00uw6cKLi4gY29tbWVudCBEX291dCBvdXRwdXQgI2RlZmluZQou"
+"LndoeSA4IGlzIHVzZWQgaW4gVnRoIGNhbGN1bGF0aW9uCi4uIHBvd2VyIGlzIHVzZWQgaW4gRlNNM"
+"iBidXQgbm90IGNhbGN1bGF0ZWQgaW4gRlNNMgouLlJlbW92ZSBzdGF0aWMgZnJvbSBnbG9iYWwgdm"
+"FyaWFibGVzCi4ucG93ZXIgY2FsY3VsYXRpb24gY2hhbmdlIGxvZ2ljIHRvIG5vdCBtb2RpZnkgY3V"
+"ycmVudAouLgoKLS1WYXJpYWJsZXMgdG8gdHVuZTogCglQIGNvbmRpdGlvbnMgY2hhbmdlIHRocmVz"
+"aG9sZCAoMC44IHJpZ2h0IG5vdykKCU9wZW4gbG9wcCBjb3VudGVyCglGU00yIG91dCBvZiBtcHAgY"
+"291bnRlcgoJCiovCgojaW5jbHVkZTxzdGRpby5oPgojaW5jbHVkZTxtYXRoLmg+CiNpbmNsdWRlPH"
+"N0ZGxpYi5oPgoKCmRvdWJsZSBsb2cxMChkb3VibGUgeCk7CmRvdWJsZSBmYWJzKGRvdWJsZSB4KTs"
+"KCmVudW0gc3RhdGUgewoJU1RBUlRVUCwKCU9QRU5fTE9PUCwKCVZPTFRBR0VfRVZBTFVBVElPTiwK"
+"CVZPTFRBR0VfSU5DLAoJVk9MVEFHRV9ERUMsCglXQUlULAoJfTsKc3RhdGljIGVudW0gc3RhdGUgU"
+"1lTVEVNX1NUQVRFID0gU1RBUlRVUDsKCgkKZW51bSBwb3dlcl9hbmFseXNpc19zdGF0ZXsKCUlETE"
+"UsCglDT0FSU0VfUE9XRVJfTUFQUElORywKCURFQ1JFQVNFX0RfREVMVEEsCglDT05ESVRJT05TX0N"
+"IQU5HRUQsCglGSU5FX1BPV0VSX01BUFBJTkcsCn07CnN0YXRpYyBlbnVtIHBvd2VyX2FuYWx5c2lz"
+"X3N0YXRlIERFTFRBX0RVVFlfQ1lDTEVfRlNNID0gSURMRTsKZG91YmxlIFZtYXggPSAwLCBQbWF4I"
+"D0gMDsKaW50IEZTTTJfY291bnRlciwgb3V0X29mX01QUF9jb3VudGVyLCBjb25kaXRpb25zX2NoYW"
+"5nZWQ7CmludCBmaW5lX3Bvd2VyX2NvdW50ZXIgPSAwLCBmaW5lX3Bvd2VyX21hcHBpbmdfaGFwcGV"
+"uZWQgPSAwOwpkb3VibGUgUG1heF9hdmcgPSAwOwoKCgpkb3VibGUgViwgSSwgUCwgVnByZXZpb3Vz"
+"LCBJcHJldmlvdXMsIFBwcmV2aW91cywgZGVsdGFfViwgZGVsdGFfUDsKc3RhdGljIGRvdWJsZSBEX"
+"2RlbHRhPTAuMDU7CnN0YXRpYyBkb3VibGUgY29udHJvbF92YXJpYWJsZSA9IDAsIERtaW49MC4wNS"
+"wgRG1heD0wLjg1OwppbnQgc3RhcnR1cF9jb3VudGVyID0gMTsgCnN0YXRpYyBjaGFyKiBlbnVtc3R"
+"hdGVbXSA9IHsiU1RBUlRVUCIsIk9QRU4gTE9PUCIsICJWT0xUQUdFIEVWIiwgIlZPTFRBR0UgSU5D"
+"IiwgIlZPTFRBR0UgREVDIiwgIldBSVQifTsKc3RhdGljIGNoYXIqIGVudW1zdGF0ZWR1dHlbXSA9I"
+"HsiSURMRSIsICJDT0FSU0VfUE9XRVJfTUFQUElORyIsIkRFQ1JFQVNFX0RfREVMVEEiLCAiQ09ORE"
+"lUSU9OU19DSEFOR0VEIiwgIkZJTkVfUE9XRVJfTUFQUElORyJ9OwoKCgoKI2RlZmluZSBWX2luIEl"
+"ucHV0KDApOwojZGVmaW5lIElfaW4gSW5wdXQoMSk7CgoKI2RlZmluZSBEX291dCBPdXRwdXQoMCk7"
+"CgoKCnZvaWQgT3Blbl9sb29wX2luY3JlYXNlX0Qodm9pZCl7Cgljb250cm9sX3ZhcmlhYmxlID0gY"
+"29udHJvbF92YXJpYWJsZSArIERfZGVsdGE7Cn0KCgp2b2lkIGNhbGN1bGF0ZV9wb3dlcih2b2lkKX"
+"sKCWlmKGNvbnRyb2xfdmFyaWFibGUgPCAwLjUpIEk9SSoyKmNvbnRyb2xfdmFyaWFibGU7CglQID0"
+"gViAqIEk7Cn0KCnZvaWQgZXZhbHVhdGVfcG93ZXIodm9pZCl7CglkZWx0YV9QID0gUCAtIFBwcmV2"
+"aW91czsKfQoKdm9pZCBzYXZlX3Bvd2VyKHZvaWQpewoJUHByZXZpb3VzID0gUDsKfQoKCnZvaWQgZ"
+"XZhbHVhdGVfdm9sdGFnZSh2b2lkKXsKCWRlbHRhX1YgPSBWIC0gVnByZXZpb3VzOwoJcHJpbnRmKC"
+"JWcHJldmlvdXMgaXM6ICVmIFxuIiwgVnByZXZpb3VzKTsKCXByaW50ZigiViBpczogJWYgXG4iLCB"
+"WKTsKCn0KCnZvaWQgc2F2ZV92b2x0YWdlX2N1cnJlbnQodm9pZCl7CglWcHJldmlvdXMgPSBWOwoJ"
+"SXByZXZpb3VzID0gSTsKCX0KCmludCBwb3dlcl9pc19pbmNyZWFzZWQodm9pZCl7CglyZXR1cm4gU"
+"CA+IFBwcmV2aW91czsKfQoKaW50IHBvd2VyX2lzX2RlY3JlYXNlZCh2b2lkKXsKCXJldHVybiBQID"
+"wgUHByZXZpb3VzOwp9CgppbnQgdm9sdGFnZUlzQ2xvc2VUb01QUCh2b2lkKXsgCQpkb3VibGUgdm9"
+"sdGFnZV90aHJlc2hvbGQ7CgoJdm9sdGFnZV90aHJlc2hvbGQgPSA4ICogZmFicygxL2xvZzEwKERf"
+"ZGVsdGEpKTsKCglwcmludGYoInZvbHRhZ2UgdGhyZXNob2xkIGlzICVmIFxuIiwgdm9sdGFnZV90a"
+"HJlc2hvbGQpOwogICBwcmludGYoIlYgLSBWbWF4KjAuOTAgaXMgJWYgXG4iLCBmYWJzKFYgLSBWbW"
+"F4KjAuOTApKTsKCXByaW50ZigiZmFicyhWIC0gVm1heCowLjkwKSA8IHZvbHRhZ2VfdGhyZXNob2x"
+"kKSBpcyAlZCBcbiIsIGZhYnMoViAtIFZtYXgqMC45MCkgPCB2b2x0YWdlX3RocmVzaG9sZCk7Cgly"
+"ZXR1cm4gKGZhYnMoViAtIFZtYXgqMC45MCkgPCB2b2x0YWdlX3RocmVzaG9sZCk7Cn0KCi8qdm9pZ"
+"CBwb3dlcl9tYXBwaW5nX2F2ZygpewoJaWYgKFBfYXZnID4gUG1heF9hdmcpCgkJewkKCQkJcHJpbn"
+"RmKCJQbWF4IGlzICVmIFxuIiwgUG1heF9hdmcpOwoJCQlQbWF4X2F2ZyA9IFBfYXZnOwoJCQlWbWF"
+"4ID0gVjsKCQkJb3V0X29mX01QUF9jb3VudGVyID0gMDsKCQl9CgllbHNlIG91dF9vZl9NUFBfY291"
+"bnRlcisrOwp9Ki8KCnZvaWQgcG93ZXJfbWFwcGluZ19pbnN0YW50KHZvaWQpewoJaWYgKFAgPiBQb"
+"WF4KQoJCXsJCgkJCXByaW50ZigiUG1heCBpcyAlZiBcbiIsIFBtYXgpOwoJCQlQbWF4ID0gUDsKCQ"
+"kJVm1heCA9IFY7CgkJCW91dF9vZl9NUFBfY291bnRlciA9IDA7CgkJfQoJZWxzZSBvdXRfb2ZfTVB"
+"QX2NvdW50ZXIrKzsKCn0="
             Show          off
           }
           Parameter {
@@ -1515,33 +1531,34 @@ Plecs {
 "\n\t\t\tif (delta_V < 0) SYSTEM_STATE = VOLTAGE_DEC;\n\t\t\tsave_voltage_curr"
 "ent();\n\t\t}break;\n\t\t\n\t\tcase VOLTAGE_INC: \n\t\t{\n\t\t\tcalculate_pow"
 "er();//you are comparing the power right now with the previous power which wa"
-"s saved on voltage evaluation \n\n\t\t\tif (power_is_increased()) control_var"
-"iable = control_variable - D_delta; \n\t\t\tif (power_is_decreased()) control"
-"_variable = control_variable + D_delta;\t\n\t\t\tsave_power();\n\n\t\t\tSYSTE"
-"M_STATE = WAIT;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: \n\t\t{\n\t\t\tcalcul"
-"ate_power();\n\n\t\t\tif (power_is_increased()) control_variable = control_va"
-"riable + D_delta;\n\t\t\tif (power_is_decreased()) control_variable = control"
-"_variable - D_delta;\n\t\t\tsave_power();\n\n\t\t\tSYSTEM_STATE = WAIT;\n\t\t"
-"}break;\n\t\t\n\t\tcase WAIT:\n\t\t{\n\t\t\tSYSTEM_STATE = VOLTAGE_EVALUATION"
-";\n\t\t}break;\n}\nprintf(\"Control Variable is : %f \\n\", control_variable)"
-";\n\nprintf(\"****\\n\");\nprintf(\"Delta Duty state: %s \\n\", enumstateduty"
-"[DELTA_DUTY_CYCLE_FSM]);\n\n\nswitch(DELTA_DUTY_CYCLE_FSM)\n{\n\tcase IDLE:\n"
-"\t{\n\t\tif (SYSTEM_STATE > 2) DELTA_DUTY_CYCLE_FSM = COARSE_POWER_MAPPING;\n"
-"\t}break;\n\t\n\tcase COARSE_POWER_MAPPING:\n\t{\n\t\tD_delta = 0.01;\n\t\tco"
-"nditions_changed = 0;\n\t\tFSM2_counter = 0;\n\t\tpower_mapping_instant();\n"
-"\t\tif (out_of_MPP_counter > 10) DELTA_DUTY_CYCLE_FSM = DECREASE_D_DELTA;\n\t"
-"\tprintf(\"Coarse mapping counter %d \\n\", out_of_MPP_counter);\n\t}break;\n"
-"\n\tcase DECREASE_D_DELTA:\n\t{\n\t\tprintf(\"Vmax is %f \\nPmax is %f \\n\","
-" Vmax, Pmax);\n\t\tif (D_delta > 0.0005 && voltageIsCloseToMPP()) D_delta = D"
-"_delta*0.3;\n\t\t\n\t\tif (P < Pmax * 0.8) DELTA_DUTY_CYCLE_FSM = CONDITIONS_"
-"CHANGED;\n\t\tif (D_delta <= 0.005 && (FSM2_counter > 15)){\n\t\t\tFSM2_count"
-"er = 0;\n\t\t\tPmax = 0;\n\t\t\tDELTA_DUTY_CYCLE_FSM = FINE_POWER_MAPPING;\n"
-"\t\t}\n\t\telse FSM2_counter++;\n\t\t\n\t}break;\n\t\n\tcase CONDITIONS_CHANG"
-"ED:\n\t{\n\t\tPmax = 0;\n\t\tDELTA_DUTY_CYCLE_FSM = COARSE_POWER_MAPPING;\n\t"
-"}break;\n\t\n\tcase FINE_POWER_MAPPING:\n\t{\n\t\tpower_mapping_instant();\n"
-"\t\tFSM2_counter++;\n\t\tif (FSM2_counter > 15)\n\t\t{\n\t\t\tDELTA_DUTY_CYCL"
-"E_FSM = DECREASE_D_DELTA;\n\t\t\tFSM2_counter = 0;\n\t\t}\n\t}break;\n}\n\n\n"
-"printf(\"Delta_D is: %f \\n\", D_delta);\nprintf(\"--------------\\n\");\n"
+"s saved on voltage evaluation (but was calculated \n\n\t\t\tif (power_is_incr"
+"eased()) control_variable = control_variable - D_delta; \n\t\t\tif (power_is_"
+"decreased()) control_variable = control_variable + D_delta;\t\n\t\t\tsave_pow"
+"er();\n\n\t\t\tSYSTEM_STATE = WAIT;\n\t\t}break;\n\n\n\t\tcase VOLTAGE_DEC: "
+"\n\t\t{\n\t\t\tcalculate_power();\n\n\t\t\tif (power_is_increased()) control_"
+"variable = control_variable + D_delta;\n\t\t\tif (power_is_decreased()) contr"
+"ol_variable = control_variable - D_delta;\n\t\t\tsave_power();\n\n\t\t\tSYSTE"
+"M_STATE = WAIT;\n\t\t}break;\n\t\t\n\t\tcase WAIT:\n\t\t{\n\t\t\tSYSTEM_STATE"
+" = VOLTAGE_EVALUATION;\n\t\t}break;\n}\nprintf(\"Control Variable is : %f \\n"
+"\", control_variable);\n\nprintf(\"****\\n\");\nprintf(\"Delta Duty state: %s"
+" \\n\", enumstateduty[DELTA_DUTY_CYCLE_FSM]);\n\n\nswitch(DELTA_DUTY_CYCLE_FS"
+"M)\n{\n\tcase IDLE:\n\t{\n\t\tif (SYSTEM_STATE > 2) DELTA_DUTY_CYCLE_FSM = CO"
+"ARSE_POWER_MAPPING; //If V_INC or V_DEC start\n\t}break;\n\t\n\tcase COARSE_P"
+"OWER_MAPPING:\n\t{\n\t\tD_delta = 0.01;\n\t\tconditions_changed = 0;\n\t\tFSM"
+"2_counter = 0;\n\t\tpower_mapping_instant();\n\t\tif (out_of_MPP_counter > 10"
+") DELTA_DUTY_CYCLE_FSM = DECREASE_D_DELTA;\n\t\tprintf(\"Coarse mapping count"
+"er %d \\n\", out_of_MPP_counter);\n\t}break;\n\n\tcase DECREASE_D_DELTA:\n\t{"
+"\n\t\tprintf(\"Vmax is %f \\nPmax is %f \\n\", Vmax, Pmax);\n\t\tif (D_delta "
+"> 0.0005 && voltageIsCloseToMPP()) D_delta = D_delta*0.3;\n\t\t\n\t\tif (P < "
+"Pmax * 0.8) DELTA_DUTY_CYCLE_FSM = CONDITIONS_CHANGED;\n\t\tif (D_delta <= 0."
+"005 && (FSM2_counter > 15)){\n\t\t\tFSM2_counter = 0;\n\t\t\tPmax = 0;\n\t\t"
+"\tDELTA_DUTY_CYCLE_FSM = FINE_POWER_MAPPING;\n\t\t}\n\t\telse FSM2_counter++;"
+"\n\t\t\n\t}break;\n\t\n\tcase CONDITIONS_CHANGED:\n\t{\n\t\tPmax = 0;\n\t\tDE"
+"LTA_DUTY_CYCLE_FSM = COARSE_POWER_MAPPING;\n\t}break;\n\t\n\tcase FINE_POWER_"
+"MAPPING:\n\t{\n\t\tpower_mapping_instant();\n\t\tFSM2_counter++;\n\t\tif (FSM"
+"2_counter > 15)\n\t\t{\n\t\t\tDELTA_DUTY_CYCLE_FSM = DECREASE_D_DELTA;\n\t\t"
+"\tFSM2_counter = 0;\n\t\t}\n\t}break;\n}\n\n\nprintf(\"Delta_D is: %f \\n\", "
+"D_delta);\nprintf(\"--------------\\n\");\n"
             Show          off
           }
           Parameter {
@@ -1727,23 +1744,23 @@ Plecs {
       Type          Scope
       Name          "D1,D2,D,V"
       Show          on
-      Position      [1100, 320]
+      Position      [1135, 250]
       Direction     up
       Flipped       off
-      Location      [1, 31; 959, 1019]
+      Location      [1, 375; 640, 669]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAKwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAeAAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABQAP///wAAA74AAAPBAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAPEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAgPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABpAP///wAAA78AAAGWAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAJYAAAAJAAAAlgAAAAIAAACWAAAAAwAAAJYAAAABAAAAlgAAAAYAAACWAAAABwAAAJYAAAAEAA"
-"AAlgAAAAUAAACWAAAAvwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACYAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAJYAAAADAAAAlgAAAAEAAACWAAAABgAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAAIAA"
+"AAlgAAAAkAAACWAAAA7gAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAC0AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAnAAAAAQAAAAAAAAPoAAAAACc="
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -1965,7 +1982,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [1307, 236; 1725, 545]
+        Location      [126, 147; 544, 456]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -1986,8 +2003,8 @@ Plecs {
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAAAQAAAH0AAAACAAAAfQAAAAMAAAB9AAAABAAAAH0AAAAFAAAAfQAAAAYAAAB9AAAABwAAAH0AAA"
-"AIAAAAfQAAAAkAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC"
+"AAACQAAAH0AAAAIAAAAfQAAAAcAAAB9AAAABgAAAH0AAAAFAAAAfQAAAAQAAAB9AAAAAwAAAH0AAA"
+"ACAAAAfQAAAAEAAAB9AAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC"
 "6AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -2696,7 +2713,7 @@ Plecs {
       Type          From
       Name          "From9"
       Show          off
-      Position      [1025, 175]
+      Position      [1030, 115]
       Direction     right
       Flipped       off
       Parameter {
@@ -2714,7 +2731,7 @@ Plecs {
       Type          From
       Name          "From10"
       Show          off
-      Position      [1025, 200]
+      Position      [1030, 140]
       Direction     right
       Flipped       off
       Parameter {
@@ -2768,7 +2785,7 @@ Plecs {
       Type          From
       Name          "From20"
       Show          off
-      Position      [1035, 305]
+      Position      [1070, 235]
       Direction     right
       Flipped       off
       Parameter {
@@ -2786,7 +2803,7 @@ Plecs {
       Type          From
       Name          "From21"
       Show          off
-      Position      [1035, 330]
+      Position      [1070, 260]
       Direction     right
       Flipped       off
       Parameter {
@@ -2809,7 +2826,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "50"
+        Value         "27"
         Show          off
       }
     }
@@ -2845,7 +2862,7 @@ Plecs {
       Type          From
       Name          "From33"
       Show          off
-      Position      [1000, 385]
+      Position      [1035, 315]
       Direction     right
       Flipped       off
       Parameter {
@@ -2907,7 +2924,7 @@ Plecs {
       Type          Goto
       Name          "Goto27"
       Show          off
-      Position      [35, 275]
+      Position      [195, 335]
       Direction     right
       Flipped       off
       Parameter {
@@ -2951,7 +2968,7 @@ Plecs {
       Type          From
       Name          "From22"
       Show          off
-      Position      [1035, 355]
+      Position      [1070, 285]
       Direction     right
       Flipped       off
       Parameter {
@@ -3021,7 +3038,7 @@ Plecs {
       Type          From
       Name          "From34"
       Show          off
-      Position      [1005, 425]
+      Position      [1040, 355]
       Direction     right
       Flipped       off
       Parameter {
@@ -3039,7 +3056,7 @@ Plecs {
       Type          SignalMux
       Name          "Mux"
       Show          off
-      Position      [1050, 435]
+      Position      [1085, 365]
       Direction     right
       Flipped       off
       Parameter {
@@ -3052,7 +3069,7 @@ Plecs {
       Type          Scope
       Name          "Vin, Iin, Pin1"
       Show          on
-      Position      [1085, 500]
+      Position      [1245, 425]
       Direction     up
       Flipped       off
       Location      [1, 375; 640, 669]
@@ -3154,7 +3171,7 @@ Plecs {
       Type          From
       Name          "From35"
       Show          off
-      Position      [890, 490]
+      Position      [1050, 415]
       Direction     right
       Flipped       off
       Parameter {
@@ -3172,7 +3189,7 @@ Plecs {
       Type          From
       Name          "From36"
       Show          off
-      Position      [890, 510]
+      Position      [1050, 435]
       Direction     right
       Flipped       off
       Parameter {
@@ -3190,7 +3207,7 @@ Plecs {
       Type          Product
       Name          "Product"
       Show          on
-      Position      [1035, 570]
+      Position      [1205, 520]
       Direction     up
       Flipped       off
       Parameter {
@@ -3209,7 +3226,7 @@ Plecs {
       SrcComponent  "Components/Control/Filters/Periodic Average"
       Name          "Periodic Average"
       Show          on
-      Position      [955, 565]
+      Position      [1125, 490]
       Direction     up
       Flipped       off
       Frame         [-15, -15; 15, 15]
@@ -3236,7 +3253,7 @@ Plecs {
       SrcComponent  "Components/Control/Filters/Periodic Average"
       Name          "Periodic Average1"
       Show          on
-      Position      [960, 625]
+      Position      [1120, 550]
       Direction     up
       Flipped       off
       Frame         [-15, -15; 15, 15]
@@ -3359,36 +3376,601 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Vin, Iin, Pin2"
+      Name          "Scope"
       Show          on
-      Position      [715, 700]
+      Position      [535, 600]
       Direction     up
       Flipped       off
-      Location      [1, 31; 959, 1019]
+      Location      [641, 30; 1280, 669]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAA74AAAPBAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAO+AAAAovw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAA74AAABpAP///wAAA78AAAOcAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAAAAZAAAAAUAAABkAAAAAgAAAGQAAAADAA"
-"AAZAAAAAEAAABkAAAAjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABoAAA"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAABBwAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADNAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAnAAAAAQAAAAAAAAPoAAAAACc="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
+      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEB//8AANbWAAAAAAAAAAEB/////wAAA"
+"AAAAAAAAAEB//9NTYeH8fEAAAAAAAMAAAABAQAAAAEBAAAAAQEAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABP/GZmZmZmZoAAAABP/GZmZmZmZoAAAA"
+"BP/GZmZmZmZoAAAADAAAAAQEAAAABAQAAAAEB"
       Axes          "1"
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
       Open          "0"
-      Ts            "100e-6"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time (s)"
+      Axis {
+        Name          ""
+        AutoScale     0
+        MinValue      0
+        MaxValue      310
+        Signals       {"Panel Voltage (V)", "Panel Current (A)", "Panel Power "
+"(W)"}
+        SignalTypes   [ ]
+        AxisLabel     "V_pv (V), I_pv (A), P_pv (W)"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux1"
+      Show          off
+      Position      [485, 600]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From12"
+      Show          off
+      Position      [420, 575]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "V_pv"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From13"
+      Show          off
+      Position      [420, 600]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "I_pv"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From14"
+      Show          off
+      Position      [420, 630]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "P_pv"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope1"
+      Show          on
+      Position      [760, 590]
+      Direction     up
+      Flipped       off
+      Location      [0, 26; 1283, 706]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAA1fw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABpAP///wAAB4QAAAPZAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAH0AAAAIAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAAAAfQAAAAcAAAB9AAAABgAAAH0AAAAFAA"
+"AAfQAAAAQAAAB9AAABEgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADYAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
+      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEB//8AAAAA9fUAAAAAAAEC//8AAP///"
+"/8AAAAAAAEB//8AAOXlAAAAAAAAAAMAAAABAQAAAAEAAAAAAQEAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABP/GZmZmZmZoAAAABP/GZmZmZmZoAAAA"
+"BP/GZmZmZmZoAAAADAAAAAQEAAAABAQAAAAEBAAAAAgAAAAEAAAACAAAAAQL//y7g///MzAAAAAAA"
+"AQL//wAA/////wAAAAAAAgAAAAEAAAAAAQAAAAACAAAAAQAAAAEAAAABAAAAAQAAAAIAAAABAAAAA"
+"AEAAAAAAgAAAAE/8ZmZmZmZmgAAAAE/8ZmZmZmZmgAAAAIAAAABAQAAAAEB"
+      Axes          "2"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "0"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time (s)"
+      Axis {
+        Name          ""
+        AutoScale     0
+        MinValue      -0.1
+        MaxValue      1.1
+        Signals       {"Control_variable", "D_buck", "D_boost"}
+        SignalTypes   [ ]
+        AxisLabel     "Control variable, Duty cycles"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     0
+        MinValue      0
+        MaxValue      100
+        Signals       {"Panel Voltage (V)", "Output Voltage (V)"}
+        SignalTypes   [ ]
+        AxisLabel     "V_pv (V) , V_out (V)"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux2"
+      Show          off
+      Position      [705, 565]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From23"
+      Show          off
+      Position      [660, 570]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D_buck"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From24"
+      Show          off
+      Position      [660, 595]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D_boost"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From25"
+      Show          off
+      Position      [660, 545]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "D"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From37"
+      Show          off
+      Position      [660, 620]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "V_in avg"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From38"
+      Show          off
+      Position      [660, 650]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "V_out"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux3"
+      Show          off
+      Position      [710, 670]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope2"
+      Show          on
+      Position      [970, 595]
+      Direction     up
+      Flipped       off
+      Location      [0, 26; 1536, 807]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeAAAAAs/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAAA3gAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACtAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
+      PlotPalettes  "AAAAAQAAAAIAAAABAAAAAgAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
+"/8AAAAAAAIAAAABAAAAAAEAAAAAAgAAAAEAAAABAAAAAQAAAAEAAAACAAAAAQAAAAABAAAAAAIAAA"
+"ABP/GZmZmZmZoAAAABP/GZmZmZmZoAAAACAAAAAQEAAAABAQAAAAEAAAABAAAAAQAAAAEB//8AAAA"
+"A//8AAAAAAAEAAAABAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/GZmZmZmZoAAAABAAAA"
+"AQE="
+      Axes          "2"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "0"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time (s)"
+      Axis {
+        Name          ""
+        AutoScale     0
+        MinValue      0
+        MaxValue      50
+        Signals       {"Panel Voltage (V)", "Panel Current (A)"}
+        SignalTypes   [ ]
+        AxisLabel     "V_pv (V) , I_pv (A)"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     0
+        MinValue      0
+        MaxValue      310
+        Signals       {"Panel Power (W)"}
+        SignalTypes   [ ]
+        AxisLabel     "P_pv (W)"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux4"
+      Show          off
+      Position      [920, 595]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From15"
+      Show          off
+      Position      [855, 570]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "V_pv"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From16"
+      Show          off
+      Position      [855, 595]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "I_pv"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From17"
+      Show          off
+      Position      [855, 625]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "P_pv"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Sun1"
+      Show          on
+      Position      [35, 275]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Time"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "[25]"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "[45]"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display"
+      Show          on
+      Position      [1050, 640]
+      Direction     up
+      Flipped       off
+      Frame         [-31, -11; 31, 11]
+      LabelPosition [0, 14]
+      LabelAlign    up
+      Parameter {
+        Variable      "Notation"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Control/Filters/Moving Average"
+      Name          "Moving Average"
+      Show          on
+      Position      [925, 700]
+      Direction     up
+      Flipped       off
+      Frame         [-15, -15; 15, 15]
+      LabelPosition [0, 18]
+      LabelAlign    up
+      Parameter {
+        Variable      "T_period"
+        Value         "0.005"
+        Show          off
+      }
+      Parameter {
+        Variable      "buffer_size"
+        Value         "1024"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [19, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-15, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope3"
+      Show          on
+      Position      [985, 700]
+      Direction     up
+      Flipped       off
+      Location      [0, 606; 1283, 706]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAEwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABpAP///wAAB4QAAABzAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"AAAAH0AAAAJAAAAfQAAAAYAAAB9AAAABwAAAH0AAAAEAAAAfQAAAAUAAAB9AAAAAgAAAH0AAAADAA"
+"AAfQAAAAEAAAB9AAABAwAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADJAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AA6AAAAAQAAAAAAAAPoAAAAADo="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "1"
+      Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
       Axis {
-        Name          "Input voltage"
+        Name          ""
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -3414,62 +3996,6 @@ Plecs {
           BaselineValue 0
         }
       }
-    }
-    Component {
-      Type          From
-      Name          "From12"
-      Show          off
-      Position      [600, 680]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Tag"
-        Value         "Vin"
-        Show          off
-      }
-      Parameter {
-        Variable      "Visibility"
-        Value         "2"
-        Show          off
-      }
-    }
-    Component {
-      Type          From
-      Name          "From13"
-      Show          off
-      Position      [605, 705]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Tag"
-        Value         "V_out"
-        Show          off
-      }
-      Parameter {
-        Variable      "Visibility"
-        Value         "2"
-        Show          off
-      }
-    }
-    Component {
-      Type          SignalMux
-      Name          "Mux1"
-      Show          off
-      Position      [640, 700]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Width"
-        Value         "2"
-        Show          off
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Temperature"
-      SrcTerminal   1
-      DstComponent  "PV_Villalva1"
-      DstTerminal   3
     }
     Connection {
       Type          Signal
@@ -3702,7 +4228,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From9"
       SrcTerminal   1
-      Points        [1055, 175; 1055, 195]
+      Points        [1060, 115; 1060, 135]
       DstComponent  "Vin, Iin, Pin"
       DstTerminal   1
     }
@@ -3710,7 +4236,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From10"
       SrcTerminal   1
-      Points        [1060, 200; 1060, 205]
+      Points        [1065, 140; 1065, 145]
       DstComponent  "Vin, Iin, Pin"
       DstTerminal   2
     }
@@ -3743,24 +4269,10 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Wire
-      SrcComponent  "Vm1"
-      SrcTerminal   1
-      Points        [890, 140; 825, 140]
-      Branch {
-        DstComponent  "Am2"
-        DstTerminal   2
-      }
-      Branch {
-        DstComponent  "R1"
-        DstTerminal   1
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "From21"
       SrcTerminal   1
-      Points        [1055, 330; 1055, 315]
+      Points        [1090, 260; 1090, 245]
       DstComponent  "D1,D2,D,V"
       DstTerminal   2
     }
@@ -3822,7 +4334,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am7"
       SrcTerminal   3
-      Points        [140, 295; 15, 295]
+      Points        [140, 335]
       DstComponent  "Goto27"
       DstTerminal   1
     }
@@ -3830,7 +4342,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From22"
       SrcTerminal   1
-      Points        [1060, 355; 1060, 325]
+      Points        [1095, 285; 1095, 255]
       DstComponent  "D1,D2,D,V"
       DstTerminal   3
     }
@@ -3838,7 +4350,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From33"
       SrcTerminal   1
-      Points        [1020, 385; 1020, 430]
+      Points        [1055, 315; 1055, 360]
       DstComponent  "Mux"
       DstTerminal   2
     }
@@ -3846,7 +4358,7 @@ Plecs {
       Type          Signal
       SrcComponent  "From34"
       SrcTerminal   1
-      Points        [1015, 425; 1015, 440]
+      Points        [1050, 355; 1050, 370]
       DstComponent  "Mux"
       DstTerminal   3
     }
@@ -3854,7 +4366,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Mux"
       SrcTerminal   1
-      Points        [1065, 435; 1065, 335]
+      Points        [1100, 365; 1100, 265]
       DstComponent  "D1,D2,D,V"
       DstTerminal   4
     }
@@ -3862,7 +4374,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Product"
       SrcTerminal   1
-      Points        [1055, 540; 955, 540; 955, 510]
+      Points        [1225, 465; 1115, 465; 1115, 435]
       DstComponent  "Vin, Iin, Pin1"
       DstTerminal   3
     }
@@ -3870,14 +4382,14 @@ Plecs {
       Type          Signal
       SrcComponent  "From36"
       SrcTerminal   1
-      Points        [915, 510]
+      Points        [1075, 435]
       Branch {
-        Points        [950, 510; 950, 500]
+        Points        [1110, 435; 1110, 425]
         DstComponent  "Vin, Iin, Pin1"
         DstTerminal   2
       }
       Branch {
-        Points        [915, 625]
+        Points        [1075, 550]
         DstComponent  "Periodic Average1"
         DstTerminal   2
       }
@@ -3886,6 +4398,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Periodic Average"
       SrcTerminal   1
+      Points        [1160, 490; 1160, 515]
       DstComponent  "Product"
       DstTerminal   2
     }
@@ -3893,7 +4406,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Periodic Average1"
       SrcTerminal   1
-      Points        [1000, 625; 1000, 575]
+      Points        [1160, 550; 1160, 525]
       DstComponent  "Product"
       DstTerminal   3
     }
@@ -4005,13 +4518,13 @@ Plecs {
       Type          Signal
       SrcComponent  "From35"
       SrcTerminal   1
-      Points        [920, 490]
+      Points        [1080, 415]
       Branch {
         DstComponent  "Vin, Iin, Pin1"
         DstTerminal   1
       }
       Branch {
-        Points        [920, 565]
+        Points        [1080, 490]
         DstComponent  "Periodic Average"
         DstTerminal   2
       }
@@ -4020,8 +4533,16 @@ Plecs {
       Type          Signal
       SrcComponent  "Mux1"
       SrcTerminal   1
-      DstComponent  "Vin, Iin, Pin2"
+      DstComponent  "Scope"
       DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From12"
+      SrcTerminal   1
+      Points        [450, 575; 450, 590]
+      DstComponent  "Mux1"
+      DstTerminal   2
     }
     Connection {
       Type          Signal
@@ -4032,11 +4553,143 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "From12"
+      SrcComponent  "From14"
       SrcTerminal   1
-      Points        [615, 680; 615, 695]
+      Points        [450, 630; 450, 610]
       DstComponent  "Mux1"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From25"
+      SrcTerminal   1
+      Points        [680, 545; 680, 555]
+      DstComponent  "Mux2"
       DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From23"
+      SrcTerminal   1
+      Points        [680, 570; 680, 565]
+      DstComponent  "Mux2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From24"
+      SrcTerminal   1
+      Points        [685, 595; 685, 575]
+      DstComponent  "Mux2"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux2"
+      SrcTerminal   1
+      Points        [725, 565; 725, 585]
+      DstComponent  "Scope1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From37"
+      SrcTerminal   1
+      Points        [685, 620; 685, 665]
+      DstComponent  "Mux3"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From38"
+      SrcTerminal   1
+      Points        [680, 650; 680, 675]
+      DstComponent  "Mux3"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux3"
+      SrcTerminal   1
+      Points        [725, 670; 725, 595]
+      DstComponent  "Scope1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Vm1"
+      SrcTerminal   1
+      Points        [890, 140; 825, 140]
+      Branch {
+        DstComponent  "Am2"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "R1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux4"
+      SrcTerminal   1
+      Points        [935, 595; 935, 590]
+      DstComponent  "Scope2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From15"
+      SrcTerminal   1
+      Points        [885, 570; 885, 590]
+      DstComponent  "Mux4"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From16"
+      SrcTerminal   1
+      Points        [885, 595; 885, 600]
+      DstComponent  "Mux4"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Temperature"
+      SrcTerminal   1
+      DstComponent  "PV_Villalva1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From17"
+      SrcTerminal   1
+      Points        [875, 625]
+      Branch {
+        Points        [935, 625]
+        Branch {
+          Points        [940, 625]
+          DstComponent  "Scope2"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [935, 640]
+          DstComponent  "Display"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [875, 695; 860, 695; 860, 700]
+        DstComponent  "Moving Average"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Moving Average"
+      SrcTerminal   1
+      DstComponent  "Scope3"
+      DstTerminal   1
     }
     Annotation {
       Name          "Averaging inductor current"
@@ -4058,4 +4711,3 @@ Plecs {
     }
   }
 }
-DemoSignature "HkkVUkDaWEQ1MpDZR9zKbAviUGuyScGDW9VF2yv/UVs="
