@@ -4,21 +4,20 @@ After the Assembling of the PCB and testing the components behave like the expec
 \subsection{Open loop test}
 For the open loop test the converter is tested one time in buck and boost mode. Both mode will be test at the MPP. So, the constant input voltage for both test is 36.9 V. The environmental condition in these cases is 1000 $W /m^2$ for the irradiance 1000 $W /m^2$ and for the temperature 25 $\decC$. For both test it will measure the current ripple and the output voltage to check if they have same value as calculate. Also it will validate the steady state of the experimental result with the values from the simulation.
 
-For the buck mode the load is 3 Ohm at the output. With the fix duty cycles $D1 = 0.65$ and  $D2 = 0$ , the output voltage should be 24 V in steady state . The figure shows the transition to reach the steady state. Here a sentence about the comparing with the simulation.  In the figure the output voltage is 21.1 V  at steady state less than the expected value.
+For the buck mode the load is 3 $\Omega$ at the output. With the fix duty cycles $D1 = 0.65$ and  $D2 = 0$ , the output voltage should be 24 V in steady state . The figure shows the transition to reach the steady state. Here a sentence about the comparing with the simulation.  In the figure the output voltage is 21.1 V  at steady state less than the expected value.
 \begin{equation}\label{effiencybuckmode}
 \eta = \frac{V_{outputexperimantel}}{V_{output simulation}} \cdot 100 = \frac{21.1V}{24V} \cdot 100 = 87.5 \%
 \end{equation}
 The efficiency of the system is 87.5$\%$. The main losses are the dissipation from the component in heat. Also the load is a power resistor and it changes the resistance if it is in operation. So we have not a constant load at the output as in the simulation. Another reason is the dead-time of the MOSFET and therefore the duty cycle is not exactly the same value as in the simulation. 
 
-\begin{itemize}
-	\item Graph current in the inductor and output voltage to validate figure 3.2. 
-	\item Graph current in the inductor and input voltage to check the ripple. 
-\end{itemize}
+For the boost mode the load is 27 $\Omega$ at the output. With the fix duty cycles $D1 = 1$ and  $D2 = 0.638$ , the output voltage should be 90 V in steady state . The figure shows the transition to reach the steady state. Here a sentence about the comparing with the simulation.  In the figure the output voltage is -- V  at steady state.
 
 \subsection{Thermal test}
 
-\subsection{MPPT}
+For the test converter with heat sink, the converter is supplied for 10 minutes (or 600 seconds) a constant input voltage 36.9 V and input current 7 A. The converter is performing in buck mode with fix duty cycles D1 = 0.8 and D2 = 0. The components coil, heat sink and security diode are measured because from other experiments they are radiated the highest heat. Figure shows that the diode is produced the most amount of heat.
 
+\subsection{MPPT test}
+The section MPPT test is divided in two parts. One part is that the converter is working with the P\&O MPPT algorithm. and The other part is that during the converter is in operation the ambient conditions will change. The tests are compared with the result of the section \ref{MPPTSimulation}.  Therefore  in in tests with ch
 \begin{itemize}	
 	\item Set irradiance 1000 $W /m2$ and T= 25 $\decC$. This is: 
 		\begin{itemize}
@@ -63,4 +62,3 @@ The efficiency of the system is 87.5$\%$. The main losses are the dissipation fr
   
 \end{itemize}
 	
-\subsection{Experimental results}
