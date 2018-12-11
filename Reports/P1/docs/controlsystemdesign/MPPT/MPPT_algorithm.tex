@@ -20,7 +20,7 @@ The advantage of using constant voltage is that only the voltage is measured and
 		\label{fcconstantvoltage}
 	\end{center}	
 \end{figure}
-
+ 
 
 \subsection{Perturb and observe}
 With the P\&O method, the currently measured power is periodically compared with the previous power. If the measured power is greater than the power from the previous measurement, the algorithm is moving in the right direction to the MPP. If a power reduction is detected after the comparison, the algorithm is moving away from the MPP. The next step is the identification of a voltage increase or reduction to regulate the voltage for getting the MPP voltage. This depends on which side of the MPP the algorithm is working. If the algorithm detects less voltage than the MPP, the voltage for the next step should increase. If more voltage than the MPP is detected,the algorithm decreases the voltage for the next step to reach the MPP.
