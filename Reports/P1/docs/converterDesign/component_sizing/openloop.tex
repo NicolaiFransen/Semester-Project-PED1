@@ -4,7 +4,7 @@ To validate that the calculations have been made correctly, an open loop simulat
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_schematic}
+		\includegraphics[width=0.6\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_schematic}
 		\caption{Ideal open-loop simulation.}
 		\label{fig:openloop_schematic}
 	\end{center}
@@ -18,37 +18,58 @@ The values for the components are $C_{in}=1.54mF$, $C_{out}=88 \mu F$ and $L1=1.
 	R_{load} = \frac{V^2}{P_{max}} = \frac{24V^2}{300W} = 1.92 \Omega
 \end{equation}
 
+Figure \ref{fig:OL_bucksimulation} shows the output voltage and inductor current waveforms from the simulation. The initial transients are not important for an open loop simulation and have been excluded in the figure. With the data, the mean values are calculated such that $\widebar{V_{out}} = 23.95V$ and $\widebar{I_L} = 12.48A$. In buck mode the current through the inductor should be equal to the output current. With the values used for the simulation, the current at the output should be $12.5A$ as calculated in equation \ref{eq:Iout_buck}. The measurements shows that the converter works as expected in buck mode.
 
-
-\begin{figure}[H]
- 	\begin{center}
- 		\includegraphics[width=0.6\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_buck}
- 		\caption{Open-loop simulation in buck mode.}
- 		\label{bucksimulation}
- 	\end{center}
-\end{figure} 
-\todo{Fix this figure. The linewidth of the signals isn't the same and the axis names are small. Stef }
-
-In buck mode the current through the inductor should be equal to the output current \ref{iavg} \todo{which ref is this? Stef} which with a load of $1.92\Omega$ should be:
-\begin{equation}
+\begin{equation} \label{eq:Iout_buck}
 I_{out} = \frac{V_{out}}{R_{load}} = \frac{24V}{1.92\Omega} = 12.5A
 \end{equation}   
 
-To simulate the boost mode the input voltage is the same. Here the duty cycle for D2 is 0.638. This should correspond to an output voltage of 90V and calculated with the same equation as \ref{boostD} \todo{Check!}. D1 is fixed to 1 so that FET1 is on and FET2 is off. This should give an output voltage of 90V. With 90V the output current should be 9A and then the current through the inductor is calculated like this:
+\begin{figure}[H]
+ 	\begin{center}
+ 		\includegraphics[width=0.6\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_buck_300W}
+ 		\caption{Open-loop simulation in buck mode.}
+ 		\label{fig:OL_bucksimulation}
+ 	\end{center}
+\end{figure} 
 
-\begin{equation}
-I_{L} = \frac{1}{1-0.638}\cdot 12.5A = 9.207A
-\end{equation}  
-\todo{Equations should be first written with letters and after that put the values. Stef}
 
-In figure \ref{boostsim} the red line is again the output voltage which is the expected 90V and the green line is the current through the inductor is a bit more than 9A \todo{a bit more? Be more precise. Stef}.
+The boost mode is simulated using the same values for the components and input voltage. To work in boost mode $D_1 = 1$ and $D_2$ is calculated in equation \ref{eq:boost_duty_90V} to achieve an output voltage at $90V$. The load resistor to have a output power of $300W$ is calculated in equation \ref{eq:ol_load_boost}.
+
+\begin{equation} \label{eq:boost_duty_90V}
+	D_2 = 1-\frac{V_{in}}{V_{out}} = 1 - \frac{36.9V}{90V} = 0.59
+\end{equation}
+
+\begin{equation} \label{eq:ol_load_boost}
+	R_{load} = \frac{V^2}{P_{max}} = \frac{90V^2}{300W} = 27 \Omega
+\end{equation}
+
+Figure \ref{fig:OL_boostsimulation} shows the output voltage and inductor current waveforms from the simulation. With the data, the mean values are calculated such that $\widebar{V_{out}} = 89.95V$ and $\widebar{I_L} = 8.16A$. The theoretical current through the inductor is calculated in equation \ref{eq:IL_boost}. The measurements shows that the converter works as expected in boost mode.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.5\textwidth]{../Pictures/boostsim}
+		\includegraphics[width=0.6\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_boost_300W}
 		\caption{Open-loop simulation in boost mode.}
-		\label{boostsim}
+		\label{fig:OL_boostsimulation}
 	\end{center}
 \end{figure}
 
-\todo{This figure will be updated.}
+
+
+\begin{equation} \label{eq:IL_boost}
+	I_L = \frac{1}{1-D} \cdot \frac{V_{out}}{R_{load}} = \frac{1}{1-0.59} \cdot \frac{90V}{27\Omega} = 8.13A
+\end{equation}
+
+The last part of the open-loop simulation is to validate the capacitor and inductor values. This is done by measuring the different ripple values under the conditions as they where calculated in section \ref{component_sizing}. The inductor is tested in boost mode with $V_{in} = 36.19V$, $D_{2} = 0.597$ and $R_{load} = 67.54\Omega$. The maximum and minimum currents are measured as $I_{max} = 3.465A$ and $I_{min} = 3.135A$, with a mean at $\widebar{I_L} = 3.331A$. The ripple current is calculated in equation \ref{eq:inductor_ripple}.
+
+\begin{equation} \label{eq:inductor_ripple}
+	\Delta I_L = \frac{I_{max}-I_{min}}{\widebar{I_L}} \cdot 100 = \frac{3.465A-3.135A}{3.331A} \cdot 100 = 9.91\%
+\end{equation}
+
+The output voltage ripple is also measured in boost mode, but with the maximum output power of $300W$. This means $V_{in} = 36.9V$, $D_{2} = 0.59$ and $R_{load} = 27\Omega$, as calculated during the open-loop boost simulation. The maximum and minimum voltages are measured as $V_{max} = 90.22V$ and $V_{min} = 89.77V$, with a mean at $\widebar{V_{out}} = 89.78V$. The ripple voltage is calculated in equation \ref{eq:output_voltage_ripple}.
+
+\begin{equation} \label{eq:output_voltage_ripple}
+\Delta V_{out} = \frac{V_{max}-V_{min}}{\widebar{V_{out}}} \cdot 100 = \frac{90.22V-89.77V}{89.78V} \cdot 100 = 0.50\%
+\end{equation}
+
+The simulation is made using an ideal voltage source as input. This means that it will have no ripple, and therefore it's not possible to validate the input voltage ripple.
+
