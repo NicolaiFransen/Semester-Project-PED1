@@ -39,18 +39,18 @@ The signal from the optocoupler has to be amplified in order to drive the switch
 	\label{driver_features}
 \end{table}
 
-The MOSFET is a voltage controlled device, the relationship between $V_{GS}$ and $V_{th}$ sets the drain to source maximum current, as seen in figure \ref{ids_vgs}.
+The MOSFET is a voltage controlled device, the relationship between $V_{GS}$ and $V_{th}$ sets the drain to source maximum current, as seen in figure \ref{ids_vgs}\cite{mosfet_datasheet}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.4\textwidth]{../Pictures/P1/Component_sizing/ids_against_vgs.png}
-		\caption{Drain to source current against gate to source voltage $(V_{DS} > 2 \cdot I_{D}\cdot R_{DSon}) $.}
+		\caption{Drain to source current against gate to source voltage $(V_{DS} > 2 \cdot I_{D}\cdot R_{DSon})$.}
 		\label{ids_vgs}
 	\end{center}
 \end{figure}
-\todo{reference to this figure.}
 
-The dynamics of the switching can be modelled as a RC circuit, see figure \ref{mosfet_rc_gate}. Both $R_{driver \; out}$ and $R_{MOSFET}$ are directly obtained from the components' data sheets, $C_{iss}$ is also available in the MOSFET data sheet as input capacitance. \todo{reference}
+
+The dynamics of the switching can be modeled as a RC circuit, see figure \ref{mosfet_rc_gate}. Both $R_{driver \; out}$ and $R_{MOSFET}$ are directly obtained from the components' data sheets. $C_{iss}$ is also available in the MOSFET data sheet as input capacitance. \todo{reference}
 
 
 
