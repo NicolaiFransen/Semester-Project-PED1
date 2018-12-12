@@ -59,17 +59,17 @@ Figure \ref{fig:OL_boostsimulation} shows the output voltage and inductor curren
 	I_L = \frac{1}{1-D} \cdot \frac{V_{out}}{R_{load}} = \frac{1}{1-0.59} \cdot \frac{90V}{27\Omega} = 8.13A
 \end{equation}
 
-The last part of the open-loop simulation is to validate the capacitor and inductor values. This is done by measuring the different ripple values under the conditions as they where calculated in section \ref{component_sizing}. The inductor is tested in boost mode with $V_{in} = 36.19V$, $D_{2} = 0.597$ and $R_{load} = 67.54\Omega$. The maximum and minimum currents are measured as $I_{max} = 3.465A$ and $I_{min} = 3.135A$, with a mean at $\widebar{I_L} = 3.331A$. The ripple current is calculated in equation \ref{eq:inductor_ripple}.
+The last part of the open-loop simulation is to validate the capacitor and inductor values. This is done by measuring the different ripple values under the conditions as they where calculated in section \ref{component_sizing}. The inductor is tested in boost mode with $V_{in} = 36.19V$, $D_{2} = 0.597$ and $R_{load} = 67.54\Omega$. The maximum and minimum currents are measured as $I_{max} = 3.465A$ and $I_{min} = 3.135A$, with a mean at $\widebar{I_L} = 3.3A$. The ripple current is calculated in equation \ref{eq:inductor_ripple}.
 
 \begin{equation} \label{eq:inductor_ripple}
-	\Delta I_L = \frac{I_{max}-I_{min}}{\widebar{I_L}} \cdot 100 = \frac{3.465A-3.135A}{3.331A} \cdot 100 = 9.91\%
+	\Delta I_L = \frac{I_{max}-I_{min}}{\widebar{I_L}} \cdot 100 = \frac{3.465A-3.135A}{3.3A} \cdot 100 = 10\%
 \end{equation}
 
-The output voltage ripple is also measured in boost mode, but with the maximum output power of $300W$. This means $V_{in} = 36.9V$, $D_{2} = 0.59$ and $R_{load} = 27\Omega$, as calculated during the open-loop boost simulation. The maximum and minimum voltages are measured as $V_{max} = 90.22V$ and $V_{min} = 89.77V$, with a mean at $\widebar{V_{out}} = 89.78V$. The ripple voltage is calculated in equation \ref{eq:output_voltage_ripple}.
+The output voltage ripple is also measured in boost mode, but with the maximum output power of $300W$. This means $V_{in} = 36.9V$, $D_{2} = 0.59$ and $R_{load} = 27\Omega$, as calculated during the open-loop boost simulation. The maximum and minimum voltages are measured as $V_{max} = 90.22V$ and $V_{min} = 89.77V$, with a mean at $\widebar{V_{out}} = 89.995V$. The ripple voltage is calculated in equation \ref{eq:output_voltage_ripple}.
 
 \begin{equation} \label{eq:output_voltage_ripple}
-\Delta V_{out} = \frac{V_{max}-V_{min}}{\widebar{V_{out}}} \cdot 100 = \frac{90.22V-89.77V}{89.78V} \cdot 100 = 0.50\%
+\Delta V_{out} = \frac{V_{max}-V_{min}}{\widebar{V_{out}}} \cdot 100 = \frac{90.22V-89.77V}{89.995V} \cdot 100 = 0.5\%
 \end{equation}
 
-The simulation is made using an ideal voltage source as input. This means that it will have no ripple, and therefore it's not possible to validate the input voltage ripple.
+The simulation is made using an ideal voltage source as input. This means that it will have no ripple, and therefore it's not possible to validate the input voltage ripple. The figures for the ripple measurements are included in appendix \ref{app:OL_ripple}.
 
