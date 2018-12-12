@@ -2,7 +2,7 @@ Plecs {
   Name          "Ideal_openloop_sim"
   Version       "4.2"
   CircuitModel  "ContStateSpace"
-  StartTime     "0.0"
+  StartTime     "0"
   StopTime      "0.5"
   Timeout       ""
   Solver        "dopri"
@@ -23,8 +23,12 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
-  InitializationCommands "D1 = 0.736;\nD2= 0; \n\nVin = 32.587;\nCin = 0.00149"
-";\nCout = 0.000226;\nL1 = 0.000650;\nLoad = 10;\n"
+  InitializationCommands "%D1 = 1; D2 = 0.59;\t % Duties for 300W boost mode\n"
+"%D1 = 0.65; D2 = 0;\t % Duties for 300W buck mode\nD1 = 1; D2 = 0.597;\t % Du"
+"ties for Coil ripple test\n\n%Vin = 36.9;\nVin = 36.19;\t\t\t % Vin for coil "
+"ripple test\nCin = 1.54e-3;\nCout = 88e-6;\nL1 = 1.3e-3;\n%Load = 1.92;  \t\t"
+"% Load for 300W buck mode\n%Load = 27;\t\t\t\t% Load for 300W boost mode\nLoa"
+"d = 67.542;\t\t\t% Load for coil ripple test\n"
   InitialState  "1"
   SystemState   ""
   CodeGenParameterInlining "2"
@@ -45,7 +49,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [14, 163; 869, 765]
+    Location      [0, 22; 1280, 640]
     ZoomFactor    1.33333
     SliderPosition [63, 0]
     ShowBrowser   off
@@ -244,26 +248,26 @@ Plecs {
       Position      [610, 95]
       Direction     up
       Flipped       off
-      Location      [770, 30; 1536, 803]
+      Location      [514, 25; 1280, 706]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAO+AAAAb/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA74AAABbAP///wAAA74AAAMzAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAIAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAP0A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAD9AP///wAAAAMAAAd7AAAA4/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB3sAAACuAP///wAAB3sAAAWEAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAJYAAAAIAAAAlgAAAAEAAACWAAAAAwAAAJYAAAACAAAAlgAAAAUAAACWAAAABAAAAJYAAAAHAA"
-"AAlgAAAAYAAACWAAADqQAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAABfAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"QAAAJYAAAAIAAAAlgAAAAkAAACWAAAAAgAAAJYAAAADAAAAlgAAAAEAAACWAAAABgAAAJYAAAAHAA"
+"AAlgAAAAQAAACWAAAHUAAAAAsBAAABAAAAAAAAAAAAAAAA+v////8AAACBAAAAAAAAAAsAAACkAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"ANKAAAAAQAAAAAAAAPoAAAAADE="
+"AasAAAAAQAAAAAAAAPoAAAAAGE="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
-      TimeRange     "0.0"
+      TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -595,21 +599,6 @@ Plecs {
       DstTerminal   2
     }
     Connection {
-      Type          Wire
-      SrcComponent  "V_PV"
-      SrcTerminal   1
-      Points        [95, 75; 165, 75]
-      Branch {
-        Points        [270, 75]
-        DstComponent  "FET_1"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "C1"
-        DstTerminal   1
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Pulse\nGenerator1"
       SrcTerminal   1
@@ -623,6 +612,14 @@ Plecs {
         DstComponent  "Logical\nOperator1"
         DstTerminal   2
       }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "V_PV"
+      SrcTerminal   1
+      Points        [95, 75; 270, 75]
+      DstComponent  "FET_1"
+      DstTerminal   1
     }
   }
 }
