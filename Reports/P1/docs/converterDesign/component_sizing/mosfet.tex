@@ -51,14 +51,11 @@ The switching losses depend upon the switching frequency and the transistor's ma
 
 The datasheet shows that the $R_{DS}$ variation is mainly dependent on the temperature\cite{mosfet_datasheet}. The models found neglect the temperature difference. Then, in order to get an approximated value considering temperature, the procedure will be to calculate the total losses at constant temperature using the SPICE model and then add the additional conduction losses due to the increase of the resistance, as expressed by equation \ref{total_losses}.
 
-
-\todo{Since you have made the simulations it would be a good idea to add them as appendices and refer to them. AT. Might be a good idea. Lets see if the limits of the document allows us (maximum number of pages).}
-
 \begin{equation} \label{total_losses}
 \overline{P} = \overline{P_{loss, T = K}} + \overline{i(t)^2 \cdot \Updelta R_{DS}}
 \end{equation}
 
-Now the junction temperature based on the power dissipation, calculated using the SPICE model, is calculated. The ambient temperature is set to 50 $\decC$, which is considered a realistic scenario \todo{ref}. The thermal circuit can be seen in figure \ref{thermal_circuit}. The next step is to choose a commercial heat sink. The constraints are thermal resistance, size and price. TDEX6015/TH was found. Its features might be found in table \ref{heatsink_features}. The switches temperature will be analysed in order to validate the heat sink. The analysis considers all the transistors as a single power source.
+Now the junction temperature based on the power dissipation, calculated using the SPICE model, is calculated. The ambient temperature is set to 50 $\decC$, which is considered a realistic scenario. The thermal circuit can be seen in figure \ref{thermal_circuit}. The next step is to choose a commercial heat sink. The constraints are thermal resistance, size and price. TDEX6015/TH was found. Its features might be found in table \ref{heatsink_features}. The switches temperature will be analysed in order to validate the heat sink. The analysis considers all the transistors as a single power source.
 
 \begin{figure}[H]
 	\begin{center}
