@@ -118,7 +118,7 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 	\centering
 	\begin{tabular}{|p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
 		\hline
-		\rowcolor{lightgray}\multicolumn{5}{|l|}{ \textbf{Constant irradiance 1000$W/ m^2$ and varying temperature}} 
+		\rowcolor{lightgray}\multicolumn{5}{|l|}{ \textbf{Constant irradiance 1000 $W/ m^2$ and varying temperature}} 
 		\\ \hline
 		& T=25$\dec C$  & T=35$\dec C$  & T=45$\dec C$  & T=55$\dec C$ \tabularnewline \hline
 		$V_{mpp}$ [V] & 36.9 & 32.59 & 28.34 & 24.23\tabularnewline \hline
@@ -128,6 +128,8 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 	\caption{Results of the optimum PV panel parameters for varying temperature.}
 	\label{constantirradtable}
 \end{table}
+
+\todo{stef the unit for irradiance is not the same format as the other words.I try to fix this but its not working.So write in caption varying temperature and constant irradiance and delete the first row in the table. If you change this, do it for the other table too TL}
 
 \subsection{Simulation results}
 
@@ -234,7 +236,7 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 	\end{center}	
 \end{figure}
 
-\todo{it isn't control variable. We call it valg }
+\todo{it isn't control variable. We call it valg. You describe in caption only the first graph and not the graph below change this TL }
 \subsubsection*{Change in irradiance and temperature}
 
 This section shows the performance of the MPPT when the PV panel is exposed to a sudden change in irradiance and in temperature. First, figures \ref{buckirradiance} and \ref{boostirradiance} show the results obtained for a change in irradiance for the case of buck and boost mode, respectively. The irradiance change is from 1000 $W/ m^2$ to 800 $W/ m^2$ while the cell temperature is kept constant at 25 $\dec$C. 

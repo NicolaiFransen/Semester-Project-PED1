@@ -1,6 +1,6 @@
 \section{Simulation Results} \label{opsimresult}
 
-To check that the calculations have been made correctly, an open loop simulation of the circuit was conducted. As it can be seen in figure \ref{fig:openloop_schematic} the circuit consists of the 4 MOSFETs, the inductor, the 2 capacitors and a load. The MOSFETs are controlled with two duty cycles D1 and D2. FET1 and FET4 will get the actual duty cycle while FET2 and FET3 uses the inverted duty cycles. With the scope the output voltage and current through the inductor can be visualized.
+To validate that the calculations have been made correctly, an open loop simulation of the circuit was conducted. As it can be seen in figure \ref{fig:openloop_schematic} the circuit consists of the 4 MOSFETs, the inductor, the 2 capacitors and a load. The MOSFETs are controlled with two duty cycles D1 and D2. FET1 and FET4 will get the actual duty cycle while FET2 and FET3 uses the inverted duty cycles. With the scope the output voltage and current through the inductor can be visualized.
 
 \begin{figure}[H]
 	\begin{center}
@@ -9,7 +9,16 @@ To check that the calculations have been made correctly, an open loop simulation
 		\label{fig:openloop_schematic}
 	\end{center}
 \end{figure}
-The values for the components are $C_{in}=1880\mu F$, $C_{out}=820\mu F$ and $L1=1mH$ as described earlier \todo{This hasn't been described earlier. We have changed the structure so the selection of commercial components is done in chapter 4. Stef} and $V_{in}=36.9V$. At first the buck mode is simulated. In this mode D2 is 0. This means that FET4 is off and FET3 is on. The duty cycle for D1 is fixed at 0.65 which was calculated in \ref{buckduty} \todo{Where?? Check this! Stef}. This should give an output voltage of 24V which can be seen in figure \ref{bucksimulation}. The load is $1.92\Omega$ because it produces 300W with an output voltage at 24V.     
+The values for the components are $C_{in}=1.54mF$, $C_{out}=88 \mu F$ and $L1=1.3mH$ as calculated in section \ref{component_sizing}. At first the buck mode is simulated. In this mode D2 is 0. This means that FET4 is off and FET3 is on. To achieve the minimum output voltage at $24V$, the corresponding duty cycle is calculated in equation \ref{eq:ol_duty_buck}. The load resistor is calculated for maximum output power for the PV-panel in equation \ref{eq:ol_load_buck}.
+\begin{equation} \label{eq:ol_duty_buck}
+	D= \frac{V_{out}}{V_{in}} = \frac{24V}{36.9V} = 0.65
+\end{equation}
+
+\begin{equation} \label{eq:ol_load_buck}
+	R_{load} = \frac{V^2}{P_{max}} = \frac{24V^2}{300W} = 1.92 \Omega
+\end{equation}
+
+
 
 \begin{figure}[H]
  	\begin{center}

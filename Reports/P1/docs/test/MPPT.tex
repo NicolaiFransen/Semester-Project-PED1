@@ -43,34 +43,51 @@ For this test, the converter is supplied for 10 minutes (or 600 seconds) a const
 \end{figure}
 
 \subsection{MPPT test}
-The section MPPT test is divided in two parts. One part is that the converter is working with the P\&O to find the MPP .The other part is that during the converter with the P\&O MPPT algorithm is in operation the ambient conditions will change in temperature or irradiance. The tests are compared with the result from section \ref{MPPTSimulation}. The MPPT frequency for all tests is 10 Hz and is ten times smaller as the simulation one. The PV-panel voltage and current is in all figures the input voltage and current from the converter.
+The section MPPT test is divided in two parts. One part is that the converter is working with the P\&O to find the MPP .The other part is that during the converter with the P\&O MPPT algorithm is in operation the ambient conditions will change in temperature or irradiance. The tests are compared with the result from section \ref{MPPTSimulation}. The PV-panel voltage and current is in all figures the input voltage and current from the converter.
 
 In the first part the converter is operated one time in buck and boost mode. For both modes the ambient condition is for the irradiance 1000 $W /m^2$ and for the temperature 25 $\decC$ (as STC ). If the converter is performed in the buck mode, the load is 3 $\Omega$ at the output from the converter. For the boost mode the load is 27 $\Omega$ at the output.
 
-The figure \ref{MPPTtestbuckmode} shows that the converter is finding the MPP. The left graph represents the relationship between the input and output voltage and the current of the converter. At first the input voltage is not reaching the open circuit voltage like in the simulation.  After 6 seconds the P\&O algorithm reachs the MPP. \todo{for the future: compare with the values the simulation with the experiment in one graph. but consider that the simulation should run for 40 seconds to plot both in one graph}
+The figure \ref{MPPTtestbuckmode1} shows that the converter is finding the MPP in buck mode. The left graph represents the input and the current of the converter. At first the input voltage reached the open circuit voltage as in the simulation.  After 10 seconds the P\&O algorithm reaches the MPP. In steady state the converter extracts 294 W from the PV-panel as you can see in the right graph in figure \ref{MPPTtestbuckmode1}.This value is smaller than the value from the datasheet \cite{PV_panel}
+\todo{for the future: compare with the values the simulation with the experiment in one graph. but consider that the simulation should run for 40 seconds to plot both in one graph}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Vout_Iin_Pin_Pout}
-		\caption{MPPT test: converter in buck mode}
-		\label{MPPTtestbuckmode}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Iin_Pin}
+		\caption{MPPT test: converter extracts voltage, current and power from the PV-panel in buck mode.}
+		\label{MPPTtestbuckmode1}
+	\end{center}	
+\end{figure}
+
+In the left graph in figure \ref{MPPTtestbuckmode2} is to be observed the relationship between the input and output voltage.
+ 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Vout_Pin_Pout}
+		\caption{MPPT test: converter behavior in  in buck mode operation}
+		\label{MPPTtestbuckmode2}
+	\end{center}	
+\end{figure}
+
+\todo{maybe for the figure MPPTtestbuckmode2 the figure with the duty cycle}
+
+
+boost mode
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Iin_Pin}
+		\caption{MPPT test: converter in boost mode picture not right}
+		\label{MPPTtestboostmode1}
 	\end{center}	
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Boost_mode_MPPT_Vin_Vout_Iin_Pin_Pout}
-		\caption{MPPT test: converter in boost mode}
-		\label{MPPTtestboostmode}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Vout_Pin_Pout}
+		\caption{MPPT test: converter in boost mode picture not right}
+		\label{MPPTtestboostmode2}
 	\end{center}	
 \end{figure}
-
-\begin{itemize}
-	\item which time is the converter reaching the MPP 
-	
-	\item what is different as at the simulation
-\end{itemize}
-
 
 
 
