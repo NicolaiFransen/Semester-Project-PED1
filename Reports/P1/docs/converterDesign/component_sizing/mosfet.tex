@@ -1,9 +1,10 @@
+Selecting the switching circuitry consists of four different parts, the switches, drivers, optocouplers and the heat sink. Additional support circuitry will be designed, when selecting the commercial components.
+
 \subsubsection{Switch sizing} \label{switch_sizing}
-\todo{brief intro before this. Stef}
-The system must regulate the power flow in order to maximize the power generation. In order to achieve this, the system includes switches that control the current flow. The switches consist on MOSFET devices. The switching frequency of the system is $50 $ kHz \todo{Do we justify somewhere why we chose this switching freq? Stef}. Although the market has IGBT which can switch at $50$ kHz, MOSFET devices allow lower losses than IGBTs for system's current rating \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}.
+The system must regulate the power flow in order to maximize the power generation. In order to achieve this, the system includes switches that control the current flow. The switches consist on MOSFET devices. The switching frequency of the system is selected to be $50kHz$. Although the market has IGBT which can switch at $50kHz$, MOSFET devices allow lower losses than IGBTs for system's current rating \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}.
 
 
-The maximum output voltage of the system is $90 $V, however the voltage rating of the transistors was set to $150 $V in order to consider a safety margin, and thus, increase the reliability. The peak current through the transistors happens when the buck mode is active and the maximum number of MICs are used in series. The peak current is equal to $14$ A. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired \todo{reference. Stef}. These constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3. It exhibits the features seen in table \ref{mosfet_features}.
+The maximum output voltage of the system is $90V$, however the voltage rating of the transistors was set to $150V$ in order to consider a safety margin, and thus, increase the reliability. The peak current through the transistors happens when the buck mode is active and the maximum number of MICs are used in series. The peak current is equal to $14A$. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired shown in equation \ref{conduction_losses_eq}\cite{mosfet_losses}. These constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3. It exhibits the features seen in table \ref{mosfet_features}.
 
 
 \begin{table}[htbp]
@@ -46,18 +47,15 @@ The power dissipated in the switches is equal to the sum of the conduction losse
 P_{cond} = i(t)^2 \cdot R_{DS}
 \end{equation}
 
-The switching losses depend upon the switching frequency and the transistor's manufacturing characteristics \todo{ref}. In order to calculate the value, the MOSFET's SPICE model was obtained from the manufacturer's website \todo{ref}. The next step was to perform the simulation of the system. The system was simulated in both buck and boost modes. Special attention was put into the dead-band between PWM signals of different switches, to avoid current shoot through. After simulating, the average power dissipation under steady state was calculated in both modes. Within every mode, the simulation was performed under the most unfavorable conditions, this is: buck's output is 24 V and boost's output is 90 V. The results can be seen in table \ref{mosfet_final_dissipation}, column 1.
+The switching losses depend upon the switching frequency and the transistor's manufacturing characteristics\cite{mosfet_losses}. In order to calculate the value, the MOSFET's SPICE model was obtained from the manufacturer's website. The next step was to perform the simulation of the system. The system was simulated in both buck and boost modes. Special attention was put into the dead-band between PWM signals of different switches, to avoid current shoot through. After simulating, the average power dissipation under steady state was calculated in both modes. Within every mode, the simulation was performed under the most unfavorable conditions, this is: buck's output is 24 V and boost's output is 90 V. The results can be seen in table \ref{mosfet_final_dissipation}, column 1.
 
-$R_{DS}$ variation  is mainly dependent on the temperature \todo{ref}. The models found neglect the temperature difference. Then, in order to get an approximated value considering temperature, the procedure will be to calculate the total losses at constant temperature using the SPICE model and then add the additional conduction losses due to the increase of the resistance, as expressed by equation \ref{total_losses}.
-
-
-\todo{Since you have made the simulations it would be a good idea to add them as appendices and refer to them. AT. Might be a good idea. Lets see if the limits of the document allows us (maximum number of pages).}
+The datasheet shows that the $R_{DS}$ variation is mainly dependent on the temperature\cite{mosfet_datasheet}. The models found neglect the temperature difference. Then, in order to get an approximated value considering temperature, the procedure will be to calculate the total losses at constant temperature using the SPICE model and then add the additional conduction losses due to the increase of the resistance, as expressed by equation \ref{total_losses}.
 
 \begin{equation} \label{total_losses}
 \overline{P} = \overline{P_{loss, T = K}} + \overline{i(t)^2 \cdot \Updelta R_{DS}}
 \end{equation}
 
-Now the junction temperature based on the power dissipation, calculated using the SPICE model, is calculated. The ambient temperature is set to 50 $\decC$, which is considered a realistic scenario \todo{ref}. The thermal circuit can be seen in figure \ref{thermal_circuit}. The next step is to choose a commercial heat sink. The constraints are thermal resistance, size and price. TDEX6015/TH was found. Its features might be found in table \ref{heatsink_features}. The switches temperature will be analysed in order to validate the heat sink. The analysis considers all the transistors as a single power source.
+Now the junction temperature based on the power dissipation, calculated using the SPICE model, is calculated. The ambient temperature is set to 50 $\decC$, which is considered a realistic scenario. The thermal circuit can be seen in figure \ref{thermal_circuit}. The next step is to choose a commercial heat sink. The constraints are thermal resistance, size and price. TDEX6015/TH was found. Its features might be found in table \ref{heatsink_features}. The switches temperature will be analysed in order to validate the heat sink. The analysis considers all the transistors as a single power source.
 
 \begin{figure}[H]
 	\begin{center}

@@ -39,18 +39,18 @@ The signal from the optocoupler has to be amplified in order to drive the switch
 	\label{driver_features}
 \end{table}
 
-The MOSFET is a voltage controlled device, the relationship between $V_{GS}$ and $V_{th}$ sets the drain to source maximum current, as seen in figure \ref{ids_vgs}.
+The MOSFET is a voltage controlled device, the relationship between $V_{GS}$ and $V_{th}$ sets the drain to source maximum current, as seen in figure \ref{ids_vgs}\cite{mosfet_datasheet}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.4\textwidth]{../Pictures/P1/Component_sizing/ids_against_vgs.png}
-		\caption{Drain to source current against gate to source voltage $(V_{DS} > 2 \cdot I_{D}\cdot R_{DSon}) $.}
+		\caption{Drain to source current against gate to source voltage $(V_{DS} > 2 \cdot I_{D}\cdot R_{DSon})$.}
 		\label{ids_vgs}
 	\end{center}
 \end{figure}
-\todo{reference to this figure.}
 
-The dynamics of the switching can be modelled as a RC circuit, see figure \ref{mosfet_rc_gate}. Both $R_{driver \; out}$ and $R_{MOSFET}$ are directly obtained from the components' data sheets, $C_{iss}$ is also available in the MOSFET data sheet as input capacitance. \todo{reference}
+
+The dynamics of the switching can be modeled as a RC circuit, see figure \ref{mosfet_rc_gate}. Both $R_{driver \; out}$ and $R_{MOSFET}$ are directly obtained from the components' data sheets. $C_{iss}$ is also available in the MOSFET data sheet as input capacitance. \todo{Add reference or a better description of the model. Be more specific with what the resistors represent, NHF}
 
 
 
@@ -62,7 +62,7 @@ The dynamics of the switching can be modelled as a RC circuit, see figure \ref{m
 	\end{center}	
 \end{figure}
 
-The time where the gate capacitor voltage reaches the threshold voltage produces a propagation delay from the driver output to the actual beginning of the MOSFET switching. In order to size the limiting resistor of the RC circuit, a time constraint was needed. This time constraint was arbitrarily set in relation with the switching frequency as described in equation \ref{time_constraint}. The 0.1\% constraint results in a limiting resistor of 20 $\Omega$. The average power dissipation, according to simulation, is 13 mW. This value is well under the power rating of the used SMD resistor with 1206 package, which is 250 mW \todo{ref}. However the peak power dissipation was also considered, as it is relatively high. According to simulation, the peak is equal to 5.4 W, see figure \ref{gate_resistor_power_dissipation}. Although this value exceeds the resistor power rating, some manufacturers agree that the peak power dissipation in pulses shorter than 10 $\mu$s using 1206 resistors is 19 W \cite{pulse_withstanding_chip_resistors}, \cite{gate_driver_design_infineon}. Then the peak power dissipated shouldn't harm the component. Once the prototype is built, the thermal behaviour of the component is analysed with a thermal camera.
+The time where the gate capacitor voltage reaches the threshold voltage produces a propagation delay from the driver output to the actual beginning of the MOSFET switching. In order to size the limiting resistor of the RC circuit, a time constraint was needed. This time constraint was arbitrarily set in relation with the switching frequency as described in equation \ref{time_constraint}. The 0.1\% constraint results in a limiting resistor of 20 $\Omega$. The average power dissipation, according to simulation, is 13 mW. This value is well under the power rating of the used SMD resistor with 1206 package, which is 250 mW. However the peak power dissipation was also considered, as it is relatively high. According to simulation, the peak is equal to 5.4 W, see figure \ref{gate_resistor_power_dissipation}. Although this value exceeds the resistor power rating, some manufacturers agree that the peak power dissipation in pulses shorter than 10 $\mu$s using 1206 resistors is 19 W \cite{pulse_withstanding_chip_resistors}, \cite{gate_driver_design_infineon}. Then the peak power dissipated shouldn't harm the component. Once the prototype is built, the thermal behaviour of the component is analysed with a thermal camera.
 
 \begin{equation} \label{time_constraint}
 t_{delay} = t\big\rvert_{V_{GS} = V_{th}} =\frac{T_{sw}}{1000} = 0.1 \% \;\; of \;\; T_{sw} = 20 \; ns

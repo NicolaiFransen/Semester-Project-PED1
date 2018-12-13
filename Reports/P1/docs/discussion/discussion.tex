@@ -10,6 +10,31 @@
 
 2-What have we done:  a paragraph or two explaining the major findings and why are important.
 
+\section{Validation of experimental results}
+\subsection{Open loop simulation}
+\todo{This was written in chapter 6.}
+The main losses are the dissipation from the component in heat. Also the load is a power resistor and it changes the resistance if it is in operation. So we have not a constant load at the output as in the simulation. Another reason is the dead-time of the MOSFET and therefore the duty cycle is not exactly the same value as in the simulation. 
+
+The table \ref{tab:ripple} compares the values of the ripples from the experiments with the values from the requirements in section \ref{sec:componentsizing} and the simulation results in appendix \ref{app:OL_ripple}. So in all three cases the measured ripples from the experiment are higher/lower than the values from the requirement. Here the reason.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\centering}p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|}
+		\hline
+		\rowcolor{lightgray} \textbf{} & \textbf{Requirement} & \textbf{Simulation}  & \textbf{Experiment}   \tabularnewline \hline
+		$\Delta V_{in}$ & 0.1\% & - & - \tabularnewline \hline
+		$\Delta I_{L}$ & 10\% & 10\% & 9.86\% \tabularnewline \hline
+		$\Delta V_{out}$  & 0.5\% & 0.5\% & 0.055\% \tabularnewline \hline
+	\end{tabular}
+	\caption{Voltage and current ripple.}
+	\label{tab:ripple}
+\end{table}
+
+\todo{The output ripple was tested for buck mode instead of boost mode so mention here why. Stef}
+
+\subsection{MPPT}
+
+
 \section{Problems and limitations}
 3-Explain main problems and limitations and how are handled. Be succinct, be frank but no apologetic. Explain implications of limitations.
 \subsection{Layout improvement procedure and issues, title to be improved}

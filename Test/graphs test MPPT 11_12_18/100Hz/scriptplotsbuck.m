@@ -1,7 +1,9 @@
 close all;
 
 %Measurement values from excel reading
-MPPT1000 = csvread('100Hz_all.csv')
+MPPT1000 = csvread('100Hz_all.csv',1,0)
+duties = csvread('duty_cycles_buck.csv',1,0)
+
 %Messwerte in Variablen speichern
 t1000 = MPPT1000(:,1);
 vin1000 = MPPT1000(:, 2);
@@ -9,15 +11,22 @@ iin1000 = MPPT1000(:, 3);
 vout1000 = MPPT1000(:, 4);
 iout1000 = MPPT1000(:, 5);
 
+tduty = duties(:,1);
+dbuck = duties(:,2);
+dboost = duties(:,3);
+
 %Filter
 vin1000f = smoothdata(vin1000,'gaussian',20);
 vout1000f = smoothdata(vout1000,'gaussian',20);
 iin1000f = smoothdata(iin1000,'gaussian',20);
 iout1000f = smoothdata(iout1000,'gaussian',20);
 
+
 pin1000 = vin1000f.* iin1000f;
 pout1000 = vout1000f.* iout1000f;
 
+dbuckf = lowpass(dbuck,1e3,50e3);
+dboostf = lowpass(dboost,1e3,50e3);
  
 % %Verschiebung der X-Achse
 % time1k = time1-1.423;
@@ -64,16 +73,20 @@ h_axu1.Position= [13.5,1.5,10,10];
 h_axo.YLim = [-5,50];
 h_axu.YLim = [-5,350];
 h_axo1.YLim = [-5,50];
-h_axu1.YLim = [-5,350];
+%h_axu1.YLim = [-5,350];
 %Kräfte in beiden KS darstellen
 h_vin1000=plot(h_axo,t1000,vin1000f);
 h_iin1000=plot(h_axo,t1000,iin1000f);
+%h_vin1000lowpass=plot(h_axo,t1000,vin1000flowpass);
 h_pin1000=plot(h_axu,t1000,pin1000);
 
-h_pin10001=plot(h_axu1,t1000,pin1000);
+%h_pin10001=plot(h_axu1,t1000,pin1000);
 h_vin10001=plot(h_axo1,t1000,vin1000f);
 h_vout10001=plot(h_axo1,t1000,vout1000f);
-h_pout10001=plot(h_axu1,t1000,pout1000);
+%h_pout10001=plot(h_axu1,t1000,pout1000);
+h_dbuck1=plot(h_axu1,tduty,dbuckf);
+h_dboost1=plot(h_axu1,tduty,dboostf);
+
 
 h_vin1000.LineWidth = 1.5;
 h_iin1000.LineWidth = 1.5;
@@ -82,6 +95,9 @@ h_vin10001.LineWidth = 1.5;
 h_vout10001.LineWidth = 1.5;
 h_pin10001.LineWidth = 1.5;
 h_pout10001.LineWidth = 1.5;
+
+h_dbuck1.LineWidth = 1.5;
+h_dboost1.LineWidth = 1.5;
 
 % Axe description
 h_xachseo = xlabel (h_axo,'Time (s)');
