@@ -32,8 +32,21 @@ The table \ref{tab:ripple} compares the values of the ripples from the experimen
 
 \todo{The output ripple was tested for buck mode instead of boost mode so mention here why. Stef}
 
-\subsection{MPPT}
+\subsection{Maximum Power Point Tracking}
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\centering}p{2.3cm}|p{2.3cm}|p{2.3cm}|p{2.3cm}|p{2.3cm}|}
+		\hline
+		 \rowcolor{lightgray} & \multicolumn{2}{|c|}{ \textbf{Buck Mode}} & \multicolumn{2}{|c|}{ \textbf{Boost Mode}} \tabularnewline \hline
+		\rowcolor{lightgray} \textbf{} & \textbf{Simulation}  & \textbf{Experiment} & \textbf{Simulation}  & \textbf{Experiment}  \tabularnewline \hline
+		$\eta_{MPPT}$ & 99.96 \% & 97.72 \% & 99.82 \% & 97.32 \% \tabularnewline \hline
+		$t_{MPPT}$ & 2 s & 10 s & 4 s & 22 s \tabularnewline \hline
+		$D$  & 0.8130 & 0.7594 & 0.5900 & 0.5823 \tabularnewline \hline
+	\end{tabular}
+	\caption{Simulated and experimental results for the P\&O MPPT algorithm.}
+	\label{tab:comparisonMPPT}
+\end{table}
 
 \section{Problems and limitations}
 3-Explain main problems and limitations and how are handled. Be succinct, be frank but no apologetic. Explain implications of limitations.
