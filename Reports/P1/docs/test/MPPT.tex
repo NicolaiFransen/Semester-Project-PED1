@@ -21,7 +21,7 @@ Finally, the measured input voltage ripple is shown in figure \ref{Openlooptesti
 
 \subsection{Thermal test}
 
-For this test, the converter is supplied for 10 minutes (or 600 seconds)\todo{Why do you specify that 10 minutes is 600 seconds??} a constant input voltage 36.9 V and input current 7 A. Tthe\todo{Typo} converter is performing in buck mode with the fix duty cycles D1 = 0.8 and D2 = 0 in this test. The temperature of the components coil, heat sink and security diode are measured during the test because they are the critical components. Figure \ref{Testthermal} shows that the diode is produced the most amount of heat.\todo {thats not true. This is only a random sentence.}
+For this test, the converter is supplied for 40 minutes a constant input voltage 39.2 V and input current 6.93 A. The converter is performing in buck mode with the fix duty cycles D1 = 0.75 and D2 = 0.25 in this test. The temperature of the components coil, heat sink are measured during the test because they are the critical components. Figure \ref{Testthermal} shows that 
 
 \begin{figure}[H]
 	\begin{center}
@@ -110,3 +110,19 @@ D_{boost}= 1 - \dfrac{V_{pv}}{V_{out}} = 1 - \dfrac{36.93V}{88.41V} = 0.5823
 \subsubsection*{Change in irradiance and temperature}
 
 HERE INCLUDE THE RESULTS FOR BUCK AND IN CASE WE GET TO DO BOOST ALSO HERE. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Iin_Pin_irriadance_change}
+		\caption{Measured voltage,current and powers at the input of the converter with a change in irradiance from 1000 to 800 ($R_{L}=3\Omega$).}
+		\label{MPPTtestbuckmodeir}
+	\end{center}	
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Iin_Pin_temperature_change}
+		\caption{Measured voltage,current and powers at the input of the converter with a change in temperature from 25 to 15 ($R_{L}=3\Omega$).}
+		\label{MPPTtestbuckmodet}
+	\end{center}	
+\end{figure}
