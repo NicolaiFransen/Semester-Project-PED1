@@ -3,7 +3,7 @@ After the assembling of the PCB and testing the components behave like the expec
 
 \subsection{Open loop test}
 
-The open loop test is carried out to measure the ripples in the inductor current, the input voltage and the output voltage of the converter. The test conditions were explained in section \ref{sec:componentsizing}.  
+The open loop test is carried out to measure the ripples in the inductor current, the input voltage and the output voltage of the converter. The test conditions were explained in section \ref{sec:componentsizing} and the graphs showing the experimental results are shown in appendix \ref{app:OL_ripple}.
 
 The measured current ripple in the inductor is calculated from figure \ref{Openlooptestinductor} and shown in equation \ref{eq:inductor_ripple}. The minimum current is $I_{min} = 2.7A$ and the maximum current is $I_{max} = 2.98A$. The mean value for the inductor current is $\widebar{I_L}= 2.84$. 
 
@@ -17,7 +17,7 @@ The result obtained for the output voltage ripple is shown in figure \ref{Openlo
 \Delta V_{out} = \frac{V_{out,max}-V_{out,min}}{\widebar{V_{out}}} \cdot 100 = \frac{23.9082V - 23.895V }{23.9V} \cdot 100 = 0.055\%
 \end{equation}
 
-
+Finally, the measured input voltage ripple is shown in figure \ref{Openlooptestinputcapacitor}. It is observed from the figure that the signal is too noisy and it is not possible to identify the real voltage ripple. This is because the input voltage ripple was defined to be lower than 0.1\% and, as the input capacitor has a high capacitance, the measured ripple is neglected. \todo{check this and if it's necessary explain it better. Stef}
 
 \subsection{Thermal test}
 
