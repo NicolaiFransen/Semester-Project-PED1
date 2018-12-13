@@ -4,12 +4,12 @@ To validate that the calculations have been made correctly, an open loop simulat
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.6\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_schematic}
+		\includegraphics[width=0.7\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_schematic}
 		\caption{Ideal open-loop simulation.}
 		\label{fig:openloop_schematic}
 	\end{center}
 \end{figure}
-\todo{The picture is quite small JK}
+
 The values for the components are $C_{in}=1.54mF$, $C_{out}=88 \mu F$ and $L1=1.3mH$ as calculated in section \ref{component_sizing}. At first the buck mode is simulated. In this mode D2 is 0. This means that FET4 is off and FET3 is on. To achieve the minimum output voltage at $24V$, the corresponding duty cycle is calculated in equation \ref{eq:ol_duty_buck}. The load resistor is calculated for maximum output power for the PV-panel in equation \ref{eq:ol_load_buck}.
 \begin{equation} \label{eq:ol_duty_buck}
 	D= \frac{V_{out}}{V_{in}} = \frac{24V}{36.9V} = 0.65
@@ -34,7 +34,7 @@ I_{out} = \frac{V_{out}}{R_{load}} = \frac{24V}{1.92\Omega} = 12.5A
 \end{figure} 
 
 
-The boost mode is simulated using the same values for the components and input voltage. To work in boost mode $D_1 = 1$ and $D_2$ is calculated in equation \ref{eq:boost_duty_90V} to achieve an output voltage of $90V$. The load resistor to have a output power of $300W$ is calculated in equation \ref{eq:ol_load_boost}\todo{Rephrase JK}.
+The boost mode is simulated using the same values for the components and input voltage. To work in boost mode $D_1 = 1$ and $D_2$ is calculated in equation \ref{eq:boost_duty_90V} to achieve an output voltage of $90V$. The load resistor is sized in equation \ref{eq:ol_load_boost}, such that an output power of $300W$ is obtained.
 
 \begin{equation} \label{eq:boost_duty_90V}
 	D_2 = 1-\frac{V_{in}}{V_{out}} = 1 - \frac{36.9V}{90V} = 0.59
@@ -72,5 +72,5 @@ The output voltage ripple is also measured in boost mode, but with the maximum o
 \Delta V_{out} = \frac{V_{max}-V_{min}}{\widebar{V_{out}}} \cdot 100 = \frac{90.22V-89.77V}{89.995V} \cdot 100 = 0.5\%
 \end{equation}
 
-The simulation is made using an ideal voltage source as input. This means that it will have no ripple, and therefore it's not possible to validate the input voltage ripple. The figures for the ripple measurements are included in appendix \ref{app:OL_ripple}\todo{Since you have written everything about it here, you are only missing the figures. I think you should include them here, since explaining them in the Appendix as well requires more space overall JK}.
+The simulation is made using an ideal voltage source as input. This means that it will have no ripple, and therefore it's not possible to validate the input voltage ripple. The figures for the ripple measurements are included in appendix \ref{app:OL_ripple}.
 
