@@ -6,21 +6,19 @@ Since the coil ripple is a percentage of the absolute current, the worst case sc
 
 On the other hand, the capacitors will have a higher ripple when the current is maximum, this means that the system is working at the maximum irradiance ($1000 W/m^2$). The PV will then output a voltage of $V_{mpp} = 36.9 V$ and a current of $I_{mpp} = 8.14 A$.
 
-The minimum current flow through the coil is achieved when the boost mode is active. For this, the inductance is calculated for the maximum output voltage, which is when 4 MICs are connected in series. According to the equations, stated in the section 2.2 of the book \textit{"Fundamentals of Power Electronics"} \cite{Erickson}, the inductance has been sized as seen in equation \ref{L_calculation}.\todo{Can't find the equation? Should refer to exact equation}
+The minimum current flow through the coil is achieved when the boost mode is active. For this, the inductance is calculated for the maximum output voltage, which is when 4 MICs are connected in series. According to the equations, stated in the equation 2.43, section 2.3 of the book \textit{"Fundamentals of Power Electronics"} \cite{Erickson}, the inductance has been sized as seen in equation \ref{L_calculation}.
 
 \begin{equation} \label{L_calculation}
-L = \frac{(V_{out} - V_{in}) \cdot (1-D)}{\Delta I_{L} \cdot f} = \frac{(90 V - 36.19 V) \cdot (1-(1-\frac{36.19V}{90V}))}{0.1 \cdot 3.23 A \cdot 50 kHz} = 1.3 \ mH
+L = \frac{V_{in} \cdot (D)}{\Delta I_{L} \cdot f} = \frac{36.19 V \cdot (1-\frac{36.19V}{90V})}{0.1 \cdot 3.23 A \cdot 50 kHz} = 1.3 \ mH
 \end{equation}
 
-On the other hand, the input and output voltage used for $C_{in}$ is obtained when buck mode is working with 15 MICs connected in series. This is a total output voltage of $24 V$.
-The capacitance required is then found as stated in equation \ref{Cin_calculation} (Section 2.4 of Fundamentals of Power Electronics \cite{Erickson})\todo{again this is not the exact equation from the book?}.
-
+On the other hand, the input and output voltages used for $C_{in}$ is obtained when buck mode is working with 15 MICs connected in series. This is a total output voltage of $24 V$.
+The capacitance required is then found as stated in equation \ref{Cin_calculation} (Equation 2.57, section 2.4 of Fundamentals of Power Electronics \cite{Erickson})
 \begin{equation} \label{Cin_calculation}
 C_{in} = \frac{I_{in} \cdot (1 - D)}{\Delta V_{in} \cdot f} = \frac{8.14 A \cdot ( 1 - \frac{24 V}{36.9 V})}{0.001 \cdot 36.9 V \cdot 50 kHz} = 1.54 mF
 \end{equation}
 
-Finally, $C_{out}$ is calculated in the worst case scenario of boost mode. The output voltage is then 90V. The values are calculated with the method found in section 2.3 of \textit{"Fundamentals of Power Electronics"} \cite{Erickson}. The procedure can be seen in equation \ref{Cout_calculation}\todo{same as the others}.
-
+Finally, $C_{out}$ is calculated in the worst case scenario of boost mode. The output voltage is then 90V. The values are calculated with the method found in equation 2.47, section 2.3 of \textit{"Fundamentals of Power Electronics"} \cite{Erickson}. The procedure can be seen in equation \ref{Cout_calculation}
 \begin{equation} \label{Cout_calculation}
 C_{out} = \frac{I_{out} \cdot D}{\Delta V_{out} \cdot f} = \frac{3.34 A \cdot ( 1 - \frac{36.9 V}{90 V})}{0.005 \cdot 90 V \cdot 50 kHz} = 88 \mu F
 \end{equation}
