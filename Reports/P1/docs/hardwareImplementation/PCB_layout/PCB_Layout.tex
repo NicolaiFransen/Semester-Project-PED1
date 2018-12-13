@@ -2,8 +2,8 @@
 Before starting the design of the PCB, some features were considered. First and most importantly, the power side is physically separated from the control side. This separation is done to reduce the electromagnetic coupling that the higher currents and voltages might induce in traces or ICs. A clear differentiation of the hot and cold sides of the PCB is seen in the layout.  Also, test points have been located in the periphery of the PCB for easiest and safest testing. Current loops have been minimized as much as possible and ground planes are located across the PCB.
 
 \subsection{Power Side} \label{PCB_Power}
-One of the most important issues to take into consideration when designing the power traces of the converter has been the size of these. In order to allow a high flow of current through the traces while maintaining a relatively low temperature and a low impedance, the trace minimum width must be properly sized. For that goal a temperature constraint is needed. This constraint was arbitrarily set to 10 $\decC$. Which will be the temperature increase of the traces working at full power. This constraint will lead to a high trace width, which is acceptable for a prototype.
-The calculation of the width has been performed following IPC-2221A section "6.2 Conductive Material Requirements" \todo{Add this to bib file if it isn't there yet and refer to it. Stef} recommendations regarding trace width sizing. First, the needed cross sectional area of the trace must be calculated, as explained in equation \ref{trace_sizing_IPC}.
+One of the most important issues to take into consideration when designing the power traces of the converter has been the size of these. In order to allow a high flow of current through the traces while maintaining a relatively low temperature and a low impedance, the trace minimum width must be properly sized. For that goal a temperature constraint is needed. This constraint was arbitrarily set to 10$\decC$. Which will be the temperature increase of the traces working at full power. This constraint will lead to a high trace width, which is acceptable for a prototype.
+The calculation of the width has been performed following IPC-2221A\cite{PCB_standard} recommendations regarding trace width sizing. First, the needed cross sectional area of the trace must be calculated, as explained in equation \ref{trace_sizing_IPC}.
 
 \begin{equation} \label{trace_sizing_IPC}
 A = \sqrt[\leftroot{-2}\uproot{2}0.725]{\frac{I}{0.048\cdot \Delta T^{0.44}}}
@@ -12,8 +12,8 @@ A = \sqrt[\leftroot{-2}\uproot{2}0.725]{\frac{I}{0.048\cdot \Delta T^{0.44}}}
  $I$ stands for the current, and $\Delta T$ is the temperature difference constraint. The highest average current will be used. See in equation \ref{trace_sizing_IPC_w_numbers} the result.
  
  \begin{equation} \label{trace_sizing_IPC_w_numbers}
- A = \sqrt[\leftroot{-2}\uproot{2}0.725]{\frac{12.5 A}{0.048\cdot 10^{0.44}}} = 530,9 \; mils^2
- \end{equation}\todo{The unit of the temperature difference would be $K^{0.44}$, but that doesnt looks really nice, what should we do?}
+ A = \sqrt[\leftroot{-2}\uproot{2}0.725]{\frac{12.5 A}{0.048\cdot (10\decC)^{0.44}}} = 530,9 \; mils^2
+ \end{equation}
  
 When the needed area is known, the width is calculated by dividing the area by the copper thickness. In our case, using $1 oz$ PCB, the thickness is $35 \mu m$. See equation \ref{width_calc}. It's necessary to perform unit conversion from $mils^2$ to $mm^2$.
 

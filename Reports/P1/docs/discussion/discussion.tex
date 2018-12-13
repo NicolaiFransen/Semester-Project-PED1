@@ -57,14 +57,22 @@ The development of an embedded control system requires the proper working of an 
 	\end{center}	
 \end{figure}
 
-In initial implementations of the control algorithm, the voltage evaluation was performed in the state next to the duty cycle change. After this change, the system experiences a transient stage where the input voltage and inductor current evolve into the new steady state value. If these variables are read during the transient, the control might infer that the PV panel is in a location of the P-V curve different than where it actually is. The MPPT becomes noisier under this scenario. In order to address this issue, an additional waiting state was added to the FSM governing the system. Another solution to the issue would be to decrease the MPPT algorithm periodicity. However this solution would lead to a decrease in system's responsiveness. However this drawback might be bearable by implementing a voltage controller aside from the MPPT.  
+In initial implementations of the control algorithm, the voltage evaluation was performed in the state next to the duty cycle change. After this change, the system experiences a transient stage where the input voltage and inductor current evolve into the new steady state value. If these variables are read during the transient, the control might infer that the PV panel is in a location of the P-V curve different than where it actually is. The MPPT becomes noisier under this scenario. In order to address this issue, an additional waiting state was added to the FSM governing the system. Another solution to the issue would be to decrease the MPPT algorithm periodicity. However this solution would lead to a decrease in system's responsiveness. This drawback might be bearable by implementing a voltage controller aside from the MPPT.  
 
-limitations of MPPT
+The noise in measured signals highly influenced the algorithm performance. This noise was addressed by software low pass filtering. The filter caused a dramatic improvement in signal acquisition and system response, further details are explained in the next section.
+
+In order to develop a completely reliable algorithm further testing must be performed. These testing activities require more advanced debugging information than the console output previously shown. RT-box allows SPI communication but the testing activities would still be limited to black-box techniques. In order to reach white-box testing, the implementation would require a microcontroller instead of the RT-box. In that case, the variables' value might be directly accessed with a debugger. Also in the case of black box testing the signals are sent with a known and fixed latency in a microcontroller, which is not the case when using PLECS's console.
+
+The implemented algorithm has more advanced functions than the simplest implementation found in introductory application notes from manufacturers, like \cite{AN1521_MC}. Among the advanced functions are tunable threshold parameters, waiting for the PV to reach open circuit voltage or variable perturb step, among others. However, this additional features add difficulty to testing activities and code comprehension. Under the development of a commercial product, it might be desirable to limit the features in order to decrease test and validation activities' cost. The decrease of the perturb variable itself consists of a FSM with 5 states with a weak coupling with the main FSM. The appropriate testing of the code requires software design and testing knowledge.
+
+The proposed implementation has some variables which might be further optimized, like the initial value of the perturb step value, or the threshold to decrease the perturb step value. 
+
 
 \subsection{software filtering}
-Although the voltage and current measurement is filtered, the signal read by the control system was noisy. This noise affected the MPPT algorithm disturbing its ability to reach the MPP. Such noise might have different sources within a lab with such a big amount of hardware equipment. There are many techniques in order to address noise issues, the used technique consists on the use of digital filtering (LPF). This digital filter is a  simple code that performs the filtering at a given frequency. Being a first order filter, it was simple and fast to implement and test. 
-..
-.
+Although the voltage and current measurement is filtered, the signal read by the control system was noisy. This noise affected the MPPT algorithm disturbing its ability to reach the MPP. Such noise might have different sources within a lab with such a big amount of hardware equipment. There are many techniques in order to address noise issues, the used technique consists on the use of digital filtering (LPF). This digital filter is a  simple code that performs the filtering at a given frequency. Being a first order filter, it was simple and fast to implement. 
+
+
+...
 
 filtering image result
 \subsection{Coil test}
