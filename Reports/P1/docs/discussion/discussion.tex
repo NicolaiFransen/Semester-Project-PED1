@@ -89,13 +89,18 @@ The implemented algorithm has more advanced functions than the simplest implemen
 The proposed implementation has some variables which might be further optimized, like the initial value of the perturb step value, or the threshold to decrease the perturb step value. 
 
 
-\subsection{software filtering}
-Although the voltage and current measurement is filtered, the signal read by the control system was noisy. This noise affected the MPPT algorithm disturbing its ability to reach the MPP. Such noise might have different sources within a lab with such a big amount of hardware equipment. There are many techniques in order to address noise issues, the used technique consists on the use of digital filtering (LPF). This digital filter is a  simple code that performs the filtering at a given frequency. Being a first order filter, it was simple and fast to implement. 
+\subsection{Software filter}
+Although the voltage and current measurement is filtered, the signal read by the control system was noisy. This noise affected the MPPT algorithm disturbing its ability to reach the MPP. Such noise might have different sources within a lab with such a big amount of hardware equipment. There are many techniques in order to address noise issues, the used technique consists on the use of digital filtering (LPF). This digital filter is a  simple code that performs the filtering at a given frequency. Being a first order filter, it was simple and fast to implement. The result can be seen in \ref{software_filter}.
 
+\todo{cutoff frequency filter explanation}
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{../Pictures/P1/Discussion/sw_filter_current.png}
+		\caption{Current measurement against time. Both software filtered (red) and raw (blue) signals can be seen. The filtered signal data points' size has been increased to improve readability.}
+		\label{software_filter}
+	\end{center}	
+\end{figure}
 
-...
-
-filtering image result
 
 \input{docs/discussion/coil.tex}
 
