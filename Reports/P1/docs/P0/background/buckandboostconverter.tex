@@ -1,4 +1,3 @@
-\todo{Should we include the equations for the transfer functions of the converters? We didnt do it for P0 but maybe it's good to have them now. Stef}
 There are different types of DC-DC converters used for PV module integration. However, the main topologies of power converters used in MICs are buck, boost and non-inverting buck-boost DC-DC converters. The functionality and the advantages and disadvantages of these three topologies will be analyzed in this section.
 
 \subsection{Buck converter\label{Buck-C}}
@@ -16,8 +15,8 @@ During the first state, the MOSFET is conducting and the diode is reversed bias 
 	\end{center}	
 \end{figure}
 
-The main advantage of using a buck converter is that the structure is very simple and only one controlled  switch is needed. Also, the component count and thus cost of implementation is low. Furthermore, the buck converter can reach efficiencies up to 99\% \cite{Efficiencybuck}. However, this topology is not very versatile since it does not allow the increase of output voltage with respect to the input. Another drawback is the lack of galvanic isolation between the input and the output \cite{advantagebuckboost} \todo{Why is this a disadvantage? Justify it. Stef}.
-%%http://www.completepowerelectronics.com/buck-converter-tutorial-topology-working-advantages-applications/
+The main advantage of using a buck converter is that the structure is very simple and only one controlled  switch is needed. Also, the component count and thus cost of implementation is low. Furthermore, the buck converter can reach efficiencies up to 99\% \cite{Efficiencybuck}. However, this topology is not very versatile since it does not allow the increase of output voltage with respect to the input.
+
 \subsection{Boost converter\label{Boost-C}}
 
 A boost converter is another type of DC-DC converter similar to the buck converter but instead of lowering the output voltage, it produces a higher electrical potential at the output with respect to that at the input. 
@@ -32,9 +31,6 @@ The circuit consists of two switches (a transistor and a diode), an inductor, a 
 \end{figure}
 
 \vspace{1cm}
-Similarly to the buck converter, this topology has two states. When the MOSFET is on, the current flows only trough the inductor because the diode  is reversed bias. Energy is then stored in the inductor, which voltage is equal to the input voltage, and current increases. Meanwhile, the capacitor releases the previously stored energy to the load.
-During the second state, when the MOSFET is turned off, the current loops trough the inductor, diode, capacitor and the load. Since the inductor had been previously charged, it now works as a current source in series with the voltage source of the circuit. The voltage across the load is then risen with respect to that at the input. Furthermore, the capacitor is being charged \cite{schematicbuckandboost}.
-
-An advantage for the boost converter is that it can raise the output voltage without using a transformer \todo{Why is this an advantage? If using the transformer provides galvanic isolation and this is a drawback of the boost cnverter. Stef}. It is also a cheap converter and it is easy to control \cite{advantagebuckboost}. 
-However, as it happened with the buck, the boost converter is also limited to rising the voltage and lowering it cannot be achieved. Also, if an error happens in the control of the MOSFET and it is left in ON-mode for a long time, a short-circuit is created and the current will increase until a component fails \todo{a component fails? be more specific. Stef}. Finally, this converter does not have galvanic isolation either. 
+Similarly to the buck converter, this topology has two states. When the MOSFET is on, the current flows only trough the inductor because the diode  is reverse biased. Energy is then stored in the inductor, which voltage is equal to the input voltage, and current increases. Meanwhile, the capacitor releases the previously stored energy to the load.
+During the second state, when the MOSFET is turned off, the current loops trough the inductor, diode, capacitor and the load. Since the inductor had been previously charged, it now works as a current source in series with the voltage source of the circuit. The voltage across the load is then risen with respect to that at the input. Furthermore, the capacitor is being charged \cite{schematicbuckandboost}. It is also a cheap converter and it is easy to control \cite{advantagebuckboost}. However, as it happened with the buck, the boost converter is also limited to rising the voltage and lowering it cannot be achieved. The boost converter voltage gain has a non-linear transfer function that can produce cause damage to the system's components if the duty cycle is not properly limited to a maximum values.
  
