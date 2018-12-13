@@ -71,13 +71,13 @@ t_{delay} = t\big\rvert_{V_{GS} = V_{th}} =\frac{T_{sw}}{1000} = 0.1 \% \;\; of 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1.15\textwidth]{../Pictures/P1/Component_sizing/Gate_resistor_power_dissipation.png}
+		\includegraphics[width=\textwidth]{../Pictures/P1/Component_sizing/Gate_resistor_power_dissipation.png}
 		\caption{Detail of the power dissipated at $R_{limiting}$ during MOSFET turn-on.}
 		\label{gate_resistor_power_dissipation}
 	\end{center}	
 \end{figure}
-\todo{This figure will be fixed. Name axis, linewidth and size.}
- 
+
+
 The implemented topology has the peculiarity that two MOSFETs' sources are not directly connected to ground. As explained previously, it is the gate to source voltage that determines whether the transistor is conducting or not. In order to get a floating voltage in the high side drivers, one option is to have isolated supplies for those drivers. The ground of this isolated supplies will be tied to the low side MOSFET's drain. More explanation regarding the isolated supplies might be found at \ref{power_supplies}.
 
 In case that the drivers were damaged, the residual voltage of the transistor's gate might become undefined, then, in order to ensure that the switch is off, a pull down resistor is added between the gate and the source of the transistor. This resistor has been sized to 1 M$\Omega$, which discharges the gate voltage from 12 V to below its threshold in less than 3 ms \todo{ref}.

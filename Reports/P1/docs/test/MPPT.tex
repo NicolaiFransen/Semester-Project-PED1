@@ -71,7 +71,7 @@ The right graph shows the measured input and output power of the converter. From
 	\end{center}	
 \end{figure}
 
-Figure \ref{MPPTtestboostmode1} shows how the converter is tracking the MPP in boost mode. Here again it is observed that the MPPT is enabled after the input voltage has reached the value of open-circuit. The time the MPPT takes to reach the MPP is higher than in buck mode, reaching it in 22 seconds \todo{approximately!Ask Thassilo for the exact value. Stef}. By comparing the measured power with the maximum power that the PV panel can generate under STC, the MPPT's efficiency is calculated in equation \ref{eq:effMPPTboost}. It is observed that even though the system needs more time to track the MPP it does not have a significant effect in the efficiency.
+Figure \ref{MPPTtestboostmode1} shows how the converter is tracking the MPP in boost mode. Here again it is observed that the MPPT is enabled after the input voltage has reached the value of open-circuit. The time the MPPT takes to reach the MPP is higher than in buck mode, reaching it in 21 seconds. By comparing the measured power with the maximum power that the PV panel can generate under STC, the MPPT's efficiency is calculated in equation \ref{eq:effMPPTboost}. It is observed that even though the system needs more time to track the MPP it does not have a significant effect in the efficiency.
 
 \begin{equation} \label{eq:effMPPTboost}
 \eta_{MPPT}= \dfrac{P_{pv}}{P_{mpp}} \cdot 100 = \dfrac{292.37W}{300.4W} \cdot 100 = 97.32\%  
@@ -110,3 +110,19 @@ D_{boost}= 1 - \dfrac{V_{pv}}{V_{out}} = 1 - \dfrac{36.93V}{88.41V} = 0.5823
 \subsubsection*{Change in irradiance and temperature}
 
 HERE INCLUDE THE RESULTS FOR BUCK AND IN CASE WE GET TO DO BOOST ALSO HERE. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Iin_Pin_irriadance_change}
+		\caption{Measured voltage,current and powers at the input of the converter with a change in irradiance from 1000 to 800 ($R_{L}=3\Omega$).}
+		\label{MPPTtestbuckmodeir}
+	\end{center}	
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{../Pictures/P1/Test/Buck_mode_MPPT_Vin_Iin_Pin_temperature_change}
+		\caption{Measured voltage,current and powers at the input of the converter with a change in temperature from 25 to 15 ($R_{L}=3\Omega$).}
+		\label{MPPTtestbuckmodet}
+	\end{center}	
+\end{figure}

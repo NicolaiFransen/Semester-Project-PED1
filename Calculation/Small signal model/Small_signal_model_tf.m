@@ -34,11 +34,13 @@ R_buck = 3;
 R_boost = 27;
 L = 1.3e-3;
 C = 200e-6;
+s = tf('s')
+
 
 %% Voltage sensor tf definition
 sensortf = 2e3/(6.392*s + 49e3)
 
-%% Buck Converter - Line to output transfer function derivation: Vo/Vg
+%% Buck Converter - Line to output transfer function derivation: Vo/Vg G_vg
 % %This snippet has as an input the system's space state equations
 % %and transforms it to the transfer function of line to output.
 % %
@@ -56,7 +58,7 @@ bodeplot(buck_L2O)
 pole(buck_L2O)
 isstable(buck_L2O)
 
-%% Buck Converter - Control to output transfer function Vo/d
+%% Buck Converter - Control to output transfer function Vo/d G_vd
 %From the small signal model, Vg input is set as 0 and d becomes the input
 close all
 
@@ -123,16 +125,17 @@ close all
 Kp = 50;
 Ki = 1;
 Kd = 0;
-s = tf('s')
-Unity_tf = tf(1)
 
+PWM = 1 %To be completed, check Erickson 
 Controller = pid(Kp, Ki, Kd)
-G = Controller * buck_L2O
+open_loop_gain = Controller * buck_C2O * sensortf
 
-unityclosedlooptf = (feedback(G, Unity_tf))
-closedlooptf = feedback(G, sensortf)
-bode(unityclosedlooptf)
-margin(unityclosedlooptf)
+bode(open_loop_gain)
+
+% unityclosedlooptf = (feedback(G, Unity_tf))
+% closedlooptf = feedback(G, sensortf)
+% bode(unityclosedlooptf)
+% margin(unityclosedlooptf)
 
 
 
