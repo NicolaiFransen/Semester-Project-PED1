@@ -1,8 +1,8 @@
 \section{PCB building} \label{sec:pcb_building}
-The building of the PCB in iteration one of the development has been done according to the test described in the following section. It has been divided into smaller tests, to validate that every part of the system works properly. The test includes test of the control part, so the\todo{so the?} power supplies, optocouplers, drivers and sensors. It has been chosen only to solder the buck leg of the converter to validate the design, and discover faults which must be dealt with in iteration two. Before starting the test all vias, capacitors and test-points are soldered to assure connectivity.
+The building of the PCB has been done according to the test described in the following section. It has been divided into smaller tests, to validate that every part of the system works properly. It tests the control part, including the power supplies, optocouplers, drivers and sensors. For this test it has been chosen only to solder the buck leg of the converter to validate the design and discover potential faults. Before starting the test all vias, capacitors and test-points are soldered to assure connectivity. All components are named according to the schematic placed in Appendix \ref{ch:AppPCB}.  
 
 \subsection{Power supplies} \label{sec:test_pwr_sup}
-\todo{Like Lajos has written as a comment. The component names needs to be referred to the appendix somewhere}The purpose of the first test was to validate the different power supplies in the converter. For this test it is necessary to solder the in-TRACO and the $5V$ voltage regulator. The three LEDs and the resistors should also be soldered. Apply $5V$ at connector J4 and $12V$ at connector J2. The test is conducted by following table \ref{tab:test_pwr_sup}
+The purpose of the first test is to validate the different power supplies in the converter. For this test it's necessary to solder the in-TRACO and the $5V$ voltage regulator. The three LEDs and the resistors should also be soldered. Apply $5V$ at connector J4 and $12V$ at connector J2. The test is conducted by following table \ref{tab:test_pwr_sup}
 
 \begin{table}[H]
 	\centering
@@ -21,7 +21,7 @@ The building of the PCB in iteration one of the development has been done accord
 \end{table}
 
 \subsection{Optocouplers} \label{sec:test_opto}
-The second part of the test is to validate the optocouplers. This includes that the output of the optocoupler should follow the input. For this test it is necessary to solder opto1-2, and an extra test-point at the output of the two optocouplers. Because of a wrongly chosen optocoupler with a supply voltage at $5V$, a voltage divider must be added. This will be placed between the supply pins of the IC, and will divide $12V$ into $5V$. Start the test by applying $5V$ at connector J4, $12V$ at connector J2 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. 
+The second part of the test is to validate the optocouplers. This tests that the output of the optocoupler should follow the input. For this test it is necessary to solder opto1-2. Start the test by applying $5V$ at connector J4, $12V$ at connector J2 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. 
 
 \begin{table}[H]
 	\centering
@@ -29,18 +29,17 @@ The second part of the test is to validate the optocouplers. This includes that 
 		\hline
 		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of optocouplers}} \\ \hline
 		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
-		2.1 & Measure $5V$ at the supply of opto1-2 & IC pin 6(+) \& 4(-) & Pass  \tabularnewline \hline
-		2.2 & Measure $5V-50kHz$ at the input of optocoupler 1 & TST1 \& GND-LV & Pass \tabularnewline \hline
-		2.3 & Measure $5V-50kHz$ at the output of optocoupler 1 & Opto1-out \& L-in & Pass  \tabularnewline \hline
-		2.4 & Measure $5V-50kHz$ at the input of optocoupler 2 & TST2 \& GND-LV & Pass  \tabularnewline \hline
-		2.5 & Measure $5V-50kHz$ at the output of optocoupler 2 & Opto2-out \& GND-in & Pass  \tabularnewline \hline
+		2.1 & Measure $5V-50kHz$ at the input of optocoupler 1 & Opto1-in \& GND-LV & Pass \tabularnewline \hline
+		2.2 & Measure $12V-50kHz$ at the output of optocoupler 1 & Opto1-out \& L-in & Pass  \tabularnewline \hline
+		2.3 & Measure $5V-50kHz$ at the input of optocoupler 2 & Opto2-in \& GND-LV & Pass  \tabularnewline \hline
+		2.4 & Measure $12V-50kHz$ at the output of optocoupler 2 & Opto2-out \& GND-in & Pass  \tabularnewline \hline
 	\end{tabular}
 	\caption{Test of the optocouplers.}
 	\label{tab:test_opto}
 \end{table}
 
 \subsection{Drivers} \label{sec:test_drivers}
-The next part of the test consist of the drivers. For this it is necessary to solder drv1-2, M1-2 and the resistors R5-R10. The input threshold of the drivers is defined as $V_{DD}-3.1V$. Because of the $5V$ optocouplers, the supply voltage of the drivers must be lowered to $5V$, for the switching to work. A consequence of this is that the voltage divider that supplies the optocoupler should be removed. Start the test by applying $5V$ at connector J2 \& J4 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. The test is conducted by following table \ref{tab:test_drivers}.
+The next part of the test consist of the drivers. For this it is necessary to solder drv1-2, M1-2 and the resistors R5-R10. Start the test by applying $12V$ at connector J2, $5V$ at J4 and a $5V-50kHz$ square waveform with $50\%$ duty-cycle at PWM1-2. The test is conducted by following table \ref{tab:test_drivers}.
 
 \begin{table}[H]
 	\centering
@@ -48,9 +47,8 @@ The next part of the test consist of the drivers. For this it is necessary to so
 		\hline
 		\rowcolor{lightgray}\multicolumn{4}{|l|}{ \textbf{Test of drivers}} \\ \hline
 		\rowcolor{lightgray} \textbf{ID} & \textbf{Test} & \textbf{Test-points} & \textbf{Pass/Fail} \tabularnewline \hline
-		3.1 & Measure $5V$ at the supply of the drivers & IC pin 6-7(+) \& 2-3(-) & Pass  \tabularnewline \hline
-		3.2 & Measure $5V-50kHz$ at the output of driver 1 & PWM1 \& L-in & Pass \tabularnewline \hline
-		3.3 & Measure $5V-50kHz$ at the output of driver 2 & PWM2 \& GND-in & Pass  \tabularnewline \hline
+		3.1 & Measure $5V-50kHz$ at the output of driver 1 & PWM1 \& L-in & Pass \tabularnewline \hline
+		3.2 & Measure $5V-50kHz$ at the output of driver 2 & PWM2 \& GND-in & Pass  \tabularnewline \hline
 	\end{tabular}
 	\caption{Test of the drivers.}
 	\label{tab:test_drivers}
