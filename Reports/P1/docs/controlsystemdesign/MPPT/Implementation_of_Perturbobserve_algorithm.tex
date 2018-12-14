@@ -16,10 +16,10 @@ The P\&O algorithm that will be implemented in this project is the MPPT controll
 
 From the previous figure it is observed that the outputs of the MPPT block are the corresponding duty cycles for buck and boost mode. 
 
-In order to manage these duties, a control variable called \textit{valg} has been created, it corresponds to the conversion ratio of the power converter. The conversion ratio has a different dependence on the duty when the MIC is operating in buck or in boost mode. This is shown in equations \ref{tfbuck} and \ref{tfboost}, respectively. 
+In order to manage these duties, a control variable called \textit{valg} has been created, it corresponds to the DC conversion ratio of the power converter ($V_{o}/V_{i}$). The conversion ratio has a different dependence on the duty when the MIC is operating in buck or in boost mode. This is shown in equations \ref{tfbuck} and \ref{tfboost}, respectively. 
 
-The control variable \textit{valg} will be changed to increase or decrease the voltage from the PV panel. From the transfer function equations it is observed that when increasing \textit{valg}, the PV voltage decreases and vice versa.
-By plotting these transfer functions and mapping them as shown in figure \ref{fig:mappingtf}, it is possible to obtain the corresponding duty cycle for the buck or the boost mode. If the control variable from the MPPT is lower than 0.5, it  means that the output voltage is lower than the input voltage and thus, the converter will work as a buck converter with duty cycle $D_{buck}=2 \cdot valg$. On the other hand, if the control variable is $valg \geq 0.5$, the output voltage is higher or equal than the input voltage and, therefore, the converter will operate in boost mode with duty cycle $D_{boost}=2\cdot valg - 1$. %These duty cycles are used to generate the corresponding PWM signals according to the converter's mode of operation at each time. 
+The control variable \textit{valg} will be changed to increase or decrease the voltage from the PV panel. When increasing the control variable \textit{valg}, the PV voltage decreases and vice versa.
+By plotting the corresponding conversion ratios and mapping them as shown in figure \ref{fig:mappingtf}, it is possible to obtain the corresponding duty cycle for the buck or the boost mode. If the control variable from the MPPT is lower than 0.5, it  means that the output voltage is lower than the input voltage and thus, the converter will work as a buck converter with duty cycle $D_{buck}=2 \cdot valg$. On the other hand, if the control variable is $valg \geq 0.5$, the output voltage is higher or equal than the input voltage and, therefore, the converter will operate in boost mode with duty cycle $D_{boost}=2\cdot valg - 1$. %These duty cycles are used to generate the corresponding PWM signals according to the converter's mode of operation at each time. 
 
 \vspace{1cm}
 \begin{minipage}{0.3\linewidth}
@@ -42,8 +42,6 @@ By plotting these transfer functions and mapping them as shown in figure \ref{fi
 		\label{fig:mappingtf} 
 	\end{center}	
 \end{figure}
-
-\todo{ the unit is here missing and the curve should not hide behind the curve TL}
 
 The flow chart used for the implementation of the P\&O algorithm is shown in figure \ref{fcfinal}. From the flow chart it can be observed that the MPPT is enabled when the panel's voltage has reached the value of the open-circuit voltage. This means that the MPPT detects that the difference between the measured voltage and the previous voltage is lower than 0.1. The MPPT is forced to start at this point to be close to the value of the MPP. 
 Then it starts the open loop behavior. This is done to make the MPPT faster since the algorithm starts with $valg = 0$. The open loop calculation decreases the voltage without evaluating the voltage and power. The condition for starting the MPPT evaluation is that $counter=15$ to ensure that the point of operation is closer to the MPP. 
