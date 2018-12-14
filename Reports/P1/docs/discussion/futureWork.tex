@@ -4,9 +4,7 @@ This section will describe the planned future work of the project. This includes
 %4- Recommendations for future work. Make general statements. Items: a)what study is needed, b)Methods to be used, c)what is needed for that study.
 
 \subsection{MPPT technique}
-Even though the P\&O algorithm was implemented, initial research showed that the incremental conductance method could have been a better option. With the Implementation of an incremental conductance algorithm the response is smoother and the tracking of the sample point is more accurate comparing to the classic P\&O.   Further research and simulations will have to be made for comparing the two methods. 
-
-\todo{Write about what could be gained from changing MPPT, NHF.}
+Even though the P\&O algorithm was implemented, initial research showed that the incremental conductance method could have been a better option. With the Implementation of an incremental conductance algorithm the response is more smooth and the tracking of the sample point is more accurate comparing to the classic P\&O. Further research and simulations will have to be made for comparing the two methods. \cite{AdvantageIncC}
 
 \subsection{V/I controller}
 The developed MPPT algorithm controls system's generated power. However system's transients are not considered. In order to properly govern transients a controller should be added. In that scenario, the MPPT algorithm's output will be the desired PV voltage. This input voltage reference will be feed to the controller, which will output a duty ratio. The controller has a higher execution frequency than the MPPT. Then this controller is able to control system's transients as desired, the desired system response might be chosen by the designer by tuning appropriately controller's parameters. The use of the controller will reduce system's oscillations reducing wrong MPPT inferences. 
@@ -25,8 +23,8 @@ The PCB designed for this project is highly focused on easing the tests in the l
 
 For these reasons, a commercial version of the product would be much smaller. Also, as explained in section \ref{PCB_Control}, the removal of the test points and the LEDs would entail a better isolation between the control and power sides.
 
-\subsection{Switching frequency}
-In accordance with the supervisors, the switching frequency for the converter was selected to be $50kHz$. No further considerations or calculations was made to justify this selection. To select a switching frequency with an optimal compromise between switching losses and component size, this will have to be researched. 
+%\subsection{Switching frequency}
+%In accordance with the supervisors, the switching frequency for the converter was selected to be $50kHz$. No further considerations or calculations was made to justify this selection. To select a switching frequency with an optimal compromise between switching losses and component size, this will have to be researched. 
 
 %\subsection{Component price, system size, optimization needed}
 %Component prize and system size will be introduced during the other sections...
