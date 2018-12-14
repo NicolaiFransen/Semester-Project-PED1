@@ -17,14 +17,22 @@ In order to maximize the efficiency of solar panels, a module integrated convert
 The hardware was created and a maximum power point tracking algorithm was developed.
 
 %\subsubsection{Main}
-After coming up with the most adequate power topology, the system was divided into three main sections, hardware, control and software. All of which were developed, implemented and tested.
-The creation of the hardware consisted on the sizing and selection of all the components, the design of a printed circuit board and the assembly. The control consisted of the research of existing methods and the development of a suitable algorithm. Finally the creation of a software that implements such algorithm was performed.
+After coming up with the most adequate power topology, the system was divided into three main sections; hardware, control and software. All of which were developed, implemented and tested.
 
-%\subsubsection{Improvements}
-One of the biggest obstacles during the development of the project was the lack of feedback and protections of the hardware during the tests. This problem led to a slowdown on the testing process since the sources of the errors took a long time to be discovered. 
-An implementation of error recognition hardware and software would have solved this problem, saving time and money.
-%The work performed was designed to admit future improvements of the system. 
-The main reason for making the topology bidirectional was allowing rapid crack recognition on the PVs, however this topic was not scoped during the project and thus there is room for future research.
+The creation of the hardware consisted on the sizing and selection of all the components, the design of a printed circuit board and the assembly. 
+The PCB has performed according to expectations, the correct sizing of the traces and components have  been confirmed and thermal tests show relatively low temperatures in all power components. 
+However, there have been problems with certain components, especially drivers, that have broken down under stress. For this reason, it is concluded that hardware and software protection should have been included to prevent failure during testing.
+The protection circuitry that was added, like pull down resistors or zenner diodes have proven their importance maintaining the components and the people safe. An implementation of error recognition hardware and software would have solved this problem, saving time and money.
+
+It was also found that testing and validation of the PCB is very time consuming, but the test points added have been very useful for debugging and data collection. 
+One of the biggest obstacles during the development of the project was the lack of error feedback and protections of the hardware during the tests. This problem led to a slowdown on the testing process since the sources of the errors took a long time to be discovered. 
+
+The control consisted of the research of existing methods and the development of a suitable algorithm. Since the perturb and observe algorithm is not able to reach very high efficiencies, an improved version was developed. With this new control strategy, efficiencies up to 99.96\% were reached in simulations and up to 97.7\% during experimental tests. However, a more advanced kind of control could improve these values.
+
+The creation of a software that implements such algorithm was performed. It was discovered that signal noise played an important role in the MPPT accuracy. A software low-pass filter was then integrated and it was found that this is a very convenient method in terms of flexibility and cost. 
+Similarly to the hardware development, it was noticed that in order to develop a more reliable software, many tests would be necessary.
+
+The reasons for making the topology bidirectional included rapid crack recognition on the PVs as well as lower absolute losses when multiple MICs were connected in series, however, these topics were not scoped during the project and thus there is room for future research.
 
 %\subsubsection{So what}
-On the road to a more environmentally friendly generation of electrical energy, the scope of this report is fundamental. Improving the efficiency of energy production entails more cost effective products, which will ultimately lead to the viability of renewable energy production worldwide.
+On the road to a more environmentally friendly generation of electrical energy, the goal of this report is fundamental. Improving the efficiency of energy production entails more cost effective products, which will ultimately lead to the viability of renewable energy production worldwide.
