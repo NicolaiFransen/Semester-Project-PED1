@@ -1,16 +1,11 @@
 \chapter{Discussion}
 
-\todo{
-	**Things to avoid
-	2Hyping findings-
-	3Interpreting beyond what can be justified-
-	4Extend in tangential topics-}
-
-1-Intro - to be written when the section is more mature
-
-2-What have we done:  a paragraph or two explaining the major findings and why are important.
+In this chapter the technical results of the project are analysed. First, the design verification is performed, showing the simulation and the experimental results. Then, the main impediments found through the project and implementation's limitations are explained. Finally, suggestions for future work are presented.
 
 \section{Validation of experimental results}
+
+\todo{this title i think should be verification the PMBOK guide, a standard adopted by IEEE, defines them as follows in its 4th edition5: ---Validation. The assurance that a product, service, or system meets the needs of the customer and other identified stakeholders. It often involves acceptance and suitability with external customers. Contrast with verification. ---Verification. The evaluation of whether or not a product, service, or system complies with a regulation, requirement, specification, or imposed condition. It is often an internal process. Contrast with validation.}
+
 
 In this section the experimental results from the open-loop and MPPT test in section \ref{systemtest} are compared with the simulation results from section \ref{sec:componentsizing} and \ref{MPPTSimulation}.
 \subsection{Open-loop simulation}
@@ -92,7 +87,7 @@ The proposed implementation has some variables which might be further optimized,
 
 
 \subsection{Software filter}
-Although the voltage and current measurement is filtered, the signal read by the control system was noisy. This noise affected the MPPT algorithm disturbing its ability to reach the MPP. Such noise might have different sources within a lab with such a big amount of hardware equipment. There are many techniques in order to address noise issues, the used technique consists on the use of digital filtering (LPF). This digital filter is a  simple code that performs the filtering at a given frequency. Being a first order filter, it was simple and fast to implement. The result can be seen in \ref{software_filter}.
+Although the voltage and current measurement is filtered, the signal read by the control system was noisy. This noise affected the MPPT algorithm disturbing its ability to reach the MPP. Such noise might have different sources within a lab with such a big amount of hardware equipment. There are many techniques in order to address noise issues, the used technique consists on the use of digital filtering (LPF). This digital filter is a  simple code that performs the filtering at a given frequency. Being a first order filter, it was simple and fast to implement. The result can be seen in \ref{software_filter}. It consists on an exponential moving average low pass filter.  
 
 \todo{cutoff frequency filter explanation}
 \begin{figure}[htbp]
