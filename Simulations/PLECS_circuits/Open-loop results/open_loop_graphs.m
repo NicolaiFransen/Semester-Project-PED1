@@ -70,3 +70,28 @@ Imax = 3.465;
 Imin = 3.135;
 
 deltaIL = (Imax-Imin)/((Imax+Imin)/2) * 100
+
+%% Open loop simulation results - input voltage ripple
+data = csvread('Input_ripple.csv');
+
+t = data(:,1);
+IL = data(:, 2);
+Vout = data(:, 3);
+
+
+figure(2)
+plot(t, Vout, 'b', 'Linewidth', 1.5)
+hold on
+%plot(t, IL, 'r', 'Linewidth', 1.5)
+xlim([0.4777, 0.4778]);
+ylim([36.8, 37]);
+title('Input voltage ripple')
+xlabel('Time[s]');
+ylabel('Voltage[V]');
+legend('V_{In}');
+
+Vmax = 36.94;
+Vmin = 36.91;
+Vmean = (Vmax+Vmin)/2;
+
+deltaVin = (Vmax-Vmin)/Vmean *100
