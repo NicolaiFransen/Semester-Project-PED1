@@ -72,19 +72,18 @@ Imin = 3.135;
 deltaIL = (Imax-Imin)/((Imax+Imin)/2) * 100
 
 %% Open loop simulation results - input voltage ripple
-data = csvread('Input_ripple.csv');
+data = csvread('Input_ripple_exp.csv');
 
 t = data(:,1);
-IL = data(:, 2);
-Vout = data(:, 3);
+Vout = data(:, 2);
 
 
 figure(2)
 plot(t, Vout, 'b', 'Linewidth', 1.5)
 hold on
 %plot(t, IL, 'r', 'Linewidth', 1.5)
-xlim([0.4777, 0.4778]);
-ylim([36.8, 37]);
+xlim([-0.05, 0.1]);
+ylim([-0.01, 0.01]);
 title('Input voltage ripple')
 xlabel('Time[s]');
 ylabel('Voltage[V]');

@@ -17,11 +17,11 @@ iin1000 = MPPT1000(:, 3);
 % iout1000f = smoothdata(iout1000,'gaussian',20);
 
 pin1000 = vin1000.* iin1000;
-pout1000 = vout1000.* iout1000;
+%pout1000 = vout1000.* iout1000;
 
-DIM = [2500:10000,1];
-
-mean (pin1000,DIM);
+% DIM = [2500:10000,1];
+% 
+% mean (pin1000,DIM);
 
  
 % %Verschiebung der X-Achse
@@ -98,9 +98,9 @@ h_yachseo = ylabel (h_axo,'V_p_v (V),I_p_v (A)');
 h_xachseo1 = xlabel (h_axo1,'Time (s)');
 h_yachseo1 = ylabel (h_axo1,'V_p_v (V)');
 xticks(h_axo,[ -5 0 5 ]);
-xticklabels(h_axo,{'0','5','10'})
+%xticklabels(h_axo,{'0','5','10'})
 xticks(h_axu,[-5 0 5]);
-xticklabels(h_axu,{'0','5','10'})
+%xticklabels(h_axu,{'0','5','10'})
 xticks(h_axo1,[-20 -15 -10 -5 0 5 10 15 20]);
 xticklabels(h_axo1,{'0','5','10','15','20','25','30','35','40'})
 xticks(h_axu1,[-20 -15 -10 -5 0 5 10 15 20]);
