@@ -1,11 +1,16 @@
 %%% Appendix including ripple stuf %%%
 
 \chapter{Open-loop ripple results}
+
+The measurements and calculations of the current ripple and the voltage ripples are included in this section. Furthermore the section is divided in the simulation result and experiment result.
  \label{app:OL_ripple}
+ 
 \section{Simulation}
 The figures in this section shows the waveforms of the current and voltage ripples under worst case conditions. These conditions have been described during the calculations of the passive components in section \ref{component_sizing}. The maximum, minimum and mean values will be read and used to calculated the ripples in section \ref{opsimresult}. The data from the simulations have been loaded into Matlab to achieve accurate readings.
 
 Figure \ref{fig:inductor_ripple} shows the current ripple in the inductor. The maximum and minimum currents are read as $I_{max} = 3.465A$ and $I_{min} = 3.135A$, with a mean at $\widebar{I_L} = 3.3A$.
+
+Figure \ref{fig:output_voltage_ripple} shows the voltage ripple at the output capacitor. The maximum and minimum voltages are read as $V_{max} = 90.22V$ and $V_{min} = 89.77V$, with a mean at $\widebar{V_{out}} = 89.995V$.
 
 
 \begin{figure}[H]
@@ -24,17 +29,14 @@ Figure \ref{fig:inductor_ripple} shows the current ripple in the inductor. The m
 	\end{minipage}  
 \end{figure}
 
-
-Figure \ref{fig:output_voltage_ripple} shows the voltage ripple at the output capacitor. The maximum and minimum voltages are read as $V_{max} = 90.22V$ and $V_{min} = 89.77V$, with a mean at $\widebar{V_{out}} = 89.995V$.
-
 \section{Experiment}
 
-The
+The signal of the input capacitor voltage is noisy as you can see in figure \ref{Openlooptestinputcapacitor}. So it is not possible to measured the ripple.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{../Pictures/P1/Test/Openloopinputcapacitor}
-		\caption{Open loop test: Input capacitor.}
+		\caption{Open-loop test: Input capacitor ripple.}
 		\label{Openlooptestinputcapacitor}
 	\end{center}	
 \end{figure}
@@ -44,7 +46,7 @@ The figure \ref{Openlooptestoutputtcapacitor} presents the voltage ripple at the
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{../Pictures/P1/Test/Openloopoutputcapacitor}
-		\caption{Open loop test: Output capacitor.}
+		\caption{Open-loop test: Output capacitor ripple.}
 		\label{Openlooptestoutputtcapacitor}
 	\end{center}	
 \end{figure}
@@ -54,7 +56,7 @@ The figure \ref{Openlooptestinductor} shows the current ripple at the inductor. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.5\textwidth]{../Pictures/P1/Test/Openloopinductor}
-		\caption{Open loop test: Inductor ripple.}
+		\caption{Open-loop test: Inductor current ripple.}
 		\label{Openlooptestinductor}
 	\end{center}	
 \end{figure}
