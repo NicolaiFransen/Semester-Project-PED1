@@ -43,6 +43,7 @@ By plotting these transfer functions and mapping them as shown in figure \ref{fi
 	\end{center}	
 \end{figure}
 
+\todo{ the unit is here missing and the curve should not hide behind the curve TL}
 
 The flow chart used for the implementation of the P\&O algorithm is shown in figure \ref{fcfinal}. From the flow chart it can be observed that the MPPT is enabled when the panel's voltage has reached the value of the open-circuit voltage. This means that the MPPT detects that the difference between the measured voltage and the previous voltage is lower than 0.1. The MPPT is forced to start at this point to be close to the value of the MPP. 
 Then it starts the open loop behavior. This is done to make the MPPT faster since the algorithm starts with $valg = 0$. The open loop calculation decreases the voltage without evaluating the voltage and power. The condition for starting the MPPT evaluation is that $counter=15$ to ensure that the point of operation is closer to the MPP. 
