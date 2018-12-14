@@ -34,6 +34,7 @@
 \usepackage{xcolor}
 \usepackage{colortbl}
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
+\definecolor{black}{RGB}{0,0,0}
 % The standard graphics inclusion package
 \usepackage{graphicx}
 % Set up how figure and table captions are displayed
@@ -165,6 +166,8 @@
 % Enable hyperlinks and insert info into the pdf
 % file. Hypperref should be loaded as one of the 
 % last packages
+
+
 \usepackage{hyperref}
 \hypersetup{%
 	pdfpagelabels=false,%
@@ -178,6 +181,10 @@
 	filecolor=black,%
 	linkcolor=black,% you should probably change this to black before printing
 	urlcolor=black,%
+	%colorlinks,
+	%linkcolor={black!50!black},
+	%citecolor={black!50!black},
+	%urlcolor={black!80!black}
 	pdfstartview=FitH%
 }
 
