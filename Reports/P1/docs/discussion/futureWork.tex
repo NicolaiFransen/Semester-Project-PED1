@@ -9,7 +9,8 @@ Even though the P\&O algorithm was implemented, initial research showed that the
 \todo{Write about what could be gained from changing MPPT, NHF.}
 
 \subsection{V/I controller}
-\todo{Why implement a V/I controller}
+The developed MPPT algorithm controls system's generated power. However system's transients are not considered. In order to properly govern transients a controller should be added. In that scenario, the MPPT algorithm's output will be the desired PV voltage. This input voltage reference will be feed to the controller, which will output a duty ratio. The controller has a higher execution frequency than the MPPT. Then this controller is able to control system's transients as desired, the desired system response might be chosen by the designer by tuning appropriately controller's parameters. The use of the controller will reduce system's oscillations reducing wrong MPPT inferences. 
+
 
 \subsection{Hardware improvements}
 In the first two iterations of the converter design, the driver circuits have been designed using isolated power supplies for the high side drivers. These are costly both in size and money. Because of that it's preferable to implement a bootstrap circuit for the drivers. An option for a driver including bootstrap could be UCC27211\cite{boot_driver_datasheet}. This includes both a high and low side driver, such that only to IC's are necessary for the converter. The input threshold is below $2.8V$ for both sides, which means that a $5V$ optocoupler could be used for isolation. For cost and size optimization the optocouplers should be one quad optocoupler, instead of four singles. 
