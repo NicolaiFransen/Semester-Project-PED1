@@ -1,7 +1,7 @@
 %%% Appendix including ripple stuf %%%
 
 \chapter{Open-loop ripple results}
-
+\vspace{-1cm}
 The measurements and calculations of the current ripple and the voltage ripples are included in this section. Furthermore the section is divided in the simulation result and experiment result.
  \label{app:OL_ripple}
  
@@ -11,6 +11,8 @@ The figures in this section shows the waveforms of the current and voltage rippl
 Figure \ref{fig:inductor_ripple} shows the current ripple in the inductor. The maximum and minimum currents are read as $I_{max} = 3.465A$ and $I_{min} = 3.135A$, with a mean at $\widebar{I_L} = 3.3A$.
 
 Figure \ref{fig:output_voltage_ripple} shows the voltage ripple at the output capacitor. The maximum and minimum voltages are read as $V_{max} = 90.22V$ and $V_{min} = 89.77V$, with a mean at $\widebar{V_{out}} = 89.995V$.
+
+Figure \ref{fig:input_voltage_ripple} shows the voltage ripple at the input capacitor. The maximum and minimum voltages are measured as $V_{max} = 36.94V$ and $V_{min} = 36.91V$, with a mean at $\widebar{V_{in}} = 36.925V$.
 
 
 \begin{figure}[H]
@@ -27,6 +29,14 @@ Figure \ref{fig:output_voltage_ripple} shows the voltage ripple at the output ca
 		\caption{Output voltage ripple.}
 		\label{fig:output_voltage_ripple}
 	\end{minipage}  
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{../Pictures/P1/Open_loop_simulation/open_loop_Vin_ripple.png}
+		\caption{Input voltage ripple.}
+		\label{fig:input_voltage_ripple}
+	\end{center}	
 \end{figure}
 
 \section{Experiment}
