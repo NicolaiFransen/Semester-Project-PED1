@@ -2,13 +2,20 @@ close all;
 
 %Measurement values from excel reading
 MPPT1000 = csvread('changing1to08.csv')
+MPPT300 = csvread('15.csv')
 
 %Messwerte in Variablen speichern
 t1000 = MPPT1000(:,1);
 vin1000 = MPPT1000(:, 2);
 iin1000 = MPPT1000(:, 3);
 
+t300 = MPPT300(:,1);
+vin300 = MPPT300(:, 2);
+iin300 = MPPT300(:, 3);
 
+pin300 = vin300.* iin300;
+
+mean(pin300)
 
 % %Filter
 % vin1000f = smoothdata(vin1000,'gaussian',20);
@@ -17,11 +24,11 @@ iin1000 = MPPT1000(:, 3);
 % iout1000f = smoothdata(iout1000,'gaussian',20);
 
 pin1000 = vin1000.* iin1000;
-pout1000 = vout1000.* iout1000;
+%pout1000 = vout1000.* iout1000;
 
-DIM = [2500:10000,1];
+%DIM = [0:0.1:1.4];
 
-mean (pin1000,DIM);
+%mean (pin1000,DIM);
 
  
 % %Verschiebung der X-Achse

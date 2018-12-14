@@ -1,7 +1,7 @@
 clc 
 clear all 
 
-MPPT1000_boost = csvread('voltages_currents_boost_100Hz.csv',1,0);
+MPPT1000_boost = csvread('voltages_currents_boost_10Hz.csv',1,0);
 
 t1000_boost = MPPT1000_boost(:,1);
 vin1000_boost = MPPT1000_boost(:, 2);
@@ -40,6 +40,6 @@ plot(t1000_boost, vin1000_boost)
 figure(4)
 plot(t1000_boost, pin1000_boost)
 hold all
-plot(t1000_boost, pout1000_boost)
+plot(t1000_boost, pout1000_boost, 'y')
 %plot(t1000_boost, pinfilter_boost, 'LineWidth',2)
 %plot(t1000_boost, poutfilter_boost, 'LineWidth',2)
