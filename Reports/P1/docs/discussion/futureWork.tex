@@ -7,7 +7,8 @@ This section will describe the planned future work of the project. This includes
 Even though the P\&O algorithm was implemented, initial research showed that the incremental conductance method could have been a better option. With the Implementation of an incremental conductance algorithm the response is more smooth and the tracking of the sample point is more accurate comparing to the classic P\&O. Further research and simulations will have to be made for comparing the two methods. \cite{AdvantageIncC}
 
 \subsection{V/I controller}
-\todo{Why implement a V/I controller}
+The developed MPPT algorithm controls system's generated power. However system's transients are not considered. In order to properly govern transients a controller should be added. In that scenario, the MPPT algorithm's output will be the desired PV voltage. This input voltage reference will be feed to the controller, which will output a duty ratio. The controller has a higher execution frequency than the MPPT. Then this controller is able to control system's transients as desired, the desired system response might be chosen by the designer by tuning appropriately controller's parameters. The use of the controller will reduce system's oscillations reducing wrong MPPT inferences. 
+
 
 \subsection{Hardware improvements}
 In the first two iterations of the converter design, the driver circuits have been designed using isolated power supplies for the high side drivers. These are costly both in size and money. Because of that it's preferable to implement a bootstrap circuit for the drivers. An option for a driver including bootstrap could be UCC27211\cite{boot_driver_datasheet}. This includes both a high and low side driver, such that only to IC's are necessary for the converter. The input threshold is below $2.8V$ for both sides, which means that a $5V$ optocoupler could be used for isolation. For cost and size optimization the optocouplers should be one quad optocoupler, instead of four singles. 
@@ -16,7 +17,7 @@ In the first two iterations of the converter design, the driver circuits have be
 
 \subsection{Coil design}
 The coil used for the converter is reused from an earlier project. Measurements shows that it's oversized regarding current ratings as shown in section \ref{Coil problems}. To achieve an optimal inductor, it needs to be designed for the specific requirements for this converter. Both the core size and wire diameter depends on the wanted current rating of the converter\cite{underthehood}. Therefore it should be researched if a physically smaller coil is obtainable.
-
+\todo{Consider discussing the fact that the inductor is probably the most expensive component around and that an increase of the switching frequency is probably necessary for a real product, for price, size, weight.}
 \subsection{PCB improvements}
 The PCB designed for this project is highly focused on easing the tests in the laboratory. For this, tests points have been located all around the PCB and LEDs were placed. Also, the width and clearance of the traces have been oversized since it was going to be created with a CNC. The top overlay was also not going to be visible so text had to be milled in the top layer. The power capacitors could also be reduced in size if a final product was created.
 
