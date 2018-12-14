@@ -63,7 +63,8 @@ inductor saturation and so
 pcb hot points
 
 ...
-\subsection{output cap?}
+\input{docs/discussion/outputCap.tex}
+
 \subsection{MPPT drifting and improvement and limitations of final control algorithm}
 The development of an embedded control system requires the proper working of an algorithm. During the development process, the engineer might find that the code doesn't behave as intended. A common way of supporting the debugging process consists on the use of breakpoints, where the code is stopped and the variables' value might be read. However, as this feature is not supported by the used platform, and in the case of controlling physical systems its use would be limited to simulation, alternative techniques had to be used. The adopted approach consisted on outputting the FSMs state and relevant values for the current state at every code execution loop. The 'Timestamp' field is specially important during simulation in order to track specific events at determined times. See figure \ref{console_output}.
 
@@ -100,6 +101,8 @@ Although the voltage and current measurement is filtered, the signal read by the
 
 
 \input{docs/discussion/coil.tex}
+
+\input{docs/discussion/driver.tex}
 
 \input{docs/discussion/futureWork.tex}
 
