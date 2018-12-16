@@ -40,10 +40,10 @@ The sensor is a ACS723-20AB \cite{current_sensor} which is a hall effect sensor.
 The output of the sensor is a voltage proportional to the current following the next equation:
 
 \begin{equation} 
-V_{current} = \frac{1}{10} \, i + 2.5
+v_{current} = \frac{1}{10}V/A \cdot i + 2.5V
 \end{equation}
 
-In order to ease the task of the control, the signals are filtered by hardware. The current will be used by the MPPT, which frequency is $100 Hz$. The sensor output is filtered by a low-pass filter which cut-off frequency is $50 Hz$. The cut-off frequency has been calculated by a thousandth of the switching frequency, which is $50 kHz$. Also the current might be used in the current controller, this signal will be filtered at $80 kHz$ in order to remove high frequency noise. This cut-off frequency was selected as it is the sensor's bandwidth. The filters are first order low-pass filters implemented with a resistor in series with a capacitor.
+In order to ease the task of the control, the signals are filtered by hardware. The current will be used by the MPPT, which frequency is $100 Hz$. The sensor output is filtered by a low-pass filter which cut-off frequency is $50 Hz$. Also the current might be used in the current controller, this signal will be filtered at $80 kHz$ in case a peak current controller is implemented. This cut-off frequency was selected as it is the sensor's bandwidth. The filters are first order low-pass filters implemented with a resistor in series with a capacitor.
 
 In order to calculate the current from the PV module, the converter working mode will have to be taken into account. Assuming continuous conduction mode, the average PV current is:
 

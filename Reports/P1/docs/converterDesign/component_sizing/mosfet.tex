@@ -1,10 +1,12 @@
-Selecting the switching circuitry consists of four different parts, the switches, drivers, optocouplers and the heat sink. Additional support circuitry will be designed, when selecting the commercial components.
+\subsection{Switching circuitry}
+
+Selecting the switching circuitry consists of four different parts, switches, heat sink, drivers, and optocouplers. Additional support circuitry will be designed, when selecting the commercial components.
 
 \subsubsection{Switch sizing} \label{switch_sizing}
-The system must regulate the power flow in order to maximize the power generation. In order to achieve this, the system includes switches that control the current flow. The switches consist on MOSFET devices. The switching frequency of the system is selected to be $50kHz$. Although the market has IGBT which can switch at $50kHz$, MOSFET devices allow lower losses than IGBTs for system's current rating \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}.
+The system must regulate the power flow in order to maximize the power generation. In order to achieve this, the system includes switches that control the current flow. The switches consist of MOSFET devices. The switching frequency of the system is selected to be $50kHz$. Although the market has IGBT which can switch at $50kHz$, MOSFET devices allow lower losses than IGBTs for system's current rating \cite{mosfet_igbt_switching_loss} \cite{igbt_or_mosfet}.
 
 
-The maximum output voltage of the system is $90V$, however the voltage rating of the transistors was set to $150V$ in order to consider a safety margin, and thus, increase the reliability. The peak current through the transistors happens when the buck mode is active and the maximum number of MICs are used in series. The peak current is equal to $14A$. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired shown in equation \ref{conduction_losses_eq}\cite{mosfet_losses}. These constraints were used when searching for the ideal component. The chosen device is the IPB200N15N3. It exhibits the features seen in table \ref{mosfet_features}.
+The maximum output voltage of the system is $90V$, however the voltage rating of the transistors was set to $150V$ in order to consider a safety margin, and thus, increase the reliability. The peak current through the transistors happens when the buck mode is active and the maximum number of MICs are connected in series. The peak current is equal to $14A$. In order to reduce the conduction losses and the heat sink size, a low on resistance is desired shown in equation \ref{conduction_losses_eq}\cite{mosfet_losses}. These constraints were used when searching for the commercial component. The chosen device is the IPB200N15N3. It exhibits the features seen in table \ref{mosfet_features}.
 
 
 \begin{table}[htbp]
@@ -16,13 +18,15 @@ The maximum output voltage of the system is $90V$, however the voltage rating of
 		$V_{GS}$ & $\pm$ 20 [V]  \tabularnewline \hline
 		Power dissipation & 150 [W]  \tabularnewline \hline
 		$V_{DS}$ & 150 [V]  \tabularnewline \hline
-		$R_{DSon} $ & 20 [m$\Omega$]  \tabularnewline \hline
+		$R_{DS} $ & 20 [m$\Omega$]  \tabularnewline \hline
 		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Other values of interest}} \\ \hline
-		Input capacitance & 1820 [pF]  \tabularnewline \hline
+		$C_{iss}$ & 1820 [pF]  \tabularnewline \hline
 		Package & D2PAK  \tabularnewline \hline
 		$V_{th} $ $(V_{GS} = 3 V)$ & 3 [V]  \tabularnewline \hline
 		$V_{th} $ $(V_{GS} = 36 V)$ & 4.7 [V]  \tabularnewline \hline
-		$R_{Gate} $ & 2.4 [$\Omega$]  \tabularnewline \hline
+		$R_{Gate} $ & 2.4 [$\Omega$] 
+		\tabularnewline \hline
+		$R_{th ja} $ & 75 [$\dec C /W$]  \tabularnewline \hline
 	
 	\end{tabular}
 	\caption{MOSFET figures of merit. T = 25 $\decC$ \cite{mosfet_datasheet}.}
@@ -47,9 +51,11 @@ The power dissipated in the switches is equal to the sum of the conduction losse
 P_{cond} = i(t)^2 \cdot R_{DS}
 \end{equation}
 
-The switching losses depend upon the switching frequency and the transistor's manufacturing characteristics\cite{mosfet_losses}. In order to calculate the value, the MOSFET's SPICE model was obtained from the manufacturer's website. The next step was to perform the simulation of the system. The system was simulated in both buck and boost modes. Special attention was put into the dead-band between PWM signals of different switches, to avoid current shoot through. After simulating, the average power dissipation under steady state was calculated in both modes. Within every mode, the simulation was performed under the most unfavorable conditions, this is: buck's output is 24 V and boost's output is 90 V. The results can be seen in table \ref{mosfet_final_dissipation}, column 1.
+The switching losses depend upon the switching frequency and the transistor's manufacturing characteristics \cite{mosfet_losses}. In order to calculate the value, the MOSFET's SPICE model is available in the LTspice default library. The next step was to perform the simulation of the system. The system was simulated in both buck and boost modes. Special attention was put into the dead-band between PWM signals of different switches, to avoid current shoot through. After simulating, the average power dissipation under steady state was calculated in both modes. Within every mode, the simulation was performed under the most unfavorable conditions, this is: buck's output is 24 V and boost's output is 90 V. The results can be seen in table \ref{mosfet_final_dissipation}, column 1.
 
-The datasheet shows that the $R_{DS}$ variation is mainly dependent on the temperature\cite{mosfet_datasheet}. The models found neglect the temperature difference. Then, in order to get an approximated value considering temperature, the procedure will be to calculate the total losses at constant temperature using the SPICE model and then add the additional conduction losses due to the increase of the resistance, as expressed by equation \ref{total_losses}.
+The datasheet shows that the $R_{DS}$ variation is mainly dependent on the temperature\cite{mosfet_datasheet}. The models found neglect the temperature difference. 
+Then, in order to get an approximated value considering temperature, the procedure will be to calculate the total losses at constant temperature using the SPICE model. 
+Then add the additional conduction losses due to the increase of the resistance, as expressed by equation \ref{total_losses}.
 
 \begin{equation} \label{total_losses}
 \overline{P} = \overline{P_{loss, T = K}} + \overline{i(t)^2 \cdot \Updelta R_{DS}}
@@ -70,7 +76,7 @@ T_{J} = T_{housing} + \overline{P_{loss, T = K}} \cdot  R_{thermal}
 \end{equation}
 
 
-If no heat sink were used, according to equation \ref{switch_temperature}, the junction temperature would become too high and the components would be damaged. See equation \ref{temperature_without_heatsink}. This is mainly explained due to the fact that the thermal resistance between junction and ambient of the transistor is as high as 75 $\decC / W$.
+If no heat sink were used, according to equation \ref{switch_temperature}, the junction temperature would become too high and the components would be damaged (see equation \ref{temperature_without_heatsink}). This is mainly explained due to the fact that the thermal resistance between junction and ambient of the transistor is as high as 75 $\decC / W$, information about the power dissipation can be found in table \ref{mosfet_final_dissipation}.
 
 \begin{equation} \label{temperature_without_heatsink}
 T_{J} = 50 \decC + 5.54 W \cdot 75 \frac{\decC}{W} = 465.5 \decC
@@ -83,7 +89,7 @@ T_{J} = 50 \decC + 5.54 W \cdot 75 \frac{\decC}{W} = 465.5 \decC
 		\hline
 		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Features}} \\ \hline
 		Size & 60x60x16 [mm]  \tabularnewline \hline
-		Thermal resistance & 2.06 [K/W]  \tabularnewline \hline
+		Thermal resistance & 2.06 [$\dec C/W$]  \tabularnewline \hline
 		
 	\end{tabular}
 	\caption{Heat sink figures of merit \cite{heatsink_datasheet}.}
@@ -127,7 +133,7 @@ The drain-to-source resistance increase is calculated as explained in equation \
 \end{table}
 
 
-The full power dissipation values can be found on table \ref{mosfet_final_dissipation}. To achieve an exact result, an iterative process should be followed. However, after the first iteration, the change ratio is extremely small and then, neglected. Now that the power dissipation has been calculated, the junction temperature must be checked in order to confirm that the heat sink has been properly sized. Equation \ref{switch_temperature} is used, substitution of values leads to \ref{switch_temperature_w_values_2}. The difference is fairly small and the junction temperature remains within safe area. Then, TDEX6015/TH has been validated as a proper heat sink.
+The full power dissipation values can be found on table \ref{mosfet_final_dissipation}. To achieve an exact result, an iterative process should be followed. However, after the first iteration, the change ratio is extremely small and then, neglected. Now that the power dissipation has been calculated, the junction temperature must be checked in order to confirm that the heat sink has been properly sized. Equation \ref{switch_temperature} is used, substitution of values leads to equation \ref{switch_temperature_w_values_2}. The difference is fairly small and the junction temperature remains within safe area. Then, TDEX6015/TH has been validated as a proper heat sink.
 
 \begin{equation} \label{switch_temperature_w_values_2}
 T_{J} = 50 \decC + 6.72 W \cdot  2.06 \frac{\decC}{W} = 63.84 \decC

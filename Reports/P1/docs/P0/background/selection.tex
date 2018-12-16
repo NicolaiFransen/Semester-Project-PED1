@@ -1,11 +1,13 @@
 \section{Selection of topology}
-The selection of converter topology is based on the research made in section \ref{DC_DC_Converters}. The converter should be able to allow both higher and lower output voltage compared to the input. This requirement will limit the buck and boost converters, which only convert either up or down. A non-inverting buck-boost converter will therefore be implemented.
+The selection of the converter's topology is based on the research made in section \ref{DC_DC_Converters}. The converter should be able to allow both higher and lower output voltage compared to the input. This requirement will limit the buck and boost converters, which only convert either up or down. A non-inverting buck-boost converter will therefore be implemented.
 
 By using a 4 transistor buck-boost converter, instead of a 2 transistor, it is possible to further minimize the power loss since the losses on the transistor can be lower than those on the diodes.
 
-The 4 transistor buck-boost converter does also have the advantage of being bidirectional. This means that it is possible to extract current from the PV module and also to inject current into the PV module. When this happens, the PV module acts like a LED, radiating an infrared light when current is injected. If a PV module is damaged and has micro-cracks, the power generation will be affected. By injecting current to the module it is much easier to find this small cracks, allowing the discovery of faulty modules before there is a drop in efficiency. This will increase the overall efficiency of the system and ease the maintenance sequence significantly. \cite{selectionMPPT}
+The 4 transistor buck-boost converter does also have the advantage of being bidirectional. This means that it is possible to extract current from the PV module and also to inject current into the PV module. When this happens, the PV module acts like a LED, radiating an infrared light when current is injected. If a PV module is damaged and has micro-cracks, the power generation will be affected. By injecting current to the module it is much easier to find this small cracks, allowing the discovery of faulty modules before there is a drop in efficiency. This will increase the overall efficiency of the system and ease the maintenance sequence significantly. \cite{selectionMPPT} 
 
-The bidirectional non-inverting buck-boost converter is selected because of these arguments. Although the bidirectional functionality will not be addressed in this project, it could be a part of the further development of the converter. 
+Another advantage is, as explained in figure \ref{BID_MIC_ARCHITECTURES} of the section \ref{N_INV_BB}, where only a fraction of the total power is flowing through the converters.
+
+The bidirectional non-inverting buck-boost converter is selected due to these arguments. Although the bidirectional functionality will not be addressed in this project, it could be a part of the further development of the converter. 
 
 
 

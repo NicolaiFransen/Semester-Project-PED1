@@ -1,5 +1,6 @@
 \subsubsection{Input voltage sensor} \label{voltage_sensors}
-The voltage sensor selected is the ACPL-C870 \cite{voltage_sensor}. This sensor includes an optical isolation amplifier, which makes it well suited for isolated voltage sensing. Some relevant electrical specifications have been included in table \ref{tab:voltage_sensor_features}. Figure \ref{fig:voltage_sensors_placement} shows the placement of the two voltage sensors, where $V_{in}$ and $V_{out}$ are the input and output sensor respectively. 
+The voltage sensor selected is the ACPL-C870 \cite{voltage_sensor}. This sensor includes an optical isolation amplifier, which makes it well suited for isolated voltage sensing. Some relevant electrical specifications have been included in table \ref{tab:voltage_sensor_features}.
+
 
 \begin{table}[H]
 	\centering
@@ -21,6 +22,18 @@ The voltage sensor selected is the ACPL-C870 \cite{voltage_sensor}. This sensor 
 	\label{tab:voltage_sensor_features}
 \end{table}
 
+\paragraph{The circuit}
+The circuit regarding the input voltage measurement is shown at figure \ref{fig:input_voltage_sensor_circuit}. $V_{in}$ is the measured voltage from the PV module. The points $OA1_+$ and $OA1_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA1_{out}$ is connected to the output of the amplifier. $C_{15}$ and $C_{16}$ are decoupling capacitors for the two supply voltages. The maximum input voltage of the voltage sensor is $5V$. Because of this a $4.7V$ zener diode has been added at the input, to protect it against over-voltage.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{../Pictures/P1/Sensors/input_voltage_sensor.PNG}
+		\caption{Input voltage sensor.}
+		\label{fig:input_voltage_sensor_circuit}
+	\end{center}
+\end{figure}
+
+\iffalse
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.7\linewidth]{../Pictures/P1/Sensors/voltage_sensors_placement.PNG}
@@ -28,11 +41,12 @@ The voltage sensor selected is the ACPL-C870 \cite{voltage_sensor}. This sensor 
 		\label{fig:voltage_sensors_placement}
 	\end{center}
 \end{figure} 
+\fi
 
 \paragraph{Voltage divider}
 The input voltage at the voltage sensor is recommended to be in the range of $0V-2V$. To divide the measured voltage into that range, a voltage divider will be implemented. 
 
-The maximum output voltage of the PV module is the open-circuit voltage at $45V$. To achieve a safety margin and to make the converter adaptable to other types of PV modules, $50V$ has been selected. The current flow in the voltage divider has been set at $1mA$, to secure a insignificant power loss. The resistors can be calculated with equation \ref{voltage_divider_R17_in} and \ref{voltage_divider_R18_in}.
+The STC output voltage of the PV module is the open-circuit voltage at $45V$. Since it is possible to have a higher $V_{OC}$ when the temperature is low, $50V$ has been selected as maximum voltage for $2V$ at the output of the voltage divider. The current flow in the voltage divider has been set at $1mA$, to secure a insignificant power loss. The resistors can be calculated with equation \ref{voltage_divider_R17_in} and \ref{voltage_divider_R18_in}.
 
 \begin{equation} \label{voltage_divider_R17_in}
 	R_{17} = \frac{V_{in,max}-V_{out}}{I} = \frac{50V-2V}{1mA} = 48k\Omega
@@ -48,7 +62,7 @@ The maximum output voltage of the PV module is the open-circuit voltage at $45V$
 To be able to select commercial resistors the values $R_{17} = 47k\Omega$ and $R_{18} = 2k\Omega$ have been chosen. 
 
 \paragraph{Filtering} \label{voltage_sensor_filter}
-For a stable MPPT control, the measured voltage must have a very low ripple. To ensure this, a low-pass RC filter with a corner frequency at $50Hz$, will be placed between the voltage divider and the sensor. The resistor of the filter will be $R_{17}$ in the voltage divider. The capacitor will calculated as followed in equation \ref{voltage_sensor_in_filter_cap}:
+In order to reduce the noise and have a stable signal, a low-pass RC filter with a corner frequency at $50Hz$ will be placed between the voltage divider and the sensor. The corner frequency has been calculated by a thousandth of the switching frequency, which is $50 kHz$. The resistor of the filter will be $R_{17}$ in the voltage divider. The capacitor will be calculated as followed in equation \ref{voltage_sensor_in_filter_cap}:
 \begin{equation} \label{voltage_sensor_in_filter_cap}
 	C_{17} = \frac{1}{2\pi \cdot f_c \cdot R_{17}} = \frac{1}{2 \pi \cdot 50Hz \cdot 47k\Omega} = 67.7nF
 \end{equation}
@@ -56,7 +70,7 @@ For a stable MPPT control, the measured voltage must have a very low ripple. To 
 \noindent To be able to select a commercial capacitor, $C_{17} = 68nF$ has been chosen. 
 
 \paragraph{Amplification} \label{voltage_sensor_amplification}
-The input range of the Analog to Digital Converter (ADC) in the RT-Box is $0V-5V$. To take advantage of the full range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484 \cite{sensor_opamp}  quad operational amplifier. By using a quad amplifier, the same IC can be used for all the sensors. The relevant electrical specifications have been included in table \ref{tab:amplifier_specs}.
+The input range of the Analog to Digital Converter (ADC) in the RT Box is $0V-5V$. To take advantage of the full range an amplifier will be implemented. The output of the voltage sensor is differential with an offset at $1.23V$. Therefore a differential amplifier will be implemented using a LMC6484 \cite{sensor_opamp}  quad operational amplifier. By using a quad amplifier, the same IC can be used for all the sensors. The relevant electrical specifications have been included in table \ref{tab:amplifier_specs}.
 
 
 \begin{table}[H]
@@ -68,13 +82,11 @@ The input range of the Analog to Digital Converter (ADC) in the RT-Box is $0V-5V
 		Input voltage range & $V_{in}$ 	& $\pm V_{DD}$ [V]  \tabularnewline \hline
 		
 		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Other values of interest}} \\ \hline
-		Slew rate 					& $SR$ 	& $1.3$ [$V/\mu s$]  \tabularnewline \hline
-		Gain-Bandwith product 		& $GBW$ & $1.5$ [$MHz$]		\tabularnewline \hline
 		Number of amplifiers 		&  	--	& $4$ [-]			\tabularnewline \hline
 		Package 					&  	--	& SOIC [-] 				\tabularnewline \hline
 		
 	\end{tabular}
-	\caption{Electrical specifications LMC6484 \cite{sensor_opamp}. }
+	\caption{Electrical specifications LMC6484 \cite{sensor_opamp}.}
 	\label{tab:amplifier_specs}
 \end{table}
 
@@ -92,24 +104,25 @@ Where $V_2-V_1$ is the difference between the output pins of the voltage sensor.
 \end{center}
 To be able to select commercial resistors the value of $R_{21}$ it's rounded to be $27k\Omega$. Furthermore $R_{20} = R_{19}$ and $R_{22} = R_{21}$, to get a balanced differential amplifier.
 
+\subsubsection{Output voltage sensor}
+The voltage sensor at the output is designed with the same procedure as the input sensor. The maximum output voltage of the voltage divider is set to $2V$.
+
 \paragraph{The circuit}
-The circuit regarding the input voltage measurement is shown at figure \ref{fig:input_voltage_sensor_circuit}. All components calculated in this section have been inserted with the same name. $V_{in}$ is the measured voltage from the PV-module. The points $OA1_+$ and $OA1_-$ are connected to the non-inverting and inverting input of the amplifier respectively. $OA1_{out}$ is connected to the output of the amplifier. $C_{15}$ and $C_{16}$ are decoupling capacitors for the two supply voltages. The maximum input voltage of the voltage sensor is $5V$. Because of this a $4.7V$ zener diode has been added at the input, to protect it against over-voltage.
+The circuit regarding the output voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.8\linewidth]{../Pictures/P1/Sensors/input_voltage_sensor.PNG}
-		\caption{Input voltage sensor.}
-		\label{fig:input_voltage_sensor_circuit}
+		\includegraphics[width=0.8\linewidth]{../Pictures/P1/Sensors/output_voltage_sensor.PNG}
+		\caption{Output voltage sensor.}
+		\label{fig:output_voltage_sensor_circuit}
 	\end{center}
 \end{figure}
-
-\subsubsection{Output voltage sensor}
-The voltage sensor at the output is design with the same procedure as the input sensor. The voltage divider will designed such that the values of the amplifier can be reused.
 
 \paragraph{Voltage divider}
 The maximum output voltage of the DC-DC converter will be $90V$, when only 4 PV modules are used. To insert a safety margin if one converter fails, the maximum sensed voltage will be designed at $120V$.
 
-\noindent The resistors will be sized by reusing equation \ref{voltage_divider_R17_in} and \ref{voltage_divider_R18_in}.
+\noindent The resistors will be sized by reusing equations \ref{voltage_divider_R17_in} and \ref{voltage_divider_R18_in}.
+
 \begin{equation}
 	R_{26} = \frac{V_{in,max}-V_{out}}{I} = \frac{120V-2V}{1mA} = 118k\Omega	
 \end{equation}
@@ -124,7 +137,7 @@ The maximum output voltage of the DC-DC converter will be $90V$, when only 4 PV 
 \noindent To be able to select commercial resistors $R_{26} = 120k\Omega$ and $R_{27} = 2k\Omega$ have been chosen. 
 
 \paragraph{Filtering}
-The filter will be design with the same corner frequency at $50Hz$, as for the input sensor.
+The filter will be designed with the same corner frequency at $50Hz$, as for the input sensor.
 
 The resistor of the filter will be $R_{26}$ in the voltage divider. The capacitor will be calculated as followed in equation \ref{voltage_sensor_out_filter_cap}:
 \begin{equation} \label{voltage_sensor_out_filter_cap}
@@ -132,15 +145,4 @@ The resistor of the filter will be $R_{26}$ in the voltage divider. The capacito
 \end{equation}
 
 To be able to select a commercial capacitor $C_{22} = 33nF$ has been chosen. By using these values the actual corner frequency will be $40.2 Hz$.
-
-\paragraph{The circuit}
-The circuit regarding the input voltage measurement is shown at figure \ref{fig:output_voltage_sensor_circuit}. 
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.8\linewidth]{../Pictures/P1/Sensors/output_voltage_sensor.PNG}
-		\caption{Output voltage sensor.}
-		\label{fig:output_voltage_sensor_circuit}
-	\end{center}
-\end{figure}
 

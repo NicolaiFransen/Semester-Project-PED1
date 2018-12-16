@@ -19,14 +19,14 @@ For the design and test of the MIC it is of great importance to have the require
 
 The specifications of the load of the MIC will be based on the commercial inverter \textit{"Power-one STGU-105"} \cite{power_one_inverter} in order to have the output voltage defined. From the inverter's datasheet it is found that the nominal voltage in the DC-link is 360 V, with a maximum input power of 5500 W. The development of this project will be based on these requirements because they are real commercial products that the user can purchase. 
 
-The maximum input power, voltage and current of the converter is decided by $P_{max}$, $V_{oc}$ and $I_{sc}$ of the chosen PV-panel. The maximum output voltage is decided by the DC-link voltage and minimum PV string length, while the minimum output voltage is decided by the maximum string length. The maximum output current is decided by $P_{max}$, which ideally also will be the maximum output power, and the minimum output voltage. Table \ref{MIC_req} shows the requirements of the MIC, extracted from the specifications of the PV panel and the inverter. It defines both the requirements regarding input, output and the length of PV panel strings. 
+The maximum input power, voltage and current of the converter are determined by $P_{max}$, $V_{oc}$ and $I_{sc}$ of the chosen PV panel under STC. The maximum output voltage is decided by the DC-link voltage and the minimum PV string length, while the minimum output voltage is set with the maximum string length. The maximum output current is specified by $P_{max}$, and the minimum output voltage. Table \ref{MIC_req} shows the requirements of the MIC, extracted from the specifications of the PV panel and the inverter. It defines both the requirements regarding input, output and the length of PV panel strings. 
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|p{6cm}|>{\centering}p{8cm}|}
 		\hline
 		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Input}} \\ \hline
-		Maximum input power ($P_{max}$) & 300 [W]  \tabularnewline \hline
+		Maximum input power ($P_{max}$) & 300.4 [W]  \tabularnewline \hline
 		Maximum input Voltage ($V_{oc}$) & 45 [V]  \tabularnewline \hline
 		Maximum input current ($I_{sc}$) & 8.67 [A]  \tabularnewline \hline
 		
