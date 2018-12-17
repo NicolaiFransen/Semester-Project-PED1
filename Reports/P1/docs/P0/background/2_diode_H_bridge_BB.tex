@@ -62,7 +62,8 @@ The conduction losses are smaller due to the fact that the losses in a diode evo
 \end{equation}
 
 
-If the system is bidirectional it can be used for different purposes, as the topology seen in figure \ref{BID_MIC_ARCHITECTURES}, which features an isolated DC-link. This topology has a bidirectional MIC, as energy flow in both directions is needed. The goal of this system is to have a single MPP. This is achieved by:
+If the system is bidirectional it can be used for different purposes, as the topology seen in figure \ref{BID_MIC_ARCHITECTURES}, which features an isolated DC-link. 
+An isolated DC-link has a bidirectional MIC, as energy flow in both directions is needed. The goal of this system is to have a single MPP. This is achieved by:
 
 \begin{enumerate}
 	\item Set the working conditions to have as many PV  panels performing under the MPP as possible. In this case there are two panels which generate more than the third one.
@@ -79,6 +80,8 @@ This strategy's advantage is that the power processed by the converters is lower
 		\label{BID_MIC_ARCHITECTURES}
 	\end{center}	
 \end{figure}
+
+This setup lies out of the boundaries of the current project and it is not addressed in the scope of it.
 		
-A drawback of the bidirectional system is the increased difficulty of the driver circuitry like the requirement of a dead time in order to avoid the short circuit of $FET_1$ and $FET_3$ or $FET_2$ and $FET_4$, which could damage the system. When using diodes, the system is intrinsically protected against a shoot-through event.
+A drawback of the bidirectional system is the increased difficulty of the driver circuitry like the requirement of a dead time in order to avoid the short circuit of $FET_1$ and $FET_2$ or $FET_3$ and $FET_4$, which could damage the system. When using diodes, the system is intrinsically protected against a shoot-through event.
 		

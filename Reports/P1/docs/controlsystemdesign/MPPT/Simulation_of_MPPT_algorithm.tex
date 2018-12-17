@@ -1,5 +1,5 @@
 
-\section{Simulation of the MPPT} \label{MPPTSimulation}
+\section{Simulation of the MPPT algorithm} \label{MPPTSimulation}
 
 The results obtained in simulation for the previously explained P\&O algorithm will be shown in this section. First, the results corresponding to the PV panel model will be evaluated without connecting it to the DC-DC converter. Once the model for the PV panel is validated, the results obtained for the complete system will be analyzed in order to show the performance of the MPPT algorithm under different environmental conditions and resistive loads.  
 
@@ -7,7 +7,7 @@ The results obtained in simulation for the previously explained P\&O algorithm w
 
 This section shows the model and the results obtained from a commercial solar panel selected for the development of this project. The PV panel which will be utilized for the test of the MPPT is \textit{Suntech STP300-24/Vd} \cite{PV_panel}. As a result of the PV panel's model, the characteristic curves of the panel will be presented showing its behavior under variations in solar irradiance and temperature.
 
-One of the most common methods for modeling a solar panel is using the equivalent circuit of a solar cell shown in figure \ref{fig:eq_circuit_PVcell}. The model can be represented as a current source connected in antiparallel with a diode \cite{MPPTResearch}. In addition, to model the non-linear behaviour of the solar panel I-V curve the equivalent series and parallel resistance ($R_{s}$ and $R_{p}$) are inserted \cite{MPPTResearch}.
+One of the most common methods for modeling a solar panel is using the equivalent circuit of a solar cell shown in figure \ref{fig:eq_circuit_PVcell}. The model can be represented as a current source connected in parallel and reversed polarity with a diode \cite{MPPTResearch}. In addition, to model the non-linear behaviour of the solar panel I-V curve the equivalent series and parallel resistance ($R_{s}$ and $R_{p}$) are inserted \cite{MPPTResearch}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -23,25 +23,25 @@ The mathematical equation that describes the circuit is obtained applying Kircho
 I_{pv} = I_{ph} - I_{o} \cdot \left[ e^{\left({\dfrac{V_{pv} + R_s\cdot I_{pv}}{a \cdot V_{t}}}\right)}  - 1 \right]  - \dfrac{V_{pv} + R_{s}\cdot I_{pv}}{R_{p}}
 \end{equation}
 
-The second term corresponds to the Shockley equation where $I_{o}$ is the saturation current of the diode, $a$ is the diode's quality factor and $V_{t}$ is the thermal voltage defined by
+The second term corresponds to the Shockley equation where $I_{o}$ is the saturation current of the diode, $a$ is the diode's quality factor and $V_{t}$ is the thermal voltage defined by equation \ref{eq:Vt}.
 
-\begin{equation} 
-V_{t}=\dfrac{N_{s}\cdot K\cdot T}{q} 
+\begin{equation} \label{eq:Vt}
+V_{t}=\dfrac{N_{cells}\cdot K\cdot T}{q} 
 \end{equation}
 
-where $N_{s}$ is the number of series connected cells (in this case 72), K is the Boltzmann constant ($1.38 \cdot 10^{-23} J/K$), T is the temperature in kelvins and q is the electrical charge ($1.6 \cdot 10^{-19} C$) \cite{MPPTResearch}.
+$N_{cells}$ is the number of series connected cells (in this case 72), K is the Boltzmann constant ($1.38 \cdot 10^{-23} J/K$), T is the temperature in kelvins and q is the electrical charge ($1.6 \cdot 10^{-19} C$) \cite{MPPTResearch}.
 
-However, as the focus of this project is not the modelling of the PV panel, the value of the PV panel's parameters such as $R_{s}$, $R_{p}$ and $a$ required for the model will not be calculated. Instead, these values will be taken from the corresponding PV array block for the selected panel available in \textit{Simulink}. All the values for the PV panel's electrical parameters corresponding to Standard Test Conditions (STC) are shown in table \ref{el_charact_PV_panel_Suntech}.
+However, as the focus of this project is not the modelling of the PV panel, the value of the PV panel's parameters such as $R_{s}$, $R_{p}$ and $a$ required for the model will not be calculated. Instead, these values will be taken from the corresponding PV array block for the selected panel available in Simulink. All the values for the PV panel's electrical parameters corresponding to Standard Test Conditions (STC) are shown in table \ref{el_charact_PV_panel_Suntech}.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|p{8cm}|>{\centering}p{6cm}|}
 		\hline
-		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Electrical characteristics under Standard Test Conditions (STC)}} 
+		\rowcolor{lightgray}\multicolumn{2}{|l|}{ \textbf{Electrical characteristics under STC}} 
 		\\ \hline
 		Maximum power ($P_{max}$) & 300.4 [W]  \tabularnewline \hline
-		Optimum Operating Voltage ($V_{mpp}$) & 36.9 [V]  \tabularnewline \hline
-		Optimum Operating Current ($I_{mpp}$) & 8.14 [A]  \tabularnewline \hline
+		Optimum Operating Voltage ($V_{MPP}$) & 36.9 [V]  \tabularnewline \hline
+		Optimum Operating Current ($I_{MPP}$) & 8.14 [A]  \tabularnewline \hline
 		Open Circuit Voltage ($V_{oc}$) &  45 [V] \tabularnewline \hline
 		Short Circuit Current ($I_{sc}$) & 8.67 [A]  \tabularnewline \hline
 		Module Efficiency ($\eta$) & 15.5 \%  \tabularnewline \hline
@@ -57,7 +57,7 @@ However, as the focus of this project is not the modelling of the PV panel, the 
 Using the aforementioned model of the PV panel, it is possible to obtain the characteristic curves of the panel.  Usually, PV panels are tested under STC to indicate the performance of the PV modules. The STC test is carried out with a cell's temperature of $25^\circ$C and at a solar irradiance of 1000 $W/ m^2$ \cite{handbook}. The higher the solar irradiance, the more power is generated from the PV panel. On the other hand, when the temperature of the PV cell increases the PV panel generates less power than at a lower temperature \cite{handbook}. 
 
 Figures \ref{fig:PVcurves_T25} and \ref{fig:IVcurves_T25} show the P-V and I-V curves of the solar panel with constant cell temperature ($T=25\dec C$) and varying the level of irradiance. 
-As expected, the lower the level of irradiance the maximum power that the panel is capable of generating decreases. It can be validated that under STC the values for $V_{mpp}$ and $I_{mpp}$ from table \ref{el_charact_PV_panel_Suntech}  correspond to the values obtained in simulation. Table \ref{constantemptable} shows that a change in irradiance has as a consequence a high variation in $I_{mpp}$ but $V_{mpp}$ does not reflect a significant variation.  
+As expected, the lower the level of irradiance the maximum power that the panel is capable of generating decreases. It can be validated that under STC the values for $V_{MPP}$ and $I_{MPP}$ from table \ref{el_charact_PV_panel_Suntech}  correspond to the values obtained in simulation. Table \ref{constantemptable} shows that a change in irradiance has as a consequence a high variation in $I_{MPP}$ but $V_{MPP}$ does not reflect a significant variation.  
 
 
 \begin{figure}[H]
@@ -84,9 +84,9 @@ As expected, the lower the level of irradiance the maximum power that the panel 
 		\rowcolor{lightgray}\multicolumn{5}{|l|}{ \textbf{Constant temperature and varying irradiance}} 
 		\\ \hline
 		& 1000$W/ m^2$ & 800$W/ m^2$  & 600$W/ m^2$  & 400$W/ m^2$ \tabularnewline \hline
-		$V_{mpp}$ [V] & 36.9 & 36.87 & 36.68 & 36.19 \tabularnewline \hline
-		$I_{mpp}$ [A] & 8.14 & 6.49 & 4.86 & 3.23 \tabularnewline \hline
-		$P_{mpp}$ [W] &  300.4 &  239.5 &  178.5 &  117 \tabularnewline \hline
+		$V_{MPP}$ [V] & 36.9 & 36.87 & 36.68 & 36.19 \tabularnewline \hline
+		$I_{MPP}$ [A] & 8.14 & 6.49 & 4.86 & 3.23 \tabularnewline \hline
+		$P_{MPP}$ [W] &  300.4 &  239.5 &  178.5 &  117 \tabularnewline \hline
 	\end{tabular}
 	\caption{PV panel parameters for varying irradiance and constant temperature of 25$\dec C$.}
 	\label{constantemptable}
@@ -112,7 +112,7 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 	\end{center}	
 \end{figure}
 
- It is observed from table \ref{constantirradtable} that an increase in the temperature means that the maximum power that the panel is able to generate decreases. In this case, a change in temperature has as a consequence a high variation of $V_{mpp}$. However, the variation is not that significant in $I_{mpp}$.
+ It is observed from table \ref{constantirradtable} that an increase in the temperature means that the maximum power that the panel is able to generate decreases. In this case, a change in temperature has as a consequence a high variation of $V_{MPP}$. However, the variation is not that significant in $I_{MPP}$.
  
 
 \begin{table}[H]
@@ -122,9 +122,9 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 		\rowcolor{lightgray}\multicolumn{6}{|l|}{ \textbf{Constant irradiance and varying temperature}} 
 		\\ \hline
 		& T=15$\dec C$  & T=25$\dec C$  & T=35$\dec C$  & T=45$\dec C$  & T=55$\dec C$ \tabularnewline \hline
-		$V_{mpp}$ [V] & 41.45 & 36.9 & 32.59 & 28.34 & 24.23\tabularnewline \hline
-		$I_{mpp}$ [A] & 7.33 & 8.14 & 8.85 & 9.59 & 10.12 \tabularnewline \hline
-		$P_{mpp}$ [W] & 304.3 & 300.4 &  289.1 &  270.7 &  245.8 \tabularnewline \hline
+		$V_{MPP}$ [V] & 41.45 & 36.9 & 32.59 & 28.34 & 24.23\tabularnewline \hline
+		$I_{MPP}$ [A] & 7.33 & 8.14 & 8.85 & 9.59 & 10.12 \tabularnewline \hline
+		$P_{MPP}$ [W] & 304.3 & 300.4 &  289.1 &  270.7 &  245.8 \tabularnewline \hline
 	\end{tabular}
 	\caption{Results of the optimum PV panel parameters for varying temperature and constant irradiance of 1000 $W/ m^2$.}
 	\label{constantirradtable}
@@ -187,7 +187,7 @@ In this section, the results obtained in simulation for the entire system will b
  
  \subsubsection*{Standard Test Conditions (STC)}
  
- Figure \ref{buckSTC} shows how the P\&O algorithm searchs for the MPP. The first graph shows a superposition of the PV panel's voltage and current where it is observed that the panel reaches the open-circuit voltage ($V_{oc}=45 V$) and at that moment the MPPT starts searching for the MPP by decreasing the PV voltage. The second graph shows the power generated by the panel which approaches the value of the optimal power under this conditions ($P_{mpp}=300.4 W$). The P\&O algorithm converges to the MPP reaching the steady state in 2 seconds. The MPPT allows to reach the optimal power generated by the panel under this conditions with an efficiency of $\eta_{MPPT} = 99.96\% $.
+ Figure \ref{buckSTC} shows how the P\&O algorithm searchs for the MPP. The first graph shows a superposition of the PV panel's voltage and current where it is observed that the panel reaches the open-circuit voltage ($V_{oc}=45 V$) and at that moment the MPPT starts searching for the MPP by decreasing the PV voltage. The second graph shows the power generated by the panel which approaches the value of the optimal power under this conditions ($P_{MPP}=300.4 W$). The P\&O algorithm converges to the MPP reaching the steady state in 2 seconds. The MPPT allows to reach the optimal power generated by the panel under this conditions with an efficiency of $\eta_{MPPT} = 99.96\% $.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=3)_STC}
@@ -196,7 +196,7 @@ In this section, the results obtained in simulation for the entire system will b
 	\end{center}	
 \end{figure}
 
-The simulation is run under STC and using a resistive load of $3\Omega$. From the first graph of figure \ref{buckSTC_duty} it is observed that the converter is working in buck mode during all the MPPT process. This is because the output voltage does not exceed the input voltage with this resistive load as shown in the second graph. The value of the duty cycle, obtained in simulation under these load and environment conditions, is $D_{buck}= 0.8155$. Using the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{mpp}=36.9 V$: 
+The simulation is run under STC and using a resistive load of $3\Omega$. From the first graph of figure \ref{buckSTC_duty} it is observed that the converter is working in buck mode during all the MPPT process. This is because the output voltage does not exceed the input voltage with this resistive load as shown in the second graph. The value of the duty cycle, obtained in simulation under these load and environment conditions, is $D_{buck}= 0.8155$. Using the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{MPP}=36.9 V$: 
 
 \begin{equation}\label{buckmodeTF}
 D = \frac{V_{out}}{V_{in}} = \frac{30V}{36.9V}= 0.8130 
@@ -223,7 +223,7 @@ The same simulation was implemented but in this case using a value of the resist
 	\end{center}	
 \end{figure}
 
-Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode until the output voltage equals the input voltage. At this point is the limit between the two modes of operation and the converter starts working in boost mode. The value of the duty cycle under these load and environment conditions is $D_{boost}= 0.5971$. Using the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{mpp}=36.9 V$: 
+Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode until the output voltage equals the input voltage. At this point is the limit between the two modes of operation and the converter starts working in boost mode. The value of the duty cycle under these load and environment conditions is $D_{boost}= 0.5971$. Using the transfer function of the converter in  buck mode, this value can be validated by calculating the theoretical duty cycle taking as voltage input $V_{MPP}=36.9 V$: 
 \begin{equation}
 \frac{V_{out}}{V_{in}}= \frac{1}{1-D} \rightarrow D = 1 - \frac{V_{in}}{V_{out}} = 1 - \frac{36.9}{90} = 0.5900
 \end{equation}

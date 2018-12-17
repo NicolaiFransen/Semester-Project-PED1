@@ -9,10 +9,12 @@ Empirical experiments have shown that the voltage of the MPP has a linear depend
 V_{MPP} = k \cdot V_{OC}	
 \end{equation} 
 
-The equation \ref{voltage_MPP}, $k$ represents a constant that depends on the characteristics of the respective PV panel. To determine the value of $k$, the optimal voltage ($V_{MPP}$) and the open-circuit voltage ($V_{OC}$) must be recorded for each temperature and solar irradiation. According to different papers, this value lies between 70\% and 80\% of $V_{OC}$\cite{MPPTResearch}.
-The $k$ look-up table calculation algorithm starts with the recording of $V_{OC}$ and a predetermined $k$-value. In each iteration step $V_{MPP}$ is calculated first. After this, the operating voltage is compared with the calculated $V_{MPP}$. If the voltage is not equal, the constant $k$ is changed for the next iteration step to track the MPP. When the algorithm has reached the MPP, the algorithm is stopped, as it is showed in the flow chart in the figure \ref{fcconstantvoltage}. \cite{flowchartVC}
+In equation \ref{voltage_MPP}, $k$ represents a constant that depends on the characteristics of the respective PV panel. To determine the value of $k$, the optimal voltage ($V_{MPP}$) and the open-circuit voltage ($V_{OC}$) must be recorded for each temperature and solar irradiation. According to different papers, this value lies between 70\% and 80\% of $V_{OC}$\cite{MPPTResearch}.
+
+%The $k$ look-up table calculation algorithm starts with the recording of $V_{OC}$ and a predetermined $k$-value. In each iteration step $V_{MPP}$ is calculated first. After this, the operating voltage is compared with the calculated $V_{MPP}$. If the voltage is not equal, the constant $k$ is changed for the next iteration step to track the MPP. When the algorithm has reached the MPP, the algorithm is stopped, as it is showed in the flow chart in the figure \ref{fcconstantvoltage}. \cite{flowchartVC}
 
 The advantage of using constant voltage is that only the voltage is measured and the system is controlled by a simple control loop. Therefore, implementation costs are low compared to P\&O. The use of PV modules with the constant voltage as MPPT algorithm is only possible in regions with low temperature fluctuations. The reason for this disadvantage is that the point of the MPP varies greatly with strong temperature fluctuations and the assumption of linear dependence is no longer valid. In addition, it is not possible to find the MPP with the algorithm if the PV module is partially shaded. Another disadvantage is the effort of calculating the optimal $k$ for different levels of irradiance and temperature is very high.\cite{flowchartVC}
+
 
 \begin{figure}[H]
 	\begin{center}
@@ -21,7 +23,7 @@ The advantage of using constant voltage is that only the voltage is measured and
 		\label{fcconstantvoltage}
 	\end{center}	
 \end{figure}
- 
+
 
 \subsection{Perturb and observe}
 With the P\&O method, the currently measured power is periodically compared with the previous power. If the measured power is greater than the power from the previous measurement, the algorithm is moving in the right direction to the MPP. If a power reduction is detected after the comparison, the algorithm is moving away from the MPP. The next step is the identification of a voltage increase or reduction to regulate the voltage for getting the MPP voltage.
