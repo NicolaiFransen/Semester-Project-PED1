@@ -1,8 +1,8 @@
 \section{PCB building} \label{sec:pcb_building}
-The building of the PCB has been done according to the test described in the following section. It has been divided into smaller tests, to validate that every part of the system works properly. It tests the control part, including the power supplies, optocouplers, drivers and sensors. For this test it has been chosen only to solder the buck leg of the converter to validate the design and discover potential faults. Before starting the test all vias, capacitors and test-points are soldered to assure connectivity. All components are named according to the schematic placed in Appendix \ref{ch:AppPCB}.  
+The building of the PCB has been done according to the test described in the following section. It has been divided into smaller tests, to validate that every part of the system works properly. It tests the control part, including the power supplies, optocouplers, drivers and sensors. For this test it has been chosen only to solder the buck leg of the converter to validate the design and discover potential faults. After this leg was tested, the same procedure was performed on the boost leg. However, this is not described in the report for the sake of shortness. Before starting the test all vias are soldered to assure connectivity. All components are named according to the schematic placed in Appendix \ref{ch:AppPCB}.  
 
 \subsection{Power supplies} \label{sec:test_pwr_sup}
-The purpose of the first test is to validate the different power supplies in the converter. For this test it's necessary to solder the in-TRACO and the $5V$ voltage regulator. The three LEDs and the resistors should also be soldered. Apply $5V$ at connector J4 and $12V$ at connector J2. The test is conducted by following table \ref{tab:test_pwr_sup}
+The purpose of the first test is to validate the different power supplies in the converter. For this test it is necessary to solder the input side TRACO and the $5V$ voltage regulator. The three LEDs and the resistors should also be soldered. Apply $5V$ at connector J4 and $12V$ at connector J2. The test is conducted by following table \ref{tab:test_pwr_sup}
 
 \begin{table}[H]
 	\centering
@@ -55,9 +55,11 @@ The next part of the test consist of the drivers. For this it is necessary to so
 \end{table}
 
 \subsection{Sensors} \label{sec:test_sensors}
-The last part of the control system test consist of the sensor circuits. For this test it's necessary to solder the input voltage sensor U2, the current sensor and the operational amplifier. Furthermore the resistors $R_{17}-R_{22}+R_{25}+R_{32}+R_{33}$ and capacitors $C_{17}+C_{22}$ should be soldered. Before testing a jumper should be placed between J5-2 and J5-3, to select the bandwidth of the current sensor to $80kHz$. The inductor, M1 and M3 should also be shorted to achieve a current flow through the current sensor. 
+The last part of the control test consist of the sensor circuits. For this test it's necessary to solder the input voltage sensor U2, the current sensor and the operational amplifier. Furthermore the resistors $R_{17} \;to\; R_{22},\; R_{25},\; R_{32} ,\; R_{33}$ and capacitors $C_{17} ,\; C_{22}$ should be soldered. Before testing a jumper should be placed between J5-2 and J5-3, to select the bandwidth of the current sensor to $80kHz$. The inductor, M1 and M3 should also be shorted to achieve a current flow through the current sensor. 
 
-Attach a load resistor at $100\Omega$. With an input voltage at $10V$, this should correspond to a output current at $100mA$. Because of the differential offset in the current sensor, this should be equal to $2.6V$. After test 4.3, raise the input voltage to $20V$ for validation of linearity in the sensors.
+Attach a load resistor of $10\Omega$. With an input voltage of $10V$, corresponding to an output current at $1A$. Due to the differential offset in the current sensor, this should be an output voltage difference of $100mV$, it is considered with respect to $0A$ current flow. After test 4.3, raise the input voltage to $20V$ for validation of linearity of the sensors.
+
+%A current of $1A$ is driven through the sensor to obtain an output voltage difference of $100mV$, this difference is considered with respect to $0A$ current flow.
 
 \begin{table}[H]
 	\centering
