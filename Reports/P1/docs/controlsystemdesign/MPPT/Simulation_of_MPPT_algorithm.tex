@@ -180,11 +180,11 @@ On the other hand, figures \ref{fig:PVcurves_Irr1000} and \ref{fig:IVcurves_Irr1
 In this section, the results obtained in simulation for the entire system will be presented. The discussion of the results is carried out in section \ref{MPPT_discussion}. The system includes the solar panel, the non-inverting buck-boost converter and the MPPT controller unit as shown in figure \ref{BD_POalgorithm}. The simulated results will be analyzed to determine the performance of the MPPT and will be divided in three parts: 
 \begin{itemize}
 	\item[--] Results obtained under STC. The STC test is carried out at a solar cell's temperature of $25^\circ$C and at a solar irradiance of 1000 $W/ m^2$ \cite{handbook}.
-	\item[--] Results obtained under STC in the transition between modes.
+	\item[--] Results obtained under STC in the boundary between the modes of operation.
 	\item[--] Results obtained under a sudden change in the solar irradiance and temperature.
 \end{itemize}
 
- It was decided to use a resistive load to validate the results obtained in the simulation with the experimental results. The simulations will be carried out for two different resistive loads: $R_{L}=3\Omega$ and $R_{L}=27\Omega$. This is done in order to validate the performance of the MPPT controller in both modes of operation.
+It was decided to use a resistive load to validate the results obtained in the simulation with the experimental results. The simulations will be carried out for two different resistive loads: $R_{L}=3\Omega$ and $R_{L}=27\Omega$. This is done in order to validate the performance of the MPPT controller in both modes of operation. For the case of analyzing the MPPT in the boundary between the modes, resistives loads of values $R_{L}=4.3\Omega$ and $R_{L}=5.3\Omega$ will be used.
  
  \subsubsection*{Standard test conditions}
  
@@ -238,8 +238,102 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 	\end{center}	
 \end{figure}
 
+\todo{Here comment on the graphs the oscillations with fix and variable step}
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/fix_step_oscillation_Pin_buck(R=3)_STC} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/variable_step_oscillation_Pin_buck(R=3)_STC} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.5\textwidth}
+		\caption{PV panel's power showing oscillations around the MPP with fix perturb step under STC ($R_{L}=3\Omega$).} % Left caption and label
+		\label{buckirradiance}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.5\textwidth}
+		\caption{PV panel's power showing oscillations around the MPP with variable perturb step under STC ($R_{L}=3\Omega$).} % Right caption and label
+		\label{boostirradiance}
+	\end{minipage}
+\end{figure}
 
-\todo{Add section STC in limit. 4.3ohm resistor to simulate 10 mics. Also check 9 mics, 5.3ohm }
+
+\vspace{1cm}
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/fix_step_oscillation_Pin_boost(R=27)_STC} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/variable_step_oscillation_Pin_boost(R=27)_STC} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{PV panel's power showing oscillations around the MPP with fix perturb step under STC ($R_{L}=27\Omega$).} % Left caption and label
+		\label{bucktemperature}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{PV panel's power showing oscillations around the MPP with variable perturb step under STC ($R_{L}=27\Omega$).} % Right caption and label
+		\label{boosttemperature}
+	\end{minipage}
+\end{figure}
+
+\subsubsection*{Boundary between modes of operation}
+
+%10 panels    4.3ohms  299.67W, 1.2seconds, Dbuck = 0.9805, Vin= 36.625, Vout = 35.9 V
+
+%9 panels    5.3 ohms  299.82W, 1.5seconds, Dboost=0.079 , Vin=36.7V , Vout=39.88 
+\todo{Here comment the graphs for the boundary}
+
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_buck(R=4_3)_STC_boundary} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/D_V_buck(R=4_3)_STC_boundary} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{Irradiance 1000-800$W/ m^2$ ($R_{L}=3\Omega$).} % Left caption and label
+		\label{buckirradiance}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{Irradiance 1000-800$W/ m^2$ ($R_{L}=27\Omega$).} % Right caption and label
+		\label{boostirradiance}
+	\end{minipage}
+\end{figure}
+
+
+
+\vspace{1cm}
+\begin{figure}[H]
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/V_I_P_boost(R=5_3)_STC_boundary} % Left picture
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/D_V_boost(R=5_3)_STC_boundary} % Right picture
+	\end{minipage} \\ % Captions og labels
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{Temperature 25-15$\dec C$ ($R_{L}=3\Omega$).} % Left caption and label
+		\label{bucktemperature}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.6\textwidth}
+		\caption{Temperature 25-15$\dec C$ ($R_{L}=27\Omega$).} % Right caption and label
+		\label{boosttemperature}
+	\end{minipage}
+\end{figure}
 
 
 \subsubsection*{Change in irradiance and temperature}
