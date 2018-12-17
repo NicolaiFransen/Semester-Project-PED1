@@ -76,10 +76,10 @@ The output voltage ripple is also measured in boost mode, but with the maximum o
 \Delta V_{out} = \frac{V_{max}-V_{min}}{\widebar{V_{out}}} \cdot 100 = \frac{90.22V-89.77V}{89.995V} \cdot 100 = 0.5\%
 \end{equation}
 
-The input voltage ripple is measured in buck mode, with an output voltage of $24V$. This means $V_{in} = 36.9V$, $D_{1} = 0.65$ and $R_{L} = 1.92\Omega$. This simulation was done using a PV module as input source, to achieve a realistic input. The model behind the PV panel is explained in section \ref{MPPTSimulation}. The maximum and minimum voltages are measured as $V_{max} = 36.94V$ and $V_{min} = 36.91V$, with a mean at $\widebar{V_{in}} = 36.925V$. The ripple is calculated in equation \ref{eq:input_voltage_ripple}. The figures for the ripple measurements are included in appendix \ref{app:OL_ripple}.
+The input voltage ripple is measured in buck mode, with an output voltage of $24V$. This means $V_{in} = 36.9V$, $D_{1} = 0.65$ and $R_{L} = 1.92\Omega$. This simulation was done using a PV module as input source, to achieve a realistic input. The model behind the PV panel is explained in section \ref{MPPTSimulation}. The maximum and minimum voltages are measured as $V_{max} = 36.9419V$ and $V_{min} = 36.905V$, with a mean at $\widebar{V_{in}} = 36.9235V$. The ripple is calculated in equation \ref{eq:input_voltage_ripple}. The figures for the ripple measurements are included in appendix \ref{app:OL_ripple}.
 
 \begin{equation} \label{eq:input_voltage_ripple}
-\Delta V_{in} = \frac{V_{max}-V_{min}}{\widebar{V_{in}}} \cdot 100 = \frac{36.94V-36.91V}{36.925V} \cdot 100 = 0.08\%
+\Delta V_{in} = \frac{V_{max}-V_{min}}{\widebar{V_{in}}} \cdot 100 = \frac{36.9419V-36.905V}{36.9235V} \cdot 100 = 0.099\%
 \end{equation}
 
 The analysis of the open-loop simulation results will be further explained in section \ref{ol_discussion}.
