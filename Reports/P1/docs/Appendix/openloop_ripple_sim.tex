@@ -2,11 +2,11 @@
 
 \chapter{Open-loop ripple results}
 \vspace{-1cm}
-The measurements and calculations of the current ripple and the voltage ripples are included in this section. Furthermore the section is divided in the simulation result and experiment result.
+The measurements of the current and the voltage ripples are included in this section. Furthermore the section is divided in the simulation and experimental results.
  \label{app:OL_ripple}
  
 \section{Simulation}
-The figures in this section shows the waveforms of the current and voltage ripples under worst case conditions. These conditions have been described during the calculations of the passive components in section \ref{component_sizing}. The maximum, minimum and mean values will be read and used to calculated the ripples in section \ref{opsimresult}. The data from the simulations have been loaded into Matlab to achieve accurate readings.
+The figures in this section show the waveforms of the current and voltage ripples under worst case conditions. These conditions have been described during the calculations of the passive components in section \ref{component_sizing}. The maximum, minimum and mean values are read and used to calculated the ripples in section \ref{opsimresult}. The data from the simulations have been loaded into Matlab to achieve accurate readings.
 
 Figure \ref{fig:inductor_ripple} shows the current ripple in the inductor. The maximum and minimum currents are read as $I_{max} = 3.465A$ and $I_{min} = 3.135A$, with a mean at $\widebar{I_L} = 3.3A$.
 
@@ -41,7 +41,7 @@ Figure \ref{fig:input_voltage_ripple} shows the voltage ripple at the input capa
 
 \section{Experiment}
 
-The signal of the input capacitor voltage is noisy as you can see in figure \ref{Openlooptestinputcapacitor}. So it is not possible to measured the ripple.
+The signal of the input capacitor voltage is not clear enough to determine a ripple \ref{Openlooptestinputcapacitor}, the observed behavior might be due to ringing or noise.
 
 \begin{figure}[H]
 	\begin{center}
@@ -51,7 +51,7 @@ The signal of the input capacitor voltage is noisy as you can see in figure \ref
 	\end{center}	
 \end{figure}
 
-The figure \ref{Openlooptestoutputtcapacitor} presents the voltage ripple at the output capacitor. Because of the noise it is difficult to capture the exactly value for the maximum and minimum voltage from the triangle wave. For the equation \ref{eq:output_voltage_rippleexperiment} the values $V_{out,max} = 23.9082V$, $V_{out,min} = 23.895V$ and $\widebar{V_{out}} = 23.9V$ are used from the figure  \ref{Openlooptestoutputtcapacitor}.
+The figure \ref{Openlooptestoutputtcapacitor} presents the voltage ripple at the output capacitor. For the equation \ref{eq:output_voltage_rippleexperiment} the values $V_{out,max} = 23.908V$, $V_{out,min} = 23.895V$ and $\widebar{V_{out}} = 23.902V$ are used from the figure  \ref{Openlooptestoutputtcapacitor}.
 
 \begin{figure}[H]
 	\begin{center}
@@ -61,7 +61,7 @@ The figure \ref{Openlooptestoutputtcapacitor} presents the voltage ripple at the
 	\end{center}	
 \end{figure}
 
-The figure \ref{Openlooptestinductor} shows the current ripple at the inductor. From this figure it can be obtained  the minimum current $I_{min} = 2.7A$ and the maximum current $I_{max} = 2.98A$. The mean value for the inductor current is $\widebar{I_L}= 2.84$.
+The figure \ref{Openlooptestinductor} shows the current ripple at the inductor. From this figure it can be obtained  the minimum current as $I_{min} = 2.70A$ and the maximum current as $I_{max} = 2.98A$. The mean value for the inductor current is $\widebar{I_L}= 2.84$.
 
 \begin{figure}[H]
 	\begin{center}

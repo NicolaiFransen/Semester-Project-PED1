@@ -1,6 +1,6 @@
 \chapter{Discussion}
 
-In this chapter the technical results of the project are analysed. First, the design verification is performed, showing the simulation and the experimental results. Then, the main impediments found through the project and implementation's limitations are explained. Finally, suggestions for future work are presented.
+In this chapter the technical results of the project are analyzed. First, the design verification is performed, comparing the simulation and the experimental results. Then, the main drawbacks found through the project and limitations of the converter are explained. Finally, suggestions for future work are presented.
 
 \section{Verification of experimental results} \label{Experiment_verification}
 In this section the experimental results from the open-loop and MPPT test in section \ref{systemtest} are compared with the simulation results from section \ref{sec:componentsizing} and \ref{MPPTSimulation}.
@@ -9,7 +9,12 @@ In this section the experimental results from the open-loop and MPPT test in sec
 
 %The main losses are the dissipation from the component in heat. Also the load is a power resistor and it changes the resistance if it is in operation. So we have not a constant load at the output as in the simulation. Another reason is the dead-time of the MOSFET and therefore the duty cycle is not exactly the same value as in the simulation. belongs to the topic between efficiency simulationa and result
 
-The table \ref{tab:ripple} compares the values of the ripples from the experiments with the values from the requirements in section \ref{sec:componentsizing} and the simulation results in appendix \ref{app:OL_ripple}. For the input ripple voltage no simulations have been carried out, since in the ideal case it is a DC voltage source and therefore no ripples can be detected. From the experimental results the signal is noisy and the ripple are to small (or cant detect)to capture values from the figure. The simulation result from the inductor and output voltage ripple have the same value as from the system requirement. This means the component have been selected correctly. For both cases the experiments result for the ripples are smaller than in the simulation. The using output capacitor is ten times oversize and so the ripple should be ten times smaller than the calculated one, as you can see in table \ref{tab:ripple}. Also the test for the output ripple was tested for buck mode instead of boost mode. This is not the worst case for the output voltage ripple.
+The table \ref{tab:ripple} compares the values of the ripples from the experiments with the values from the requirements in section \ref{sec:componentsizing} and the simulation results in appendix \ref{app:OL_ripple}. 
+\todo{check after tests are performed.}
+From the experimental results the signal is noisy and the ripple are to small (or cannot be detected)to capture values from the figure. 
+
+The simulation result of the inductor and output voltage ripple have the same value as those stated in the system requirement. This means the component have been selected correctly. 
+In both cases, the experimental results for the ripples are smaller than in the simulation. The used output capacitor is oversized by a factor of ten and thus the ripple should be ten times smaller than the calculated one, as shown in table \ref{tab:ripple}. Also, the output ripple was tested in buck mode instead of boost mode due to malfunctioning of MOSFET 4 driver. This is not the worst case for the output voltage ripple.
 
 \begin{table}[H]
 	\centering
@@ -17,8 +22,8 @@ The table \ref{tab:ripple} compares the values of the ripples from the experimen
 		\hline
 		\rowcolor{lightgray} \textbf{} & \textbf{Requirement} & \textbf{Simulation}  & \textbf{Experiment}   \tabularnewline \hline
 		$\Delta V_{in}$ & 0.1\% & 0.099\% & - \tabularnewline \hline
-		$\Delta I_{L}$ & 10\% & 10\% & 9.86\% \tabularnewline \hline
-		$\Delta V_{out}$  & 0.5\% & 0.5\% & 0.055\% \tabularnewline \hline
+		$\Delta I_{L}$ & 10\% & 10.0\% & 9.86\% \tabularnewline \hline
+		$\Delta V_{out}$  & 0.5\% & 0.500\% & 0.055\% \tabularnewline \hline
 	\end{tabular}
 	\caption{Voltage and current ripple.}
 	\label{tab:ripple}
@@ -44,21 +49,21 @@ Table \ref{tab:comparisonMPPT} shows the simulated results together with the exp
 	\label{tab:comparisonMPPT}
 \end{table}
 
-Comparing the experimental results with the simulated ones, from table \ref{tab:comparisonMPPT}, it is seen that the time the MPPT takes to reach the MPP is five times higher than in simulation \todo{IS IT FAST/SLOW? ASK THE SUPERVISORS.}. On the other hand, by comparing the efficiency of the MPPT algorithm, it is seen that the absolute error is  2.24\% and 2.5\% for buck and boost mode, respectively. Therefore, the P\&O algorithm is considered accurate enough to validate its performance under STC.
+Comparing the experimental results with the simulated ones, from table \ref{tab:comparisonMPPT}, it is seen that the time the MPPT takes to reach the MPP is five times higher than in simulation, this is most likely due to noise and ripple on the measurements. On the other hand, by comparing the efficiency of the MPPT algorithm, it is seen that the error is  2.24\% and 2.5\% for buck and boost mode, respectively. With these results, the P\&O algorithm is considered accurate enough to validate its performance under STC.
 
-The second test was implemented to observe the performance of the MPPT algorithm under sudden changes in irradiance and temperature. Table \ref{tab:comparisonMPPTchanges} shows that in the case of change in irradiance, by keeping constant the temperature to 25$\decC$, the measured MPPT's efficiency is reduced. The maximum error is achieved when the P\&O is tracking the corresponding MPP for 800$W/m^2$. The absolute error is in this case 5.92\%. It is also observed that in simulation the response time is much lower than under STC. However, a time ratio between simulation and test is 13.2 in this case. For the sudden change in temperature, by keeping constant the irradiance to 1000$W/m^2$, the MPPT's performance is considerably improved. The maximum absolute error is 1.5\%. Moreover, a faster MPP tracking is achieved in this case. 
+The second test was performed to observe the behavior of the MPPT algorithm under sudden changes in irradiance and temperature. Table \ref{tab:comparisonMPPTchanges} shows that, in the case of change in irradiance, by keeping constant the temperature to 25$\decC$, the measured MPPT's efficiency is reduced. The maximum error is achieved when the P\&O is tracking the corresponding MPP for 800$W/m^2$. The error is, in this case, 5.92\%. It is also observed that in simulation the response time is much lower than under STC. However, the time ratio between simulation and test is 13.2 in this case. For the sudden change in temperature, by keeping constant the irradiance to 1000$W/m^2$, the MPPT's performance is considerably improved. The maximum error is 1.5\%. Moreover, a faster MPP tracking is achieved in this case. 
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|>{\centering}p{2.3cm}|>{\centering}p{5cm}|>{\centering}p{5cm}|}
 		\hline
-		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Change in irradiance and constante temperature}} \\ \hline
+		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Change in irradiance and constant temperature}} \\ \hline
 		\rowcolor{lightgray} & \multicolumn{1}{|c|}{ \textbf{Simulation}} & \multicolumn{1}{|c|}{ \textbf{Experiment}} \tabularnewline \hline
-		$\eta_{MPPT}$ & 99.81\% - 99.70\% & 95.96\% - 93.78\% \tabularnewline \hline
+		$\eta_{MPPT}$ & From 99.81\% to 99.70\% & From 95.96\% to 93.78\% \tabularnewline \hline
 		$t_{MPPT}$ & 0.5 s  & 6.6 s \tabularnewline \hline
 		\rowcolor{lightgray}\multicolumn{3}{|l|}{ \textbf{Change in temperature and constant irradiance}} \\ \hline
 		\rowcolor{lightgray} & \multicolumn{1}{|c|}{ \textbf{Simulation}} & \multicolumn{1}{|c|}{ \textbf{Experiment}} \tabularnewline \hline
-		$\eta_{MPPT}$ & 99.81\% - 99.90\% & 99.20\% - 98.40\%
+		$\eta_{MPPT}$ & From 99.81\% to 99.90\% & From 99.20\% to 98.40\%
 		\tabularnewline \hline
 		$t_{MPPT}$ & 2 s  & 4.1 s \tabularnewline \hline
 	\end{tabular}
@@ -74,7 +79,7 @@ The second test was implemented to observe the performance of the MPPT algorithm
 %inductor saturation and so
 
 %pcb hot points
-
+\todo{Add intro.}
 
 \input{docs/discussion/outputCap.tex}
 
@@ -83,7 +88,10 @@ The second test was implemented to observe the performance of the MPPT algorithm
 \input{docs/discussion/driver.tex}
 
 \subsection{MPPT algorithm}
-The development of an embedded control system requires the proper working of an algorithm. During the development process, the engineer might find that the code doesn't behave as intended. A common way of supporting the debugging process consists on the use of breakpoints, where the code is stopped and the variables' value might be read. However, as this feature is not supported by the used platform, and in the case of controlling physical systems its use would be limited to simulation, alternative techniques had to be used. The adopted approach consisted on outputting the FSMs state and relevant values for the current state at every code execution loop. The 'Timestamp' field is specially important during simulation in order to track specific events at determined times. See figure \ref{console_output}.
+The embedded control system requires the algorithm to work properly. During the development process, the code might not behave as intended. A common way of supporting the debugging process consists of the use of breakpoints. 
+The code can then be stopped and the variables' value might be read. However, this feature is not supported by the used platform. In the case of controlling physical systems, the use of breakpoints would be limited to simulation. Then alternative techniques had to be used. 
+The adopted approach consisted on outputting the FSMs' state and relevant values for the current state at every code execution loop. 
+The 'Timestamp' field is specially important during simulation in order to track events at specific times. See figure \ref{console_output}.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -93,21 +101,27 @@ The development of an embedded control system requires the proper working of an 
 	\end{center}	
 \end{figure}
 
-In initial implementations of the control algorithm, the voltage evaluation was performed in the state next to the duty cycle change. After this change, the system experiences a transient stage where the input voltage and inductor current evolve into the new steady state value. If these variables are read during the transient, the control might infer that the PV panel is in a location of the P-V curve different than where it actually is. The MPPT becomes noisier under this scenario. In order to address this issue, an additional waiting state was added to the FSM governing the system. Another solution to the issue would be to decrease the MPPT algorithm periodicity. However this solution would lead to a decrease in system's responsiveness. This drawback might be bearable by implementing a voltage controller aside from the MPPT.  
+In initial implementations of the control algorithm, the voltage evaluation was performed in the state after the duty cycle change. 
+After this change, the system experiences a transient stage where the input voltage and inductor current evolve into the new steady state value. If these variables are read during the transient, the control might infer that the PV panel is in a location of the P-V curve different from where it actually is. 
+The MPPT becomes noisier under this scenario. In order to address this issue, an additional waiting state was added to the FSM governing the system. 
+Another solution to the issue would be to decrease the MPPT algorithm periodicity. However this solution would lead to a decrease in system's responsiveness. This drawback might be bearable by implementing a voltage controller aside from the MPPT.  
 
 The noise in measured signals highly influenced the algorithm performance. This noise was addressed by software low pass filtering. The filter caused a dramatic improvement in signal acquisition and system response, further details are explained in the next section.
 
-In order to develop a completely reliable algorithm further testing must be performed. These testing activities require more advanced debugging information than the console output previously shown. RT-box allows SPI communication but the testing activities would still be limited to black-box techniques. In order to reach white-box testing, the implementation would require a microcontroller instead of the RT-box. In that case, the variables' value might be directly accessed with a debugger. Also in the case of black box testing the signals are sent with a known and fixed latency in a microcontroller, which is not the case when using PLECS's console.
+In order to develop a completely reliable algorithm further testing must be performed. These tests require more advanced debugging information than the console output previously shown. RT Box allows SPI communication but the testing activities would still be limited to black-box techniques. In order to reach white-box testing, the implementation would require a microcontroller instead of the RT-box. If that was the case, the variables' value might be directly accessed with a debugger. Also in the case of black-box testing, the signals are sent with a known and fixed latency by the microcontroller, which is not the case when using PLECS's console.
 
-The implemented algorithm has more advanced functions than the simplest implementation found in introductory application notes from manufacturers, like \cite{AN1521_MC}. Among the advanced functions are tunable threshold parameters, waiting for the PV to reach open circuit voltage or variable perturb step, among others. However, this additional features add difficulty to testing activities and code comprehension. Under the development of a commercial product, it might be desirable to limit the features in order to decrease test and validation activities' cost. The decrease of the perturb variable itself consists of a FSM with 5 states with a weak coupling with the main FSM. The appropriate testing of the code requires software design and testing knowledge.
+The implemented algorithm has more advanced functions than the simplest implementation found in introductory application notes from manufacturers \cite{AN1521_MC}. 
+Among the advanced functions, threshold parameters are tunable, waiting for the PV to reach open circuit voltage or variable perturb step, among others. However, these additional features add difficulty to the tests and code comprehension. Under the development of a commercial product, it might be desirable to limit the features in order to decrease test and validation cost. The decrease of the perturb variable consists of a FSM with 5 states with a weak coupling with the main FSM.
 
-The proposed implementation has some variables which might be further optimized, like the initial value of the perturb step value, or the threshold to decrease the perturb step value. 
+The proposed implementation has some variables which might be further optimized, like the initial value or the threshold to decrease the perturb step. 
 
 
 \subsection{Software filter}
-Although the voltage and current measurement is filtered, the signal read by the control system was noisy. This noise affected the MPPT algorithm disturbing its ability to reach the MPP. Such noise might have different sources within a lab with such a big amount of hardware equipment. There are many techniques in order to address noise issues, the used technique consists on the use of digital filtering (LPF). This digital filter is a  simple code that performs the filtering at a given frequency. Being a first order filter, it was simple and fast to implement. The result can be seen in \ref{software_filter}. It consists on an exponential moving average low pass filter.  
+Although the voltage and current measurement is hardware filtered, the signal read by the control system was noisy. This affected the MPPT algorithm, disturbing its ability to reach the MPP. There are many techniques in order to address noise issues, the used technique consists in the use of an LPF digital filter. The result can be seen in \ref{software_filter}. It consists of an exponential moving average low pass filter.  
 
-\begin{figure}[htbp]
+\todo{frequency discussion.}
+
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=\textwidth]{../Pictures/P1/Discussion/sw_filter_current.png}
 		\caption{Current measurement against time. Both software filtered (red) and raw (blue) signals can be seen. The filtered signal data points' size has been increased to improve readability.}
