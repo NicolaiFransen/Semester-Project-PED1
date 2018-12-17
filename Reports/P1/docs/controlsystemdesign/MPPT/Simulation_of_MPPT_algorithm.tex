@@ -238,7 +238,10 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 	\end{center}	
 \end{figure}
 
-\todo{Here comment on the graphs the oscillations with fix and variable step}
+As it was mentioned in section \ref{MPPTImplementation}, oscillations around the MPP can be reduced by using a variable perturb step instead of a fixed one. The proposed P\&O algorithm wa simulated under STC for both cases. Figures \ref{buckoscillationfix} and \ref{buckoscillationvar} show the oscillations in buck mode around the MPP for fixed perturb step and variable step, respectively. By comparing the figures, it is seen that oscillations are reduced and, therefore, the MPPT's efficiency is improved. Using variable perturb step allows to reduce the oscillations by a factor of 5.96 in this case\todo{I have calculated this as: 3.1W/0.52W = 5.96. However, I don't know if this is the best way to compare the figures... I'm too tired to calculate percentages or whatever so check if you can make a better comparison. If not, leave it like that. Stef}. The MPPT's efficiency is improved from $\eta_{MPPT} = 99.38\% $ to $\eta_{MPPT} = 99.96\% $. 
+
+On the other hand, figures \ref{boostoscillationfix} and \ref{boostoscillationvar} show the oscillations around the MPP in boost mode for fixed perturb step and variable step, respectively. In this case the oscillations are significantly reduced by a factor of 10.24 \todo{20.8W/2.03W=10.24}. The improvement in the MPPT's performance is higher than in the case of buck mode. The MPPT's efficiency is improved from $\eta_{MPPT} = 96.40\% $ with fixes step to $\eta_{MPPT} = 99.82\% $ with variable step. 
+
 \begin{figure}[H]
 	\begin{minipage}[c]{0.6\textwidth}
 		\centering
@@ -249,14 +252,14 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 		\centering
 		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/variable_step_oscillation_Pin_buck(R=3)_STC} % Right picture
 	\end{minipage} \\ % Captions og labels
-	\begin{minipage}[t]{0.5\textwidth}
+	\begin{minipage}[t]{0.6\textwidth}
 		\caption{PV panel's power showing oscillations around the MPP with fix perturb step under STC ($R_{L}=3\Omega$).} % Left caption and label
-		\label{buckirradiance}
+		\label{buckoscillationfix}
 	\end{minipage}%
 	\hfill
-	\begin{minipage}[t]{0.5\textwidth}
+	\begin{minipage}[t]{0.6\textwidth}
 		\caption{PV panel's power showing oscillations around the MPP with variable perturb step under STC ($R_{L}=3\Omega$).} % Right caption and label
-		\label{boostirradiance}
+		\label{buckoscillationvar}
 	\end{minipage}
 \end{figure}
 
@@ -274,21 +277,21 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 	\end{minipage} \\ % Captions og labels
 	\begin{minipage}[t]{0.6\textwidth}
 		\caption{PV panel's power showing oscillations around the MPP with fix perturb step under STC ($R_{L}=27\Omega$).} % Left caption and label
-		\label{bucktemperature}
+		\label{boostoscillationfix}
 	\end{minipage}%
 	\hfill
 	\begin{minipage}[t]{0.6\textwidth}
 		\caption{PV panel's power showing oscillations around the MPP with variable perturb step under STC ($R_{L}=27\Omega$).} % Right caption and label
-		\label{boosttemperature}
+		\label{boostoscillationvar}
 	\end{minipage}
 \end{figure}
 
 \subsubsection*{Boundary between modes of operation}
 
-%10 panels    4.3ohms  299.67W, 1.2seconds, Dbuck = 0.9805, Vin= 36.625, Vout = 35.9 V
+%10 panels    4.3ohms  299.67W, 1.2seconds, Dbuck = 0.98, Vin= 36.625, Vout = 35.9 V
 
 %9 panels    5.3 ohms  299.82W, 1.5seconds, Dboost=0.079 , Vin=36.7V , Vout=39.88 
-\todo{Here comment the graphs for the boundary}
+This section shows the behaviour of the system, under STC, in the boundary between the two modes of operation, buck and boost. The simulations were run first for a resistive load of 4.3$\Omega$ which corresponds to 10 PV panels connected in series \todo{Don't know if we should say that it corresponds to 10 panels. Check this. Stef}. Figures \ref{buckboundary1} and \ref{buckboundary2} show that the converter is working in buck mode with duty cycle $D_{buck}=0.98$. The MPPT's efficiency is $\eta_{MPPT} = 99.75\% $. Figures \ref{boostboundary1} and \ref{boostboundary2} were obtained using a load of 5.3$\Omega$ which corresponds to 9 PV panels connected in series. In this case, the converter is working in boost mode with duty cycle $D_{buck}=0.079$ and the MPPT's efficiency is $\eta_{MPPT} = 99.80\% $. The time it takes for the MPPT to track the MPP is practically the same in both cases. It is then concluded that the MPPT can perform efficiently in the boundary between the two modes of operation.
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.6\textwidth}
@@ -301,16 +304,16 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/D_V_buck(R=4_3)_STC_boundary} % Right picture
 	\end{minipage} \\ % Captions og labels
 	\begin{minipage}[t]{0.6\textwidth}
-		\caption{Irradiance 1000-800$W/ m^2$ ($R_{L}=3\Omega$).} % Left caption and label
-		\label{buckirradiance}
+		\caption{ (Voltage, current and power extracted from the PV panel $R_{L}=4.3\Omega$).} % Left caption and label
+		\label{buckboundary1}
 	\end{minipage}%
 	\hfill
 	\begin{minipage}[t]{0.6\textwidth}
-		\caption{Irradiance 1000-800$W/ m^2$ ($R_{L}=27\Omega$).} % Right caption and label
-		\label{boostirradiance}
+		\caption{Duty cycles, input voltage and output voltage ($R_{L}=4.3\Omega$).} % Right caption and label
+		\label{buckboundary2}
 	\end{minipage}
 \end{figure}
-
+\todo{Not sure about the caption of the right figures. Stef}
 
 
 \vspace{1cm}
@@ -325,13 +328,13 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 		\includegraphics[width=1\textwidth]{../Pictures/P1/simulationMPPT/D_V_boost(R=5_3)_STC_boundary} % Right picture
 	\end{minipage} \\ % Captions og labels
 	\begin{minipage}[t]{0.6\textwidth}
-		\caption{Temperature 25-15$\dec C$ ($R_{L}=3\Omega$).} % Left caption and label
-		\label{bucktemperature}
+		\caption{Voltage, current and power extracted from the PV panel $R_{L}=5.3\Omega$).} % Left caption and label
+		\label{boostboundary1}
 	\end{minipage}%
 	\hfill
 	\begin{minipage}[t]{0.6\textwidth}
-		\caption{Temperature 25-15$\dec C$ ($R_{L}=27\Omega$).} % Right caption and label
-		\label{boosttemperature}
+		\caption{Duty cycles, input voltage and output voltage ($R_{L}=5.3\Omega$).} % Right caption and label
+		\label{boostboundary2}
 	\end{minipage}
 \end{figure}
 
