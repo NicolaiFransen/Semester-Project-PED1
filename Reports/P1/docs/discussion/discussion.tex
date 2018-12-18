@@ -10,8 +10,8 @@ In this section the experimental results from the open-loop and MPPT test in sec
 %The main losses are the dissipation from the component in heat. Also the load is a power resistor and it changes the resistance if it is in operation. So we have not a constant load at the output as in the simulation. Another reason is the dead-time of the MOSFET and therefore the duty cycle is not exactly the same value as in the simulation. belongs to the topic between efficiency simulationa and result
 
 The table \ref{tab:ripple} compares the values of the ripples from the experiments with the values from the requirements in section \ref{sec:componentsizing} and the simulation results in appendix \ref{app:OL_ripple}. 
-\todo{check after tests are performed.}
-From the experimental results the signal is noisy and the ripple are to small (or cannot be detected)to capture values from the figure. 
+\todo{check after tests are performed. change noisy to ringing TL}
+From the experimental results the signal is ringing and the ripple are to small (or cannot be detected)to capture values from the figure. 
 
 The simulation result of the inductor and output voltage ripple have the same value as those stated in the system requirement. This means the component have been selected correctly. 
 In both cases, the experimental results for the ripples are smaller than in the simulation. The used output capacitor is oversized by a factor of ten and thus the ripple should be ten times smaller than the calculated one, as shown in table \ref{tab:ripple}. Also, the output ripple was tested in buck mode instead of boost mode due to malfunctioning of MOSFET 4 driver. This is not the worst case for the output voltage ripple.
@@ -23,7 +23,7 @@ In both cases, the experimental results for the ripples are smaller than in the 
 		\rowcolor{lightgray} \textbf{} & \textbf{Requirement} & \textbf{Simulation}  & \textbf{Experiment}   \tabularnewline \hline
 		$\Delta V_{in}$ & 0.1\% & 0.099\% & - \tabularnewline \hline
 		$\Delta I_{L}$ & 10\% & 10.0\% & 9.86\% \tabularnewline \hline
-		$\Delta V_{out}$  & 0.5\% & 0.500\% & 0.055\% \tabularnewline \hline
+		$\Delta V_{out}$  & 0.5\% & 0.502\% & 0.055\% \tabularnewline \hline
 	\end{tabular}
 	\caption{Voltage and current ripple.}
 	\label{tab:ripple}
@@ -72,6 +72,11 @@ The second test was performed to observe the behavior of the MPPT algorithm unde
 \end{table}
 
 \section{Problems and limitations}
+
+During the project work some unexpected problems were occurred. These are described  with their solution in this section.
+
+\todo{for me this chapter is only the occurred problems and their solution. So maybe the name is only problems and their solution. TL }
+
 %3-Explain main problems and limitations and how are handled. Be succinct, be frank but no apologetic. Explain implications of limitations.
 %\subsection{Layout improvement procedure and issues, title to be improved}
 %opto <--x-->driver voltage levels?
@@ -110,7 +115,7 @@ Another solution to the issue would be to decrease the MPPT algorithm periodicit
 
 The noise in measured signals highly influenced the algorithm performance. This noise was addressed by software low pass filtering. The filter caused a dramatic improvement in signal acquisition and system response, further details are explained in the next section.
 
-In order to develop a completely reliable algorithm further testing must be performed. These tests require more advanced debugging information than the console output previously shown. RT Box allows SPI communication but the testing activities would still be limited to black-box techniques. In order to reach white-box testing, the implementation would require a microcontroller instead of the RT-box. If that was the case, the variables' value might be directly accessed with a debugger. Also in the case of black-box testing, the signals are sent with a known and fixed latency by the microcontroller, which is not the case when using PLECS's console.
+In order to develop a completely reliable algorithm further testing must be performed. These tests require more advanced debugging information than the console output previously shown. RT Box allows SPI communication but the testing activities would still be limited to black-box techniques. In order to reach white-box testing, the implementation would require a microcontroller instead of the RT Box. If that was the case, the variables' value might be directly accessed with a debugger. Also in the case of black-box testing, the signals are sent with a known and fixed latency by the microcontroller, which is not the case when using PLECS's console.
 
 The implemented algorithm has more advanced functions than the simplest implementation found in introductory application notes from manufacturers \cite{AN1521_MC}. 
 Among the advanced functions, threshold parameters are tunable, waiting for the PV to reach open circuit voltage or variable perturb step, among others. However, these additional features add difficulty to the tests and code comprehension. Under the development of a commercial product, it might be desirable to limit the features in order to decrease test and validation cost. The decrease of the perturb variable consists of a FSM with 5 states with a weak coupling with the main FSM.
@@ -119,20 +124,51 @@ The proposed implementation has some variables which might be further optimized,
 
 
 \subsection{Software filter}
-Although the voltage and current measurement is hardware filtered, the signal read by the control system was noisy. This affected the MPPT algorithm, disturbing its ability to reach the MPP. There are many techniques in order to address noise issues, the used technique consists in the use of an LPF digital filter. The result can be seen in \ref{software_filter}. It consists of an exponential moving average low pass filter.  
+Although the voltage and current measurement is hardware filtered, the signal read by the control system was noisy. This affected the MPPT algorithm, disturbing its ability to reach the MPP. There are many techniques in order to address noise issues, the used technique consists in the use of a low pass digital filter. The result can be seen in \ref{software_filter}. It consists of a single pole low pass filter. Its corner frequency is set as the same of the hardware filters, 50 Hz. In order to design the software filter, explanations from \cite{digital_filter} have been followed.
 
-\todo{frequency discussion.}
+First, the execution frequency of the filter $f_{filter}$ is defined. It is set to $20 kHz$, this frequency is low enough to have a low CPU consumption, according to RT Box estimation. Now, $\tau$ must be calculated, as seen in equation \ref{tau_calculation}. 
+
+\begin{equation} \label{tau_calculation}
+\tau= \dfrac{1}{2\pi \cdot f_c} = 3.18 ms
+\end{equation}
+
+The implemented single pole low pass filter has the recursive equation explained in \ref{filter_recursive_eq}. The parameters $a_0 $ and $b_1$ must be found. 
+
+\begin{equation} \label{filter_recursive_eq}
+y_n= x_n \cdot a_0 + y_{n-1} \cdot b_1
+\end{equation}
+
+First, $b_1$ is calculated as explained in \ref{b1_calc}. Then $a_0$ is easily calculated as shown in \ref{a0_calc}.
+
+\begin{equation} \label{b1_calc}
+b_1=  e^{\frac{-1}{f_{filter} \cdot \tau}} = e^{\frac{-1}{20 \times 10^{3} \cdot 3.18 \times 10^{-3}}} = 0.9843
+\end{equation}
+
+\begin{equation} \label{a0_calc}
+a_0=  1 - b_1 = 0.0156
+\end{equation}
+
+The design is validated by analysing the step response of the filter. The result can be seen in figure \ref{step_response_filter}. $\tau$ is confirmed, reaching around $63\%$ of the value in the required time. Cursor one is fixed at the beginning of the step and cursor 2 is set at $0.6327$, the time difference is $3.25 ms$. 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=\textwidth]{../Pictures/P1/Discussion/sw_filter_current.png}
-		\caption{Current measurement against time. Both software filtered (red) and raw (blue) signals can be seen. The filtered signal data points' size has been increased to improve readability.}
-		\label{software_filter}
+		\includegraphics[width=\textwidth]{../Pictures/P1/Discussion/filter_step_response.png}
+		\caption{Step response of the designed filter.}
+		\label{step_response_filter}
 	\end{center}	
 \end{figure}
 
+\todo{new content}
 
+The tested result can be seen in figure \ref{software_filter}.
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/Discussion/sw_filter_current_new.png}
+		\caption{Current measurement against time. Both software filtered (blue) and raw (red) signals can be seen. The filtered signal data points' size has been increased to improve readability.}
+		\label{software_filter}
+	\end{center}	
+\end{figure}
 
 \input{docs/discussion/futureWork.tex}
 

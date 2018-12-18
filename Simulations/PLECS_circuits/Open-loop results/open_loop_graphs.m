@@ -22,7 +22,7 @@ legend('V_{out}');
 
 
 %% Open loop simulation results - Boost mode (300W)
-data = csvread('open_loop_boost_300W.csv');
+data = csvread('ripple_output.csv');
 
 t = data(:,1);
 IL = data(:, 2);
@@ -34,15 +34,15 @@ plot(t, Vout, 'b', 'Linewidth', 1.5)
 hold on
 plot(t, IL, 'r', 'Linewidth', 1.5)
 xlim([0.3778, 0.3779]);
-ylim([89, 91]);
+ylim([54, 56]);
 title('Output voltage ripple - Boost (300W)')
 xlabel('Time[s]');
 ylabel('Voltage[V]');
 legend('V_{out}');
 
 % Ripples
-Vmax = 90.22;
-Vmin = 89.77;
+Vmax = 55.156;
+Vmin = 54.8798;
 
 deltaVout = (Vmax-Vmin)/((Vmax+Vmin)/2) * 100 
 

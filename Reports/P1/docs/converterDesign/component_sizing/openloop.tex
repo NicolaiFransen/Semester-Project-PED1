@@ -1,7 +1,7 @@
 \section{Simulation Results} \label{opsimresult}
 \todo{change name for Open loop simulation ¿?. AT}
 
-To validate that the calculations have been made correctly, an open-loop simulation of the circuit was conducted. As it can be seen in figure \ref{fig:openloop_schematic} the circuit consists of the 4 MOSFETs, the inductor, the 2 capacitors and a load. The MOSFETs are controlled with two duty cycles $D_1$ and $D_2$. FET1 and FET4 will get the actual duty cycle while FET2 and FET3 uses the complementary duty cycles. With the scope the output voltage and current through the inductor can be visualized.
+To validate that the calculations have been made correctly, an open-loop simulation of the circuit was conducted. As it can be seen in figure \ref{fig:openloop_schematic} the circuit consists of the 4 MOSFETs, the inductor, the 2 capacitors and a load. The MOSFETs are controlled with two duty cycles $D_1$ and $D_2$. M1 and M4 will get the actual duty cycle while M2 and M3 uses the complementary duty cycles. With the scope the output voltage and current through the inductor can be visualized.
 
 \begin{figure}[H]
 	\begin{center}
@@ -11,7 +11,7 @@ To validate that the calculations have been made correctly, an open-loop simulat
 	\end{center}
 \end{figure}
 
-The values for the components are $C_{in}=1.54mF$, $C_{out}=88 \mu F$ and $L_{1}=1.3mH$ as calculated in section \ref{component_sizing}. At first the buck mode is simulated. In this mode D2 is 0. This means that FET4 is off and FET3 is on. To achieve the minimum output voltage at $24V$, the corresponding duty cycle is calculated in equation \ref{eq:ol_duty_buck}. The load resistor is calculated for maximum output power for the PV panel in equation \ref{eq:ol_load_buck}.
+The values for the components are $C_{in}=1.54mF$, $C_{out}=88 \mu F$ and $L_{1}=1.3mH$ as calculated in section \ref{component_sizing}. At first the buck mode is simulated. In this mode D2 is 0. This means that M4 is off and M3 is on. To achieve the minimum output voltage at $24V$, the corresponding duty cycle is calculated in equation \ref{eq:ol_duty_buck}. The load resistor is calculated for maximum output power for the PV panel in equation \ref{eq:ol_load_buck}.
 \begin{equation} \label{eq:ol_duty_buck}
 	D_1= \frac{V_{out}}{V_{in}} = \frac{24V}{36.9V} = 0.65
 \end{equation}

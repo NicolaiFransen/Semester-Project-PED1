@@ -19,6 +19,8 @@ Both the capacitor and the inductor are being charged. In the second state, the 
 
 The main advantage of using a buck converter is that the structure is very simple and only one controlled  switch is needed. Also, the component count and thus cost of implementation is low. Furthermore, the buck converter can reach efficiencies up to 99\% \cite{Efficiencybuck}. However, this topology is not very versatile since it does not allow the increase of output voltage with respect to the input.
 
+\todo{change the reference to a paper where you can find the exact value for the efficiency TL}
+
 \subsection{Boost converter\label{Boost-C}}
 
 A boost converter is another type of DC-DC converter similar to the buck converter but instead of lowering the output voltage, it produces a higher electrical potential at the output with respect to that at the input. 
@@ -32,7 +34,7 @@ The circuit consists of two switches (a transistor and a diode), an inductor and
 	\end{center}	
 \end{figure}
 
-\vspace{1cm}
+
 Similarly to the buck converter, this topology has two states. When the MOSFET is on, the current flows only trough the inductor because the diode  is reverse biased. Energy is then stored in the inductor, which voltage is equal to the input voltage, and current increases. Meanwhile, the capacitor releases the previously stored energy to the load.
 During the second state, when the MOSFET is turned off, the current loops through the inductor, diode, capacitor and the load. Since the inductor had been previously charged, it now works as a current source in series with the voltage source of the circuit. The voltage across the load is then risen with respect to that at the input. Furthermore, the capacitor is being charged \cite{schematicbuckandboost}. 
 
