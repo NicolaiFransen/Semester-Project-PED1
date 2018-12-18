@@ -17,10 +17,10 @@ One of the most common methods for modeling a solar panel is using the equivalen
 	\end{center}	
 \end{figure}
 
-The mathematical equation that describes the circuit is obtained applying Kirchoff's law to separate the current flowing through the different components of the circuit. This results in equation \ref{eq:pv_cell} where $I_{pv}$ is the panel's current, $I_{ph}$ is the photogenerated current, the second term is the current flow in the diode and the last term is the current flow in the parallel resistance \cite{MPPTResearch}. 
+The mathematical equation that describes the circuit is obtained applying Kirchoff's law to separate the current flowing through the different components of the circuit. This results in equation \ref{eq:pv_cell} where $I_{PV}$ is the panel's current, $I_{ph}$ is the photogenerated current, the second term is the current flow in the diode and the last term is the current flow in the parallel resistance \cite{MPPTResearch}. 
 
 \begin{equation} \label{eq:pv_cell}
-I_{pv} = I_{ph} - I_{o} \cdot \left[ e^{\left({\dfrac{V_{pv} + R_s\cdot I_{pv}}{a \cdot V_{t}}}\right)}  - 1 \right]  - \dfrac{V_{pv} + R_{s}\cdot I_{pv}}{R_{p}}
+I_{PV} = I_{ph} - I_{o} \cdot \left[ e^{\left({\dfrac{V_{PV} + R_s\cdot I_{PV}}{a \cdot V_{t}}}\right)}  - 1 \right]  - \dfrac{V_{PV} + R_{s}\cdot I_{PV}}{R_{p}}
 \end{equation}
 
 The second term corresponds to the Shockley equation where $I_{o}$ is the saturation current of the diode, $a$ is the diode's quality factor and $V_{t}$ is the thermal voltage defined by equation \ref{eq:Vt}.
