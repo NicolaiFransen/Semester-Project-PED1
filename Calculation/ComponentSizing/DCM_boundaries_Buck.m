@@ -32,9 +32,9 @@ surf(Vout, P, DCM, 'FaceAlpha',0.6);
 hold on
 
 surf(Vout,P,zeros(size(P,2),size(Vout,2)),'FaceAlpha',0.9, 'EdgeColor', 'none');
-title('DCM boudaries');
+title('DCM boudaries - Buck mode');
 
-xlabel('Load voltage [V]');
+xlabel('Output voltage [V]');
 
 %ylabel('PV power [W]');
 ylabel('PV power [W]');
