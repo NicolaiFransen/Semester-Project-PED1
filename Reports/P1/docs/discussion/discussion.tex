@@ -10,8 +10,17 @@ In this section the experimental results from the open-loop and MPPT test in sec
 %The main losses are the dissipation from the component in heat. Also the load is a power resistor and it changes the resistance if it is in operation. So we have not a constant load at the output as in the simulation. Another reason is the dead-time of the MOSFET and therefore the duty cycle is not exactly the same value as in the simulation. belongs to the topic between efficiency simulationa and result
 
 The table \ref{tab:ripple} compares the values of the ripples from the experiments with the values from the requirements in section \ref{sec:componentsizing} and the simulation results in appendix \ref{app:OL_ripple}. 
-\todo{check after tests are performed. change noisy to ringing TL}
-From the experimental results the signal is ringing and the ripple are to small (or cannot be detected)to capture values from the figure. 
+
+The experimental results of the input voltage ripple showed that the signal contained ringings. The frequency of these ringings are measured to be $1.52MHz$, which in further development could be used to discover the source. These measurements are shown in figure \ref{fig:ringing}.  
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{../Pictures/P1/Test/ringing.png}
+		\caption{Console output.}
+		\label{fig:ringing}
+	\end{center}	
+\end{figure}
+
 
 The simulation result of the inductor and output voltage ripple have the same value as those stated in the system requirement. This means the component have been selected correctly. 
 In both cases, the experimental results for the ripples are smaller than in the simulation. The used output capacitor is oversized by a factor of ten and thus the ripple should be ten times smaller than the calculated one, as shown in table \ref{tab:ripple}. Also, the output ripple was tested in buck mode instead of boost mode due to malfunctioning of MOSFET 4 driver. This is not the worst case for the output voltage ripple.
@@ -73,9 +82,8 @@ The second test was performed to observe the behavior of the MPPT algorithm unde
 
 \section{Problems and limitations}
 
-During the project work some unexpected problems were occurred. These are described  with their solution in this section.
+During the project some unexpected problems and limitations were discovered. These are described with possible solutions in this section.
 
-\todo{for me this chapter is only the occurred problems and their solution. So maybe the name is only problems and their solution. TL }
 
 %3-Explain main problems and limitations and how are handled. Be succinct, be frank but no apologetic. Explain implications of limitations.
 %\subsection{Layout improvement procedure and issues, title to be improved}
@@ -84,9 +92,8 @@ During the project work some unexpected problems were occurred. These are descri
 %inductor saturation and so
 
 %pcb hot points
-\todo{Add intro.}
 
-\input{docs/discussion/DCM.tex}
+%\input{docs/discussion/DCM.tex}
 
 \input{docs/discussion/outputCap.tex}
 
@@ -152,13 +159,12 @@ The design is validated by analysing the step response of the filter. The result
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=\textwidth]{../Pictures/P1/Discussion/filter_step_response.png}
+		\includegraphics[width=0.7\textwidth]{../Pictures/P1/Discussion/filter_step_response.png}
 		\caption{Step response of the designed filter.}
 		\label{step_response_filter}
 	\end{center}	
 \end{figure}
 
-\todo{new content}
 
 The tested result can be seen in figure \ref{software_filter}.
 

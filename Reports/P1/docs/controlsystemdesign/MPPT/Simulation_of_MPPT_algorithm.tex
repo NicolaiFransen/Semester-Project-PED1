@@ -238,9 +238,9 @@ Figure \ref{boostSTC_duty} shows how the converter starts operating in buck mode
 	\end{center}	
 \end{figure}
 
-As it was mentioned in section \ref{MPPTImplementation}, oscillations around the MPP can be reduced by using a variable perturb step instead of a fixed one. The proposed P\&O algorithm we simulated under STC for both cases. Figures \ref{buckoscillationfix} and \ref{buckoscillationvar} show the oscillations in buck mode around the MPP for fixed perturb step and variable step, respectively. By comparing the figures, it is seen that oscillations are reduced and, therefore, the MPPT's efficiency is improved. Using variable perturb step allows to reduce the oscillations by a factor of 5.96 in this case\todo{I have calculated this as: 3.1W/0.52W = 5.96. However, I don't know if this is the best way to compare the figures... I'm too tired to calculate percentages or whatever so check if you can make a better comparison. If not, leave it like that. Stef}. The MPPT's efficiency is improved from $\eta_{MPPT} = 99.38\% $ to $\eta_{MPPT} = 99.96\% $. 
+As it was mentioned in section \ref{MPPTImplementation}, oscillations around the MPP can be reduced by using a variable perturb step instead of a fixed one. The proposed P\&O algorithm was simulated under STC for both cases. Figures \ref{buckoscillationfix} and \ref{buckoscillationvar} show the oscillations in buck mode around the MPP for fixed perturb step and variable step, respectively. By comparing the figures, it is seen that oscillations are reduced and, therefore, the MPPT's efficiency is improved from $\eta_{MPPT} = 99.38\% $ to $\eta_{MPPT} = 99.96\% $. Furthermore it can be seen that the period of the oscillation increases. 
 
-On the other hand, figures \ref{boostoscillationfix} and \ref{boostoscillationvar} show the oscillations around the MPP in boost mode for fixed perturb step and variable step, respectively. In this case the oscillations are significantly reduced by a factor of 10.24 \todo{20.8W/2.03W=10.24}. The improvement in the MPPT's performance is higher than in the case of buck mode. The MPPT's efficiency is improved from $\eta_{MPPT} = 96.40\% $ with fixes step to $\eta_{MPPT} = 99.82\% $ with variable step. 
+On the other hand, figures \ref{boostoscillationfix} and \ref{boostoscillationvar} show the oscillations around the MPP in boost mode for fixed perturb step and variable step, respectively. The improvement in the MPPT's performance is higher than in the case of buck mode. The MPPT's efficiency is improved from $\eta_{MPPT} = 96.40\% $ with fixes step to $\eta_{MPPT} = 99.82\% $ with variable step. 
 
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5\textwidth}
@@ -291,7 +291,8 @@ On the other hand, figures \ref{boostoscillationfix} and \ref{boostoscillationva
 %10 panels    4.3ohms  299.67W, 1.2seconds, Dbuck = 0.98, Vin= 36.625, Vout = 35.9 V
 
 %9 panels    5.3 ohms  299.82W, 1.5seconds, Dboost=0.079 , Vin=36.7V , Vout=39.88 
-This section shows the behaviour of the system, under STC, in the boundary between the two modes of operation, buck and boost. The simulations were run first for a resistive load of 4.3$\Omega$ which corresponds to 10 PV panels connected in series \todo{Don't know if we should say that it corresponds to 10 panels. Check this. Stef}. Figures \ref{buckboundary1} and \ref{buckboundary2} show that the converter is working in buck mode with duty cycle $D_{buck}=0.98$. The MPPT's efficiency is $\eta_{MPPT} = 99.75\% $. Figures \ref{boostboundary1} and \ref{boostboundary2} were obtained using a load of 5.3$\Omega$ which corresponds to 9 PV panels connected in series. In this case, the converter is working in boost mode with duty cycle $D_{buck}=0.079$ and the MPPT's efficiency is $\eta_{MPPT} = 99.80\% $. The time it takes for the MPPT to track the MPP is practically the same in both cases. It is then concluded that the MPPT can perform efficiently in the boundary between the two modes of operation.
+This section shows the behaviour of the system, under STC, in the boundary between the two modes of operation, buck and boost. Calculations showed that the boundary would be with 9.75 PV panels. Therefore the system was simulated with both 9 and 10 panels.
+The simulations were run first for a resistive load of 4.3$\Omega$ which corresponds to 10 PV panels connected in series. Figures \ref{buckboundary1} and \ref{buckboundary2} show that the converter is working in buck mode with duty cycle $D_{buck}=0.98$. The MPPT's efficiency is $\eta_{MPPT} = 99.75\% $. Figures \ref{boostboundary1} and \ref{boostboundary2} were obtained using a load of 5.3$\Omega$ which corresponds to 9 PV panels connected in series. In this case, the converter is working in boost mode with duty cycle $D_{buck}=0.079$ and the MPPT's efficiency is $\eta_{MPPT} = 99.80\% $. The time it takes for the MPPT to track the MPP is practically the same in both cases. It is then concluded that the MPPT can perform efficiently in the boundary between the two modes of operation.
 
 \begin{figure}[H]
 
@@ -314,10 +315,9 @@ This section shows the behaviour of the system, under STC, in the boundary betwe
 		\label{buckboundary2}
 	\end{minipage}
 \end{figure}
-\todo{Not sure about the caption of the right figures. Stef}
 
 
-\vspace{0.2cm}
+%\vspace{0.2cm}
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5\textwidth}
 		\centering
@@ -369,7 +369,7 @@ In all the cases the P\&O algorithm can track the MPP by maintaining an efficien
 
 
 
-\vspace{0.1cm}
+%\vspace{0.1cm}
 \begin{figure}[H]
 	\begin{minipage}[c]{0.5\textwidth}
 		\centering
