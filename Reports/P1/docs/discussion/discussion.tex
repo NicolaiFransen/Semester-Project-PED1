@@ -117,20 +117,51 @@ The proposed implementation has some variables which might be further optimized,
 
 
 \subsection{Software filter}
-Although the voltage and current measurement is hardware filtered, the signal read by the control system was noisy. This affected the MPPT algorithm, disturbing its ability to reach the MPP. There are many techniques in order to address noise issues, the used technique consists in the use of an LPF digital filter. The result can be seen in \ref{software_filter}. It consists of an exponential moving average low pass filter.  
+Although the voltage and current measurement is hardware filtered, the signal read by the control system was noisy. This affected the MPPT algorithm, disturbing its ability to reach the MPP. There are many techniques in order to address noise issues, the used technique consists in the use of a low pass digital filter. The result can be seen in \ref{software_filter}. It consists of a single pole low pass filter. Its corner frequency is set as the same of the hardware filters, 50 Hz. In order to design the software filter, explanations from \cite{digital_filter} have been followed.
 
-\todo{frequency discussion.}
+First, the execution frequency of the filter $f_{filter}$ is defined. It is set to $20 kHz$, this frequency is low enough to have a low CPU consumption, according to RT Box estimation. Now, $\tau$ must be calculated, as seen in equation \ref{tau_calculation}. 
+
+\begin{equation} \label{tau_calculation}
+\tau= \dfrac{1}{2\pi \cdot f_c} = 3.18 ms
+\end{equation}
+
+The implemented single pole low pass filter has the recursive equation explained in \ref{filter_recursive_eq}. The parameters $a_0 $ and $b_1$ must be found. 
+
+\begin{equation} \label{filter_recursive_eq}
+y_n= x_n \cdot a_0 + y_{n-1} \cdot b_1
+\end{equation}
+
+First, $b_1$ is calculated as explained in \ref{b1_calc}. Then $a_0$ is easily calculated as shown in \ref{a0_calc}.
+
+\begin{equation} \label{b1_calc}
+b_1=  e^{\frac{-1}{f_{filter} \cdot \tau}} = e^{\frac{-1}{20 \times 10^{3} \cdot 3.18 \times 10^{-3}}} = 0.9843
+\end{equation}
+
+\begin{equation} \label{a0_calc}
+a_0=  1 - b_1 = 0.0156
+\end{equation}
+
+The design is validated by analysing the step response of the filter. The result can be seen in figure \ref{step_response_filter}. $\tau$ is confirmed, reaching around $63\%$ of the value in the required time. Cursor one is fixed at the beginning of the step and cursor 2 is set at $0.6327$, the time difference is $3.25 ms$. 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=\textwidth]{../Pictures/P1/Discussion/sw_filter_current.png}
-		\caption{Current measurement against time. Both software filtered (red) and raw (blue) signals can be seen. The filtered signal data points' size has been increased to improve readability.}
-		\label{software_filter}
+		\includegraphics[width=\textwidth]{../Pictures/P1/Discussion/filter_step_response.png}
+		\caption{Step response of the designed filter.}
+		\label{step_response_filter}
 	\end{center}	
 \end{figure}
 
+\todo{new content}
 
+The tested result can be seen in figure \ref{software_filter}.
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{../Pictures/P1/Discussion/sw_filter_current_new.png}
+		\caption{Current measurement against time. Both software filtered (blue) and raw (red) signals can be seen. The filtered signal data points' size has been increased to improve readability.}
+		\label{software_filter}
+	\end{center}	
+\end{figure}
 
 \input{docs/discussion/futureWork.tex}
 
