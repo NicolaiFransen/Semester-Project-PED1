@@ -59,13 +59,13 @@ For the first test, the environmental conditions are set to 1000 $W /m^2$ irradi
 In the left graph in figure \ref{MPPTtestbuckmode2} the relationship between input and output voltage of the converter is observed. From these measurements it is possible to calculate the duty cycle in buck mode for the optimal operating point as in equation \ref{eq:measureddutybuck}. The ideal value of the duty cycle working at MPP is $D_{buck} = 0.81$.
 
 \begin{equation} \label{eq:measureddutybuck}
-D_{buck}= \dfrac{V_{out}}{V_{pv}} = \dfrac{28.29V}{37.25} = 0.7594
+D_{buck}= \dfrac{V_{out}}{V_{PV}} = \dfrac{28.29V}{37.25} = 0.7594
 \end{equation}
 
 The right graph shows the measured input and output power of the converter. From these measurements the efficiency of the converter is calculated in equation \ref{eq:effconverterbuck}, based on the average values from the graphs.
 
 \begin{equation} \label{eq:effconverterbuck}
-\eta_{converter}= \dfrac{P_{out}}{P_{pv}} \cdot 100 = \dfrac{273.44W}{293.56W} \cdot 100 = 93.15\% 
+\eta_{converter}= \dfrac{P_{out}}{P_{PV}} \cdot 100 = \dfrac{273.44W}{293.56W} \cdot 100 = 93.15\% 
 \end{equation}
 
 
@@ -80,7 +80,7 @@ The right graph shows the measured input and output power of the converter. From
 Figure \ref{MPPTtestboostmode1} shows how the converter is tracking the MPP in boost mode. Here again it is observed that the MPPT is enabled after the input voltage has reached the value of open-circuit. The time the MPPT takes to reach the MPP is higher than in buck mode, reaching it in 21 seconds. By comparing the measured power with the maximum power that the PV panel can generate under STC, the MPPT's efficiency is calculated in equation \ref{eq:effMPPTboost}. It is observed that even though the system needs more time to track the MPP it does not have a significant effect in the efficiency.
 
 \begin{equation} \label{eq:effMPPTboost}
-\eta_{MPPT}= \dfrac{P_{pv}}{P_{MPP}} \cdot 100 = \dfrac{292.37W}{300.4W} \cdot 100 = 97.32\%  
+\eta_{MPPT}= \dfrac{P_{PV}}{P_{MPP}} \cdot 100 = \dfrac{292.37W}{300.4W} \cdot 100 = 97.32\%  
 \end{equation}
 
 
@@ -104,7 +104,7 @@ D_{boost}= 1 - \dfrac{V_{pv}}{V_{out}} = 1 - \dfrac{36.93V}{88.41V} = 0.5823
 
 \iffalse
 \begin{equation} \label{eq:effconverterboost}
-\eta_{converter}= \dfrac{P_{out}}{P_{pv}} \cdot 100 = \dfrac{297.5W}{292.37W} \cdot 100 = 101.75\% 
+\eta_{converter}= \dfrac{P_{out}}{P_{PV}} \cdot 100 = \dfrac{297.5W}{292.37W} \cdot 100 = 101.75\% 
 \end{equation}
 \fi
 
