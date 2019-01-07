@@ -44,7 +44,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   Schematic {
-    Location      [641, 30; 1280, 644]
+    Location      [641, 29; 1279, 640]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -53,7 +53,7 @@ Plecs {
       Type          DCVoltageSource
       Name          "V_PV"
       Show          on
-      Position      [100, 150]
+      Position      [70, 150]
       Direction     down
       Flipped       on
       Parameter {
@@ -63,66 +63,10 @@ Plecs {
       }
     }
     Component {
-      Type          Diode
-      Name          "D1"
-      Show          on
-      Position      [270, 200]
-      Direction     down
-      Flipped       off
-      Parameter {
-        Variable      "Vf"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ron"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "thermal"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Diode
-      Name          "D2"
-      Show          on
-      Position      [395, 110]
-      Direction     down
-      Flipped       off
-      Parameter {
-        Variable      "Vf"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "Ron"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "thermal"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
       Type          MosfetWithDiode
-      Name          "FET_1"
+      Name          "M1"
       Show          on
-      Position      [270, 110]
+      Position      [255, 110]
       Direction     up
       Flipped       off
       Parameter {
@@ -148,7 +92,7 @@ Plecs {
     }
     Component {
       Type          MosfetWithDiode
-      Name          "FET_2"
+      Name          "M4"
       Show          on
       Position      [395, 200]
       Direction     up
@@ -176,9 +120,9 @@ Plecs {
     }
     Component {
       Type          Inductor
-      Name          "L1"
+      Name          "L"
       Show          on
-      Position      [330, 160]
+      Position      [320, 165]
       Direction     left
       Flipped       off
       Parameter {
@@ -196,7 +140,7 @@ Plecs {
       Type          PulseGenerator
       Name          "Pulse\nGenerator"
       Show          off
-      Position      [225, 200]
+      Position      [190, 110]
       Direction     right
       Flipped       off
       Parameter {
@@ -234,7 +178,7 @@ Plecs {
       Type          PulseGenerator
       Name          "Pulse\nGenerator1"
       Show          off
-      Position      [335, 200]
+      Position      [345, 200]
       Direction     right
       Flipped       off
       Parameter {
@@ -272,7 +216,7 @@ Plecs {
       Type          Resistor
       Name          "Load"
       Show          on
-      Position      [495, 155]
+      Position      [505, 155]
       Direction     up
       Flipped       off
       Parameter {
@@ -285,7 +229,7 @@ Plecs {
       Type          Capacitor
       Name          "C1"
       Show          off
-      Position      [170, 170]
+      Position      [140, 170]
       Direction     down
       Flipped       on
       Parameter {
@@ -317,68 +261,171 @@ Plecs {
         Show          off
       }
     }
-    Connection {
-      Type          Wire
-      SrcComponent  "D1"
-      SrcTerminal   1
-      Points        [270, 250]
-      Branch {
-        Points        [170, 250]
-        Branch {
-          Points        [100, 250]
-          DstComponent  "V_PV"
-          DstTerminal   2
-        }
-        Branch {
-          DstComponent  "C1"
-          DstTerminal   2
-        }
+    Component {
+      Type          MosfetWithDiode
+      Name          "M2"
+      Show          on
+      Position      [255, 205]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
       }
-      Branch {
-        Points        [395, 250]
-        Branch {
-          DstComponent  "FET_2"
-          DstTerminal   2
-        }
-        Branch {
-          Points        [465, 250]
-          Branch {
-            Points        [495, 250]
-            DstComponent  "Load"
-            DstTerminal   2
-          }
-          Branch {
-            DstComponent  "C2"
-            DstTerminal   2
-          }
-        }
+      Parameter {
+        Variable      "s_init"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          PulseGenerator
+      Name          "Pulse\nGenerator2"
+      Show          off
+      Position      [195, 205]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Hi"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Lo"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "f"
+        Value         "5000"
+        Show          off
+      }
+      Parameter {
+        Variable      "DutyCycle"
+        Value         "not(D)"
+        Show          on
+      }
+      Parameter {
+        Variable      "Delay"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          MosfetWithDiode
+      Name          "M3"
+      Show          on
+      Position      [395, 110]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "s_init"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          PulseGenerator
+      Name          "Pulse\nGenerator3"
+      Show          off
+      Position      [340, 110]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Hi"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Lo"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "f"
+        Value         "5000"
+        Show          off
+      }
+      Parameter {
+        Variable      "DutyCycle"
+        Value         "not(D')"
+        Show          on
+      }
+      Parameter {
+        Variable      "Delay"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
       }
     }
     Connection {
       Type          Wire
-      SrcComponent  "FET_1"
+      SrcComponent  "V_PV"
       SrcTerminal   2
-      Points        [270, 160]
+      Points        [70, 250; 140, 250]
       Branch {
-        DstComponent  "D1"
-        DstTerminal   2
+        Points        [255, 250]
+        Branch {
+          DstComponent  "M2"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [395, 250]
+          Branch {
+            DstComponent  "M4"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [465, 250]
+            Branch {
+              Points        [505, 250]
+              DstComponent  "Load"
+              DstTerminal   2
+            }
+            Branch {
+              DstComponent  "C2"
+              DstTerminal   2
+            }
+          }
+        }
       }
       Branch {
-        DstComponent  "L1"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "D2"
-      SrcTerminal   1
-      Points        [395, 160]
-      Branch {
-        DstComponent  "FET_2"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "L1"
+        DstComponent  "C1"
         DstTerminal   2
       }
     }
@@ -386,25 +433,24 @@ Plecs {
       Type          Signal
       SrcComponent  "Pulse\nGenerator"
       SrcTerminal   1
-      Points        [245, 155; 235, 155]
-      DstComponent  "FET_1"
+      DstComponent  "M1"
       DstTerminal   3
     }
     Connection {
       Type          Signal
       SrcComponent  "Pulse\nGenerator1"
       SrcTerminal   1
-      DstComponent  "FET_2"
+      DstComponent  "M4"
       DstTerminal   3
     }
     Connection {
       Type          Wire
       SrcComponent  "V_PV"
       SrcTerminal   1
-      Points        [100, 75; 170, 75]
+      Points        [70, 75; 140, 75]
       Branch {
-        Points        [270, 75]
-        DstComponent  "FET_1"
+        Points        [255, 75]
+        DstComponent  "M1"
         DstTerminal   1
       }
       Branch {
@@ -416,15 +462,57 @@ Plecs {
       Type          Wire
       SrcComponent  "Load"
       SrcTerminal   1
-      Points        [495, 75; 465, 75]
+      Points        [505, 75; 465, 75]
       Branch {
         Points        [395, 75]
-        DstComponent  "D2"
-        DstTerminal   2
+        DstComponent  "M3"
+        DstTerminal   1
       }
       Branch {
         DstComponent  "C2"
         DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pulse\nGenerator2"
+      SrcTerminal   1
+      DstComponent  "M2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pulse\nGenerator3"
+      SrcTerminal   1
+      DstComponent  "M3"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "M2"
+      SrcTerminal   1
+      Points        [255, 165]
+      Branch {
+        DstComponent  "M1"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "L"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "M4"
+      SrcTerminal   1
+      Points        [395, 165]
+      Branch {
+        DstComponent  "M3"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "L"
+        DstTerminal   2
       }
     }
   }

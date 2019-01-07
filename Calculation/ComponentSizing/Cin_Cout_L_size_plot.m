@@ -27,6 +27,8 @@ hold on
 plot(voltages_buck, Cout_buck)
 hold off
 legend('Cout boost', 'Cout buck')
+xlabel('Output voltage');
+ylabel('Capacitance');
 
 figure(2)
 plot(voltages_boost, L_boost)
@@ -34,9 +36,13 @@ hold on
 plot(voltages_buck, L_buck)
 hold off
 legend('L boost', 'L buck')
+xlabel('Output voltage');
+ylabel('Inductance');
 
 figure(3)
 plot(voltages_buck, Cin_buck)
 legend('Cin buck')
+xlabel('Input voltage');
+ylabel('Capacitance');
 
 
