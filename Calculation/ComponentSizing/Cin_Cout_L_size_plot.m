@@ -45,4 +45,17 @@ legend('Cin buck')
 xlabel('Input voltage');
 ylabel('Capacitance');
 
+voltages_buck = 24;
+P=50:1:300;
+
+Cout_buck = (voltages_buck.^2./P .* (1 - voltages_buck ./ Vmpp))./(Vout_ripple .* voltages_buck .* fsw);
+
+figure(4)
+plot(P, Cout_buck)
+
+
+
+xlabel('Power');
+ylabel('Capacitance');
+    
 
