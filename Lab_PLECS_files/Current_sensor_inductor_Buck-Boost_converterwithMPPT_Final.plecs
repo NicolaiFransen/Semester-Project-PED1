@@ -758,7 +758,7 @@ Plecs {
       Type          Step
       Name          "Sun"
       Show          on
-      Position      [35, 155]
+      Position      [55, 155]
       Direction     right
       Flipped       off
       Parameter {
@@ -786,7 +786,7 @@ Plecs {
       Type          Constant
       Name          "Temperature"
       Show          on
-      Position      [35, 205]
+      Position      [50, 220]
       Direction     right
       Flipped       off
       Frame         [-10, -10; 10, 10]
@@ -818,17 +818,17 @@ Plecs {
       Position      [1200, 135]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1536, 807]
+      Location      [1920, 23; 3840, 1020]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAEOAAADDPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAQQAAAwwAAAB+AP///wAAAAMAAAeAAAAAnfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABbAP///wAACWAAAAS/AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"QAAAJYAAAACAAAAlgAAAAMAAACWAAAABAAAAJYAAAAFAAAAlgAAAAYAAACWAAAABwAAAJYAAAAIAA"
-"AAlgAAAAkAAACWAAAA5QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC0AAA"
+"gAAAJYAAAABAAAAlgAAAAcAAACWAAAABgAAAJYAAAAFAAAAlgAAAAQAAACWAAAACQAAAJYAAAAIAA"
+"AAlgAAAAMAAACWAAAA3QAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACsAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAxAAAAAQAAAAAAAAPoAAAAADE="
@@ -844,25 +844,27 @@ Plecs {
       Open          "0"
       Ts            "100e-6"
       SampleLimit   "0"
-      XAxisLabel    ""
+      XAxisLabel    "Time (s)"
       Axis {
-        Name          "Input voltage"
-        AutoScale     1
+        Name          ""
+        AutoScale     0
         MinValue      0
-        MaxValue      1
+        MaxValue      50
         Signals       {"Panel voltage (V)", "Panel current (A)"}
         SignalTypes   [ ]
+        AxisLabel     "V_pv (V), I_pv (A)"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
       }
       Axis {
-        Name          "Input current"
-        AutoScale     1
+        Name          ""
+        AutoScale     0
         MinValue      0
-        MaxValue      1
+        MaxValue      330
         Signals       {"Panel Power (W)"}
         SignalTypes   [ ]
+        AxisLabel     "P_pv (W)"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
@@ -901,11 +903,11 @@ Plecs {
       Position      [1070, 45]
       Direction     up
       Flipped       off
-      Location      [1, 30; 640, 669]
+      Location      [0, 26; 1536, 807]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAADhAAADsfwCAAAAAvsAAAAUAFMAYQB2A"
 "GUAZABWAGkAZQB3AHMAAAAAOAAAA7EAAAB+AP////sAAAAQAFoAbwBvAG0AQQByAGUAYQAAAAAA//"
 "///wAAAD8A////AAAAAwAAB4AAAADO/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
-"AB4AAAACWAP///wAAAx8AAAMAAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"AB4AAAACWAP///wAAB4AAAAOxAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1749,20 +1751,20 @@ Plecs {
       Position      [1135, 250]
       Direction     up
       Flipped       off
-      Location      [1, 375; 640, 669]
+      Location      [0, 46; 1536, 827]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAPEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAAgPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABpAP///wAAA78AAAGWAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAMwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeAAAAAgPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABbAP///wAAB4AAAAOxAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAJYAAAADAAAAlgAAAAEAAACWAAAABgAAAJYAAAAHAAAAlgAAAAQAAACWAAAABQAAAJYAAAAIAA"
-"AAlgAAAAkAAACWAAAA7gAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAAC0AAA"
+"gAAAJYAAAABAAAAlgAAAAcAAACWAAAABgAAAJYAAAAFAAAAlgAAAAQAAACWAAAACQAAAJYAAAAIAA"
+"AAlgAAAAMAAACWAAAA3gAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACtAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AA6AAAAAQAAAAAAAAPoAAAAADo="
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 "AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -2828,7 +2830,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "27"
+        Value         "4.3"
         Show          off
       }
     }
@@ -3513,22 +3515,22 @@ Plecs {
       Position      [760, 590]
       Direction     up
       Flipped       off
-      Location      [0, 26; 1283, 706]
+      Location      [0, 26; 1536, 807]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIMA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAJcA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAACXAP///wAAAAMAAAeAAAAA1fw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABpAP///wAAB4QAAAPZAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAZEAAAAxPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAABkQAAABbAP///wAAB4AAAAOxAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAH0AAAAIAAAAfQAAAAMAAAB9AAAAAgAAAH0AAAABAAAAfQAAAAcAAAB9AAAABgAAAH0AAAAFAA"
-"AAfQAAAAQAAAB9AAABEgAAAAsBAAABAAAAAAAAAAAAAAAAlv////8AAACBAAAAAAAAAAsAAADYAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAH0AAAABAAAAfQAAAAkAAAB9AAAACAAAAH0AAAAHAAAAfQAAAAYAAAB9AAAABQAAAH0AAAAEAA"
+"AAfQAAAAMAAAB9AAAA5wAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAAC2AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AA6AAAAAQAAAAAAAAPoAAAAADo="
-      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEB//8AAAAA9fUAAAAAAAEC//8AAP///"
-"/8AAAAAAAEB//8AAOXlAAAAAAAAAAMAAAABAQAAAAEAAAAAAQEAAAADAAAAAQAAAAEAAAABAAAAAQ"
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
+      PlotPalettes  "AAAAAQAAAAIAAAABAAAAAwAAAAEB/////wAAAAAAAAAAAAEB//8AAP//A"
+"AAAAAAAAAEB//8AAOXlAAAAAAAAAAMAAAABAQAAAAEBAAAAAQEAAAADAAAAAQAAAAEAAAABAAAAAQ"
 "AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABP/GZmZmZmZoAAAABP/GZmZmZmZoAAAA"
 "BP/GZmZmZmZoAAAADAAAAAQEAAAABAQAAAAEBAAAAAgAAAAEAAAACAAAAAQL//y7g///MzAAAAAAA"
 "AQL//wAA/////wAAAAAAAgAAAAEAAAAAAQAAAAACAAAAAQAAAAEAAAABAAAAAQAAAAIAAAABAAAAA"
@@ -3546,9 +3548,9 @@ Plecs {
         AutoScale     0
         MinValue      -0.1
         MaxValue      1.1
-        Signals       {"Control_variable", "D_buck", "D_boost"}
+        Signals       {"D_buck", "D_boost"}
         SignalTypes   [ ]
-        AxisLabel     "Control variable, Duty cycles"
+        AxisLabel     "Duty cycles"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
@@ -3557,7 +3559,7 @@ Plecs {
         Name          ""
         AutoScale     0
         MinValue      0
-        MaxValue      100
+        MaxValue      50
         Signals       {"Panel Voltage (V)", "Output Voltage (V)"}
         SignalTypes   [ ]
         AxisLabel     "V_pv (V) , V_out (V)"
@@ -3601,7 +3603,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "Width"
-        Value         "3"
+        Value         "2"
         Show          off
       }
     }
@@ -3879,7 +3881,7 @@ Plecs {
       }
       Parameter {
         Variable      "After"
-        Value         "[15]"
+        Value         "[45]"
         Show          off
       }
       Parameter {
@@ -4030,11 +4032,89 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          Scope
+      Name          "Scope4"
+      Show          on
+      Position      [830, 500]
+      Direction     up
+      Flipped       off
+      Location      [0, 26; 1536, 807]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeAAAAAgPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABbAP///wAAB4AAAAOxAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAH0AAAABAAAAfQAAAAkAAAB9AAAACAAAAH0AAAAHAAAAfQAAAAYAAAB9AAAABQAAAH0AAAAEAA"
+"AAfQAAAAMAAAB9AAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACpAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAxAAAAAQAAAAAAAAPoAAAAADE="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEB//8AAAAA//8AAAAAAAEAAAABAQAAA"
+"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/GZmZmZmZoAAAABAAAAAQE="
+      Axes          "1"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time (s)"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {"Panel Power (W)"}
+        SignalTypes   [ ]
+        AxisLabel     "P_pv (W)"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis   on
+        AxisLabel     "Frequency"
+        Scaling       0
+        PhaseDisplay  0
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          From
+      Name          "From5"
+      Show          off
+      Position      [770, 500]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Tag"
+        Value         "P_pv"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "2"
+        Show          off
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Sun"
       SrcTerminal   1
-      Points        [65, 155; 65, 195]
+      Points        [80, 155; 80, 195]
       DstComponent  "PV_Villalva1"
       DstTerminal   4
     }
@@ -4578,30 +4658,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "From25"
-      SrcTerminal   1
-      Points        [680, 545; 680, 555]
-      DstComponent  "Mux2"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "From23"
-      SrcTerminal   1
-      Points        [680, 570; 680, 565]
-      DstComponent  "Mux2"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "From24"
-      SrcTerminal   1
-      Points        [685, 595; 685, 575]
-      DstComponent  "Mux2"
-      DstTerminal   4
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Mux2"
       SrcTerminal   1
       Points        [725, 565; 725, 585]
@@ -4703,14 +4759,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Sun1"
-      SrcTerminal   1
-      Points        [75, 275; 75, 205]
-      DstComponent  "PV_Villalva1"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "From9"
       SrcTerminal   1
       Points        [1070, 115; 1070, 125]
@@ -4739,6 +4787,37 @@ Plecs {
       Points        [1145, 170; 1145, 140]
       DstComponent  "Vin, Iin, Pin"
       DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From23"
+      SrcTerminal   1
+      Points        [680, 570; 680, 560]
+      DstComponent  "Mux2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From24"
+      SrcTerminal   1
+      Points        [685, 595; 685, 570]
+      DstComponent  "Mux2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From5"
+      SrcTerminal   1
+      DstComponent  "Scope4"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sun1"
+      SrcTerminal   1
+      Points        [75, 275; 75, 205]
+      DstComponent  "PV_Villalva1"
+      DstTerminal   3
     }
     Annotation {
       Name          "Averaging inductor current"
