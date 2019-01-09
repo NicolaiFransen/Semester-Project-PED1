@@ -9,6 +9,7 @@ Impp_400 = 3.23;
 P = 300;
 Vin_ripple = 0.001;
 Vout_ripple = 0.005;
+L = 1.3e-3;
 % Current_ripple = 0.1;
 fsw = 50e3;
 
@@ -52,7 +53,10 @@ Cout_buck = zeros(size(P,2), size(voltages_buck,2));
 
 for i = 1 : size(P,2)
     for j = 1 : size(voltages_buck,2)
-        Cout_buck(i,j) = (voltages_buck(j)^2/P(i) * (1 - voltages_buck(j) / Vmpp))/(Vout_ripple * voltages_buck (j) * fsw);
+        %Cout_buck(i,j) = (P(i)/voltages_buck(j) * (1 - voltages_buck(j) / Vmpp))/(Vout_ripple * voltages_buck (j) * fsw);
+        %Cout_buck(i,j) = (P(i) * (1/voltages_buck(j) - 1/Vmpp) * (1 - voltages_buck(j) / Vmpp))/(Vout_ripple * voltages_buck (j) * fsw);
+        Cout_buck(i,j) = ((voltages_buck(j) / Vmpp) * Vmpp * (1- voltages_buck(j) / Vmpp)) / (L * 8 * fsw^2 * Vout_ripple * voltages_buck(j)); 
+    
     end
 end
 
