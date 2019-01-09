@@ -1,0 +1,178 @@
+Plecs {
+  Name          "driver_gate_protection_circuit"
+  Version       "4.2"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  StopTime      "1.0"
+  Timeout       ""
+  Solver        "dopri"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  InitializationCommands ""
+  InitialState  "1"
+  SystemState   ""
+  CodeGenParameterInlining "2"
+  CodeGenInliningExceptions "AAAACwAAAAAA"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  Schematic {
+    Location      [0, 23; 1280, 645]
+    ZoomFactor    2.37037
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Electrical/Power Semiconductors/Z1"
+      Name          "."
+      Show          on
+      Position      [295, 170]
+      Direction     left
+      Flipped       off
+      Frame         [-10, -10; 10, 10]
+      LabelPosition [13, 0]
+      LabelAlign    left
+      Parameter {
+        Variable      "Vz"
+        Value         "13.6"
+        Show          off
+      }
+      Parameter {
+        Variable      "Rz"
+        Value         "0.01"
+        Show          off
+      }
+      Parameter {
+        Variable      "Vf"
+        Value         "0.9"
+        Show          off
+      }
+      Parameter {
+        Variable      "Rf"
+        Value         "0.01"
+        Show          off
+      }
+      Terminal {
+        Type          Port
+        Position      [15, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Port
+        Position      [-15, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Electrical/Power Semiconductors/Z1"
+      Name          ","
+      Show          on
+      Position      [295, 205]
+      Direction     right
+      Flipped       off
+      Frame         [-10, -10; 10, 10]
+      LabelPosition [-13, 0]
+      LabelAlign    right
+      Parameter {
+        Variable      "Vz"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "Rz"
+        Value         "0.01"
+        Show          off
+      }
+      Parameter {
+        Variable      "Vf"
+        Value         "0.9"
+        Show          off
+      }
+      Parameter {
+        Variable      "Rf"
+        Value         "0.01"
+        Show          off
+      }
+      Terminal {
+        Type          Port
+        Position      [15, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Port
+        Position      [-15, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Capacitor
+      Name          "C1"
+      Show          on
+      Position      [345, 190]
+      Direction     down
+      Flipped       on
+      Parameter {
+        Variable      "C"
+        Value         "100e-6"
+        Show          off
+      }
+      Parameter {
+        Variable      "v_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "."
+      SrcTerminal   2
+      DstComponent  ","
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "."
+      SrcTerminal   1
+      Points        [295, 150; 345, 150]
+      DstComponent  "C1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  ","
+      SrcTerminal   1
+      Points        [345, 220]
+      DstComponent  "C1"
+      DstTerminal   2
+    }
+  }
+}
