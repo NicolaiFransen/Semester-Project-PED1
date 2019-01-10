@@ -1,8 +1,8 @@
 close all
 clc
 
-voltages_boost = 40:1:90;
-voltages_buck = 24:1:35;
+voltages_boost = 36.9:1:90;
+voltages_buck = 24:1:36.9;
 
 Vmpp = 36.9;
 Impp_400 = 3.23;
